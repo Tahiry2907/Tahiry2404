@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Classe 3ème - Informatique</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI", sans-serif;
+  background: linear-gradient(135deg,#020617,#0f172a);
+  color:white;
+  padding:20px;
+}
+
+header{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+h1{
+  color:#38bdf8;
+}
+
+button.lang{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#22c55e;
+  color:white;
+  cursor:pointer;
+}
+
+/* SECTION */
+.section{
+  background: rgba(255,255,255,0.05);
+  border-radius:15px;
+  margin:10px 0;
+  overflow:hidden;
+}
+
+h2{
+  padding:15px;
+  cursor:pointer;
+  background:linear-gradient(90deg,#06b6d4,#3b82f6);
+}
+
+.content{
+  display:none;
+  padding:15px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+td,th{
+  border:1px solid #444;
+  padding:8px;
+  text-align:center;
+}
+
+/* QUIZ */
+.quiz button{
+  margin:5px;
+  padding:5px 10px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+.content{
+  display:none;
+}
+.card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: hsl(0, 80%, 53%);
+}
+.footer-pro h2 {
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.footer-pro p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.footer-pro {
+  background: linear-gradient(270deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 15px 15px 0 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effet lumière animé */
+.footer-pro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 5s infinite;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>💻 Classe 3ème Informatique</h1>
+<button class="lang" onclick="toggleLang()">🌐 FR / ML</button>
+</header>
+
+<!-- TRIMESTRE 1 -->
+<div class="section">
+<h2 onclick="toggle('t1')">🟢 Trimestre 1</h2>
+
+<div id="t1" class="content">
+
+<h3>🧠 Rappel 4ème</h3>
+<ul>
+<li>CPU (cerveau) / RAM (mémoire) / Stockage</li>
+<li>Word, Excel, PowerPoint bases</li>
+<li>Internet utilisation</li>
+</ul>
+
+<h3>💻 Algorithmique</h3>
+<p class="fr">Suite d’étapes logiques pour résoudre un problème.</p>
+<p class="ml" style="display:none">Dingana voalamina hamahana olana.</p>
+
+<ul>
+<li>Variables</li>
+<li>SI / SINON</li>
+<li>Boucles</li>
+</ul>
+
+<code>
+SI note >=10 ALORS
+Afficher "Admis"
+SINON
+Afficher "Refusé"
+</code>
+
+<h3>🧪 Activité</h3>
+<ul>
+<li>Créer algorithme simple</li>
+<li>Tester conditions</li>
+</ul>
+
+</div>
+</div>
+
+<!-- TRIMESTRE 2 -->
+<div class="section">
+<h2 onclick="toggle('t2')">🟡 Trimestre 2</h2>
+
+<div id="t2" class="content">
+
+<h3>📝 Word avancé</h3>
+<ul>
+<li>Publipostage</li>
+<li>Styles</li>
+<li>Documents officiels</li>
+</ul>
+<h3><a href="word-avancé2.html">word avancé</a></h3>
+
+<h3>📊 Excel avancé</h3>
+<ul>
+<li>SOMME, MOYENNE, SI</li>
+<li>Graphiques</li>
+<li>Gestion données</li>
+</ul>
+<h3><a href="fonction-somme-5eme .html">fonction</a> </h3>
+<h3><a href="fonction-somme-multiple-5eme.html" >fonction somme multiple</a></h3>
+<h3><a href="fonction-somme-conditionnel-5eme.html">fonction somme conditionnelle</a></h3>
+<h3> <a href="fonction-somme-si-4eme.html">fonction somme SI</a></h3>
+
+ <h3><a href="fonction-moyenne-5eme.html"class="button" >fonction MOYENNE</a></h3>
+
+<h3><a href="fonction-moyenne-plusieur-plage-3eme.html">fonction moyenne plusieur plage</a></h3>
+<h3><a href="graphique2.html">graphique</a></h3>
+
+<h3>🧪 Projet</h3>
+
+<ul>
+<li>Créer document professionnel</li>
+<li>Créer tableau Excel complet</li>
+</ul><br>
+<div class="section-title" onclick="toggleContent('proj1')">
+📄 <span class="fr">Projet : Document professionnel</span>
+<span class="ml" style="display:none">Tetikasa : Taratasy ofisialy</span>
+</div>
+
+<div id="proj1" class="content">
+
+<p class="fr">
+Objectif : Créer une lettre administrative professionnelle.
+</p>
+<p class="ml" style="display:none">
+Tanjona : Mamorona taratasy ofisialy matihanina.
+</p>
+
+<div class="methode">
+<h4 class="fr">📌 Étapes :</h4>
+<h4 class="ml" style="display:none">📌 Dingana :</h4>
+
+<ol>
+<li class="fr">Ouvrir Microsoft Word</li>
+<li class="ml" style="display:none">Sokafy Word</li>
+
+<li class="fr">Écrire l’en-tête (Nom, adresse)</li>
+<li class="ml" style="display:none">Soraty ny mombamomba</li>
+
+<li class="fr">Ajouter la date</li>
+<li class="ml" style="display:none">Ampidiro daty</li>
+
+<li class="fr">Rédiger le contenu</li>
+<li class="ml" style="display:none">Soraty ny hafatra</li>
+
+<li class="fr">Ajouter signature</li>
+<li class="ml" style="display:none">Asio sonia</li>
+</ol>
+</div>
+
+<div class="card">
+<p><b>📌 Exemple :</b></p>
+
+<p>
+Nom : Rakoto<br>
+Adresse : Antananarivo<br>
+Date : 12 Avril 2026<br><br>
+
+Objet : Demande de stage<br><br>
+
+Madame, Monsieur,<br>
+Je vous adresse cette lettre pour demander un stage...<br><br>
+
+Signature
+</p>
+</div>
+
+</div><br>
+
+<div class="section-title" onclick="toggleContent('proj2')">
+📊 <span class="fr">Projet : Tableau Excel complet</span>
+<span class="ml" style="display:none">Tetikasa : Tableau Excel feno</span>
+</div>
+
+<div id="proj2" class="content">
+
+<p class="fr">
+Objectif : Créer un tableau de notes avec calcul automatique.
+</p>
+<p class="ml" style="display:none">
+Tanjona : Mamorona tableau misy naoty miaraka calcul automatique.
+</p>
+
+<div class="methode">
+<h4 class="fr">📌 Étapes :</h4>
+<h4 class="ml" style="display:none">📌 Dingana :</h4>
+
+<ol>
+<li class="fr">Ouvrir Excel</li>
+<li class="ml" style="display:none">Sokafy Excel</li>
+
+<li class="fr">Créer colonnes (Nom, Note 1, Note 2, Moyenne)</li>
+<li class="ml" style="display:none">Mametraha colonne</li>
+
+<li class="fr">Entrer les données</li>
+<li class="ml" style="display:none">Ampidiro angona</li>
+
+<li class="fr">Utiliser formule MOYENNE</li>
+<li class="ml" style="display:none">Ampiasao MOYENNE</li>
+
+<li class="fr">Créer graphique</li>
+<li class="ml" style="display:none">Mamorona graphique</li>
+</ol>
+</div>
+
+<div class="card">
+
+<p><b>📌 Exemple :</b></p>
+
+<table border="1" width="100%">
+<tr>
+<th>Nom</th>
+<th>Note1</th>
+<th>Note2</th>
+<th>Moyenne</th>
+</tr>
+
+<tr>
+<td>Jean</td>
+<td>12</td>
+<td>14</td>
+<td>=MOYENNE(B2:C2)</td>
+</tr>
+
+<tr>
+<td>Marie</td>
+<td>15</td>
+<td>16</td>
+<td>=MOYENNE(B3:C3)</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="quiz">
+<p class="fr">MOYENNE sert à :</p>
+<p class="ml" style="display:none">Ny MOYENNE dia :</p>
+
+<button onclick="answer(this,true)">Calculer moyenne</button>
+<button onclick="answer(this,false)">Supprimer données</button>
+</div>
+
+</div>
+
+
+<!-- TRIMESTRE 3 -->
+<div class="section">
+<h2 onclick="toggle('t3')">🔵 Trimestre 3</h2>
+
+<div id="t3" class="content">
+
+<h3>📽️ PowerPoint avancé</h3>
+<ul>
+<li>Animations</li>
+<li>Transitions</li>
+<li>Présentation projet</li>
+</ul><br>
+<h3><a href="PowerPoint3.html">PowerPoint avancé</a> </h3>
+
+<h3>🌐 Internet & Sécurité</h3>
+<ul>
+<li>Navigation sécurisée</li>
+<li>Email</li>
+<li>Phishing</li>
+</ul><br>
+<a href="Navigation-sur-Internet.html">Navigation sur Internet</a><br>
+<a href="Phishing.html">Phishing</a>
+<h3>🎓 Projet final</h3>
+<ul>
+<li>Présentation complète</li>
+<li>Utilisation Word + Excel + PowerPoint</li>
+</ul>
+
+</div>
+</div>
+
+<!-- PROGRAMME -->
+<div class="section">
+<h2 onclick="toggle('prog')">📅 Programme par semaine</h2>
+
+<div id="prog" class="content">
+
+<table>
+<tr><th>Semaine</th><th>Leçon</th></tr>
+<tr><td>1</td><td>Rappel</td></tr>
+<tr><td>2</td><td>Algorithmique</td></tr>
+<tr><td>3</td><td>Variables</td></tr>
+<tr><td>4</td><td>Boucles</td></tr>
+<tr><td>5</td><td>Word</td></tr>
+<tr><td>6</td><td>Projet Word</td></tr>
+<tr><td>7</td><td>Excel</td></tr>
+<tr><td>8</td><td>SI Excel</td></tr>
+<tr><td>9</td><td>Graphiques</td></tr>
+<tr><td>10</td><td>PowerPoint</td></tr>
+<tr><td>11</td><td>Animation</td></tr>
+<tr><td>12</td><td>Projet final</td></tr>
+</table>
+
+</div>
+</div>
+
+<script>
+
+function toggle(id){
+  var el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+
+function toggleLang(){
+  let fr = document.querySelectorAll(".fr");
+  let ml = document.querySelectorAll(".ml");
+
+  fr.forEach(e=> e.style.display = (e.style.display==="none")?"block":"none");
+  ml.forEach(e=> e.style.display = (e.style.display==="none")?"block":"none");
+}
+
+</script>
+<script>
+function toggleContent(id){
+  let el = document.getElementById(id);
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+</script>
+<footer class="footer-pro">
+
+  <h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2>
+
+  <p>📅 <span id="dateFooter"></span></p>
+
+  <div class="socials">
+    <a href="#">📘 Facebook</a>
+    <a href="#">💬 WhatsApp</a>
+    <a href="#">📧 Email</a>
+  </div>
+
+  <p class="devise">🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+
+</footer>
+
+
+</body>
+</html>

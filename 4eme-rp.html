@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Informatique 4ème - Programme annuel</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f4f6f9}
+header{background:#1e88e5;color:white;padding:15px;text-align:center}
+button{margin:5px;padding:8px 12px;border:none;border-radius:5px;cursor:pointer}
+.container{padding:20px}
+.section{background:white;margin-bottom:15px;border-radius:8px;overflow:hidden}
+.section h2{background:#e3f2fd;margin:0;padding:10px;cursor:pointer}
+.content{display:none;padding:15px}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #ddd;padding:8px;text-align:left;font-size:14px}
+th{background:#f1f1f1}
+</style>
+
+<script>
+function toggle(id){
+  var x=document.getElementById(id);
+  x.style.display = (x.style.display==="block")?"none":"block";
+}
+
+let lang="fr";
+function switchLang(l){
+  lang=l;
+  document.querySelectorAll(".fr").forEach(e=>e.style.display=(l==="fr")?"inline":"none");
+  document.querySelectorAll(".ml").forEach(e=>e.style.display=(l==="ml")?"inline":"none");
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<h1>📘 Informatique 4ème - Programme annuel</h1>
+<button onclick="switchLang('fr')">FR</button>
+<button onclick="switchLang('ml')">ML</button>
+</header>
+
+<div class="container">
+
+<!-- RAPPEL 5EME -->
+<div class="section">
+<h2 onclick="toggle('r1')">
+🧠 <span class="fr">Rappel 5ème</span><span class="ml" style="display:none">Famerenana 5ème</span>
+</h2>
+<div id="r1" class="content">
+<ul>
+<li>🖥️ <span class="fr">Parties de l’ordinateur</span><span class="ml" style="display:none">Ampahan’ny ordinateur</span></li>
+<li>⌨️ <span class="fr">Utilisation clavier et souris</span><span class="ml" style="display:none">Fampiasana clavier sy souris</span></li>
+<li>📁 <span class="fr">Gestion fichiers et dossiers</span><span class="ml" style="display:none">Fitantanana fichiers sy dossiers</span></li>
+<li>🌐 <span class="fr">Notion internet</span><span class="ml" style="display:none">Hevitra internet</span></li>
+</ul>
+</div>
+</div>
+
+<!-- COMPOSANTS AVANCÉS -->
+<div class="section">
+<h2 onclick="toggle('r2')">
+⚙️ <span class="fr">Composants avancés</span><span class="ml" style="display:none">Fitaovana avancé</span>
+</h2>
+<div id="r2" class="content">
+<p><b>CPU, RAM, HDD/SSD, Carte mère</b></p>
+<ul>
+<li>CPU = cerveau de l’ordinateur</li>
+<li>RAM = mémoire temporaire</li>
+<li>Stockage = HDD / SSD</li>
+<li>Carte mère = support principal</li>
+</ul>
+</div>
+</div>
+
+<!-- WORD AVANCE -->
+<div class="section">
+<h2 onclick="toggle('r3')">
+📝 <span class="fr">Word avancé</span><span class="ml" style="display:none">Word mandroso</span>
+</h2>
+<div id="r3" class="content">
+<p>Logiciel : 0</p>
+<ul>
+<li>Styles et mise en page</li>
+<li>Insertion images, tableaux</li>
+<li>En-tête / pied de page</li>
+<li>Publipostage</li>
+</ul>
+</div>
+</div>
+
+<!-- EXCEL AVANCE -->
+<div class="section">
+<h2 onclick="toggle('r4')">
+📊 <span class="fr">Excel avancé</span><span class="ml" style="display:none">Excel mandroso</span>
+</h2>
+<div id="r4" class="content">
+<p>Logiciel : 1</p>
+<ul>
+<li>Formules (SUM, AVERAGE)</li>
+<li>Graphiques</li>
+<li>Tri et filtre</li>
+<li>Tableaux automatiques</li>
+</ul>
+</div>
+</div>
+
+<!-- POWERPOINT -->
+<div class="section">
+<h2 onclick="toggle('r5')">
+📽️ <span class="fr">Initiation PowerPoint</span><span class="ml" style="display:none">Fampidirana PowerPoint</span>
+</h2>
+<div id="r5" class="content">
+<p>Logiciel : 2</p>
+<ul>
+<li>Créer diapositives</li>
+<li>Ajouter images et textes</li>
+<li>Animations simples</li>
+<li>Présentation orale</li>
+</ul>
+</div>
+</div>
+
+<!-- FICHES PAR SEMAINE -->
+<div class="section">
+<h2 onclick="toggle('r6')">
+📅 <span class="fr">Fiches de préparation par semaine</span>
+<span class="ml" style="display:none">Fiche isaky ny herinandro</span>
+</h2>
+
+<div id="r6" class="content">
+
+<table>
+<tr>
+<th>Semaine</th>
+<th>Leçon</th>
+<th>Objectif</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Rappel 5ème</td>
+<td>Comprendre les bases de l’informatique</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Composants avancés</td>
+<td>Identifier CPU, RAM, stockage</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>3 - introduction</td>
+<td>Créer et enregistrer un document</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Word avancé</td>
+<td>Mise en page et insertion objets</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Word avancé</td>
+<td>Tableaux et styles</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>4 - introduction</td>
+<td>Saisir données et tableaux</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Excel formules</td>
+<td>Utiliser SUM et AVERAGE</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Excel graphiques</td>
+<td>Créer diagrammes</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Excel avancé</td>
+<td>Tri et filtre des données</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>5</td>
+<td>Créer diapositives simples</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>PowerPoint avancé</td>
+<td>Animations et transitions</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Projet final</td>
+<td>Présenter un exposé complet</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+</div>
+
+</body>
+</html>

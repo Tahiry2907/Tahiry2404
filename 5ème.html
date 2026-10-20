@@ -1,0 +1,950 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Classe 5ème | Informatique - Mr Tahiry</title><style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#eef2f7,#dbeafe);
+    color:#1e293b;
+    line-height:1.7;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:relative;
+    background:linear-gradient(135deg,#1e3a8a,#2563eb,#0f172a);
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    overflow:hidden;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    top:-100px;
+    left:-80px;
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+    bottom:-100px;
+    right:-50px;
+}
+
+header h1{
+    position:relative;
+    z-index:2;
+    font-size:clamp(25px,5vw,42px);
+    margin-bottom:8px;
+}
+
+header p{
+    position:relative;
+    z-index:2;
+    opacity:.9;
+}
+
+/* =====================================================
+   LANGUE
+===================================================== */
+
+.language-box{
+    position:relative;
+    z-index:5;
+    margin-top:20px;
+}
+
+.lang-btn{
+    border:none;
+    padding:10px 18px;
+    margin:4px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+    color:white;
+    transition:.3s;
+}
+
+.lang-btn:hover{
+    transform:translateY(-3px) scale(1.04);
+}
+
+.fr-btn{
+    background:#2563eb;
+}
+
+.ml-btn{
+    background:#16a34a;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    width:min(1100px,94%);
+    margin:30px auto;
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:6px solid #2563eb;
+}
+
+.intro h2{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section{
+    background:white;
+    margin-bottom:20px;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.section:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+
+.section-title{
+    padding:18px 20px;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    font-size:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    user-select:none;
+}
+
+.section-title span{
+    transition:.3s;
+}
+
+.section.open .section-title span{
+    transform:rotate(180deg);
+}
+
+.content{
+    display:none;
+    padding:25px;
+    animation:showContent .4s ease;
+}
+
+@keyframes showContent{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =====================================================
+   TITRES
+===================================================== */
+
+h3{
+    color:#1e3a8a;
+    margin:22px 0 10px;
+}
+
+h4{
+    color:#2563eb;
+    margin-top:18px;
+}
+
+/* =====================================================
+   LISTES
+===================================================== */
+
+ul,ol{
+    margin:10px 0 15px 25px;
+}
+
+li{
+    margin:5px 0;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.card{
+    padding:18px;
+    border-radius:12px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.card h4{
+    margin-top:0;
+}
+
+/* =====================================================
+   CODE
+===================================================== */
+
+.code{
+    display:block;
+    background:#0f172a;
+    color:#38bdf8;
+    padding:14px;
+    border-radius:10px;
+    margin:10px 0;
+    overflow-x:auto;
+    font-family:Consolas,monospace;
+    font-weight:bold;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:600px;
+    background:white;
+}
+
+th{
+    background:#1e3a8a;
+    color:white;
+}
+
+th,td{
+    border:1px solid #cbd5e1;
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f8fafc;
+}
+
+/* =====================================================
+   NOTE
+===================================================== */
+
+.note{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:15px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+.warning{
+    background:#fff7ed;
+    border-left:5px solid #f97316;
+    padding:15px;
+    border-radius:8px;
+}
+
+/* =====================================================
+   EXERCICE
+===================================================== */
+
+.exercise{
+    background:#f0fdf4;
+    border:2px solid #86efac;
+    padding:20px;
+    border-radius:14px;
+    margin-top:20px;
+}
+
+.exercise h3{
+    color:#15803d;
+}
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz-question{
+    background:#f8fafc;
+    padding:18px;
+    margin:15px 0;
+    border-radius:12px;
+    border:1px solid #e2e8f0;
+}
+
+.quiz-question label{
+    display:block;
+    padding:8px;
+    margin:5px 0;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.quiz-question label:hover{
+    background:#e0f2fe;
+}
+
+.quiz-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.quiz-btn:hover{
+    background:#1d4ed8;
+}
+
+#score{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* =====================================================
+   PROJET
+===================================================== */
+
+.project{
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+    border:2px solid #6366f1;
+    padding:22px;
+    border-radius:15px;
+}
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-box{
+    margin:20px 0;
+}
+
+.progress{
+    height:14px;
+    background:#e2e8f0;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#2563eb,#22c55e);
+    transition:1s;
+}
+
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+
+#topBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:none;
+    z-index:100;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    margin-top:40px;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+footer h2{
+    color:#38bdf8;
+    margin-bottom:8px;
+}
+
+footer p{
+    margin:6px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    header{
+        padding:25px 15px;
+    }
+
+    .container{
+        width:95%;
+    }
+
+    .content{
+        padding:17px;
+    }
+
+    .section-title{
+        font-size:17px;
+        padding:15px;
+    }
+
+    table{
+        font-size:13px;
+    }
+
+    .intro{
+        padding:18px;
+    }
+}
+
+</style></head><body><header><h1>📘 Classe 5ème Informatique</h1><p class="fr">
+Word avancé • Excel • Projet final • FR / ML
+</p><p class="ml">
+Word mandroso • Excel • Tetikasa farany • FR / ML
+</p><div class="language-box"><button class="lang-btn fr-btn" onclick="setLanguage('fr')">
+🇫🇷 Français
+</button><button class="lang-btn ml-btn" onclick="setLanguage('ml')">
+🇲🇬 Malagasy
+</button></div></header><div class="container"><!-- =====================================================
+INTRO
+===================================================== --><div class="intro"><h2 class="fr">🎓 Bienvenue en Classe de 5ème Informatique</h2><h2 class="ml">🎓 Tongasoa eto amin'ny kilasy 5ème Informatique</h2><p class="fr">
+Cette page contient les principales leçons, exercices,
+évaluations et projets d'informatique de la classe de 5ème.
+</p><p class="ml">
+Ity pejy ity dia ahitana ireo lesona, fanazaran-tena,
+fanombanana ary tetikasa lehibe ho an'ny 5ème Informatique.
+</p><div class="progress-box"><b class="fr">📊 Progression du programme</b>
+<b class="ml">📊 Fandrosoan'ny fandaharam-pianarana</b>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div></div></div><!-- =====================================================
+TRIMESTRE 1
+===================================================== --><div class="section"><div class="section-title" onclick="toggleSection(this)"><span class="fr">
+🟦 Trimestre 1 : Word Avancé
+</span><span class="ml">
+🟦 Trimester 1 : Word Mandroso
+</span><span>▼</span>
+
+</div><div class="content"><h3 class="fr">📄 1. Microsoft Word</h3>
+<h3 class="ml">📄 1. Microsoft Word</h3><p class="fr">
+Microsoft Word est un logiciel de traitement de texte.
+Il permet de créer, modifier, mettre en forme et imprimer
+des documents.
+</p><p class="ml">
+Microsoft Word dia logiciel ampiasaina hanoratana,
+hanovana, handaminana ary hanontana document.
+</p><div class="info-grid"><div class="card">
+<h4>📝 Texte</h4>
+<p class="fr">Écrire et modifier un texte.</p>
+<p class="ml">Manoratra sy manova lahatsoratra.</p>
+</div><div class="card">
+<h4>🖼️ Image</h4>
+<p class="fr">Insérer une image dans un document.</p>
+<p class="ml">Mampiditra sary ao anaty document.</p>
+</div><div class="card">
+<h4>📊 Tableau</h4>
+<p class="fr">Créer un tableau.</p>
+<p class="ml">Mamorona tableau.</p>
+</div><div class="card">
+<h4>🎨 Mise en forme</h4>
+<p class="fr">Modifier police, couleur et taille.</p>
+<p class="ml">Manova endrika, loko ary haben'ny soratra.</p>
+</div></div><h3 class="fr">📌 2. Insérer un tableau</h3>
+<h3 class="ml">📌 2. Mampiditra tableau</h3><ol>
+<li class="fr">Cliquer sur l'onglet Insertion.</li>
+<li class="ml">Tsindrio ny menu Insertion.</li><li class="fr">Choisir Tableau.</li>
+<li class="ml">Safidio Tableau.</li><li class="fr">Choisir le nombre de lignes et colonnes.</li>
+<li class="ml">Fidio ny isan'ny andalana sy tsanganana.</li><li class="fr">Valider.</li>
+<li class="ml">Tsindrio Valider.</li>
+</ol><h3 class="fr">🖼️ 3. Insérer une image</h3>
+<h3 class="ml">🖼️ 3. Mampiditra sary</h3><ol>
+<li class="fr">Insertion → Images.</li>
+<li class="ml">Insertion → Images.</li><li class="fr">Choisir l'image.</li>
+<li class="ml">Misafidiana ny sary.</li><li class="fr">Cliquer sur Insérer.</li>
+<li class="ml">Tsindrio Insérer.</li>
+</ol><h3 class="fr">📄 4. Mise en page</h3>
+<h3 class="ml">📄 4. Fandaminana pejy</h3><ul>
+<li class="fr">Orientation : Portrait / Paysage</li>
+<li class="ml">Orientation : mitsangana / mitsivalana</li><li class="fr">Marges</li>
+<li class="ml">Sisiny (marges)</li><li class="fr">Taille du papier</li>
+<li class="ml">Haben'ny taratasy</li>
+</ul><div class="exercise"><h3 class="fr">🧪 Exercice pratique Word</h3>
+<h3 class="ml">🧪 Fanazaran-tena Word</h3><p class="fr">
+Créer un document intitulé <b>« Mon école »</b>.
+</p><p class="ml">
+Mamorona document mitondra ny lohateny hoe
+<b>« Ny sekoliko »</b>.
+</p><ul><li>📝 Ajouter un titre</li>
+<li>🖼️ Ajouter une image</li>
+<li>📊 Créer un tableau de 5 élèves</li>
+<li>🎨 Modifier les couleurs</li>
+<li>🔠 Utiliser Gras et Italique</li></ul></div></div>
+</div><!-- =====================================================
+TRIMESTRE 2 EXCEL
+===================================================== --><div class="section"><div class="section-title" onclick="toggleSection(this)"><span class="fr">
+🟩 Trimestre 2 : Microsoft Excel
+</span><span class="ml">
+🟩 Trimester 2 : Microsoft Excel
+</span><span>▼</span>
+
+</div><div class="content"><h3>📊 Microsoft Excel</h3><p class="fr">
+Excel est un tableur permettant d'organiser les données
+et d'effectuer automatiquement des calculs.
+</p><p class="ml">
+Excel dia logiciel ampiasaina handaminana données
+sy hanaovana calcul automatique.
+</p><h3>📌 1. Cellule</h3><p class="fr">
+Une cellule est l'intersection d'une ligne et d'une colonne.
+</p><p class="ml">
+Ny cellule dia fihaonan'ny andalana sy tsanganana.
+</p><div class="table-wrapper"><table><tr>
+<th>Colonne</th>
+<th>Ligne</th>
+<th>Cellule</th>
+</tr><tr>
+<td>A</td>
+<td>1</td>
+<td>A1</td>
+</tr><tr>
+<td>B</td>
+<td>2</td>
+<td>B2</td>
+</tr></table></div><h3>➕ 2. Fonction SOMME</h3><p class="fr">
+La fonction SOMME additionne plusieurs nombres.
+</p><p class="ml">
+Ny fonction SOMME dia manampy isa maromaro.
+</p><span class="code">
+=SOMME(B2:B5)
+</span><h3>📊 3. Fonction MOYENNE</h3><p class="fr">
+MOYENNE permet de calculer la moyenne des valeurs.
+</p><p class="ml">
+MOYENNE dia ampiasaina hahitana ny salan'isa.
+</p><span class="code">
+=MOYENNE(B2:B5)
+</span><h3>🤔 4. Fonction SI</h3><p class="fr">
+La fonction SI permet de vérifier une condition.
+</p><p class="ml">
+Ny fonction SI dia manamarina condition iray.
+</p><span class="code">
+=SI(B2>=10;"Admis";"Ajourné")
+</span><div class="table-wrapper"><table><tr>
+<th>Nom</th>
+<th>Note</th>
+<th>Résultat</th>
+</tr><tr>
+<td>Jean</td>
+<td>8</td>
+<td>Ajourné</td>
+</tr><tr>
+<td>Paul</td>
+<td>12</td>
+<td>Admis</td>
+</tr><tr>
+<td>Marie</td>
+<td>15</td>
+<td>Admis</td>
+</tr></table></div><h3>🎯 5. Fonction SOMME.SI</h3><p class="fr">
+SOMME.SI additionne uniquement les valeurs qui respectent
+une condition.
+</p><p class="ml">
+SOMME.SI dia manampy ireo isa mahafeno condition iray.
+</p><span class="code">
+=SOMME.SI(B2:B5;">=10")
+</span><div class="warning"><b class="fr">⚠️ Attention :</b>
+<b class="ml">⚠️ Tandremo :</b>
+
+<p class="fr">
+La formule dépend de la version et de la langue d'Excel.
+Dans Excel français, le séparateur utilisé est généralement « ; ».
+</p><p class="ml">
+Miankina amin'ny version sy langue an'i Excel ny formule.
+Amin'ny Excel français dia matetika « ; » no séparateur.
+</p></div><h3>🔢 6. Fonction ARRONDI</h3><p class="fr">
+ARRONDI permet d'arrondir un nombre.
+</p><p class="ml">
+ARRONDI dia ampiasaina hanodinkodinana isa.
+</p><span class="code">
+=ARRONDI(B2;2)
+</span><div class="exercise"><h3 class="fr">🧪 Exercice Excel</h3>
+<h3 class="ml">🧪 Fanazaran-tena Excel</h3><p class="fr">
+Créer un tableau contenant 5 élèves et leurs notes.
+</p><p class="ml">
+Mamorona tableau misy mpianatra 5 sy ny naoty azony.
+</p><ul><li>➕ Calculer le total avec SOMME</li>
+<li>📊 Calculer la moyenne avec MOYENNE</li>
+<li>🤔 Afficher Admis/Ajourné avec SI</li>
+<li>🎯 Utiliser SOMME.SI</li>
+<li>🔢 Utiliser ARRONDI</li></ul></div></div>
+</div><!-- =====================================================
+TRIMESTRE 3
+===================================================== --><div class="section"><div class="section-title" onclick="toggleSection(this)"><span class="fr">
+🟪 Trimestre 3 : Projet final
+</span><span class="ml">
+🟪 Trimester 3 : Tetikasa farany
+</span><span>▼</span>
+
+</div><div class="content"><div class="project"><h3 class="fr">🏆 Projet : Gestion des notes d'une classe</h3>
+<h3 class="ml">🏆 Tetikasa : Fitantanana ny naotin'ny kilasy</h3><p class="fr">
+Créer un fichier Excel permettant de gérer les résultats
+des élèves.
+</p><p class="ml">
+Mamorona fichier Excel hitantanana ny valin'ny mpianatra.
+</p><div class="table-wrapper"><table><tr>
+<th>Nom</th>
+<th>Math</th>
+<th>Français</th>
+<th>Info</th>
+<th>Total</th>
+<th>Moyenne</th>
+<th>Résultat</th>
+</tr><tr>
+<td>Élève 1</td>
+<td>12</td>
+<td>14</td>
+<td>15</td>
+<td>=SOMME(B2:D2)</td>
+<td>=MOYENNE(B2:D2)</td>
+<td>=SI(F2>=10;"Admis";"Ajourné")</td>
+</tr></table></div><h3>📌 Travail demandé</h3><ul><li>🧑‍🎓 Ajouter au moins 5 élèves</li><li>📥 Entrer les notes</li><li>➕ Calculer le Total</li><li>📊 Calculer la Moyenne</li><li>🤔 Afficher Admis/Ajourné</li><li>🎨 Mettre en forme le tableau</li><li>📈 Créer un graphique</li></ul><h3>🚀 Bonus</h3><span class="code">
+=SI(F2>=16;"Très Bien";SI(F2>=12;"Bien";"Passable"))
+</span></div></div>
+</div><!-- =====================================================
+QUIZ
+===================================================== --><div class="section"><div class="section-title" onclick="toggleSection(this)"><span class="fr">🧠 Quiz 5ème Informatique</span>
+
+<span class="ml">🧠 Quiz 5ème Informatique</span>
+
+<span>▼</span>
+
+</div><div class="content"><div class="quiz-question"><p>
+<b>1. 📄 Quel logiciel permet de créer un document texte ?</b>
+</p><label>
+<input type="radio" name="q1" value="0">
+Excel
+</label><label>
+<input type="radio" name="q1" value="1">
+Word
+</label><label>
+<input type="radio" name="q1" value="0">
+Paint
+</label></div><div class="quiz-question"><p>
+<b>2. 📊 Quelle fonction permet d'additionner ?</b>
+</p><label>
+<input type="radio" name="q2" value="1">
+SOMME
+</label><label>
+<input type="radio" name="q2" value="0">
+SI
+</label><label>
+<input type="radio" name="q2" value="0">
+MOYENNE
+</label></div><div class="quiz-question"><p>
+<b>3. 🤔 Quelle fonction teste une condition ?</b>
+</p><label>
+<input type="radio" name="q3" value="0">
+SOMME
+</label><label>
+<input type="radio" name="q3" value="1">
+SI
+</label><label>
+<input type="radio" name="q3" value="0">
+ARRONDI
+</label></div><div class="quiz-question"><p>
+<b>4. 📈 Quel logiciel permet de créer un tableau de calcul ?</b>
+</p><label>
+<input type="radio" name="q4" value="1">
+Excel
+</label><label>
+<input type="radio" name="q4" value="0">
+Word
+</label><label>
+<input type="radio" name="q4" value="0">
+Paint
+</label></div><div class="quiz-question"><p>
+<b>5. 🖼️ Dans Word, quel menu permet généralement d'ajouter une image ?</b>
+</p><label>
+<input type="radio" name="q5" value="1">
+Insertion
+</label><label>
+<input type="radio" name="q5" value="0">
+Révision
+</label><label>
+<input type="radio" name="q5" value="0">
+Affichage
+</label></div><button class="quiz-btn" onclick="corrigerQuiz()">
+✅ Corriger le quiz
+</button><div id="score"></div></div>
+</div><!-- =====================================================
+RÉSUMÉ
+===================================================== --><div class="section"><div class="section-title" onclick="toggleSection(this)"><span class="fr">📚 Résumé du programme</span>
+
+<span class="ml">📚 Famintinana ny programme</span>
+
+<span>▼</span>
+
+</div><div class="content"><div class="info-grid"><div class="card">
+<h4>🟦 Trimestre 1</h4>
+<p class="fr">Word avancé</p>
+<p class="ml">Word mandroso</p>
+</div><div class="card">
+<h4>🟩 Trimestre 2</h4>
+<p class="fr">Excel et fonctions</p>
+<p class="ml">Excel sy fonctions</p>
+</div><div class="card">
+<h4>🟪 Trimestre 3</h4>
+<p class="fr">Projet final</p>
+<p class="ml">Tetikasa farany</p>
+</div></div></div>
+</div></div><!-- =====================================================
+FOOTER
+===================================================== --><footer><h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2><p>
+📅 <span id="date"></span>
+</p><p class="fr">
+Apprendre • Pratiquer • Réussir 🚀
+</p><p class="ml">
+Mianatra • Manao fampiharana • Mahomby 🚀
+</p><p>
+© 2026 — Classe 5ème Informatique
+</p></footer><!-- TOP BUTTON --><button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button><script>
+
+/* =====================================================
+   LANGUE FR / ML
+===================================================== */
+
+function setLanguage(lang){
+
+    document.querySelectorAll(".fr").forEach(function(el){
+
+        el.style.display = lang === "fr" ? "" : "none";
+
+    });
+
+    document.querySelectorAll(".ml").forEach(function(el){
+
+        el.style.display = lang === "ml" ? "" : "none";
+
+    });
+
+    document.documentElement.lang = lang === "fr" ? "fr" : "mg";
+
+}
+
+
+/* =====================================================
+   ACCORDION
+===================================================== */
+
+function toggleSection(title){
+
+    let section = title.parentElement;
+    let content = title.nextElementSibling;
+
+    if(content.style.display === "block"){
+
+        content.style.display = "none";
+        section.classList.remove("open");
+
+    }else{
+
+        content.style.display = "block";
+        section.classList.add("open");
+
+    }
+
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function corrigerQuiz(){
+
+    let score = 0;
+    let total = 5;
+
+    for(let i=1;i<=total;i++){
+
+        let answer =
+        document.querySelector(
+        'input[name="q'+i+'"]:checked'
+        );
+
+        if(answer){
+
+            score += Number(answer.value);
+
+        }
+
+    }
+
+    let note = (score / total) * 20;
+
+    let message = "";
+
+    if(score === 5){
+
+        message =
+        "🌟 Excellent ! Félicitations !";
+
+    }else if(score >= 3){
+
+        message =
+        "👍 Bien ! Continue tes efforts.";
+
+    }else{
+
+        message =
+        "📘 À revoir. Relis les leçons et recommence.";
+
+    }
+
+    document.getElementById("score").innerHTML =
+    "🎯 Score : " + score + " / " + total +
+    "<br>📊 Note : " + note.toFixed(1) + " / 20" +
+    "<br>" + message;
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function afficherDate(){
+
+    let maintenant = new Date();
+
+    let date = maintenant.toLocaleDateString(
+        "fr-FR",
+        {
+            weekday:"long",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
+
+    document.getElementById("date").textContent = date;
+
+}
+
+
+/* =====================================================
+   BOUTON TOP
+===================================================== */
+
+window.addEventListener("scroll",function(){
+
+    let btn = document.getElementById("topBtn");
+
+    if(window.scrollY > 300){
+
+        btn.style.display = "block";
+
+    }else{
+
+        btn.style.display = "none";
+
+    }
+
+});
+
+
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+window.onload = function(){
+
+    setLanguage("fr");
+
+    afficherDate();
+
+};
+
+</script></body>
+</html>

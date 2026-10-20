@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Cours 1ère - Informatique | Mr Tahiry</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="js/script.js"></script>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef6ff, #f8fbff);
+    color: #1f2937;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin: 10px 0 0;
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   CONTENEUR
+===================================================== */
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: 35px auto;
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-title h2 {
+    font-size: 27px;
+    color: #0d47a1;
+}
+
+.page-title p {
+    color: #64748b;
+}
+
+
+/* =====================================================
+   CARTES DES COURS
+===================================================== */
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    text-decoration: none;
+    color: #1f2937;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    border: 1px solid rgba(0,0,0,0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        #0d47a1,
+        #42a5f5
+    );
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(13,71,161,0.18);
+}
+
+.course-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.course-card h3 {
+    margin: 8px 0;
+    color: #0d47a1;
+}
+
+.course-card p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.open-course {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 15px;
+
+    background: #1976d2;
+    color: white;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   SECTION INFORMATION
+===================================================== */
+
+.info-section {
+    margin-top: 35px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.07);
+}
+
+.info-section h2 {
+    color: #0d47a1;
+}
+
+.info-section p {
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    margin-top: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b1f3a,
+            #0d47a1
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+footer h2 {
+    margin-top: 0;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 20px 0;
+}
+
+.socials a {
+    text-decoration: none;
+
+    color: white;
+
+    background: rgba(255,255,255,0.12);
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    background: rgba(255,255,255,0.25);
+
+    transform: translateY(-3px);
+}
+
+.devise {
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+.container {
+    animation: apparition 0.8s ease;
+}
+
+@keyframes apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 28px 15px;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .page-title h2 {
+        font-size: 23px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .course-card {
+        padding: 20px;
+    }
+
+    .course-icon {
+        font-size: 35px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <h1>💻 Cours d'Informatique</h1>
+
+    <p>
+        📚 Classe de Première — Année scolaire
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     CONTENU
+===================================================== -->
+
+<div class="container">
+
+
+    <div class="page-title">
+
+        <h2>
+            👨‍🏫 Bienvenue dans l'espace de cours
+        </h2>
+
+        <p>
+            Découvrez les différents modules d'informatique
+            destinés aux élèves de Première.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         LISTE DES COURS
+    ================================================== -->
+
+    <div class="course-list">
+
+
+        <!-- PROGRAMMATION -->
+
+        <a
+            href="Initiation-programmation.html"
+            class="course-card">
+
+            <div class="course-icon">
+                💻
+            </div>
+
+            <h3>
+                Initiation à la programmation
+            </h3>
+
+            <p>
+                Découvrez les principes fondamentaux de la
+                programmation et de la logique algorithmique.
+            </p>
+
+            <span class="open-course">
+                📖 Ouvrir le cours →
+            </span>
+
+        </a>
+
+
+        <!-- HTML -->
+
+        <a
+            href="Html-initiation.html"
+            class="course-card">
+
+            <div class="course-icon">
+                🌐
+            </div>
+
+            <h3>
+                Initiation HTML
+            </h3>
+
+            <p>
+                Apprenez à créer la structure d'une page Web
+                avec HTML.
+            </p>
+
+            <span class="open-course">
+                📖 Ouvrir le cours →
+            </span>
+
+        </a>
+
+
+        <!-- JAVASCRIPT -->
+
+        <a
+            href="initiation-java-script.html"
+            class="course-card">
+
+            <div class="course-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Initiation JavaScript
+            </h3>
+
+            <p>
+                Découvrez comment rendre une page Web
+                interactive grâce à JavaScript.
+            </p>
+
+            <span class="open-course">
+                📖 Ouvrir le cours →
+            </span>
+
+        </a>
+
+
+        <!-- PYTHON -->
+
+        <a
+            href="Pyton-initiation.html"
+            class="course-card">
+
+            <div class="course-icon">
+                🐍
+            </div>
+
+            <h3>
+                Initiation Python
+            </h3>
+
+            <p>
+                Apprenez les bases du langage Python
+                à travers des exemples simples.
+            </p>
+
+            <span class="open-course">
+                📖 Ouvrir le cours →
+            </span>
+
+        </a>
+
+
+        <!-- SECURITE -->
+
+        <a
+            href="Sécurité-informatique.html"
+            class="course-card">
+
+            <div class="course-icon">
+                🔐
+            </div>
+
+            <h3>
+                Sécurité informatique
+            </h3>
+
+            <p>
+                Apprenez à protéger les ordinateurs,
+                les comptes, les réseaux et les données.
+            </p>
+
+            <span class="open-course">
+                🛡️ Ouvrir le cours →
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+    <!-- =================================================
+         INFORMATION
+    ================================================== -->
+
+    <section class="info-section">
+
+        <h2>
+            🎓 Objectif du cours
+        </h2>
+
+        <p>
+            Cet espace pédagogique permet aux élèves de découvrir
+            progressivement l'informatique à travers des cours,
+            des exemples, des exercices et des activités interactives.
+        </p>
+
+        <p>
+            L'objectif est de développer la compréhension,
+            la pratique et l'autonomie de l'élève dans l'utilisation
+            des outils numériques.
+        </p>
+
+    </section>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h2>
+        💻 Mr Tahiry - Informatique 👨‍🏫
+    </h2>
+
+    <p>
+        📅 <span id="dateFooter"></span>
+    </p>
+
+
+    <div class="socials">
+
+        <a href="#">
+            📘 Facebook
+        </a>
+
+        <a href="#">
+            💬 WhatsApp
+        </a>
+
+        <a href="#">
+            📧 Email
+        </a>
+
+    </div>
+
+
+    <p class="devise">
+        🚀 Apprendre • Pratiquer • Réussir 🌟
+    </p>
+
+</footer>
+
+
+<script>
+
+/* Date automatique */
+
+const dateElement =
+    document.getElementById("dateFooter");
+
+if (dateElement) {
+
+    const date = new Date();
+
+    dateElement.textContent =
+        date.toLocaleDateString(
+            "fr-FR",
+            {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+}
+
+</script>
+
+
+</body>
+</html>

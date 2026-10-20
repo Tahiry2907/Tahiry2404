@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Répartition Informatique 6ème</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+    background:#2c3e50;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+button{
+    padding:8px 12px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.fr{background:#3498db;color:white;}
+.ml{background:#27ae60;color:white;}
+
+.container{
+    padding:20px;
+}
+
+/* TRIMESTRE */
+.trimestre{
+    background:white;
+    margin-bottom:15px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+.trimestre h2{
+    padding:15px;
+    margin:0;
+    background:#2980b9;
+    color:white;
+    cursor:pointer;
+}
+
+.content{
+    display:none;
+    padding:15px;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:left;
+}
+
+th{
+    background:#ecf0f1;
+}
+
+/* DOWNLOAD */
+.download{
+    text-align:center;
+    margin:20px;
+}
+</style>
+
+<script>
+function toggleContent(id){
+    var content = document.getElementById(id);
+    content.style.display = (content.style.display === "block") ? "none" : "block";
+}
+
+function setLang(lang){
+    alert("Version "+lang+" (FR/ML) azo ampiana aty aoriana ✔");
+}
+</script>
+
+</head>
+
+<body>
+<header>
+    <h1>Répartition Informatique</h1>
+
+    <div>
+        <button onclick="setLang('fr')">FR</button>
+        <button onclick="setLang('ml')">ML</button>
+    </div>
+</header>
+
+<div class="container">
+
+<!-- TRIMESTRE 1 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('t1')">📘 Trimestre 1 : Initiation Informatique</h2>
+<div id="t1" class="content">
+
+<table>
+<tr>
+<th>Semaine</th>
+<th>Leçon</th>
+<th>Objectif pédagogique</th>
+<th>Activités</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Introduction à l’informatique</td>
+<td>Comprendre ce qu’est l’informatique</td>
+<td>Discussion + exemples</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Les parties de l’ordinateur</td>
+<td>Identifier les composants</td>
+<td>Observation réelle</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Matériel de base</td>
+<td>Distinguer matériel / logiciel</td>
+<td>Schéma + exercice</td>
+</tr>
+
+<tr>
+<td>4-5</td>
+<td>Manipulation souris & clavier</td>
+<td>Maîtriser les bases</td>
+<td>Pratique directe</td>
+</tr>
+
+<tr>
+<td>6-7</td>
+<td>Découverte de Word</td>
+<td>Saisir un texte</td>
+<td>Exercice rédaction</td>
+</tr>
+
+<tr>
+<td>8-9</td>
+<td>Mise en forme Word</td>
+<td>Modifier texte</td>
+<td>TP pratique</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Evaluation</td>
+<td>Tester les acquis</td>
+<td>Examen</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+<!-- TRIMESTRE 2 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('t2')">📗 Trimestre 2 : Approfondissement</h2>
+<div id="t2" class="content">
+
+<table>
+<tr>
+<th>Semaine</th>
+<th>Leçon</th>
+<th>Objectif</th>
+<th>Activités</th>
+</tr>
+
+<tr>
+<td>1-2</td>
+<td>Word avancé</td>
+<td>Créer document complet</td>
+<td>Projet</td>
+</tr>
+
+<tr>
+<td>3-5</td>
+<td>Paint (dessin)</td>
+<td>Créer image simple</td>
+<td>TP dessin</td>
+</tr>
+
+<tr>
+<td>6-7</td>
+<td>Insertion image Word</td>
+<td>Illustrer document</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>8-9</td>
+<td>Mini projet</td>
+<td>Créer affiche</td>
+<td>Projet</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Evaluation</td>
+<td>Contrôle</td>
+<td>Test</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+<!-- TRIMESTRE 3 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('t3')">📙 Trimestre 3 : Projet & Révision</h2>
+<div id="t3" class="content">
+
+<table>
+<tr>
+<th>Semaine</th>
+<th>Leçon</th>
+<th>Objectif</th>
+<th>Activités</th>
+</tr>
+
+<tr>
+<td>1-3</td>
+<td>Révision générale</td>
+<td>Renforcer acquis</td>
+<td>Exercices</td>
+</tr>
+
+<tr>
+<td>4-7</td>
+<td>Projet final</td>
+<td>Créer document complet</td>
+<td>Projet élève</td>
+</tr>
+
+<tr>
+<td>8-10</td>
+<td>Evaluation finale</td>
+<td>Validation</td>
+<td>Examen</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+</div>
+
+<!-- DOWNLOAD -->
+<div class="download">
+  <!-- FICHE DE PREPARATION -->
+<div class="trimestre">
+<h2 onclick="toggleContent('fiche')">📄 Fiche de Préparation (Exemple)</h2>
+
+<div id="fiche" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Introduction à l’informatique</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable de comprendre ce qu’est l’informatique et son utilité dans la vie quotidienne.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Définir l’informatique</li>
+<li>Identifier les usages de l’ordinateur</li>
+<li>Utiliser un ordinateur de manière basique</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Vidéoprojecteur (raha misy)</li>
+<li>Logiciel Word / Paint</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Pose des questions : "Inona ny informatique ?"</td>
+<td>Répondent selon leurs connaissances</td>
+</tr>
+
+<tr>
+<td>Développement</td>
+<td>60 min</td>
+<td>Explique + montre ordinateur</td>
+<td>Observation + prise de note</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>30 min</td>
+<td>Donne exercice simple</td>
+<td>Manipulent ordinateur</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>15 min</td>
+<td>Pose questions ou mini test</td>
+<td>Répondent</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<p>Questions orales + exercice pratique.</p>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève comprend la notion d’informatique et sait manipuler un ordinateur de base.</p>
+
+</div>
+</div>
+<div class="trimestre">
+<h2 onclick="toggleContent('fiche2')">🖥️ Leçon 2 : Les parties de l’ordinateur</h2>
+
+<div id="fiche2" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Les parties de l’ordinateur</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable d’identifier et de nommer les différentes parties de l’ordinateur.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Reconnaître les composants d’un ordinateur</li>
+<li>Nommer chaque partie (écran, unité centrale, clavier, souris)</li>
+<li>Comprendre leur rôle</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur complet</li>
+<li>Images ou schémas</li>
+<li>Tableau</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Montre un ordinateur et pose la question : "Inona avy ireo ampahany ?"</td>
+<td>Répondent selon leurs idées</td>
+<td>Brainstorming</td>
+</tr>
+
+<tr>
+<td>Découverte</td>
+<td>25 min</td>
+<td>Présente chaque partie : écran, unité centrale, clavier, souris</td>
+<td>Écoutent et observent</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>20 min</td>
+<td>Explique le rôle de chaque élément</td>
+<td>Prise de note</td>
+<td>Exposé</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Demande aux élèves de montrer les parties</td>
+<td>Manipulent et identifient</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Pose des questions ou fait un petit test</td>
+<td>Répondent individuellement</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Questions orales</li>
+<li>Identification des parties sur un ordinateur réel</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève sait reconnaître et nommer correctement les différentes parties de l’ordinateur.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Encourager les élèves à manipuler directement pour faciliter la compréhension.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('fiche3')">⚙️ Leçon 3 : Matériel de base (Matériel et logiciel)</h2>
+
+<div id="fiche3" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Matériel et logiciel</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable de distinguer le matériel (hardware) et le logiciel (software).</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Définir matériel et logiciel</li>
+<li>Donner des exemples</li>
+<li>Faire la différence entre matériel et logiciel</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur complet</li>
+<li>Logiciels (Word, Paint)</li>
+<li>Images ou affiches</li>
+<li>Tableau</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Pose la question : "Inona no maha samy hafa ny matériel sy logiciel ?"</td>
+<td>Répondent librement</td>
+<td>Brainstorming</td>
+</tr>
+
+<tr>
+<td>Découverte</td>
+<td>25 min</td>
+<td>Montre exemples : écran (matériel) / Word (logiciel)</td>
+<td>Observent</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>30 min</td>
+<td>
+Explique :
+<br>• Matériel = zavatra azo tsapain-tanana  
+<br>• Logiciel = programme ampiasaina
+</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>30 min</td>
+<td>Donne exercice : classer matériel / logiciel</td>
+<td>Font exercice</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Mini test ou questions</td>
+<td>Répondent individuellement</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Exercice de classement</li>
+<li>Questions orales</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève distingue clairement matériel et logiciel avec des exemples.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Utiliser des exemples concrets (ordinateur réel) pour faciliter la compréhension.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('fiche4')">🖱️⌨️ Leçon 4 : Manipulation souris & clavier</h2>
+
+<div id="fiche4" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Manipulation souris et clavier</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable d’utiliser correctement la souris et le clavier.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Maîtriser les actions de la souris (clic, double clic, clic droit)</li>
+<li>Saisir un texte simple avec le clavier</li>
+<li>Utiliser quelques touches importantes (Entrée, Espace, Suppr)</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur pour chaque élève ou en groupe</li>
+<li>Clavier et souris</li>
+<li>Logiciel simple (Word ou Bloc-notes)</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Montre la souris et le clavier, pose des questions</td>
+<td>Répondent selon leurs connaissances</td>
+<td>Questionnement</td>
+</tr>
+
+<tr>
+<td>Démonstration</td>
+<td>25 min</td>
+<td>Montre :
+<br>• clic simple  
+<br>• double clic  
+<br>• clic droit  
+<br>• utilisation clavier
+</td>
+<td>Observent attentivement</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>20 min</td>
+<td>Explique les fonctions des touches principales</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Donne exercices :
+<br>• ouvrir un fichier  
+<br>• écrire un texte  
+</td>
+<td>Manipulent ordinateur</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Observe + mini test pratique</td>
+<td>Réalisation individuelle</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Observation directe</li>
+<li>Exercice pratique (écriture + manipulation)</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève utilise correctement la souris et le clavier pour effectuer des tâches simples.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Favoriser la pratique individuelle pour améliorer la maîtrise.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('fiche5')">📝 Leçon 5 : Découverte de Microsoft Word</h2>
+
+<div id="fiche5" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Découverte de Microsoft Word</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable d’ouvrir Microsoft Word et identifier ses éléments de base.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Ouvrir Microsoft Word</li>
+<li>Identifier la barre de titre, menu, zone de saisie</li>
+<li>Comprendre l’utilité de Word</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Logiciel Microsoft Word</li>
+<li>Tableau ou vidéo projecteur</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Pose la question : "Inona no atao amin’ny Word ?"</td>
+<td>Répondent librement</td>
+<td>Brainstorming</td>
+</tr>
+
+<tr>
+<td>Découverte</td>
+<td>25 min</td>
+<td>Ouvre Microsoft Word et montre l’interface</td>
+<td>Observent</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>30 min</td>
+<td>Explique les éléments :
+<br>• Barre de titre  
+<br>• Ruban  
+<br>• Zone de saisie
+</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Demande aux élèves d’ouvrir Word et écrire leur nom</td>
+<td>Manipulent Word</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Vérifie les documents créés</td>
+<td>Présentation individuelle</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Ouverture de Word</li>
+<li>Saisie d’un texte simple</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève sait ouvrir Word et identifier ses éléments principaux.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Encourager la manipulation directe pour renforcer l’apprentissage.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('fiche6')">📝 Leçon 6 : Mise en forme dans Microsoft Word</h2>
+
+<div id="fiche6" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Mise en forme dans Microsoft Word</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable de mettre en forme un texte dans Microsoft Word.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Modifier la police (font)</li>
+<li>Changer la taille et la couleur du texte</li>
+<li>Utiliser le gras, italique et souligné</li>
+<li>Aligner un texte (gauche, centre, droite)</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Microsoft Word</li>
+<li>Tableau ou projecteur</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Pose la question : "Ahoana ny fanatsarana ny texte ao amin’ny Word ?"</td>
+<td>Répondent librement</td>
+<td>Brainstorming</td>
+</tr>
+
+<tr>
+<td>Découverte</td>
+<td>25 min</td>
+<td>Montre un texte non formaté puis formaté</td>
+<td>Observent la différence</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>30 min</td>
+<td>Explique :
+<br>• Gras / Italique / Souligné  
+<br>• Taille et couleur  
+<br>• Alignement
+</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Demande de formater un texte donné</td>
+<td>Manipulent Word</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Vérifie les documents formatés</td>
+<td>Présentation individuelle</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Texte correctement formaté</li>
+<li>Utilisation des outils de Word</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève sait mettre en forme un texte dans Microsoft Word de manière correcte et lisible.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Insister sur la pratique pour renforcer la maîtrise des outils de mise en forme.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('eval1')">📊 Évaluation Trimestre 1 : Informatique 6ème</h2>
+
+<div id="eval1" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Type :</b> Évaluation sommative</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>Vérifier les acquis des élèves sur les notions fondamentales d’informatique du Trimestre 1.</p>
+
+<h3>📌 Compétences évaluées</h3>
+<ul>
+<li>Définir l’informatique</li>
+<li>Identifier les parties de l’ordinateur</li>
+<li>Distinguer matériel et logiciel</li>
+<li>Utiliser la souris et le clavier</li>
+<li>Ouvrir et utiliser Microsoft Word</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Feuille d’évaluation ou fichier Word</li>
+<li>Logiciel Word / Paint</li>
+</ul>
+
+<h3>📝 Déroulement de l’évaluation</h3>
+
+<table>
+<tr>
+<th>Partie</th>
+<th>Durée</th>
+<th>Consignes</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Partie 1</td>
+<td>30 min</td>
+<td>Questions théoriques (définitions, QCM)</td>
+<td>Écrit</td>
+</tr>
+
+<tr>
+<td>Partie 2</td>
+<td>40 min</td>
+<td>Identification des parties de l’ordinateur</td>
+<td>Pratique / écrit</td>
+</tr>
+
+<tr>
+<td>Partie 3</td>
+<td>30 min</td>
+<td>Différencier matériel et logiciel</td>
+<td>Exercice</td>
+</tr>
+
+<tr>
+<td>Partie 4</td>
+<td>20 min</td>
+<td>Manipulation (Word ou clavier/souris)</td>
+<td>Pratique</td>
+</tr>
+
+</table>
+
+<h3>📊 Barème</h3>
+<ul>
+<li>Connaissances théoriques : 10 pts</li>
+<li>Parties de l’ordinateur : 5 pts</li>
+<li>Matériel / logiciel : 5 pts</li>
+<li>Pratique informatique : 10 pts</li>
+</ul>
+
+<h3>📈 Résultat attendu</h3>
+<p>L’élève maîtrise les bases de l’informatique du Trimestre 1 et sait utiliser un ordinateur simple.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Évaluation progressive : combiner théorie et pratique pour mieux mesurer les compétences.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('wordAvance')">📘 Leçon : Microsoft Word Avancé 6ème</h2>
+
+<div id="wordAvance" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Thème :</b> Microsoft Word avancé</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>Apprendre aux élèves à utiliser les fonctionnalités avancées de Microsoft Word pour créer et mettre en forme un document professionnel.</p>
+
+<h3>📌 Objectifs spécifiques</h3>
+<ul>
+<li>Maîtriser la mise en forme du texte</li>
+<li>Utiliser les styles (titre, sous-titre, paragraphe)</li>
+<li>Insérer des images et des formes</li>
+<li>Créer et modifier un tableau</li>
+<li>Appliquer la mise en page (marges, orientation, en-tête, pied de page)</li>
+</ul>
+
+<h3>🧠 Contenu de la leçon</h3>
+
+<h4>1. Mise en forme du texte</h4>
+<p>Word permet de modifier un texte : gras, italique, souligné, couleur, taille et police.</p>
+
+<h4>2. Alignement du texte</h4>
+<ul>
+<li>Aligner à gauche</li>
+<li>Centrer</li>
+<li>Aligner à droite</li>
+<li>Justifier</li>
+</ul>
+
+<h4>3. Insertion d’objets</h4>
+<p>On peut insérer des images, formes et icônes pour rendre un document plus attrayant.</p>
+
+<h4>4. Les tableaux</h4>
+<p>Un tableau permet d’organiser les informations en lignes et colonnes.</p>
+
+<h4>5. Mise en page</h4>
+<p>Elle permet de configurer le document : marges, orientation (portrait/paysage), en-tête et pied de page.</p>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Logiciel Microsoft Word</li>
+<li>Fichier ou document vierge</li>
+</ul>
+
+<h3>📊 Résumé</h3>
+<p>Microsoft Word avancé permet de créer des documents bien présentés, structurés et professionnels.</p>
+
+<h3>📎 Activité</h3>
+<p>Demander aux élèves de créer un petit document Word contenant un titre, un paragraphe, une image et un tableau.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('ficheWordAvance')">📄 Leçon 5 : Microsoft Word Avancé</h2>
+
+<div id="ficheWordAvance" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Microsoft Word avancé</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable de créer et mettre en forme un document Word correctement.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Mettre en forme un texte (gras, italique, souligné)</li>
+<li>Changer la police, la taille et la couleur</li>
+<li>Aligner un texte correctement</li>
+<li>Insérer une image dans un document</li>
+<li>Créer un tableau simple</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur pour chaque élève ou en groupe</li>
+<li>Logiciel Microsoft Word</li>
+<li>Fichier vierge ou modèle Word</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Présente Microsoft Word et ses usages</td>
+<td>Répondent aux questions</td>
+<td>Questionnement</td>
+</tr>
+
+<tr>
+<td>Démonstration</td>
+<td>25 min</td>
+<td>Montre la mise en forme :
+<br>• gras / italique / souligné  
+<br>• changement de police  
+<br>• alignement
+</td>
+<td>Observent attentivement</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>20 min</td>
+<td>Explique les outils Word avancés</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Donne exercice :
+<br>• créer un document  
+<br>• écrire un texte  
+<br>• ajouter image ou tableau
+</td>
+<td>Travail individuel sur ordinateur</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Contrôle pratique et correction</td>
+<td>Réalisation des tâches demandées</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Observation des manipulations</li>
+<li>Document Word créé par l’élève</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève sait créer un document Word bien structuré avec mise en forme et insertion d’objets simples.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Insister sur la pratique pour renforcer la maîtrise des outils Word.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('fichePaint')">🎨 Leçon 6 : Microsoft Paint (Dessin)</h2>
+
+<div id="fichePaint" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Microsoft Paint (dessin)</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable d’utiliser Microsoft Paint pour réaliser un dessin simple et propre.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Ouvrir et utiliser Microsoft Paint</li>
+<li>Utiliser les outils de dessin (crayon, pinceau, formes)</li>
+<li>Colorier une image</li>
+<li>Effacer des erreurs avec la gomme</li>
+<li>Enregistrer un dessin</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur pour chaque élève ou en groupe</li>
+<li>Logiciel Microsoft Paint</li>
+<li>Souris</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Présente Microsoft Paint et son utilité</td>
+<td>Répondent aux questions</td>
+<td>Questionnement</td>
+</tr>
+
+<tr>
+<td>Démonstration</td>
+<td>25 min</td>
+<td>Montre :
+<br>• crayon et pinceau  
+<br>• formes (cercle, carré, ligne)  
+<br>• coloriage  
+</td>
+<td>Observent attentivement</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>20 min</td>
+<td>Explique les outils principaux de Paint</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Donne exercice :
+<br>• dessiner une maison ou un objet simple  
+<br>• colorier le dessin
+</td>
+<td>Réalisation du dessin sur ordinateur</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Observe et corrige les dessins</td>
+<td>Travail individuel</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Qualité du dessin réalisé</li>
+<li>Utilisation correcte des outils Paint</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève sait utiliser Microsoft Paint pour créer et colorier un dessin simple.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Encourager la créativité et la précision dans les dessins.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('ficheImageWord')">🖼️ Leçon 7 : Insertion d’image dans Microsoft Word</h2>
+
+<div id="ficheImageWord" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Leçon :</b> Insertion d’image dans Microsoft Word</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable d’insérer et de manipuler une image dans un document Microsoft Word.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Insérer une image dans Word</li>
+<li>Redimensionner une image</li>
+<li>Déplacer une image dans un document</li>
+<li>Appliquer un habillage de texte (texte autour de l’image)</li>
+<li>Supprimer une image si nécessaire</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur pour chaque élève ou en groupe</li>
+<li>Logiciel Microsoft Word</li>
+<li>Images (fichiers ou internet local)</li>
+</ul>
+
+<h3>📖 Déroulement de la séance</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Activités du professeur</th>
+<th>Activités des élèves</th>
+<th>Méthodes</th>
+</tr>
+
+<tr>
+<td>Introduction</td>
+<td>15 min</td>
+<td>Explique l’utilité des images dans un document Word</td>
+<td>Répondent aux questions</td>
+<td>Questionnement</td>
+</tr>
+
+<tr>
+<td>Démonstration</td>
+<td>25 min</td>
+<td>Montre :
+<br>• insertion d’image  
+<br>• redimensionnement  
+<br>• déplacement  
+</td>
+<td>Observent attentivement</td>
+<td>Démonstration</td>
+</tr>
+
+<tr>
+<td>Explication</td>
+<td>20 min</td>
+<td>Explique l’habillage du texte et les options d’image</td>
+<td>Prise de note</td>
+<td>Exposé interactif</td>
+</tr>
+
+<tr>
+<td>Pratique</td>
+<td>40 min</td>
+<td>Donne exercice :
+<br>• créer un document Word  
+<br>• insérer une image  
+<br>• modifier sa taille et position
+</td>
+<td>Travail individuel sur ordinateur</td>
+<td>Apprentissage actif</td>
+</tr>
+
+<tr>
+<td>Évaluation</td>
+<td>20 min</td>
+<td>Observe et corrige les manipulations</td>
+<td>Réalisation des tâches demandées</td>
+<td>Évaluation formative</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Insertion correcte d’une image</li>
+<li>Manipulation (taille, position, habillage)</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève sait insérer et manipuler correctement une image dans Microsoft Word.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Insister sur la pratique pour que l’élève maîtrise parfaitement le déplacement et le redimensionnement des images.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('ficheMiniProjet')">🧩 Mini Projet : Création d’un document Word complet</h2>
+
+<div id="ficheMiniProjet" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures à 3 heures</li>
+<li><b>Type :</b> Mini projet (Travail pratique)</li>
+<li><b>Thème :</b> Microsoft Word avancé</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>L’élève doit être capable de réaliser un document Word complet en utilisant les outils de base et avancés.</p>
+
+<h3>📌 Compétences à acquérir</h3>
+<ul>
+<li>Créer un document Word structuré</li>
+<li>Mettre en forme un texte (titre, paragraphe)</li>
+<li>Insérer une image</li>
+<li>Créer un tableau simple</li>
+<li>Appliquer une mise en page correcte</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Microsoft Word</li>
+<li>Images disponibles (ou dossier local)</li>
+</ul>
+
+<h3>📖 Consignes du mini projet</h3>
+<ul>
+<li>Créer un document Word intitulé : <b>“Mon école”</b></li>
+<li>Ajouter un titre principal bien centré et en gras</li>
+<li>Écrire un petit paragraphe de présentation</li>
+<li>Insérer au moins une image liée à l’école</li>
+<li>Créer un tableau avec les informations suivantes :
+    <br>• Nom de l’élève  
+    <br>• Classe  
+    <br>• Matière préférée  
+</li>
+<li>Appliquer une belle mise en forme (couleur, alignement, etc.)</li>
+</ul>
+
+<h3>📋 Étapes de réalisation</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Travail de l’élève</th>
+<th>Rôle du professeur</th>
+</tr>
+
+<tr>
+<td>Étape 1</td>
+<td>20 min</td>
+<td>Création du document Word</td>
+<td>Explication des consignes</td>
+</tr>
+
+<tr>
+<td>Étape 2</td>
+<td>40 min</td>
+<td>Rédaction et mise en forme du texte</td>
+<td>Assistance technique</td>
+</tr>
+
+<tr>
+<td>Étape 3</td>
+<td>40 min</td>
+<td>Insertion image et création tableau</td>
+<td>Guidage</td>
+</tr>
+
+<tr>
+<td>Étape 4</td>
+<td>20 à 40 min</td>
+<td>Finalisation et amélioration du document</td>
+<td>Correction et conseils</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Organisation du document</li>
+<li>Mise en forme correcte</li>
+<li>Insertion image et tableau</li>
+<li>Présentation générale</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève est capable de créer un document Word complet, bien structuré et propre comme un petit rapport.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Encourager la créativité, la propreté du travail et l’autonomie des élèves dans l’utilisation de Word.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('evalMiniProjet')">📊 Évaluation trimestre 2 : Mini Projet Word Avancé</h2>
+
+<div id="evalMiniProjet" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures</li>
+<li><b>Type :</b> Évaluation pratique</li>
+<li><b>Thème :</b> Microsoft Word avancé</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>Évaluer la capacité de l’élève à créer un document Word complet en utilisant les outils avancés.</p>
+
+<h3>📌 Compétences évaluées</h3>
+<ul>
+<li>Création d’un document structuré</li>
+<li>Mise en forme du texte</li>
+<li>Insertion d’image</li>
+<li>Création d’un tableau</li>
+<li>Présentation générale du document</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Microsoft Word</li>
+<li>Images disponibles</li>
+</ul>
+
+<h3>📝 Consignes de l’évaluation</h3>
+<ul>
+<li>Créer un document Word intitulé : <b>“Mon école”</b></li>
+<li>Ajouter un titre principal bien mis en forme</li>
+<li>Écrire un petit paragraphe de présentation</li>
+<li>Insérer au moins une image</li>
+<li>Créer un tableau contenant : Nom, Classe, Matière préférée</li>
+<li>Appliquer une mise en page propre et organisée</li>
+</ul>
+
+<h3>📋 Déroulement</h3>
+
+<table>
+<tr>
+<th>Partie</th>
+<th>Durée</th>
+<th>Travail demandé</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Partie 1</td>
+<td>20 min</td>
+<td>Création du document et titre</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Partie 2</td>
+<td>40 min</td>
+<td>Rédaction et mise en forme du texte</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Partie 3</td>
+<td>30 min</td>
+<td>Insertion image + création tableau</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Partie 4</td>
+<td>30 min</td>
+<td>Finalisation et présentation du document</td>
+<td>Pratique</td>
+</tr>
+
+</table>
+
+<h3>📊 Barème</h3>
+<ul>
+<li>Mise en forme du texte : 5 pts</li>
+<li>Insertion image : 5 pts</li>
+<li>Tableau : 5 pts</li>
+<li>Organisation et présentation : 5 pts</li>
+</ul>
+
+<h3>📈 Résultat attendu</h3>
+<p>L’élève doit être capable de produire un document Word propre, structuré et complet avec image et tableau.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Évaluer surtout la maîtrise pratique et la présentation du travail final.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('revisionGen')">📚 Révision Générale : Trimestre 1 & 2</h2>
+
+<div id="revisionGen" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures à 3 heures</li>
+<li><b>Type :</b> Révision générale</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>Réviser toutes les notions importantes vues pendant le Trimestre 1 et le Trimestre 2 afin de préparer les évaluations finales.</p>
+
+<h3>📌 Trimestre 1 : Notions à réviser</h3>
+<ul>
+<li>Définition de l’informatique</li>
+<li>Parties de l’ordinateur (CPU, écran, clavier, souris)</li>
+<li>Matériel et logiciel</li>
+<li>Utilisation de la souris et du clavier</li>
+<li>Introduction à Microsoft Word</li>
+</ul>
+
+<h3>📌 Trimestre 2 : Notions à réviser</h3>
+<ul>
+<li>Microsoft Word avancé (mise en forme, alignement)</li>
+<li>Insertion d’image dans Word</li>
+<li>Création de tableaux</li>
+<li>Microsoft Paint (dessin et coloriage)</li>
+<li>Manipulation des fichiers simples</li>
+<li>Mini projet Word</li>
+</ul>
+
+<h3>🧠 Activités de révision</h3>
+
+<table>
+<tr>
+<th>Activité</th>
+<th>Objectif</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Questions théoriques</td>
+<td>Tester les connaissances générales</td>
+<td>Oral / écrit</td>
+</tr>
+
+<tr>
+<td>Exercice Word</td>
+<td>Mise en forme + insertion image</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Exercice Paint</td>
+<td>Dessin simple et coloriage</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Identification matériel</td>
+<td>Reconnaître les composants de l’ordinateur</td>
+<td>Oral / écrit</td>
+</tr>
+
+</table>
+
+<h3>📝 Exercices proposés</h3>
+<ul>
+<li>Définir : ordinateur, logiciel, matériel</li>
+<li>Créer un document Word avec titre + image</li>
+<li>Dessiner une maison simple sur Paint</li>
+<li>Citer les parties principales d’un ordinateur</li>
+</ul>
+
+<h3>📊 Résultat attendu</h3>
+<p>L’élève doit être capable de réutiliser toutes les notions vues en Trimestre 1 et 2 de manière autonome.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>La révision doit être pratique et interactive pour renforcer les compétences avant les évaluations finales.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('projetFinal')">🏆 Projet Final : Informatique 6ème (Trimestre 1 & 2)</h2>
+
+<div id="projetFinal" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 3 heures à 4 heures</li>
+<li><b>Type :</b> Projet final</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>Évaluer toutes les compétences acquises durant le Trimestre 1 et le Trimestre 2 à travers un projet complet combinant Word et Paint.</p>
+
+<h3>📌 Compétences évaluées</h3>
+<ul>
+<li>Utilisation de Microsoft Word avancé</li>
+<li>Mise en forme d’un document</li>
+<li>Insertion d’image dans Word</li>
+<li>Création de tableau</li>
+<li>Utilisation de Microsoft Paint</li>
+<li>Organisation et présentation d’un travail numérique</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Microsoft Word</li>
+<li>Microsoft Paint</li>
+<li>Images ou dessins</li>
+</ul>
+
+<h3>📖 Consignes du projet final</h3>
+<ul>
+<li>Créer un document Word intitulé : <b>“Présentation de moi”</b> ou <b>“Mon école”</b></li>
+<li>Rédiger un texte de présentation (élève, école ou village)</li>
+<li>Insérer au moins 1 image dans Word</li>
+<li>Créer un tableau contenant des informations personnelles (Nom, Classe, Loisirs, etc.)</li>
+<li>Créer un dessin simple dans Paint (maison, école, ou objet)</li>
+<li>Importer ou insérer le dessin Paint dans Word</li>
+</ul>
+
+<h3>📋 Déroulement</h3>
+
+<table>
+<tr>
+<th>Étapes</th>
+<th>Durée</th>
+<th>Travail de l’élève</th>
+<th>Rôle du professeur</th>
+</tr>
+
+<tr>
+<td>Étape 1</td>
+<td>30 min</td>
+<td>Création du document Word + titre</td>
+<td>Explication des consignes</td>
+</tr>
+
+<tr>
+<td>Étape 2</td>
+<td>60 min</td>
+<td>Rédaction + mise en forme + insertion image</td>
+<td>Assistance et guidage</td>
+</tr>
+
+<tr>
+<td>Étape 3</td>
+<td>40 min</td>
+<td>Dessin sur Paint</td>
+<td>Démonstration et aide</td>
+</tr>
+
+<tr>
+<td>Étape 4</td>
+<td>40 min</td>
+<td>Insertion du dessin dans Word + finalisation</td>
+<td>Correction et conseils</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Organisation du document Word</li>
+<li>Mise en forme correcte</li>
+<li>Qualité du texte</li>
+<li>Dessin Paint</li>
+<li>Insertion correcte du dessin</li>
+</ul>
+
+<h3>📊 Barème</h3>
+<ul>
+<li>Word (mise en forme + texte) : 10 pts</li>
+<li>Image et tableau : 5 pts</li>
+<li>Paint (dessin) : 5 pts</li>
+<li>Présentation générale : 5 pts</li>
+</ul>
+
+<h3>📈 Résultat attendu</h3>
+<p>L’élève doit produire un document complet combinant Word et Paint, bien structuré et propre.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>Ce projet final permet de vérifier l’autonomie, la créativité et la maîtrise des outils informatiques vus pendant l’année.</p>
+
+</div>
+</div>
+
+<div class="trimestre">
+<h2 onclick="toggleContent('evaluationFinale')">📊 Évaluation Finale : Informatique 6ème</h2>
+
+<div id="evaluationFinale" class="content">
+
+<h3>🧑‍🏫 Informations générales</h3>
+<ul>
+<li><b>Matière :</b> Informatique</li>
+<li><b>Niveau :</b> 6ème</li>
+<li><b>Durée :</b> 2 heures à 3 heures</li>
+<li><b>Type :</b> Évaluation finale</li>
+</ul>
+
+<h3>🎯 Objectif général</h3>
+<p>Évaluer toutes les compétences acquises durant le Trimestre 1 et le Trimestre 2 en informatique.</p>
+
+<h3>📌 Compétences évaluées</h3>
+<ul>
+<li>Connaissances de base en informatique</li>
+<li>Utilisation de la souris et du clavier</li>
+<li>Manipulation de Microsoft Word</li>
+<li>Mise en forme d’un document Word</li>
+<li>Insertion d’image et création de tableau</li>
+<li>Utilisation de Microsoft Paint</li>
+</ul>
+
+<h3>🧰 Matériels</h3>
+<ul>
+<li>Ordinateur</li>
+<li>Microsoft Word</li>
+<li>Microsoft Paint</li>
+<li>Fichiers ou images</li>
+</ul>
+
+<h3>📝 Consignes de l’évaluation</h3>
+<ul>
+<li>Créer un document Word intitulé : <b>“Examen Final Informatique”</b></li>
+<li>Rédiger un petit texte de présentation</li>
+<li>Mettre en forme le document (titre, couleur, alignement)</li>
+<li>Insérer une image dans Word</li>
+<li>Créer un tableau (Nom, Classe, Matière préférée)</li>
+<li>Réaliser un petit dessin sur Paint et l’insérer dans Word</li>
+</ul>
+
+<h3>📋 Déroulement</h3>
+
+<table>
+<tr>
+<th>Partie</th>
+<th>Durée</th>
+<th>Travail demandé</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Partie 1</td>
+<td>20 min</td>
+<td>Questions théoriques (informatique générale)</td>
+<td>Écrit</td>
+</tr>
+
+<tr>
+<td>Partie 2</td>
+<td>40 min</td>
+<td>Création et mise en forme Word</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Partie 3</td>
+<td>40 min</td>
+<td>Insertion image + tableau</td>
+<td>Pratique</td>
+</tr>
+
+<tr>
+<td>Partie 4</td>
+<td>30 min</td>
+<td>Dessin Paint + insertion dans Word</td>
+<td>Pratique</td>
+</tr>
+
+</table>
+
+<h3>📝 Évaluation</h3>
+<ul>
+<li>Maîtrise de Word</li>
+<li>Insertion image et tableau</li>
+<li>Utilisation de Paint</li>
+<li>Organisation du document</li>
+</ul>
+
+<h3>📊 Barème</h3>
+<ul>
+<li>Word (mise en forme + texte) : 10 pts</li>
+<li>Image + tableau : 5 pts</li>
+<li>Paint : 5 pts</li>
+<li>Présentation générale : 5 pts</li>
+</ul>
+
+<h3>📈 Résultat attendu</h3>
+<p>L’élève doit être capable de réaliser un document complet et structuré en utilisant Word et Paint de manière autonome.</p>
+
+<h3>📎 Remarques pédagogiques</h3>
+<p>L’évaluation finale doit mesurer la maîtrise globale des compétences acquises durant l’année scolaire.</p>
+
+</div>
+</div>
+
+    <button onclick="window.print()">📥 Télécharger en PDF</button>
+</div>
+<script>
+function setLang(lang){
+
+    var fr = document.querySelectorAll(".fr");
+    var ml = document.querySelectorAll(".ml");
+
+    if(lang === "fr"){
+        fr.forEach(el => el.style.display = "block");
+        ml.forEach(el => el.style.display = "none");
+    }
+
+    if(lang === "ml"){
+        fr.forEach(el => el.style.display = "none");
+        ml.forEach(el => el.style.display = "block");
+    }
+}
+</script>
+
+</body>
+</html>

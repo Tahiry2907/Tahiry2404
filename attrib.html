@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesona CMD - attrib</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin:0; padding:0;}
+        header { background-color: #007bff; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center;}
+        header h1 { margin:0; font-size:20px;}
+        header button { background-color:white; color:#007bff; border:none; padding:8px 15px; border-radius:6px; cursor:pointer; font-weight:bold;}
+        header button:hover { background-color:#e6e6e6;}
+        .container { max-width:900px; margin:30px auto; background-color:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+        h2 { color:#333; }
+        pre { background-color:#272822; color:#f8f8f2; padding:15px; border-radius:8px; overflow-x:auto; }
+        ul { margin-left:20px; }
+        .buttons { margin-top:30px; display:flex; justify-content:space-between; }
+        .buttons button { background-color:#007bff; border:none; color:white; padding:10px 20px; font-size:16px; border-radius:8px; cursor:pointer; transition:0.3s; }
+        .buttons button:hover { background-color:#0056b3; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="title">Lesona CMD : attrib</h1>
+    <div>
+        <button onclick="switchLang('fr')">FR</button>
+        <button onclick="switchLang('ml')">ML</button>
+    </div>
+</header>
+
+<div class="container">
+    <div id="content"></div>
+
+    <div class="buttons">
+        <button id="prevBtn">← Previous</button>
+        <button id="nextBtn">Next →</button>
+    </div>
+</div>
+
+<script>
+    const lesson = {
+        fr: `
+<h2>1️⃣ Commande de base</h2>
+<pre>attrib [options] fichier</pre>
+<p>Permet de modifier les attributs d’un fichier ou d’un dossier.</p>
+
+<h2>2️⃣ Attributs principaux</h2>
+<ul>
+<li>+r : Read-only (lecture seule)</li>
+<li>-r : enlève le mode lecture seule</li>
+<li>+h : Hidden (fichier caché)</li>
+<li>-h : affiche le fichier caché</li>
+<li>+s : System (fichier système)</li>
+<li>-s : enlève l’attribut système</li>
+<li>+a : Archive</li>
+<li>-a : enlève l’attribut archive</li>
+</ul>
+
+<h2>3️⃣ Exemples pratiques</h2>
+<pre>
+attrib +h secret.txt        → rend le fichier caché
+attrib -h secret.txt        → affiche le fichier
+attrib +r fichier.txt       → met en lecture seule
+attrib -r fichier.txt       → enlève lecture seule
+attrib +s system.txt        → définit comme fichier système
+</pre>
+
+<h2>4️⃣ Utilisation avancée</h2>
+<pre>
+attrib +h +r dossier\\*.* /s /d
+</pre>
+<p>Cache et protège tous les fichiers et dossiers à l’intérieur.</p>
+
+<h2>5️⃣ Remarques</h2>
+<ul>
+<li>Peut nécessiter des droits administrateur.</li>
+<li>Utile pour protéger ou cacher des fichiers sensibles.</li>
+<li>Attention : cacher un fichier ne le sécurise pas totalement.</li>
+</ul>
+        `,
+        ml: `
+<h2>1️⃣ Fomba fototra</h2>
+<pre>attrib [options] fichier</pre>
+<p>Manova ny attributs an'ny fichier na dossier.</p>
+
+<h2>2️⃣ Attributs lehibe</h2>
+<ul>
+<li>+r : Read-only (tsy azo ovaina)</li>
+<li>-r : manala lecture seule</li>
+<li>+h : Hidden (miafina)</li>
+<li>-h : mampiseho ilay fichier</li>
+<li>+s : System (fichier système)</li>
+<li>-s : manala attribut système</li>
+<li>+a : Archive</li>
+<li>-a : manala archive</li>
+</ul>
+
+<h2>3️⃣ Ohatra fampiharana</h2>
+<pre>
+attrib +h secret.txt        → manafina fichier
+attrib -h secret.txt        → mampiseho fichier
+attrib +r fichier.txt       → atao lecture seule
+attrib -r fichier.txt       → esorina lecture seule
+attrib +s system.txt        → atao fichier système
+</pre>
+
+<h2>4️⃣ Fampiasana mandroso</h2>
+<pre>
+attrib +h +r dossier\\*.* /s /d
+</pre>
+<p>Manafina sy miaro ny fichiers sy dossiers rehetra ao anatiny.</p>
+
+<h2>5️⃣ Fanamarihana</h2>
+<ul>
+<li>Mety mila privilège administrateur.</li>
+<li>Ilaina amin'ny fiarovana na fanafenana fichiers.</li>
+<li>Mitandrema fa ny fichier miafina dia mbola azo hita raha mitady.</li>
+</ul>
+        `
+    };
+
+    function loadLesson(lang='fr') {
+        document.getElementById('title').textContent = "Lesona CMD : attrib";
+        document.getElementById('content').innerHTML = lesson[lang];
+    }
+
+    function switchLang(lang) {
+        loadLesson(lang);
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        window.location.href = "15_move.html"; // pejy teo aloha
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        window.location.href = "16_netstat.html"; // pejy manaraka
+    });
+
+    loadLesson('fr');
+</script>
+
+
+
+</body>
+</html>

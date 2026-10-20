@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
+
+<title>Leçons - 2nde | Mr Tahiry</title>
+
+<style>
+
+/* =========================
+   STYLE GÉNÉRAL
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#eef4ff,#f8fbff);
+    color:#1e293b;
+    line-height:1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:linear-gradient(135deg,#0f172a,#1d4ed8,#2563eb);
+    color:white;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:10px 18px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+nav a:hover{
+    background:rgba(255,255,255,.18);
+    transform:translateY(-2px);
+}
+
+.langue{
+    display:flex;
+    gap:8px;
+}
+
+.langue a{
+    text-decoration:none;
+    font-size:22px;
+    background:rgba(255,255,255,.12);
+    padding:6px 10px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.langue a:hover{
+    background:white;
+    transform:scale(1.1);
+}
+
+
+/* =========================
+   TITRE
+========================= */
+
+.page-title{
+    text-align:center;
+    padding:45px 20px 25px;
+}
+
+.page-title h1{
+    font-size:36px;
+    color:#0f172a;
+    margin-bottom:10px;
+}
+
+.page-title p{
+    color:#64748b;
+    font-size:17px;
+}
+
+
+/* =========================
+   COMPTEUR
+========================= */
+
+.course-count{
+    width:max-content;
+    margin:0 auto 30px;
+    padding:10px 20px;
+    background:white;
+    border-radius:30px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    color:#2563eb;
+    font-weight:bold;
+}
+
+
+/* =========================
+   CARTES DES COURS
+========================= */
+
+.cards{
+    width:92%;
+    max-width:1200px;
+    margin:0 auto 25px;
+
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+}
+
+.card{
+    background:white;
+    min-height:145px;
+
+    border-radius:20px;
+    padding:25px 20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(15,23,42,.08);
+
+    border:1px solid #e2e8f0;
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,#2563eb,#06b6d4);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(37,99,235,.18);
+    border-color:#93c5fd;
+}
+
+.card i{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.card a{
+    text-decoration:none;
+    color:#1e40af;
+    font-size:18px;
+    font-weight:bold;
+    text-transform:capitalize;
+}
+
+.card a:hover{
+    color:#2563eb;
+}
+
+
+/* =========================
+   SECTION INTERACTIVE
+========================= */
+
+.lesson-section{
+    width:92%;
+    max-width:1000px;
+    margin:55px auto;
+
+    background:white;
+    border-radius:25px;
+    padding:30px;
+
+    box-shadow:0 10px 35px rgba(15,23,42,.10);
+
+    border:1px solid #e2e8f0;
+}
+
+.lesson-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.lesson-header h2{
+    color:#1d4ed8;
+    font-size:28px;
+}
+
+.lesson-header p{
+    color:#64748b;
+}
+
+
+/* =========================
+   CONTENU LEÇON
+========================= */
+
+#content{
+    text-align:center;
+    animation:fadeIn .4s ease;
+}
+
+#content h2{
+    color:#0f172a;
+    margin-bottom:15px;
+}
+
+#content img{
+    width:100%;
+    max-width:500px;
+    height:220px;
+    object-fit:cover;
+
+    border-radius:18px;
+    margin:10px auto 20px;
+
+    display:block;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+#content p{
+    max-width:750px;
+    margin:auto;
+    color:#475569;
+    font-size:17px;
+}
+
+
+/* =========================
+   BOUTONS
+========================= */
+
+.lesson-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.lesson-buttons button{
+    border:none;
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.lesson-buttons button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
+}
+
+.lesson-buttons button:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* =========================
+   PROGRESSION
+========================= */
+
+.progress-container{
+    width:100%;
+    max-width:700px;
+    height:10px;
+
+    background:#e2e8f0;
+
+    border-radius:20px;
+
+    margin:25px auto 0;
+
+    overflow:hidden;
+}
+
+#progressBar{
+    height:100%;
+    width:20%;
+
+    background:linear-gradient(90deg,#2563eb,#06b6d4);
+
+    transition:.4s;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info-box{
+    width:92%;
+    max-width:1000px;
+    margin:30px auto 50px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        135deg,
+        #dbeafe,
+        #ecfeff
+    );
+
+    border-left:6px solid #2563eb;
+}
+
+.info-box h2{
+    color:#1e40af;
+    margin-bottom:10px;
+}
+
+.info-box p{
+    color:#334155;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer-pro{
+    margin-top:60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e3a8a
+        );
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+}
+
+.footer-pro h2{
+    margin-bottom:10px;
+}
+
+.footer-pro p{
+    margin:8px 0;
+}
+
+.socials{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:20px 0;
+}
+
+.socials a{
+    color:white;
+    text-decoration:none;
+
+    padding:9px 15px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    transition:.3s;
+}
+
+.socials a:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateY(-3px);
+}
+
+.devise{
+    font-weight:bold;
+    font-size:16px;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        padding:15px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    nav{
+        width:100%;
+        text-align:center;
+    }
+
+    .page-title{
+        padding-top:30px;
+    }
+
+    .page-title h1{
+        font-size:28px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+        width:90%;
+    }
+
+    .card{
+        min-height:120px;
+    }
+
+    .lesson-section{
+        width:90%;
+        padding:20px;
+    }
+
+    .lesson-header h2{
+        font-size:23px;
+    }
+
+    #content img{
+        height:180px;
+    }
+
+    .info-box{
+        width:90%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        💻 Leçons Informatique
+    </div>
+
+    <nav>
+        <a href="index.html">🏠 Accueil</a>
+    </nav>
+
+    <div class="langue">
+        <a href="2nd.html" title="Français">🇫🇷</a>
+        <a href="2nd-mg.html" title="Malagasy">🇲🇬</a>
+    </div>
+
+</header>
+
+
+<!-- =========================
+     TITRE
+========================= -->
+
+<section class="page-title">
+
+    <h1>📚 Cours d'Informatique</h1>
+
+    <p>
+        Classe de Seconde — Cours, notions et pratique informatique
+    </p>
+
+</section>
+
+
+<div class="course-count">
+    💻 20+ ressources disponibles
+</div>
+
+
+<!-- =========================
+     COURS
+========================= -->
+
+<section class="cards">
+
+    <div class="card">
+        <i>🖥️</i>
+        <a href="Composant.html">Composants</a>
+    </div>
+
+    <div class="card">
+        <i>📊</i>
+        <a href="excel.plateform.html">Excel</a>
+    </div>
+
+    <div class="card">
+        <i>📝</i>
+        <a href="word.html">Word</a>
+    </div>
+
+    <div class="card">
+        <i>📽️</i>
+        <a href="powerpoint.html">PowerPoint</a>
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <i>💻</i>
+        <a href="informatique-information.html">
+            Information et informatique
+        </a>
+    </div>
+
+    <div class="card">
+        <i>⌨️</i>
+        <a href="saisi.html">
+            Saisie informatique
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🖥️</i>
+        <a href="Ordinateur-composant.html">
+            L'ordinateur et ses composants
+        </a>
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <i>🖱️</i>
+        <a href="principaux-périphérique.html">
+            Les principaux périphériques
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🌐</i>
+        <a href="connectivité.html">
+            Connectivité
+        </a>
+    </div>
+
+    <div class="card">
+        <i>⚙️</i>
+        <a href="Les-logiciels.html">
+            Les logiciels
+        </a>
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <i>🧩</i>
+        <a href="Notion-de-système.html">
+            Notion de système
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🪟</i>
+        <a href="gestion-de-fênètre.html">
+            Gestion des fenêtres
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🗂️</i>
+        <a href="organisation-du-poste-de-travail.html">
+            Organisation du poste de travail
+        </a>
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <i>📄</i>
+        <a href="création-de-fichier.html">
+            Création de fichier
+        </a>
+    </div>
+
+    <div class="card">
+        <i>📝</i>
+        <a href="sary2/informatique12.jpg">
+            Traitement de texte
+        </a>
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <i>🎨</i>
+        <a href="mise-en-forme-et-mise-en-page.html">
+            Mise en forme et mise en page
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🔗</i>
+        <a href="les-lien-hypertext.html">
+            Les liens hypertextes
+        </a>
+    </div>
+
+    <div class="card">
+        <i>💾</i>
+        <a href="support-de-stockage.html">
+            Supports de stockage
+        </a>
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <i>📖</i>
+        <a href="2nd345.html">
+            Terminologie informatique
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🧠</i>
+        <a href="2nd3456.html">
+            Structure de base d'un ordinateur
+        </a>
+    </div>
+
+    <div class="card">
+        <i>🔧</i>
+        <a href="2nd34567.html">
+            Logiciels et maintenance
+        </a>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LEÇON INTERACTIVE
+========================= -->
+
+<section class="lesson-section">
+
+    <div class="lesson-header">
+
+        <h2>🎓 Mini-leçon interactive</h2>
+
+        <p>
+            Découvrez quelques notions fondamentales de l'informatique.
+        </p>
+
+    </div>
+
+
+    <div id="content"></div>
+
+
+    <div class="lesson-buttons">
+
+        <button id="prevBtn" onclick="prev()">
+            ⬅️ Précédent
+        </button>
+
+        <button id="nextBtn" onclick="next()">
+            Suivant ➡️
+        </button>
+
+    </div>
+
+
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATIONS
+========================= -->
+
+<section class="info-box">
+
+    <h2>💡 Conseil pour les élèves</h2>
+
+    <p>
+        Pour progresser en informatique, il faut apprendre la théorie,
+        mais surtout pratiquer régulièrement.
+        Ouvrez les cours, réalisez les exercices et testez vos connaissances.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer-pro">
+
+    <h2>
+        💻 Mr Tahiry - Informatique 👨‍🏫
+    </h2>
+
+    <p>
+        📅 <span id="dateFooter"></span>
+    </p>
+
+    <div class="socials">
+
+        <a href="#">📘 Facebook</a>
+
+        <a href="#">💬 WhatsApp</a>
+
+        <a href="#">📧 Email</a>
+
+    </div>
+
+    <p class="devise">
+        🚀 Apprendre • Pratiquer • Réussir 🌟
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+const lessons = {
+
+fr: [
+
+{
+titre:"🖥️ Ordinateur",
+
+desc:
+"L’ordinateur est une machine électronique capable de recevoir, traiter, stocker et restituer des informations selon des instructions précises.",
+
+img:"https://via.placeholder.com/700x350?text=Ordinateur"
+},
+
+{
+titre:"⌨️ Clavier",
+
+desc:
+"Le clavier est un périphérique d’entrée qui permet de saisir des lettres, des chiffres, des symboles et des commandes dans l’ordinateur.",
+
+img:"https://via.placeholder.com/700x350?text=Clavier"
+},
+
+{
+titre:"🖱️ Souris",
+
+desc:
+"La souris est un périphérique de pointage permettant de déplacer le curseur, sélectionner des éléments, ouvrir des fichiers et effectuer différentes actions.",
+
+img:"https://via.placeholder.com/700x350?text=Souris"
+},
+
+{
+titre:"🖥️ Écran et unité centrale",
+
+desc:
+"L’écran permet d’afficher les informations. L’unité centrale contient les principaux composants qui assurent le traitement des données.",
+
+img:"https://via.placeholder.com/700x350?text=Ecran+Unite+Centrale"
+},
+
+{
+titre:"💻 Ordinateur portable",
+
+desc:
+"L’ordinateur portable est un ordinateur conçu pour être transporté facilement. Il regroupe notamment l’écran, le clavier, le pavé tactile et les composants internes.",
+
+img:"https://via.placeholder.com/700x350?text=Ordinateur+Portable"
+}
+
+],
+
+mg: [
+
+{
+titre:"🖥️ Ordinatera",
+
+desc:
+"Ny ordinatera dia milina elektronika afaka mandray, mandinika, mitahiry ary mamoaka vaovao araka ny torolàlana omena azy.",
+
+img:"https://via.placeholder.com/700x350?text=Ordinateur"
+},
+
+{
+titre:"⌨️ Clavier",
+
+desc:
+"Ny clavier dia fitaovana fampidirana vaovao ampiasaina hanoratana litera, isa, marika ary baiko ao amin’ny ordinatera.",
+
+img:"https://via.placeholder.com/700x350?text=Clavier"
+},
+
+{
+titre:"🖱️ Souris",
+
+desc:
+"Ny souris dia fitaovana fanondro ampiasaina hamindrana ny curseur, hisafidianana zavatra ary hanokafana rakitra.",
+
+img:"https://via.placeholder.com/700x350?text=Souris"
+},
+
+{
+titre:"🖥️ Écran sy unité centrale",
+
+desc:
+"Ny écran dia mampiseho ny vaovao. Ny unité centrale kosa dia ahitana ireo singa lehibe manao ny fikarakarana sy fanodinana ny angona.",
+
+img:"https://via.placeholder.com/700x350?text=Ecran+Unite+Centrale"
+},
+
+{
+titre:"💻 Ordinatera portable",
+
+desc:
+"Ny ordinatera portable dia ordinatera natao ho mora entina. Ahitana écran, clavier, pavé tactile ary ireo singa anatiny izy.",
+
+img:"https://via.placeholder.com/700x350?text=Ordinateur+Portable"
+}
+
+]
+
+};
+
+
+let currentLang = "fr";
+let index = 0;
+
+
+function showLesson(){
+
+    const lesson =
+        lessons[currentLang][index];
+
+    document.getElementById("content").innerHTML = `
+
+        <h2>${lesson.titre}</h2>
+
+        <img
+            src="${lesson.img}"
+            alt="${lesson.titre}"
+        >
+
+        <p>
+            ${lesson.desc}
+        </p>
+
+    `;
+
+
+    /* Progression */
+
+    const total =
+        lessons[currentLang].length;
+
+    const progress =
+        ((index + 1) / total) * 100;
+
+    document.getElementById(
+        "progressBar"
+    ).style.width = progress + "%";
+
+
+    /* Boutons */
+
+    document.getElementById(
+        "prevBtn"
+    ).disabled = index === 0;
+
+
+    document.getElementById(
+        "nextBtn"
+    ).disabled =
+        index === total - 1;
+
+}
+
+
+function switchLang(lang){
+
+    currentLang = lang;
+
+    index = 0;
+
+    showLesson();
+
+}
+
+
+function next(){
+
+    if(
+        index <
+        lessons[currentLang].length - 1
+    ){
+
+        index++;
+
+        showLesson();
+
+    }
+
+}
+
+
+function prev(){
+
+    if(index > 0){
+
+        index--;
+
+        showLesson();
+
+    }
+
+}
+
+
+/* =========================
+   DATE FOOTER
+========================= */
+
+const dateElement =
+    document.getElementById("dateFooter");
+
+if(dateElement){
+
+    const date = new Date();
+
+    dateElement.textContent =
+        date.toLocaleDateString(
+            "fr-FR",
+            {
+                day:"2-digit",
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+}
+
+
+/* Initialisation */
+
+showLesson();
+
+</script>
+
+
+</body>
+</html>

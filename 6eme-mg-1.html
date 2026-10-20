@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesona</title>
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">💻 Lesona</div>
+
+  <nav>
+    <a href="index-mg.html">Fandraisana</a>
+    <a href="presentation-mg.html">Fampahafantarana</a>
+    <a href="actualite-mg.html">Vaovao</a>
+  
+  </nav>
+
+  <div class="langue">
+    <a href="6eme.html">🇫🇷</a>
+    <a href="6eme-mg.html">🇲🇬</a>
+  </div>
+</header>
+
+<div class="container">
+<div id="content"></div>
+<div style="text-align:center;">
+<button class="nav" onclick="prev()">⬅ Previous</button>
+<button class="nav" onclick="next()">Next ➡</button>
+</div>
+</div>
+
+<script>
+const lessons = {
+fr:[
+  {titre:"Ordinateur", desc:"L’ordinateur est une machine capable de traiter des données selon des instructions précises.", img:"https://via.placeholder.com/400x200?text=Ordinateur"},
+  {titre:"Clavier", desc:"Le clavier est un périphérique permettant de saisir des informations dans un ordinateur.", img:"https://via.placeholder.com/400x200?text=Clavier"},
+  {titre:"Souris", desc:"La souris est un périphérique de pointage permettant de contrôler le curseur à l’écran.", img:"https://via.placeholder.com/400x200?text=Souris"},
+  {titre:"Écran / Unité centrale", desc:"L’écran affiche les informations et l’unité centrale traite les données à l’intérieur de l’ordinateur.", img:"https://via.placeholder.com/400x200?text=Ecran+Unite+centrale"},
+  {titre:"Ordinateur portable", desc:"L’ordinateur portable est un ordinateur compact et mobile intégrant écran, clavier et unité centrale.", img:"https://via.placeholder.com/400x200?text=Ordinateur+Portable"}
+],
+mg:[
+  {titre:"Ordinateur", desc:"Ny ordinatera dia milina afaka mandinika sy manodina angona araka ny torolàlana.", img:"https://via.placeholder.com/400x200?text=Ordinateur"},
+  {titre:"Clavier", desc:"Ny clavier dia fitaovana ampiasaina hanoratana sy hampidirana vaovao amin’ny ordinatera.", img:"https://via.placeholder.com/400x200?text=Clavier"},
+  {titre:"Souris", desc:"Ny souris dia fitaovana fanondro izay mifehy ny mari-pamantarana eo amin’ny écran.", img:"https://via.placeholder.com/400x200?text=Souris"},
+  {titre:"Écran / Unité centrale", desc:"Ny écran dia mampiseho ny vaovao ary ny unité centrale no mandinika sy manodina azy.", img:"https://via.placeholder.com/400x200?text=Ecran+Unite+centrale"},
+  {titre:"Ordinateur portable", desc:"Ny ordinateur portable dia ordinatera kely sy azo entina miaraka amin’ny écran, clavier, ary unité centrale.", img:"https://via.placeholder.com/400x200?text=Ordinateur+Portable"}
+]
+};
+
+let currentLang='fr', index=0;
+
+function switchLang(lang){ currentLang=lang; index=0; showLesson(); }
+function showLesson(){
+  const lesson=lessons[currentLang][index];
+  document.getElementById('content').innerHTML=`<h2>${lesson.titre}</h2><img src="${lesson.img}" alt="${lesson.titre}"><p>${lesson.desc}</p>`;
+}
+function next(){ if(index<lessons[currentLang].length-1){index++; showLesson();} }
+function prev(){ if(index>0){index--; showLesson();} }
+
+showLesson();
+</script>
+
+<section class="cards">
+
+<nav class="card">
+<a href="Leçon-html-mg.html" class="boutton">Initiation HTML</a>
+</nav>
+
+  <div class="card">
+    <i class="fas fa-laptop-code"></i>
+    <a href="Lesona-html-mg.html">HTML</a>
+  </div>
+
+  <div class="card">
+    <i class="fas fa-gamepad"></i>
+    <a href="lesona-1ere-ordinateur.html">ordinateur voalohany</a>
+  </div>
+
+  <div class="card">
+    <i class="fas fa-gamepad"></i>
+    <a href="Composant.html">Composant</a>
+  </div>
+  </section>
+
+<script>
+
+
+
+
+<footer>© 2026 InfoPro</footer>
+
+</body>
+</html>

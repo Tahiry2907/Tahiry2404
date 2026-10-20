@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesona JavaScript Base</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    pre {
+      background: #2c3e50;
+      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #1e8449;
+    }
+
+    .ml {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JavaScript Base</h1>
+    <p>Français / Malagasy</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>1. Introduction</h2>
+      <p><strong>FR :</strong> JavaScript sert à rendre un site interactif.</p>
+      <p class="ml"><strong>ML :</strong> JavaScript dia ampiasaina hanomezana interaction amin’ny site.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Alert</h2>
+      <p><strong>FR :</strong> Alert affiche un message.</p>
+      <p class="ml"><strong>ML :</strong> Alert dia mampiseho hafatra.</p>
+
+      <pre>
+alert("Bonjour")
+      </pre>
+
+      <button onclick="alert('Bonjour / Salama !')">Tester Alert</button>
+    </div>
+
+    <div class="card">
+      <h2>3. Variable</h2>
+      <p><strong>FR :</strong> Une variable sert à stocker une information.</p>
+      <p class="ml"><strong>ML :</strong> Ny variable dia mitahiry information.</p>
+
+      <pre>
+let nom = "Jean";
+alert(nom);
+      </pre>
+    </div>
+
+    <div class="card">
+      <h2>4. Fonction</h2>
+      <p><strong>FR :</strong> Une fonction sert à exécuter une action.</p>
+      <p class="ml"><strong>ML :</strong> Ny fonction dia manao action iray.</p>
+
+      <pre>
+function saluer() {
+  alert("Bonjour")
+}
+      </pre>
+
+      <button onclick="saluer()">Tester Fonction</button>
+    </div>
+
+    <div class="card">
+      <h2>5. Condition IF</h2>
+      <p><strong>FR :</strong> IF permet de vérifier une condition.</p>
+      <p class="ml"><strong>ML :</strong> IF dia manamarina condition iray.</p>
+
+      <pre>
+let age = 18;
+
+if(age >= 18){
+  alert("Majeur")
+}
+      </pre>
+    </div>
+
+    <div class="card">
+      <h2>6. Bouton interactif</h2>
+      <p><strong>FR :</strong> Cliquer sur le bouton change le texte.</p>
+      <p class="ml"><strong>ML :</strong> Rehefa tsindriana ny bokotra dia miova ny soratra.</p>
+
+      <p id="texte">Bonjour</p>
+      <button onclick="changerTexte()">Changer Texte</button>
+    </div>
+
+  </div>
+
+  <script>
+    function saluer() {
+      alert("Bonjour / Salama !")
+    }
+
+    function changerTexte() {
+      document.getElementById("texte").innerHTML = "Bienvenue / Tonga soa";
+    }
+  </script>
+
+  <section style="background:#fff3cd;padding:40px 20px;">
+    <div style="max-width:1000px;margin:auto;">
+      <h1 style="text-align:center;color:#e67e22;margin-bottom:30px;">JavaScript Niveau Suivant</h1>
+
+      <div style="background:white;border-left:8px solid #e67e22;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#e67e22;">7. Prompt</h2>
+        <p><strong>FR :</strong> Prompt permet de demander une information à l’utilisateur.</p>
+        <p><strong>ML :</strong> Prompt dia mangataka information amin’ny utilisateur.</p>
+<pre>
+let nom = prompt("Quel est ton nom ?");
+alert("Bonjour " + nom);
+</pre>
+        <button onclick="demanderNom()">Tester Prompt</button>
+      </div>
+
+      <div style="background:white;border-left:8px solid #9b59b6;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#9b59b6;">8. Confirm</h2>
+        <p><strong>FR :</strong> Confirm permet de choisir Oui ou Non.</p>
+        <p><strong>ML :</strong> Confirm dia ahafahana misafidy Eny na Tsia.</p>
+<pre>
+let choix = confirm("Tu veux continuer ?");
+</pre>
+        <button onclick="testerConfirm()">Tester Confirm</button>
+      </div>
+
+      <div style="background:white;border-left:8px solid #16a085;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#16a085;">9. Calcul automatique</h2>
+        <p><strong>FR :</strong> JavaScript peut faire des calculs automatiquement.</p>
+        <p><strong>ML :</strong> JavaScript dia afaka manao calcul automatique.</p>
+<pre>
+let a = 5;
+let b = 3;
+let total = a + b;
+</pre>
+        <button onclick="calculer()">Faire Calcul</button>
+      </div>
+
+      <div style="background:white;border-left:8px solid #c0392b;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#c0392b;">10. Changer couleur</h2>
+        <p><strong>FR :</strong> JavaScript peut changer la couleur d’un texte.</p>
+        <p><strong>ML :</strong> JavaScript dia afaka manova ny lokon’ny soratra.</p>
+
+        <p id="couleurTexte">Texte à changer</p>
+        <button onclick="changerCouleur()">Changer Couleur</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function demanderNom() {
+      let nom = prompt("Quel est ton nom ?");
+      if(nom){
+        alert("Bonjour / Salama " + nom);
+      }
+    }
+
+    function testerConfirm() {
+      let choix = confirm("Tu veux continuer ?");
+      if(choix){
+        alert("Tu as choisi Oui / Nisafidy Eny ianao");
+      } else {
+        alert("Tu as choisi Non / Nisafidy Tsia ianao");
+      }
+    }
+
+    function calculer() {
+      let a = 5;
+      let b = 3;
+      let total = a + b;
+      alert("Résultat = " + total);
+    }
+
+    function changerCouleur() {
+      document.getElementById("couleurTexte").style.color = "red";
+    }
+  </script>
+  <section style="background:#1e1e1e;padding:40px 20px;color:white;">
+    <div style="max-width:1100px;margin:auto;">
+      <h1 style="text-align:center;color:#f1c40f;margin-bottom:30px;">JavaScript Applications</h1>
+      <p style="text-align:center;margin-bottom:30px;color:#ccc;">
+        FR : Exercices pratiques JavaScript avec tableau noir.<br>
+        ML : Fanazaran-tena JavaScript miaraka amin’ny tableau noir.
+      </p>
+
+      <div style="background:#2c2c2c;border-radius:15px;padding:25px;margin-bottom:25px;box-shadow:0 4px 10px rgba(0,0,0,0.4);">
+        <h2 style="color:#f39c12;">11. Addition automatique</h2>
+        <p><strong>FR :</strong> Entrer deux nombres puis calculer la somme.</p>
+        <p><strong>ML :</strong> Ampidiro ny isa roa dia kajio ny fitambarany.</p>
+
+        <input type="number" id="nb1" placeholder="Nombre 1" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <input type="number" id="nb2" placeholder="Nombre 2" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <button onclick="additionner()" style="background:#f39c12;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Calculer</button>
+        <p id="resultatAddition" style="margin-top:15px;color:#2ecc71;font-size:18px;"></p>
+      </div>
+
+      <div style="background:#2c2c2c;border-radius:15px;padding:25px;margin-bottom:25px;box-shadow:0 4px 10px rgba(0,0,0,0.4);">
+        <h2 style="color:#3498db;">12. Vérification âge</h2>
+        <p><strong>FR :</strong> Vérifier si une personne est majeure ou mineure.</p>
+        <p><strong>ML :</strong> Jereo raha lehibe taona na mbola zaza ilay olona.</p>
+
+        <input type="number" id="ageUser" placeholder="Entrer âge" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <button onclick="verifierAge()" style="background:#3498db;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Vérifier</button>
+        <p id="resultatAge" style="margin-top:15px;color:#f1c40f;font-size:18px;"></p>
+      </div>
+
+      <div style="background:#2c2c2c;border-radius:15px;padding:25px;box-shadow:0 4px 10px rgba(0,0,0,0.4);">
+        <h2 style="color:#e74c3c;">13. Changer fond</h2>
+        <p><strong>FR :</strong> Cliquer pour changer la couleur du fond.</p>
+        <p><strong>ML :</strong> Tsindrio raha hanova ny lokon’ny fond.</p>
+
+        <button onclick="changerFond()" style="background:#e74c3c;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Changer Fond</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function additionner() {
+      let nb1 = Number(document.getElementById('nb1').value);
+      let nb2 = Number(document.getElementById('nb2').value);
+      let total = nb1 + nb2;
+      document.getElementById('resultatAddition').innerHTML = 'Résultat = ' + total;
+    }
+
+    function verifierAge() {
+      let age = Number(document.getElementById('ageUser').value);
+
+      if(age >= 18) {
+        document.getElementById('resultatAge').innerHTML = 'Majeur / Lehibe taona';
+      } else {
+        document.getElementById('resultatAge').innerHTML = 'Mineur / Mbola zaza';
+      }
+    }
+
+    function changerFond() {
+      document.body.style.background = '#34495e';
+    }
+  </script>
+  <section style="background:#111827;padding:40px 20px;color:white;">
+    <div style="max-width:1100px;margin:auto;">
+      <h1 style="text-align:center;color:#22c55e;margin-bottom:30px;">JavaScript Niveau Avancé</h1>
+
+      <div style="background:#1f2937;border:2px solid #22c55e;border-radius:15px;padding:25px;margin-bottom:25px;">
+        <h2 style="color:#22c55e;">14. Boucle FOR</h2>
+        <p><strong>FR :</strong> La boucle FOR permet de répéter une action plusieurs fois.</p>
+        <p><strong>ML :</strong> Ny boucle FOR dia mamerina action imbetsaka.</p>
+
+<pre>
+for(let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+</pre>
+
+        <button onclick="afficherBoucle()" style="background:#22c55e;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Afficher</button>
+        <div id="resultatBoucle" style="margin-top:15px;color:#facc15;"></div>
+      </div>
+
+      <div style="background:#1f2937;border:2px solid #3b82f6;border-radius:15px;padding:25px;margin-bottom:25px;">
+        <h2 style="color:#3b82f6;">15. Tableau Array</h2>
+        <p><strong>FR :</strong> Un tableau sert à stocker plusieurs valeurs.</p>
+        <p><strong>ML :</strong> Ny array dia mitahiry valeurs maro.</p>
+
+<pre>
+let fruits = ["Pomme", "Banane", "Orange"];
+</pre>
+
+        <button onclick="voirTableau()" style="background:#3b82f6;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Voir Tableau</button>
+        <div id="resultatTableau" style="margin-top:15px;color:#93c5fd;"></div>
+      </div>
+
+      <div style="background:#1f2937;border:2px solid #ef4444;border-radius:15px;padding:25px;">
+        <h2 style="color:#ef4444;">16. Mini Application Notes</h2>
+        <p><strong>FR :</strong> Entrer une note et voir si elle est validée.</p>
+        <p><strong>ML :</strong> Ampidiro ny naoty dia jereo raha afaka.</p>
+
+        <input type="number" id="note" placeholder="Entrer note" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <button onclick="verifierNote()" style="background:#ef4444;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Vérifier Note</button>
+        <div id="resultatNote" style="margin-top:15px;color:#fca5a5;font-size:18px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function afficherBoucle() {
+      let texte = '';
+      for(let i = 1; i <= 5; i++) {
+        texte += 'Ligne ' + i + '<br>';
+      }
+      document.getElementById('resultatBoucle').innerHTML = texte;
+    }
+
+    function voirTableau() {
+      let fruits = ['Pomme', 'Banane', 'Orange'];
+      document.getElementById('resultatTableau').innerHTML = fruits.join(' - ');
+    }
+
+    function verifierNote() {
+      let note = Number(document.getElementById('note').value);
+
+      if(note >= 10) {
+        document.getElementById('resultatNote').innerHTML = 'Validé / Afaka';
+      } else {
+        document.getElementById('resultatNote').innerHTML = 'Non validé / Tsy afaka';
+      }
+    }
+  </script>
+  <section style="background:linear-gradient(135deg,#0f172a,#1e293b);padding:40px 20px;color:white;">
+    <div style="max-width:1100px;margin:auto;">
+      <h1 style="text-align:center;color:#38bdf8;margin-bottom:30px;">JavaScript DOM & Événements</h1>
+
+      <div style="background:#1e293b;border-radius:15px;padding:25px;margin-bottom:25px;border-left:6px solid #38bdf8;">
+        <h2 style="color:#38bdf8;">17. getElementById</h2>
+        <p><strong>FR :</strong> getElementById permet de sélectionner un élément HTML.</p>
+        <p><strong>ML :</strong> getElementById dia misafidy élément HTML iray.</p>
+
+<pre>
+document.getElementById("titre")
+</pre>
+
+        <h3 id="titreTest">Bonjour</h3>
+        <button onclick="modifierTitre()" style="background:#38bdf8;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Modifier Titre</button>
+      </div>
+
+      <div style="background:#1e293b;border-radius:15px;padding:25px;margin-bottom:25px;border-left:6px solid #f97316;">
+        <h2 style="color:#f97316;">18. onmouseover</h2>
+        <p><strong>FR :</strong> Un événement peut se produire quand la souris passe sur un élément.</p>
+        <p><strong>ML :</strong> Misy événement rehefa mandalo eo ambony élément ny souris.</p>
+
+        <div onmouseover="survol()" style="background:#334155;padding:20px;border-radius:10px;text-align:center;cursor:pointer;">
+          Passe la souris ici
+        </div>
+      </div>
+
+      <div style="background:#1e293b;border-radius:15px;padding:25px;border-left:6px solid #22c55e;">
+        <h2 style="color:#22c55e;">19. Mini Calculatrice</h2>
+        <p><strong>FR :</strong> Faire une addition simple avec deux nombres.</p>
+        <p><strong>ML :</strong> Manao addition tsotra amin’ny isa roa.</p>
+
+        <input type="number" id="calc1" placeholder="Nombre 1" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <input type="number" id="calc2" placeholder="Nombre 2" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <button onclick="miniCalcul()" style="background:#22c55e;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Calculer</button>
+        <div id="resultatCalc" style="margin-top:15px;color:#86efac;font-size:18px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function modifierTitre() {
+      document.getElementById('titreTest').innerHTML = 'Bienvenue / Tonga soa';
+    }
+
+    function survol() {
+      alert('La souris est passée ici / Nandalo teto ny souris');
+    }
+
+    function miniCalcul() {
+      let a = Number(document.getElementById('calc1').value);
+      let b = Number(document.getElementById('calc2').value);
+      let resultat = a + b;
+
+      document.getElementById('resultatCalc').innerHTML = 'Résultat = ' + resultat;
+    }
+  </script>
+  <section style="background:#0b1120;padding:40px 20px;color:white;">
+    <div style="max-width:1100px;margin:auto;">
+      <h1 style="text-align:center;color:#a78bfa;margin-bottom:30px;">JavaScript Intermédiaire</h1>
+
+      <div style="background:#111827;border-radius:16px;padding:25px;margin-bottom:25px;border:2px solid #a78bfa;">
+        <h2 style="color:#a78bfa;">20. Date et Heure</h2>
+        <p><strong>FR :</strong> JavaScript peut afficher la date et l’heure actuelle.</p>
+        <p><strong>ML :</strong> JavaScript dia afaka mampiseho ny daty sy ora ankehitriny.</p>
+
+<pre>
+let maintenant = new Date();
+</pre>
+
+        <button onclick="afficherDate()" style="background:#a78bfa;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Afficher Date</button>
+        <div id="dateActuelle" style="margin-top:15px;color:#ddd;"></div>
+      </div>
+
+      <div style="background:#111827;border-radius:16px;padding:25px;margin-bottom:25px;border:2px solid #f59e0b;">
+        <h2 style="color:#f59e0b;">21. Random</h2>
+        <p><strong>FR :</strong> Math.random() permet de générer un nombre aléatoire.</p>
+        <p><strong>ML :</strong> Math.random() dia mamorona isa kisendrasendra.</p>
+
+<pre>
+Math.floor(Math.random() * 10)
+</pre>
+
+        <button onclick="nombreAleatoire()" style="background:#f59e0b;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Générer</button>
+        <div id="resultatRandom" style="margin-top:15px;color:#fde68a;font-size:20px;"></div>
+      </div>
+
+      <div style="background:#111827;border-radius:16px;padding:25px;border:2px solid #10b981;">
+        <h2 style="color:#10b981;">22. Compteur</h2>
+        <p><strong>FR :</strong> Créer un compteur avec un bouton plus et moins.</p>
+        <p><strong>ML :</strong> Mamorona compteur misy bokotra plus sy moins.</p>
+
+        <div id="compteur" style="font-size:40px;margin-bottom:15px;">0</div>
+
+        <button onclick="moins()" style="background:#ef4444;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;margin-right:10px;">-</button>
+        <button onclick="plus()" style="background:#10b981;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">+</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function afficherDate() {
+      let maintenant = new Date();
+      document.getElementById('dateActuelle').innerHTML = maintenant;
+    }
+
+    function nombreAleatoire() {
+      let nombre = Math.floor(Math.random() * 10) + 1;
+      document.getElementById('resultatRandom').innerHTML = nombre;
+    }
+
+    let compteur = 0;
+
+    function plus() {
+      compteur++;
+      document.getElementById('compteur').innerHTML = compteur;
+    }
+
+    function moins() {
+      compteur--;
+      document.getElementById('compteur').innerHTML = compteur;
+    }
+  </script>
+  <section style="background:linear-gradient(135deg,#111827,#1f2937);padding:50px 20px;color:white;">
+    <div style="max-width:1200px;margin:auto;">
+      <h1 style="text-align:center;color:#f472b6;margin-bottom:20px;font-size:40px;">JavaScript Niveau Avancé Long</h1>
+      <p style="text-align:center;color:#d1d5db;margin-bottom:40px;">
+        FR : Suite des notions importantes JavaScript avec exemples et mini applications.<br>
+        ML : Tohin’ny lesona JavaScript miaraka amin’ny exemples sy mini applications.
+      </p>
+
+      <div style="background:#1f2937;padding:25px;border-radius:18px;margin-bottom:25px;border-left:8px solid #f472b6;">
+        <h2 style="color:#f472b6;">23. setTimeout()</h2>
+        <p><strong>FR :</strong> setTimeout permet d’attendre quelques secondes avant d’exécuter une action.</p>
+        <p><strong>ML :</strong> setTimeout dia mampiandry segondra vitsivitsy vao manao action.</p>
+<pre>
+setTimeout(function(){
+  alert("Bonjour")
+}, 3000)
+</pre>
+        <button onclick="testerTimeout()" style="background:#f472b6;color:white;padding:10px 15px;border:none;border-radius:8px;">Tester setTimeout</button>
+      </div>
+
+      <div style="background:#1f2937;padding:25px;border-radius:18px;margin-bottom:25px;border-left:8px solid #60a5fa;">
+        <h2 style="color:#60a5fa;">24. setInterval()</h2>
+        <p><strong>FR :</strong> setInterval répète une action automatiquement.</p>
+        <p><strong>ML :</strong> setInterval dia mamerina action ho azy.</p>
+
+        <div id="heureDirect" style="font-size:30px;color:#93c5fd;margin:15px 0;">00:00:00</div>
+        <button onclick="demarrerHeure()" style="background:#60a5fa;color:white;padding:10px 15px;border:none;border-radius:8px;">Démarrer Horloge</button>
+      </div>
+
+      <div style="background:#1f2937;padding:25px;border-radius:18px;margin-bottom:25px;border-left:8px solid #34d399;">
+        <h2 style="color:#34d399;">25. toUpperCase() et toLowerCase()</h2>
+        <p><strong>FR :</strong> Ces fonctions permettent de changer un texte en majuscule ou minuscule.</p>
+        <p><strong>ML :</strong> Ireo fonctions ireo dia manova soratra ho majuscule na minuscule.</p>
+
+        <input type="text" id="texteMaj" placeholder="Entrer texte" style="padding:10px;width:100%;border:none;border-radius:8px;margin-bottom:10px;">
+        <button onclick="mettreMajuscule()" style="background:#34d399;color:white;padding:10px 15px;border:none;border-radius:8px;margin-right:10px;">Majuscule</button>
+        <button onclick="mettreMinuscule()" style="background:#10b981;color:white;padding:10px 15px;border:none;border-radius:8px;">Minuscule</button>
+        <div id="resultatTexte" style="margin-top:15px;color:#a7f3d0;"></div>
+      </div>
+
+      <div style="background:#1f2937;padding:25px;border-radius:18px;margin-bottom:25px;border-left:8px solid #f59e0b;">
+        <h2 style="color:#f59e0b;">26. Longueur d’un texte</h2>
+        <p><strong>FR :</strong> length permet de connaître le nombre de caractères.</p>
+        <p><strong>ML :</strong> length dia mampiseho ny isan’ny caractères.</p>
+
+        <input type="text" id="texteLongueur" placeholder="Entrer texte" style="padding:10px;width:100%;border:none;border-radius:8px;margin-bottom:10px;">
+        <button onclick="voirLongueur()" style="background:#f59e0b;color:white;padding:10px 15px;border:none;border-radius:8px;">Voir longueur</button>
+        <div id="resultatLongueur" style="margin-top:15px;color:#fde68a;"></div>
+      </div>
+
+      <div style="background:#1f2937;padding:25px;border-radius:18px;border-left:8px solid #ef4444;">
+        <h2 style="color:#ef4444;">27. Vérification Mot de Passe</h2>
+        <p><strong>FR :</strong> Vérifier si un mot de passe est correct.</p>
+        <p><strong>ML :</strong> Manamarina raha marina ny mot de passe.</p>
+
+        <input type="password" id="motdepasse" placeholder="Entrer mot de passe" style="padding:10px;width:100%;border:none;border-radius:8px;margin-bottom:10px;">
+        <button onclick="verifierMotDePasse()" style="background:#ef4444;color:white;padding:10px 15px;border:none;border-radius:8px;">Vérifier</button>
+        <div id="resultatPassword" style="margin-top:15px;color:#fca5a5;"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function testerTimeout() {
+      setTimeout(function() {
+        alert('Bonjour après 3 secondes / Salama rehefa afaka 3 segondra');
+      }, 3000);
+    }
+
+    function demarrerHeure() {
+      setInterval(function() {
+        let maintenant = new Date();
+        document.getElementById('heureDirect').innerHTML = maintenant.toLocaleTimeString();
+      }, 1000);
+    }
+
+    function mettreMajuscule() {
+      let texte = document.getElementById('texteMaj').value;
+      document.getElementById('resultatTexte').innerHTML = texte.toUpperCase();
+    }
+
+    function mettreMinuscule() {
+      let texte = document.getElementById('texteMaj').value;
+      document.getElementById('resultatTexte').innerHTML = texte.toLowerCase();
+    }
+
+    function voirLongueur() {
+      let texte = document.getElementById('texteLongueur').value;
+      document.getElementById('resultatLongueur').innerHTML = 'Nombre de caractères = ' + texte.length;
+    }
+
+    function verifierMotDePasse() {
+      let motdepasse = document.getElementById('motdepasse').value;
+
+      if(motdepasse === '1234') {
+        document.getElementById('resultatPassword').innerHTML = 'Mot de passe correct / Marina ny mot de passe';
+      } else {
+        document.getElementById('resultatPassword').innerHTML = 'Mot de passe incorrect / Diso ny mot de passe';
+      }
+    }
+  </script>
+</body>
+</html>

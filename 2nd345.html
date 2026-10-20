@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminologie Informatique</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg,#2563eb,#9333ea);
+    padding: 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+button {
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* SECTION */
+.container {
+    padding:20px;
+}
+
+.card {
+    background:#1e293b;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:scale(1.02);
+    background:#334155;
+}
+
+h2 {
+    color:#38bdf8;
+}
+
+/* TEXT */
+.fr { display:block; }
+.ml { display:none; }
+
+.big {
+    font-size:18px;
+    line-height:1.6;
+}
+.schema {
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.box {
+    padding:20px;
+    border-radius:12px;
+    min-width:120px;
+    text-align:center;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.input { background:#3b82f6; }
+.process { background:#22c55e; }
+.output { background:#f97316; }
+
+.box:hover {
+    transform:scale(1.1);
+}
+
+.arrow {
+    font-size:30px;
+    margin:10px;
+}
+.system {
+    position:relative;
+    height:250px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CIRCLE */
+.circle {
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    cursor:pointer;
+    position:absolute;
+    font-weight:bold;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* COLORS */
+.hardware {
+    background:#3b82f6;
+    left:20%;
+}
+
+.software {
+    background:#22c55e;
+    right:20%;
+}
+
+/* ANIMATION FLOAT */
+@keyframes float {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-10px); }
+}
+
+/* LINE */
+.system::before {
+    content:"";
+    position:absolute;
+    width:60%;
+    height:4px;
+    background:white;
+    top:50%;
+    left:20%;
+}
+
+/* INFO BOX */
+.infoBox {
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#1e293b;
+    min-height:80px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">💻 Terminologie Informatique</div>
+    <button onclick="toggleLang()">FR / ML</button>
+</header>
+
+<div class="container">
+
+    <!-- INFORMATIQUE -->
+    <div class="card">
+        <h2>Informatique</h2>
+        
+        <p class="fr big">
+        L'informatique est la science du traitement automatique de l'information à l'aide des ordinateurs.
+        </p>
+        
+        <p class="ml big">
+        Ny informatika dia siansa mikasika ny fanodinana ho azy ny vaovao amin'ny alalan'ny solosaina.
+        </p>
+    </div>
+
+    <!-- INFORMATION -->
+    <div class="card">
+        <h2>Information</h2>
+        
+        <p class="fr big">
+        L'information est un ensemble de données organisées qui ont un sens et qui peuvent être utilisées.
+        </p>
+        
+        <p class="ml big">
+        Ny vaovao (information) dia angona voalamina izay misy dikany ary azo ampiasaina.
+        </p>
+    </div>
+
+    <!-- ORDINATEUR -->
+    <div class="card">
+        <h2>Ordinateur</h2>
+        
+        <p class="fr big">
+        Un ordinateur est une machine électronique capable de recevoir, traiter, stocker et restituer des informations.
+        </p>
+        
+        <p class="ml big">
+        Ny solosaina dia fitaovana elektronika afaka mandray, manodina, mitahiry ary mamerina vaovao.
+        </p>
+    </div>
+
+</div>
+<!-- EXPOSE ENSEIGNANT -->
+<div class="card">
+    <h2>🎓 Exposé de l’enseignant</h2>
+
+    <p class="fr big">
+    L’enseignant explique aux élèves les règles à respecter dans la salle informatique :
+    le bon comportement, la discipline et ce qu’il ne faut pas faire (ne pas manger, ne pas toucher les câbles, respecter le matériel).
+    </p>
+
+    <p class="ml big">
+    Ny mpampianatra dia manazava amin’ny mpianatra ny fitsipika tokony harahina ao amin’ny efitra informatika :
+    fitondran-tena tsara, fanajana ary ireo zavatra tsy azo atao (tsy mihinana, tsy mikasika tariby, mitandrina ny fitaovana).
+    </p>
+</div>
+<!-- TRAITEMENT DE L'INFORMATION -->
+<div class="card">
+    <h2>Traitement de l'information</h2>
+
+    <p class="fr big">
+    Le traitement de l'information par l'ordinateur est l'ensemble des opérations réalisées
+    pour transformer des données en informations utiles (saisie, traitement, stockage, restitution).
+    </p>
+
+    <p class="ml big">
+    Ny fanodinana vaovao amin’ny solosaina dia dingana rehetra atao mba hanovana angona ho lasa
+    vaovao ilaina (fidirana angona, fanodinana, fitahirizana, famoahana).
+    </p>
+</div>
+
+<!-- SYSTEME INFORMATIQUE -->
+<div class="card">
+    <h2>Système informatique</h2>
+
+    <p class="fr big">
+    Un système informatique est un ensemble composé de matériel (hardware),
+    de logiciels (software) et d'utilisateurs permettant de traiter l'information.
+    </p>
+
+    <p class="ml big">
+    Ny rafitra informatika dia fitambaran’ny fitaovana (hardware),
+    programa (software) ary mpampiasa izay ahafahana manodina vaovao.
+    </p>
+</div>
+<div class="container">
+<div class="card">
+    <h2>🔄 Schéma logique du traitement de l'information</h2>
+
+    <div class="schema">
+
+        <div class="box input">
+            <p class="fr">Entrée (Input)</p>
+            <p class="ml">Fidirana (Input)</p>
+        </div>
+
+        <div class="arrow">➡️</div>
+
+        <div class="box process">
+            <p class="fr">Traitement</p>
+            <p class="ml">Fanodinana</p>
+        </div>
+
+        <div class="arrow">➡️</div>
+
+        <div class="box output">
+            <p class="fr">Sortie (Output)</p>
+            <p class="ml">Famoahana (Output)</p>
+        </div>
+
+    </div>
+</div>
+</div>
+<div class="card">
+    <h2>💻 Système Informatique</h2>
+
+    <p class="fr big">
+    Un système informatique est un ensemble organisé permettant de traiter l'information.
+    Il est composé de matériel (hardware), de logiciels (software) et d'utilisateurs.
+    </p>
+
+    <p class="ml big">
+    Ny rafitra informatika dia fitambaran-javatra voalamina ahafahana manodina vaovao.
+    Izy io dia ahitana fitaovana (hardware), programa (software) ary mpampiasa.
+    </p>
+</div>
+
+<!-- HARDWARE -->
+<div class="card">
+    <h2>🖥️ Hardware (Matériel)</h2>
+
+    <p class="fr big">
+    Le hardware représente l'ensemble des composants physiques de l'ordinateur.
+    </p>
+
+    <p class="ml big">
+    Ny hardware dia ireo ampahany hita maso amin'ny solosaina.
+    </p>
+
+    <ul class="big">
+        <li class="fr">Unité centrale (CPU)</li>
+        <li class="ml">Boaty fototra (CPU)</li>
+
+        <li class="fr">Clavier</li>
+        <li class="ml">Kitendry</li>
+
+        <li class="fr">Souris</li>
+        <li class="ml">Mouse</li>
+
+        <li class="fr">Écran</li>
+        <li class="ml">Ecran</li>
+    </ul>
+</div>
+
+<!-- SOFTWARE -->
+<div class="card">
+    <h2>🧠 Software (Logiciel)</h2>
+
+    <p class="fr big">
+    Le software est l'ensemble des programmes qui permettent à l'ordinateur de fonctionner.
+    </p>
+
+    <p class="ml big">
+    Ny software dia programa ampiasain'ny solosaina mba hiasa.
+    </p>
+
+    <ul class="big">
+        <li class="fr">Système d'exploitation (Windows, Linux)</li>
+        <li class="ml">Rafitra mifehy (Windows, Linux)</li>
+
+        <li class="fr">Applications (Word, Excel)</li>
+        <li class="ml">Programa fampiharana (Word, Excel)</li>
+    </ul>
+</div>
+
+<!-- PERIPHERIQUES -->
+<div class="card">
+    <h2>🔌 Périphériques</h2>
+
+    <p class="fr big">
+    Les périphériques sont les appareils connectés à l'ordinateur.
+    </p>
+
+    <p class="ml big">
+    Ny périphériques dia fitaovana ampifandraisina amin'ny solosaina.
+    </p>
+
+    <ul class="big">
+        <li class="fr">Entrée : clavier, souris</li>
+        <li class="ml">Fidirana : kitendry, souris</li>
+
+        <li class="fr">Sortie : écran, imprimante</li>
+        <li class="ml">Famoahana : écran, imprimante</li>
+
+        <li class="fr">Stockage : clé USB, disque dur</li>
+        <li class="ml">Fitahirizana : clé USB, disque dur</li>
+    </ul>
+</div>
+
+<!-- EXEMPLES -->
+<div class="card">
+    <h2>📌 Exemples</h2>
+
+    <p class="fr big">
+    Exemple 1 : Utiliser Word sur un ordinateur portable.
+    <br>Hardware : ordinateur
+    <br>Software : Word
+    </p>
+
+    <p class="ml big">
+    Ohatra 1 : Mampiasa Word amin'ny ordinateur portable.
+    <br>Hardware : solosaina
+    <br>Software : Word
+    </p>
+
+    <p class="fr big">
+    Exemple 2 : Imprimer un document.
+    <br>Périphérique : imprimante
+    </p>
+
+    <p class="ml big">
+    Ohatra 2 : Mamoaka taratasy.
+    <br>Périphérique : imprimante
+    </p>
+</div>
+
+<!-- RESUME -->
+<div class="card">
+    <h2>📚 Résumé</h2>
+
+    <p class="fr big">
+    Un système informatique = Hardware + Software + Utilisateur
+    </p>
+
+    <p class="ml big">
+    Rafitra informatika = Hardware + Software + Mpampiasa
+    </p>
+</div>
+<div class="container">
+<div class="card">
+    <h2>⚙️ Schéma animé : Hardware & Software</h2>
+
+    <div class="system">
+
+        <!-- SOFTWARE -->
+        <div class="circle software" onclick="showInfo('software')">
+            <p class="fr">Software</p>
+            <p class="ml">Software</p>
+        </div>
+
+        <!-- HARDWARE -->
+        <div class="circle hardware" onclick="showInfo('hardware')">
+            <p class="fr">Hardware</p>
+            <p class="ml">Hardware</p>
+        </div>
+    </div>
+
+    <!-- INFO -->
+    <div id="infoBox" class="infoBox"></div>
+</div>
+</div>
+
+<!-- ACTIVITES -->
+<div class="card">
+    <h2>🧠 Activités des élèves</h2>
+
+    <p class="fr big">
+    Les élèves participent à des activités :
+    - Questions/Réponses (QR)
+    - Travail de groupe
+    - Recherche sur les mots : informatique, information et ordinateur
+    </p>
+
+    <p class="ml big">
+    Mandray anjara amin’ny hetsika ny mpianatra :
+    - Fanontaniana sy valiny (QR)
+    - Asa vondrona
+    - Fikarohana momba ny teny : informatika, vaovao ary solosaina
+    </p>
+</div>
+<!-- QUIZ INTERACTIF -->
+<div class="card">
+    <h2>📝 Quiz Informatique</h2>
+
+    <!-- QUESTION 1 -->
+    <div class="question">
+        <p class="fr big">1. L'informatique est :</p>
+        <p class="ml big">1. Ny informatika dia :</p>
+
+        <label><input type="radio" name="q1" value="0"> Une machine</label><br>
+        <label><input type="radio" name="q1" value="1"> Une science</label><br>
+        <label><input type="radio" name="q1" value="0"> Un jeu</label>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="question">
+        <p class="fr big">2. L'information est :</p>
+        <p class="ml big">2. Ny vaovao dia :</p>
+
+        <label><input type="radio" name="q2" value="1"> Des données organisées</label><br>
+        <label><input type="radio" name="q2" value="0"> Un ordinateur</label><br>
+        <label><input type="radio" name="q2" value="0"> Un câble</label>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question">
+        <p class="fr big">3. Un ordinateur peut :</p>
+        <p class="ml big">3. Ny solosaina dia afaka :</p>
+
+        <label><input type="radio" name="q3" value="1"> Traiter les informations</label><br>
+        <label><input type="radio" name="q3" value="0"> Manger</label><br>
+        <label><input type="radio" name="q3" value="0"> Dormir</label>
+    </div>
+
+    <br>
+    <button onclick="corrigerQuiz()">✅ Corriger</button>
+
+    <h3 id="score"></h3>
+</div>
+
+<script>
+function toggleLang(){
+    let fr = document.querySelectorAll(".fr");
+    let ml = document.querySelectorAll(".ml");
+
+    fr.forEach(el => {
+        el.style.display = (el.style.display === "none") ? "block" : "none";
+    });
+
+    ml.forEach(el => {
+        el.style.display = (el.style.display === "block") ? "none" : "block";
+    });
+}
+</script>
+<script>
+function corrigerQuiz(){
+    let score = 0;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+    let q3 = document.querySelector('input[name="q3"]:checked');
+
+    if(q1) score += parseInt(q1.value);
+    if(q2) score += parseInt(q2.value);
+    if(q3) score += parseInt(q3.value);
+
+    let message = "";
+
+    if(score == 3){
+        message = "🎉 Excellent ! / Tena tsara!";
+    } else if(score == 2){
+        message = "👍 Bien ! / Tsara!";
+    } else {
+        message = "📘 Révise encore / Mbola mila mianatra";
+    }
+
+    document.getElementById("score").innerHTML =
+        "Score : " + score + "/3 <br>" + message;
+}
+</script>
+
+</body>
+</html>

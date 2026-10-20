@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet">
+<script src="js/script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesona Historique Informatique PRO</title>
+<style>
+body {font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f4;color:#222;}
+header {background:#1e3c72;color:white;padding:20px;text-align:center;}
+.container {width:90%;max-width:900px;margin:auto;padding:20px;background:white;border-radius:15px;box-shadow:0 0 10px rgba(0,0,0,0.2);}
+h1,h2 {text-align:center;}
+button.lang, button.nav {margin:10px;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;background:#00c6ff;color:black;}
+p {line-height:1.6;font-size:16px;text-align:center;}
+img {display:block;margin:20px auto;max-width:80%;border-radius:15px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Définition</h1>
+<button class="lang" onclick="switchLang('fr')">Français</button>
+<button class="lang" onclick="switchLang('mg')">Malagasy</button>
+</header>
+
+<div class="container">
+<div id="content"></div>
+<div style="text-align:center;">
+<button class="nav" onclick="prev()">⬅ Previous</button>
+<button class="nav" onclick="next()">Next ➡</button>
+</div>
+</div>
+
+<script>
+const lessons = {
+fr:[
+  {titre:"Ordinateur", desc:"L’ordinateur est une machine capable de traiter des données selon des instructions précises.", img:"https://via.placeholder.com/400x200?text=Ordinateur"},
+  {titre:"Clavier", desc:"Le clavier est un périphérique permettant de saisir des informations dans un ordinateur.", img:"https://via.placeholder.com/400x200?text=Clavier"},
+  {titre:"Souris", desc:"La souris est un périphérique de pointage permettant de contrôler le curseur à l’écran.", img:"https://via.placeholder.com/400x200?text=Souris"},
+  {titre:"Écran / Unité centrale", desc:"L’écran affiche les informations et l’unité centrale traite les données à l’intérieur de l’ordinateur.", img:"https://via.placeholder.com/400x200?text=Ecran+Unite+centrale"},
+  {titre:"Ordinateur portable", desc:"L’ordinateur portable est un ordinateur compact et mobile intégrant écran, clavier et unité centrale.", img:"https://via.placeholder.com/400x200?text=Ordinateur+Portable"}
+],
+mg:[
+  {titre:"Ordinateur", desc:"Ny ordinatera dia milina afaka mandinika sy manodina angona araka ny torolàlana.", img:"https://via.placeholder.com/400x200?text=Ordinateur"},
+  {titre:"Clavier", desc:"Ny clavier dia fitaovana ampiasaina hanoratana sy hampidirana vaovao amin’ny ordinatera.", img:"https://via.placeholder.com/400x200?text=Clavier"},
+  {titre:"Souris", desc:"Ny souris dia fitaovana fanondro izay mifehy ny mari-pamantarana eo amin’ny écran.", img:"https://via.placeholder.com/400x200?text=Souris"},
+  {titre:"Écran / Unité centrale", desc:"Ny écran dia mampiseho ny vaovao ary ny unité centrale no mandinika sy manodina azy.", img:"https://via.placeholder.com/400x200?text=Ecran+Unite+centrale"},
+  {titre:"Ordinateur portable", desc:"Ny ordinateur portable dia ordinatera kely sy azo entina miaraka amin’ny écran, clavier, ary unité centrale.", img:"https://via.placeholder.com/400x200?text=Ordinateur+Portable"}
+]
+};
+
+let currentLang='fr', index=0;
+
+function switchLang(lang){ currentLang=lang; index=0; showLesson(); }
+function showLesson(){
+  const lesson=lessons[currentLang][index];
+  document.getElementById('content').innerHTML=`<h2>${lesson.titre}</h2><img src="${lesson.img}" alt="${lesson.titre}"><p>${lesson.desc}</p>`;
+}
+function next(){ if(index<lessons[currentLang].length-1){index++; showLesson();} }
+function prev(){ if(index>0){index--; showLesson();} }
+
+showLesson();
+</script>
+<br>
+
+<a href="Composant.html" class="button" >suite</a>
+
+
+</body>
+</html>

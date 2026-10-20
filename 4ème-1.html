@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informatique 4ème - Site Pédagogique</title>
+<style>
+body{font-family:Arial, sans-serif;margin:0;background:#f4f6f9;}
+header{background:#1e3a8a;color:white;padding:20px;text-align:center;}
+nav{display:flex;justify-content:center;gap:10px;background:#111827;flex-wrap:wrap;}
+nav button{padding:10px 15px;border:none;cursor:pointer;background:#374151;color:white;border-radius:5px;}
+nav button:hover{background:#2563eb;}
+section{display:none;padding:20px;}
+.active{display:block;}
+.card{background:white;padding:15px;margin:10px 0;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.toggle{cursor:pointer;background:#e5e7eb;padding:10px;border-radius:5px;margin-top:10px;}
+.content{display:none;padding:10px;}
+.quiz button{margin:5px;padding:8px;}
+.correct{background:green;color:white;}
+.wrong{background:red;color:white;}
+</style>
+</head>
+<body><header>
+<h1>💻 Informatique Classe 4ème</h1>
+<p>Site pédagogique complet - Trimestre 1, 2, 3</p>
+</header><nav>
+<button onclick="showSection('t1')">Trimestre 1</button>
+<button onclick="showSection('t2')">Trimestre 2</button>
+<button onclick="showSection('t3')">Trimestre 3</button>
+</nav><!-- TRIMESTRE 1 --><section id="t1" class="active">
+<h2>📘 Trimestre 1 - Bureautique & Matériel</h2><div class="card">
+<div class="toggle" onclick="toggle(this)">⚙️ Composants ordinateur</div>
+<div class="content">
+CPU = cerveau<br>RAM = mémoire temporaire<br>SSD/HDD = stockage<br><div class="quiz">
+<p>Quiz: RAM est ...</p>
+<button onclick="answer(this,true)">Mémoire temporaire</button>
+<button onclick="answer(this,false)">Stockage permanent</button><br>
+<a href="base-informatique.html">base de l'Informatique</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="toggle" onclick="toggle(this)">📝 Word Avancé</div>
+<div class="content">
+Mise en page, styles, images, tableaux<div class="quiz">
+<p>En-tête est en ...</p>
+<button onclick="answer(this,true)">Haut de page</button>
+<button onclick="answer(this,false)">Bas de page</button><br>
+<a href="Word2.html">word Avancé</a>
+</div>
+</div>
+
+<div class="card">
+<div class="toggle" onclick="toggle(this)">📊 Excel Avancé</div>
+<div class="content">
+SOMME, MOYENNE, TRI, GRAPHIQUE<div class="quiz">
+<p>MOYENNE = ?</p>
+<button onclick="answer(this,true)">Fonction moyenne</button>
+<button onclick="answer(this,false)">Somme simple</button>
+</div>
+</div>
+
+<div class="card">
+
+<div class="toggle" onclick="toggle(this)">📊 Excel Avancé</div>
+
+<div class="content">
+
+<!-- DEFINITION -->
+<p class="fr"><b>FR :</b> Excel est un logiciel de calcul et d’analyse de données.</p>
+<p class="mlt"><b>ML :</b> Excel dia programa hanaovana calcul sy fandinihana données.</p>
+
+<h3>📌 Fonctions essentielles</h3>
+<ul>
+<li>SOMME</li>
+<li>MOYENNE</li>
+<li>TRI (classement des données)</li>
+<li>GRAPHIQUE (représentation visuelle)</li>
+</ul>
+
+<!-- SOMME -->
+<h3>➕ 1. SOMME</h3>
+<p class="fr">Additionne plusieurs valeurs.</p>
+<p class="mlt">Manampy valeur maro.</p>
+
+<code>=SOMME(A1:A10)</code>
+
+<div class="quiz">
+<p>👉 SOMME sert à quoi ?</p>
+<button onclick="answer(this,true)">Additionner des valeurs</button>
+<button onclick="answer(this,false)">Faire une moyenne</button>
+</div>
+
+<!-- MOYENNE -->
+<h3>📊 2. MOYENNE</h3>
+<p class="fr">Calcule la valeur moyenne des données.</p>
+<p class="mlt">Mampiseho salanisa (average).</p>
+
+<code>=MOYENNE(A1:A10)</code>
+
+<div class="quiz">
+<p>👉 MOYENNE = ?</p>
+<button onclick="answer(this,true)">Somme / nombre de valeurs</button>
+<button onclick="answer(this,false)">Addition simple seulement</button><br>
+<a href="Moyenne4eme.html">fonction MOYENNE</a>
+</div>
+
+<!-- TRI -->
+<h3>🔃 3. TRI</h3>
+<p class="fr">Organise les données (A→Z ou Z→A).</p>
+<p class="mlt">Mandamina data miakatra na midina.</p>
+
+<ul>
+<li>Tri croissant (A → Z / 1 → 10)</li>
+<li>Tri décroissant (Z → A / 10 → 1)</li>
+</ul>
+
+<div class="quiz">
+<p>👉 Le TRI sert à :</p>
+<button onclick="answer(this,true)">Classer les données</button>
+<button onclick="answer(this,false)">Additionner les nombres</button><br>
+<a href="tri.ex.html">tri Excel</a>
+</div>
+
+<!-- GRAPHIQUE -->
+<h3>📈 4. GRAPHIQUE</h3>
+<p class="fr">Permet de visualiser les données sous forme de diagramme.</p>
+<p class="mlt">Mampiseho data amin’ny endrika sary (diagramme).</p>
+
+<ul>
+<li>Barres</li>
+<li>Courbes</li>
+<li>Camembert</li>
+</ul>
+
+<div class="quiz">
+<p>👉 Un graphique sert à :</p>
+<button onclick="answer(this,true)">Visualiser les données</button>
+<button onclick="answer(this,false)">Écrire du texte</button>
+</div>
+
+<!-- DEVOIR -->
+<h3>🧪 Devoir</h3>
+<ul>
+<li>Créer un tableau de notes</li>
+<li>Calculer SOMME et MOYENNE</li>
+<li>Classer les élèves (TRI)</li>
+<li>Créer un graphique</li>
+</ul>
+
+<!-- EVALUATION -->
+<h3>📝 Évaluation</h3>
+<p>Exercice pratique : formules + tri + graphique + présentation propre</p>
+
+</div>
+</div>
+
+<script>
+function toggle(el){
+  el.nextElementSibling.classList.toggle("show");
+}
+
+function answer(btn,correct){
+  if(correct){
+    btn.style.background="green";
+    btn.style.color="white";
+    btn.innerText="✔ Correct";
+  }else{
+    btn.style.background="red";
+    btn.style.color="white";
+    btn.innerText="✘ Faux";
+  }
+}
+</script>
+
+<style>
+.card{
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin:10px 0;
+  overflow:hidden;
+  font-family:Arial;
+}
+
+.toggle{
+  background:#2196F3;
+  color:white;
+  padding:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.content{
+  display:none;
+  padding:10px;
+}
+
+.content.show{
+  display:block;
+}
+
+.fr{color:#333;}
+.mlt{color:#2e7d32;}
+
+code{
+  display:block;
+  background:#f4f4f4;
+  padding:5px;
+  margin:5px 0;
+  border-left:3px solid #2196F3;
+}
+
+.quiz{
+  background:#fafafa;
+  padding:10px;
+  border:1px dashed #ccc;
+  margin-top:10px;
+}
+
+button{
+  margin:3px;
+  padding:5px 10px;
+  cursor:pointer;
+}
+</style>
+
+</div></section><!-- TRIMESTRE 2 --><section id="t2">
+<h2>🌐 Trimestre 2 - Internet & Logique</h2><div class="card">
+<div class="toggle" onclick="toggle(this)">🌍 Internet sécurisé</div>
+<div class="content">
+Navigation, phishing, sécurité mot de passe
+</div>
+
+<div class="card">
+
+<div class="toggle" onclick="toggle(this)">🌍 Internet sécurisé</div>
+
+<div class="content">
+
+<!-- DEFINITION -->
+<h3>📘 1. Définition</h3>
+
+<p class="fr">
+<b>FR :</b> Internet sécurisé signifie utiliser Internet de manière sûre pour éviter les dangers en ligne.
+</p>
+
+<p class="mlt">
+<b>ML :</b> Internet sécurisé dia fampiasana Internet amin’ny fomba azo antoka mba hisorohana loza.
+</p>
+
+---
+
+<!-- NAVIGATION -->
+<h3>🌐 2. Navigation sur Internet</h3>
+
+<p class="fr">
+La navigation consiste à visiter des sites web à l’aide d’un navigateur (Chrome, Firefox...).
+</p>
+
+<p class="mlt">
+Ny navigation dia fitsidihana sites amin’ny alalan’ny navigateur.
+</p>
+
+<ul>
+<li>Utiliser des sites fiables</li>
+<li>Éviter les liens inconnus</li>
+<li>Vérifier l’adresse du site (https)</li>
+</ul><br>
+<a href="Navigation-sur-Internet.html">Navigation sur Internet</a>
+
+---
+
+<!-- PHISHING -->
+<h3>⚠️ 3. Phishing</h3>
+
+<p class="fr">
+Le phishing est une arnaque qui vole les informations personnelles (mot de passe, email...).
+</p>
+<a href="Phishing.html">Phishing</a>
+<p class="mlt">
+Phishing dia fitaka mangalatra mot de passe sy informations manokana.</p>
+
+<ul>
+<li>Emails faux</li>
+<li>Liens dangereux</li>
+<li>Sites imitation</li>
+</ul>
+
+<div class="quiz">
+
+<p>👉 Le phishing sert à :</p>
+
+<button onclick="answer(this,true)">Voler des informations</button>
+<button onclick="answer(this,false)">Améliorer Internet</button>
+
+</div>
+
+---
+
+<!-- MOT DE PASSE -->
+<h3>🔐 4. Sécurité du mot de passe</h3>
+
+<p class="fr">
+Un mot de passe sécurisé protège les comptes personnels.
+</p>
+
+<p class="mlt">
+Mot de passe tsara dia miaro ny kaonty amin’ny hackers.</p>
+
+<ul>
+<li>Utiliser lettres + chiffres + symboles</li>
+<li>Ne pas partager</li>
+<li>Changer régulièrement</li>
+</ul>
+
+<code>Exemple : Aina@2026#Safe</code>
+
+<div class="quiz">
+
+<p>👉 Bon mot de passe doit être :</p>
+
+<button onclick="answer(this,true)">Complexe et unique</button>
+<button onclick="answer(this,false)">Simple (1234)</button>
+
+</div>
+
+---
+
+<!-- BONNES PRATIQUES -->
+<h3>🛡️ 5. Bonnes pratiques</h3>
+
+<ul>
+<li>Ne pas cliquer liens inconnus</li>
+<li>Installer antivirus</li>
+<li>Vérifier les sites</li>
+<li>Se déconnecter après usage</li>
+</ul>
+
+---
+
+<!-- EXERCICE -->
+<h3>🧪 6. Exercice</h3>
+
+<ul>
+<li>Citer 3 dangers d’Internet</li>
+<li>Créer un mot de passe sécurisé</li>
+<li>Expliquer phishing en 1 phrase</li>
+</ul>
+
+---
+
+<!-- QUIZ FINAL -->
+<div class="quiz">
+
+<h3>📝 Quiz final</h3>
+
+<p>👉 Internet sécurisé signifie :</p>
+<button onclick="answer(this,true)">Utiliser Internet sans danger</button>
+<button onclick="answer(this,false)">Utiliser Internet sans règles</button>
+<br><br>
+
+<p>👉 Phishing est :</p>
+<button onclick="answer(this,true)">Une arnaque en ligne</button>
+<button onclick="answer(this,false)">Un logiciel</button>
+
+<br><br>
+
+<p>👉 Mot de passe sécurisé :</p>
+<button onclick="answer(this,true)">Ex : Aina@2026#Safe</button>
+<button onclick="answer(this,false)">Ex : 1234</button>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="card">
+<div class="toggle" onclick="toggle(this)">🧠 Algorithmique</div>
+<div class="content">
+SI / SINON, pseudo-code<div class="quiz">
+<p>Algorithme = ?</p>
+<button onclick="answer(this,true)">Suite d'étapes</button>
+<button onclick="answer(this,false)">Image</button><br>
+<a href="Algorithmique.html">Algorithmique</a>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="toggle" onclick="toggle(this)">🎨 Multimédia</div>
+<div class="content">
+Images, audio, vidéo
+</div><br>
+<a href="Multimédia.html">Multimédia</a>
+</div></section><!-- TRIMESTRE 3 --><section id="t3">
+<h2>📙 Trimestre 3 - Programmation & Projet</h2><div class="card">
+<div class="toggle" onclick="toggle(this)">🌍 HTML / CSS</div>
+<div class="content">
+Structure page web, balises<div class="quiz">
+<p>HTML sert à ...</p>
+<button onclick="answer(this,true)">Créer pages web</button>
+<button onclick="answer(this,false)">Calculer</button>
+<a href="Créer-pages-web.html">Créer pages web</a>
+</div>
+</div><br>
+<a href="programmation.html">progprogrammation<br><br>
+<div class="card">
+<div class="toggle" onclick="toggle(this)">🧩 Logique programmation</div>
+<div class="content">
+Variables, conditions SI
+</div><br>
+<a href="Logique.programmation.html">Logique programmation</a>
+
+</div></section><script>
+function showSection(id){
+let sections=document.querySelectorAll('section');
+sections.forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function toggle(el){
+let content=el.nextElementSibling;
+content.style.display = content.style.display==='block'?'none':'block';
+}
+
+function answer(btn,correct){
+if(correct){btn.classList.add('correct');}
+else{btn.classList.add('wrong');}
+}
+</script>
+
+</body>
+</html>

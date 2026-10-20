@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InfoPro | Activités & Défis des Élèves</title>
+
+<style>
+
+/* =====================================================
+   STYLE GÉNÉRAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left,#123c5a,transparent 35%),
+        linear-gradient(135deg,#06111c,#0b2638,#082f3b);
+    color:#fff;
+    min-height:100vh;
+    line-height:1.7;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    padding:25px 15px;
+    text-align:center;
+    background:rgba(0,0,0,.30);
+    border-bottom:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:34px;
+    font-weight:bold;
+    color:#66e3ff;
+}
+
+.slogan{
+    margin-top:8px;
+    color:#d7f7ff;
+    font-size:16px;
+}
+
+.langues{
+    margin-top:15px;
+}
+
+.langues button{
+    border:0;
+    padding:9px 15px;
+    margin:4px;
+    border-radius:20px;
+    cursor:pointer;
+    background:#ffffff18;
+    color:#fff;
+    border:1px solid #ffffff35;
+}
+
+.langues button:hover{
+    background:#00bcd4;
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:12px;
+    background:#041923;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:9px 14px;
+    border-radius:20px;
+    background:#ffffff10;
+}
+
+nav a:hover{
+    background:#00a8c6;
+}
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.container{
+    width:min(1150px,94%);
+    margin:30px auto;
+}
+
+.hero{
+    text-align:center;
+    padding:35px 20px;
+    margin-bottom:25px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#00a6c733,#ffffff0b);
+    border:1px solid #ffffff18;
+    box-shadow:0 15px 40px #0005;
+}
+
+.hero h1{
+    color:#71e8ff;
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    color:#e5faff;
+}
+
+/* =====================================================
+   CARTES
+===================================================== */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 12px 30px #0004;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.11);
+}
+
+.card h2{
+    color:#6ee7ff;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:#ffd86b;
+    margin:14px 0 6px;
+}
+
+.card p{
+    color:#e5f1f4;
+}
+
+.card ul{
+    padding-left:20px;
+    margin-top:10px;
+}
+
+.card li{
+    margin:6px 0;
+}
+
+/* =====================================================
+   ACTIVITÉS
+===================================================== */
+
+.activity{
+    margin-top:30px;
+    padding:25px;
+    border-radius:22px;
+    background:#031923cc;
+    border:1px solid #ffffff18;
+}
+
+.activity h2{
+    color:#72e8ff;
+    margin-bottom:10px;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 12px;
+    margin:5px 3px;
+    border-radius:15px;
+    background:#00a9c733;
+    color:#8defff;
+    font-size:13px;
+}
+
+.task{
+    margin-top:18px;
+    padding:18px;
+    border-left:4px solid #00c6df;
+    background:#ffffff08;
+    border-radius:10px;
+}
+
+.task strong{
+    color:#ffe17b;
+}
+
+/* =====================================================
+   BOUTON
+===================================================== */
+
+button.action{
+    margin-top:15px;
+    padding:11px 18px;
+    border:none;
+    border-radius:22px;
+    background:#00acc6;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button.action:hover{
+    background:#008fa3;
+}
+
+/* =====================================================
+   ZONE RÉPONSE
+===================================================== */
+
+.answer{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    background:#123c31;
+    border-radius:12px;
+    color:#dffff4;
+}
+
+/* =====================================================
+   MOTIVATION
+===================================================== */
+
+.motivation{
+    margin-top:30px;
+    text-align:center;
+    padding:30px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#006477,#12304c);
+}
+
+.motivation h2{
+    color:#ffe27a;
+    margin-bottom:12px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    margin-top:40px;
+    padding:25px;
+    text-align:center;
+    background:#020d14;
+    color:#b9d8df;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    .logo{
+        font-size:27px;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .card,
+    .activity{
+        padding:18px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+        💻 InfoPro
+    </div>
+
+    <div class="slogan">
+        Apprendre • Pratiquer • Créer • Réussir
+    </div>
+
+    <div class="langues">
+        <button onclick="francais()">🇫🇷 Français</button>
+        <button onclick="malagasy()">🇲🇬 Malagasy</button>
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <a href="index.html">🏠 Accueil</a>
+
+    <a href="cours.html">📚 Cours</a>
+
+    <a href="exercice.html">📝 Exercices</a>
+
+    <a href="jeux.html">🎮 Jeux</a>
+
+    <a href="activites-eleves.html">🎯 Activités</a>
+
+</nav>
+
+
+<!-- =====================================================
+     CONTENU
+===================================================== -->
+
+<main class="container">
+
+
+<section class="hero">
+
+<h1>🎯 Activités & Défis des Élèves</h1>
+
+<p>
+Bienvenue dans l'espace réservé aux activités pédagogiques et aux défis.
+Cette page permet aux élèves d'apprendre autrement : en réfléchissant,
+en pratiquant, en travaillant en groupe, en créant et en présentant leurs
+réalisations.
+</p>
+
+<br>
+
+<p>
+L'objectif n'est pas seulement de connaître les leçons, mais de savoir
+utiliser ses connaissances dans des situations concrètes.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     OBJECTIFS
+===================================================== -->
+
+<section class="grid">
+
+<div class="card">
+
+<h2>🧠 Réfléchir</h2>
+
+<p>
+Développer la logique, l'observation, la concentration et la capacité
+à résoudre un problème étape par étape.
+</p>
+
+<ul>
+<li>Énigmes</li>
+<li>Suites logiques</li>
+<li>Classement</li>
+<li>Problèmes</li>
+<li>Défis de raisonnement</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>💻 Pratiquer</h2>
+
+<p>
+Mettre en pratique les connaissances informatiques apprises pendant les
+cours.
+</p>
+
+<ul>
+<li>Clavier</li>
+<li>Souris</li>
+<li>Word</li>
+<li>Excel</li>
+<li>PowerPoint</li>
+<li>Paint</li>
+<li>HTML/CSS</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎨 Créer</h2>
+
+<p>
+Utiliser l'informatique comme outil de création et d'expression.
+</p>
+
+<ul>
+<li>Affiches</li>
+<li>Cartes</li>
+<li>Présentations</li>
+<li>Petits projets</li>
+<li>Dessins numériques</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2>🤝 Collaborer</h2>
+
+<p>
+Apprendre à travailler avec les autres, à partager les tâches et à
+respecter les idées de chacun.
+</p>
+
+<ul>
+<li>Travail en binôme</li>
+<li>Travail en groupe</li>
+<li>Projet collectif</li>
+<li>Présentation</li>
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 1
+===================================================== -->
+
+<section class="activity">
+
+<h2>🧠 Activité 1 — Le défi de la logique</h2>
+
+<span class="badge">Débutant</span>
+<span class="badge">10 minutes</span>
+<span class="badge">Individuel</span>
+
+<div class="task">
+
+<strong>Consigne :</strong>
+
+<p>
+Observe la suite suivante :
+</p>
+
+<p style="font-size:22px;text-align:center;margin:15px;">
+2 — 4 — 6 — 8 — ?
+</p>
+
+<p>
+Trouve le nombre qui doit remplacer le point d'interrogation et explique
+pourquoi tu as choisi ce nombre.
+</p>
+
+<button class="action" onclick="showAnswer('rep1')">
+👁️ Voir la correction
+</button>
+
+<div id="rep1" class="answer">
+La réponse est <strong>10</strong>.
+On ajoute 2 à chaque étape :
+2 → 4 → 6 → 8 → 10.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 2
+===================================================== -->
+
+<section class="activity">
+
+<h2>💻 Activité 2 — Défi du clavier</h2>
+
+<span class="badge">Informatique</span>
+<span class="badge">15 minutes</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Écris une phrase de 30 mots dans un traitement de texte sans utiliser
+la souris pendant la saisie.
+</p>
+
+<p>
+Ensuite, utilise les touches suivantes :
+</p>
+
+<ul>
+<li>Entrée</li>
+<li>Retour arrière</li>
+<li>Majuscule</li>
+<li>Barre d'espace</li>
+<li>Flèches directionnelles</li>
+</ul>
+
+<p>
+<strong>Objectif :</strong> améliorer la maîtrise du clavier et la vitesse
+de saisie.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 3
+===================================================== -->
+
+<section class="activity">
+
+<h2>🎨 Activité 3 — Création d'une affiche</h2>
+
+<span class="badge">Créativité</span>
+<span class="badge">30 minutes</span>
+<span class="badge">Groupe</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Crée une affiche numérique ayant pour thème :
+</p>
+
+<p style="text-align:center;font-size:21px;">
+<strong>« Un bon élève dans la salle informatique »</strong>
+</p>
+
+<p>
+L'affiche doit contenir au minimum :
+</p>
+
+<ul>
+<li>Un titre</li>
+<li>Une image ou un dessin</li>
+<li>Trois règles importantes</li>
+<li>Une phrase de motivation</li>
+<li>Le nom du groupe</li>
+</ul>
+
+<p>
+L'affiche peut être réalisée avec Paint, Word, PowerPoint ou un autre
+outil disponible.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 4
+===================================================== -->
+
+<section class="activity">
+
+<h2>📊 Activité 4 — Défi Excel</h2>
+
+<span class="badge">Excel</span>
+<span class="badge">30 minutes</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Crée un petit tableau contenant les noms de 10 élèves et leurs notes.
+Calcule ensuite :
+</p>
+
+<ul>
+<li>Le total</li>
+<li>La moyenne</li>
+<li>La meilleure note</li>
+<li>La plus faible note</li>
+</ul>
+
+<p>
+Utilise les fonctions Excel appropriées et présente ton tableau de façon
+claire.
+</p>
+
+<p>
+<strong>Défi supplémentaire :</strong> ajoute une colonne permettant
+d'afficher automatiquement « Admis » ou « À renforcer » selon la moyenne.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 5
+===================================================== -->
+
+<section class="activity">
+
+<h2>🖥️ Activité 5 — Crée ta première page Web</h2>
+
+<span class="badge">HTML</span>
+<span class="badge">Projet</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Crée une petite page Web personnelle contenant :
+</p>
+
+<ul>
+<li>Ton prénom</li>
+<li>Ta classe</li>
+<li>Ton activité préférée</li>
+<li>Une courte présentation</li>
+<li>Une image</li>
+<li>Une liste de trois objectifs</li>
+</ul>
+
+<p>
+Le titre de la page doit être :
+</p>
+
+<p style="text-align:center;">
+<strong>« Ma première page Web »</strong>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 6
+===================================================== -->
+
+<section class="activity">
+
+<h2>🗣️ Activité 6 — Présentation orale</h2>
+
+<span class="badge">Expression</span>
+<span class="badge">5 minutes</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Chaque élève prépare une courte présentation sur un sujet informatique
+qu'il connaît.
+</p>
+
+<p>Exemples :</p>
+
+<ul>
+<li>Qu'est-ce qu'un ordinateur ?</li>
+<li>À quoi sert Internet ?</li>
+<li>Pourquoi protéger son mot de passe ?</li>
+<li>Qu'est-ce qu'un logiciel ?</li>
+<li>Pourquoi apprendre Excel ?</li>
+</ul>
+
+<p>
+La présentation doit être claire, organisée et compréhensible par les
+autres élèves.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 7
+===================================================== -->
+
+<section class="activity">
+
+<h2>🤝 Activité 7 — Le projet en équipe</h2>
+
+<span class="badge">Groupe</span>
+<span class="badge">Projet</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Formez un groupe de 3 à 5 élèves et choisissez un petit projet
+informatique.
+</p>
+
+<p>Exemples :</p>
+
+<ul>
+<li>Créer une affiche scolaire</li>
+<li>Créer une présentation</li>
+<li>Créer une page Web</li>
+<li>Créer un tableau Excel</li>
+<li>Créer un quiz éducatif</li>
+</ul>
+
+<p>
+Chaque membre du groupe doit avoir une responsabilité précise.
+</p>
+
+<p>
+À la fin, le groupe présente son travail devant la classe.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 8
+===================================================== -->
+
+<section class="activity">
+
+<h2>🔐 Activité 8 — Sécurité numérique</h2>
+
+<span class="badge">Internet</span>
+<span class="badge">Citoyenneté numérique</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Imagine qu'un ami te demande ton mot de passe pour accéder à ton compte.
+Que dois-tu faire ?
+</p>
+
+<p>
+Explique en quelques phrases pourquoi il est important de protéger ses
+identifiants personnels.
+</p>
+
+<p>
+Ensuite, donne <strong>5 règles</strong> pour utiliser Internet de manière
+responsable.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 9
+===================================================== -->
+
+<section class="activity">
+
+<h2>🔎 Activité 9 — Recherche documentaire</h2>
+
+<span class="badge">Recherche</span>
+<span class="badge">30 minutes</span>
+
+<div class="task">
+
+<strong>Mission :</strong>
+
+<p>
+Choisis un sujet lié à l'informatique et réalise une petite recherche.
+</p>
+
+<p>Exemples :</p>
+
+<ul>
+<li>L'histoire de l'ordinateur</li>
+<li>L'intelligence artificielle</li>
+<li>Internet</li>
+<li>Les robots</li>
+<li>Les métiers de l'informatique</li>
+</ul>
+
+<p>
+Présente ensuite les informations sous forme de petit exposé ou de
+présentation numérique.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉ 10
+===================================================== -->
+
+<section class="activity">
+
+<h2>🏆 Activité 10 — Grand Challenge InfoPro</h2>
+
+<span class="badge">Challenge</span>
+<span class="badge">Compétition amicale</span>
+
+<div class="task">
+
+<strong>Défi :</strong>
+
+<p>
+Les élèves doivent réaliser plusieurs petites missions.
+Chaque mission rapporte des points.
+</p>
+
+<ul>
+<li>🧠 Logique : 10 points</li>
+<li>⌨️ Clavier : 10 points</li>
+<li>🖱️ Souris : 10 points</li>
+<li>📄 Word : 15 points</li>
+<li>📊 Excel : 20 points</li>
+<li>🎨 Créativité : 15 points</li>
+<li>💻 HTML : 20 points</li>
+<li>🗣️ Présentation : 10 points</li>
+</ul>
+
+<p>
+À la fin, les points peuvent servir à établir un classement pédagogique.
+L'objectif est surtout de motiver les élèves à apprendre et à progresser.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ACTIVITÉS RAPIDES
+===================================================== -->
+
+<section class="activity">
+
+<h2>⚡ 20 petits défis rapides</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>01</h3>
+<p>Nommer 5 périphériques d'un ordinateur.</p>
+</div>
+
+<div class="card">
+<h3>02</h3>
+<p>Citer 5 logiciels connus.</p>
+</div>
+
+<div class="card">
+<h3>03</h3>
+<p>Écrire 10 raccourcis clavier.</p>
+</div>
+
+<div class="card">
+<h3>04</h3>
+<p>Créer un dossier et le renommer.</p>
+</div>
+
+<div class="card">
+<h3>05</h3>
+<p>Créer un document texte.</p>
+</div>
+
+<div class="card">
+<h3>06</h3>
+<p>Insérer une image dans Word.</p>
+</div>
+
+<div class="card">
+<h3>07</h3>
+<p>Créer un tableau simple.</p>
+</div>
+
+<div class="card">
+<h3>08</h3>
+<p>Calculer une moyenne avec Excel.</p>
+</div>
+
+<div class="card">
+<h3>09</h3>
+<p>Créer une petite présentation.</p>
+</div>
+
+<div class="card">
+<h3>10</h3>
+<p>Dessiner une icône avec Paint.</p>
+</div>
+
+<div class="card">
+<h3>11</h3>
+<p>Écrire une phrase en HTML.</p>
+</div>
+
+<div class="card">
+<h3>12</h3>
+<p>Modifier la couleur d'un texte.</p>
+</div>
+
+<div class="card">
+<h3>13</h3>
+<p>Créer une liste HTML.</p>
+</div>
+
+<div class="card">
+<h3>14</h3>
+<p>Expliquer ce qu'est Internet.</p>
+</div>
+
+<div class="card">
+<h3>15</h3>
+<p>Donner 5 règles de sécurité.</p>
+</div>
+
+<div class="card">
+<h3>16</h3>
+<p>Résoudre une énigme logique.</p>
+</div>
+
+<div class="card">
+<h3>17</h3>
+<p>Faire une présentation de 2 minutes.</p>
+</div>
+
+<div class="card">
+<h3>18</h3>
+<p>Travailler en binôme sur un mini-projet.</p>
+</div>
+
+<div class="card">
+<h3>19</h3>
+<p>Créer une affiche numérique.</p>
+</div>
+
+<div class="card">
+<h3>20</h3>
+<p>Inventer un nouveau défi informatique.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MESSAGE PÉDAGOGIQUE
+===================================================== -->
+
+<section class="motivation">
+
+<h2>🌟 Message aux élèves</h2>
+
+<p>
+L'informatique ne s'apprend pas uniquement en lisant une leçon.
+Elle s'apprend surtout en pratiquant, en essayant, en faisant des erreurs,
+en corrigeant ses erreurs et en recommençant.
+</p>
+
+<br>
+
+<p>
+<strong>
+« N'ayez pas peur de faire des erreurs : chaque erreur peut devenir
+une occasion d'apprendre. »
+</strong>
+</p>
+
+<br>
+
+<p>
+🚀 Apprendre • Pratiquer • Créer • Réussir
+</p>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<p>
+💻 <strong>Mr Tahiry - Informatique 👨‍🏫</strong>
+</p>
+
+<p>
+InfoPro • Activités pédagogiques & défis des élèves
+</p>
+
+<p>
+© 2026 InfoPro — Tous droits réservés
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   CORRECTION
+===================================================== */
+
+function showAnswer(id){
+
+    const element = document.getElementById(id);
+
+    if(element.style.display === "block"){
+        element.style.display = "none";
+    }
+    else{
+        element.style.display = "block";
+    }
+
+}
+
+
+/* =====================================================
+   LANGUES
+===================================================== */
+
+function francais(){
+
+    alert(
+        "🇫🇷 La version française est actuellement affichée."
+    );
+
+}
+
+function malagasy(){
+
+    alert(
+        "🇲🇬 Ny pejy Malagasy dia azo ampiana amin'ny version manaraka."
+    );
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Algorithme Pro</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+}
+
+/* HEADER PRO */
+header{
+  background:#1e293b;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{
+  font-size:16px;
+}
+
+.btn{
+  padding:8px 12px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.fr{background:#3b82f6;color:white;}
+.ml{background:#22c55e;color:white;}
+
+.container{
+  max-width:800px;
+  margin:auto;
+  padding:20px;
+}
+
+.card{
+  background:#111827;
+  margin-bottom:10px;
+  padding:15px;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 6px rgba(0,0,0,0.3);
+}
+
+.content{
+  display:none;
+  margin-top:10px;
+  color:#cbd5e1;
+}
+
+.code{
+  background:#0b1220;
+  padding:10px;
+  border-radius:8px;
+  font-family:monospace;
+  color:#00ff99;
+  margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1 id="title">🧠 Leçon : Algorithme</h1>
+
+  <div>
+    <button class="btn fr" onclick="setLang('fr')">FR</button>
+    <button class="btn ml" onclick="setLang('ml')">ML</button>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- INTRO -->
+<div class="card" onclick="toggle('c1')">
+<h2 id="h1">1. Inona ny algorithme?</h2>
+
+<div class="content" id="c1">
+<p id="p1">
+Algorithme dia andiana dingana tsikelikely hamahana olana iray.
+</p>
+</div>
+</div>
+
+<!-- CARACTERISTIQUES -->
+<div class="card" onclick="toggle('c2')">
+<h2 id="h2">2. Toetran'ny algorithme</h2>
+
+<div class="content" id="c2">
+<ul>
+<li>✔ Clair (mazava)</li>
+<li>✔ Précis</li>
+<li>✔ Fini (mifarana)</li>
+<li>✔ Exécutable</li>
+</ul>
+</div>
+</div>
+
+<!-- STRUCTURE -->
+<div class="card" onclick="toggle('c3')">
+<h2 id="h3">3. Structure d’un algorithme</h2>
+
+<div class="content" id="c3">
+
+<div class="code">
+Début  
+  Entrée  
+  Traitement  
+  Sortie  
+Fin
+</div>
+
+</div>
+</div>
+
+<!-- EXEMPLE -->
+<div class="card" onclick="toggle('c4')">
+<h2 id="h4">4. Exemple simple</h2>
+
+<div class="content" id="c4">
+
+<div class="code">
+Algorithme addition  
+Début  
+  Lire A, B  
+  S ← A + B  
+  Afficher S  
+Fin
+</div>
+
+</div>
+</div>
+
+<!-- UTILITE -->
+<div class="card" onclick="toggle('c5')">
+<h2 id="h5">5. Utilité</h2>
+
+<div class="content" id="c5">
+<p id="p5">
+Ny algorithme dia ampiasaina amin’ny programmation rehetra: apps, jeux, internet.
+</p>
+</div>
+</div>
+
+</div>
+
+<script>
+
+/* TOGGLE SHOW/HIDE */
+function toggle(id){
+  let x = document.getElementById(id);
+  x.style.display = (x.style.display === "block") ? "none" : "block";
+}
+
+/* FR / ML */
+function setLang(lang){
+
+  if(lang === "fr"){
+    document.getElementById("title").innerText="🧠 Leçon : Algorithme";
+
+    document.getElementById("h1").innerText="1. Qu'est-ce qu'un algorithme ?";
+    document.getElementById("p1").innerText="Un algorithme est une suite d'étapes pour résoudre un problème.";
+
+    document.getElementById("h2").innerText="2. Caractéristiques";
+    document.getElementById("h3").innerText="3. Structure d’un algorithme";
+    document.getElementById("h4").innerText="4. Exemple simple";
+    document.getElementById("h5").innerText="5. Utilité";
+    document.getElementById("p5").innerText="L’algorithme est utilisé dans toutes les applications informatiques.";
+  }
+
+  else if(lang === "ml"){
+    document.getElementById("title").innerText="🧠 Lesona : Algorithme";
+
+    document.getElementById("h1").innerText="1. Inona ny algorithme?";
+    document.getElementById("p1").innerText="Algorithme dia dingana tsikelikely hamahana olana.";
+
+    document.getElementById("h2").innerText="2. Toetrany";
+    document.getElementById("h3").innerText="3. Firafiny";
+    document.getElementById("h4").innerText="4. Ohatra tsotra";
+    document.getElementById("h5").innerText="5. Fampiasana";
+    document.getElementById("p5").innerText="Algorithme dia ampiasaina amin’ny apps, jeux, internet rehetra.";
+  }
+}
+
+</script>
+
+</body>
+</html>

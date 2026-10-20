@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="protection.js"></script>
+
+<title>Actualité | InfoPro</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:white;
+
+    background:
+    radial-gradient(circle at top left,#084d72,transparent 40%),
+    radial-gradient(circle at bottom right,#063d4d,transparent 40%),
+    #061522;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 5%;
+
+    background:rgba(2,20,36,.94);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    color:#00d9ff;
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+
+    padding:9px 15px;
+
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+    background:#00c6ff;
+    color:#00131f;
+}
+
+.langue a{
+    text-decoration:none;
+    font-size:22px;
+    margin-left:7px;
+}
+
+/* PAGE */
+
+.container{
+    width:min(1100px,92%);
+    margin:60px auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h1{
+    font-size:42px;
+    color:#00d9ff;
+}
+
+.title p{
+    margin-top:12px;
+    color:#c2d5df;
+}
+
+/* ACTUALITÉS */
+
+.news{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+.news-card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.news-card:hover{
+    transform:translateY(-8px);
+
+    border-color:#00c6ff;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.news-header{
+    padding:25px;
+
+    font-size:40px;
+
+    text-align:center;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,198,255,.25),
+        rgba(0,100,255,.1)
+    );
+}
+
+.news-body{
+    padding:25px;
+}
+
+.news-body h2{
+    color:#00d9ff;
+    margin-bottom:12px;
+}
+
+.news-body p{
+    color:#cbdce4;
+    line-height:1.7;
+}
+
+.date{
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:rgba(0,198,255,.1);
+
+    color:#00d9ff;
+
+    font-size:13px;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:80px;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#03121f;
+}
+
+footer h2{
+    color:#00d9ff;
+}
+
+footer p{
+    margin-top:10px;
+    color:#b9ccd6;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .title h1{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        💻 InfoPro
+    </div>
+
+    <nav>
+
+        <a href="Accueil.html">
+            🏠 Accueil
+        <a/>
+
+        <a href="presentation.html">
+            👨‍🏫 Présentation
+        </a>
+
+        <a href="actualite.html">
+            📰 Actualité
+        </a>
+
+        <a href="TLe.html">
+            📚 Leçons
+        </a>
+
+    </nav>
+
+    <div class="langue">
+
+        <a href="actualite.html">🇫🇷</a>
+
+        <a href="actualité-mg.html">🇲🇬</a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="title">
+
+    <actualit1>
+        <📰 Actualite1>
+
+    <p>
+        Retrouvez ici les informations et les nouveautés
+        de la plateforme pédagogique.
+    </p>
+
+</section>
+
+
+<section class="news">
+
+
+    <article class="news-card">
+
+        <div class="news-cueilr">
+            💻
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Nouvelle plateforme informatique
+            </h2>
+
+            <p>
+                La plateforme pédagogique rassemble
+                progressivement les cours, exercices,
+                outils et ressources d'informatique.
+            </p>
+
+            <span class="date">
+                📅 2026
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            📚
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Nouveaux cours
+            </h2>
+
+            <p>
+                De nouvelles leçons sont ajoutées
+                progressivement : HTML, JavaScript,
+                binaire, ASCII et algorithmique.
+            </p>
+
+            <span class="date">
+                📚 Cours
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            🧮
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Nouveaux outils interactifs
+            </h2>
+
+            <p>
+                Plusieurs outils permettent aux élèves
+                de pratiquer directement les notions
+                étudiées en classe.
+            </p>
+
+            <span class="date">
+                🛠️ Outils
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            🚀
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Objectif de la plateforme
+            </h2>
+
+            <p>
+                Faciliter l'apprentissage de l'informatique
+                grâce à des contenus accessibles sur ordinateur
+                et téléphone.
+            </p>
+
+            <span class="date">
+                🎓 Pédagogie
+            </span>
+
+        </div>
+
+    </article>
+
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <h2>
+        💻 Mr Tahiry - Informatique 👨‍🏫
+    </h2>
+
+    <p>
+        🚀 Apprendre • Pratiquer • Réussir 🌟
+    </p>
+
+</footer>
+
+
+</body>
+</html>

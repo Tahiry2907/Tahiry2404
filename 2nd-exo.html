@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leçon</title>
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">💻 Leçon</div>
+
+  <nav>
+    <a href="index-2.html">Accueil</a>
+    <a href="présentation.html">Présentation</a>
+    <a href="actualité.html">Actualité</a>
+
+  </nav>
+
+  <div class="langue">
+    <a href="1ère.html">🇫🇷</a>
+    <a href="1ère-mg.html">🇲🇬</a>
+  </div>
+</header>
+<script>
+const lessons = {
+fr:[
+  {titre:"Ordinateur", desc:"L’ordinateur est une machine capable de traiter des données selon des instructions précises.", img:"https://via.placeholder.com/400x200?text=Ordinateur"},
+  {titre:"Clavier", desc:"Le clavier est un périphérique permettant de saisir des informations dans un ordinateur.", img:"https://via.placeholder.com/400x200?text=Clavier"},
+  {titre:"Souris", desc:"La souris est un périphérique de pointage permettant de contrôler le curseur à l’écran.", img:"https://via.placeholder.com/400x200?text=Souris"},
+  {titre:"Écran / Unité centrale", desc:"L’écran affiche les informations et l’unité centrale traite les données à l’intérieur de l’ordinateur.", img:"https://via.placeholder.com/400x200?text=Ecran+Unite+centrale"},
+  {titre:"Ordinateur portable", desc:"L’ordinateur portable est un ordinateur compact et mobile intégrant écran, clavier et unité centrale.", img:"https://via.placeholder.com/400x200?text=Ordinateur+Portable"}
+],
+mg:[
+  {titre:"Ordinateur", desc:"Ny ordinatera dia milina afaka mandinika sy manodina angona araka ny torolàlana.", img:"https://via.placeholder.com/400x200?text=Ordinateur"},
+  {titre:"Clavier", desc:"Ny clavier dia fitaovana ampiasaina hanoratana sy hampidirana vaovao amin’ny ordinatera.", img:"https://via.placeholder.com/400x200?text=Clavier"},
+  {titre:"Souris", desc:"Ny souris dia fitaovana fanondro izay mifehy ny mari-pamantarana eo amin’ny écran.", img:"https://via.placeholder.com/400x200?text=Souris"},
+  {titre:"Écran / Unité centrale", desc:"Ny écran dia mampiseho ny vaovao ary ny unité centrale no mandinika sy manodina azy.", img:"https://via.placeholder.com/400x200?text=Ecran+Unite+centrale"},
+  {titre:"Ordinateur portable", desc:"Ny ordinateur portable dia ordinatera kely sy azo entina miaraka amin’ny écran, clavier, ary unité centrale.", img:"https://via.placeholder.com/400x200?text=Ordinateur+Portable"}
+]
+};
+
+let currentLang='fr', index=0;
+
+function switchLang(lang){ currentLang=lang; index=0; showLesson(); }
+function showLesson(){
+  const lesson=lessons[currentLang][index];
+  document.getElementById('content').innerHTML=`<h2>${lesson.titre}</h2><img src="${lesson.img}" alt="${lesson.titre}"><p>${lesson.desc}</p>`;
+}
+function next(){ if(index<lessons[currentLang].length-1){index++; showLesson();} }
+function prev(){ if(index>0){index--; showLesson();} }
+
+showLesson();
+</script>
+<section class="cards">
+
+<nav class="card">
+<a href="quiz-1.html" class="boutton">quiz-1</a>
+</nav>
+
+  <div class="card">
+    <i class="fas fa-laptop-code"></i>
+    <a href="quiz-2.html">quiz-2</a>
+  </div>
+
+  <div class="card">
+    <i class="fas fa-gamepad"></i>
+    <a href="quiz-3.html">quiz-3</a>
+  </div>
+
+  <div class="card">
+    <i class="fas fa-gamepad"></i>
+    <a href="quiz-4.html">quiz-4</a>
+  </div>
+
+  <nav class="card">
+<a href="quiz-5.html" class="boutton">quiz-5</a>
+<a href="quiz-6.html" class="boutton">quiz-6</a>
+</nav>
+  
+  </section>
+  <a href="Exercice-calcule-binaire.html">Exercice-calcule-binaire1</a>
+  <a href="Exercice-calcule-binaire2.html">Exercice-calcule-binaire2</a>
+  <a href="Exercice-calcule-binaire3.html">Exercice-calcule-binaire3</a>
+  <a href="Exercice-calcule-binaire4.html">Exercice-calcule-binaire4</a>
+  <a href="Exercice-calcule-binaire5.html">Exercice-calcule-binaire5</a>
+  <a href="Binaire-soustraction.html">Exercice-calcule-binaire5</a>
+  <footer class="footer-pro">
+
+  <h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2>
+
+  <p>📅 <span id="dateFooter"></span></p>
+
+  <div class="socials">
+    <a href="#">📘 Facebook</a>
+    <a href="#">💬 WhatsApp</a>
+    <a href="#">📧 Email</a>
+  </div>
+
+  <p class="devise">🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+
+</footer>
+
+</body>
+</html>

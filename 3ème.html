@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Classe 3ème - Informatique | Mr Tahiry</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:
+    radial-gradient(circle at top,#172554,#020617 65%);
+    color:#e5e7eb;
+    line-height:1.7;
+    min-height:100vh;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    text-align:center;
+    padding:35px 15px;
+    background:
+    linear-gradient(135deg,
+    rgba(8,47,73,.95),
+    rgba(30,64,175,.95));
+    box-shadow:0 5px 25px rgba(0,0,0,.35);
+}
+
+header h1{
+    font-size:clamp(26px,6vw,44px);
+    color:#38bdf8;
+    margin-bottom:8px;
+}
+
+header p{
+    color:#dbeafe;
+    font-size:16px;
+}
+
+.teacher{
+    margin-top:8px;
+    color:#facc15;
+    font-weight:bold;
+}
+
+/* =====================================================
+   LANGUE
+===================================================== */
+
+.language-box{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:18px;
+    flex-wrap:wrap;
+}
+
+.lang{
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    background:#22c55e;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.lang:hover,
+.lang.active{
+    background:#facc15;
+    color:#111827;
+    transform:translateY(-2px);
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:12px;
+    background:#020617;
+    border-bottom:1px solid #334155;
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
+}
+
+nav button{
+    padding:11px 18px;
+    border:none;
+    border-radius:25px;
+    background:#1e293b;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav button:hover,
+nav button.active{
+    background:#2563eb;
+    transform:translateY(-2px);
+}
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.main-section{
+    display:none;
+    max-width:1100px;
+    margin:auto;
+    padding:30px 15px;
+    animation:fade .5s ease;
+}
+
+.main-section.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    color:#38bdf8;
+    font-size:28px;
+}
+
+.section-title p{
+    color:#cbd5e1;
+}
+
+/* =====================================================
+   OBJECTIFS
+===================================================== */
+
+.objectifs{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.objectif{
+    background:rgba(255,255,255,.06);
+    border:1px solid #334155;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    transition:.3s;
+}
+
+.objectif:hover{
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}
+
+.objectif-icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card{
+    background:rgba(15,23,42,.85);
+    border:1px solid #334155;
+    border-radius:15px;
+    margin:18px 0;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+.toggle{
+    background:
+    linear-gradient(90deg,#0891b2,#2563eb);
+    padding:17px 20px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.toggle::after{
+    content:"＋";
+    font-size:23px;
+}
+
+.toggle.open::after{
+    content:"−";
+}
+
+.content{
+    display:none;
+    padding:22px;
+    background:rgba(2,6,23,.75);
+}
+
+.content.show{
+    display:block;
+    animation:open .3s ease;
+}
+
+@keyframes open{
+    from{
+        opacity:0;
+        transform:translateY(-5px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =====================================================
+   COURS
+===================================================== */
+
+.lesson-box{
+    background:rgba(14,165,233,.08);
+    border-left:5px solid #38bdf8;
+    padding:15px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+.lesson-box h3{
+    color:#38bdf8;
+    margin-bottom:8px;
+}
+
+.info{
+    background:rgba(34,197,94,.10);
+    border-left:5px solid #22c55e;
+    padding:15px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+.warning{
+    background:rgba(249,115,22,.10);
+    border-left:5px solid #f97316;
+    padding:15px;
+    border-radius:8px;
+    margin:15px 0;
+}
+
+ul,
+ol{
+    padding-left:25px;
+    margin:10px 0;
+}
+
+li{
+    margin:5px 0;
+}
+
+/* =====================================================
+   CODE
+===================================================== */
+
+code{
+    display:block;
+    background:#020617;
+    color:#facc15;
+    border-left:4px solid #38bdf8;
+    padding:14px;
+    margin:15px 0;
+    border-radius:8px;
+    overflow-x:auto;
+    font-family:Consolas,monospace;
+    white-space:pre-line;
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+.lesson-link{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:9px 15px;
+    border-radius:8px;
+    margin:6px 3px;
+    transition:.3s;
+}
+
+.lesson-link:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-container{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    min-width:600px;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    border:1px solid #475569;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#1e40af;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:rgba(255,255,255,.04);
+}
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz{
+    margin-top:20px;
+    padding:18px;
+    border:2px dashed #475569;
+    border-radius:12px;
+    background:rgba(255,255,255,.03);
+}
+
+.quiz h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.quiz-question{
+    margin:15px 0;
+    padding:12px;
+    background:rgba(255,255,255,.04);
+    border-radius:8px;
+}
+
+.quiz button{
+    padding:9px 14px;
+    margin:5px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#334155;
+    color:white;
+}
+
+.quiz button:hover{
+    background:#2563eb;
+}
+
+.correct{
+    background:#16a34a !important;
+    color:white !important;
+}
+
+.wrong{
+    background:#dc2626 !important;
+    color:white !important;
+}
+
+.score{
+    margin-top:15px;
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+    background:#172554;
+    color:#facc15;
+    font-size:19px;
+    font-weight:bold;
+}
+
+/* =====================================================
+   PROJET
+===================================================== */
+
+.project{
+    background:rgba(37,99,235,.08);
+    border:1px solid #2563eb;
+    padding:20px;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+.project h3{
+    color:#60a5fa;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer-pro{
+    background:
+    linear-gradient(270deg,#141e30,#243b55);
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+    margin-top:40px;
+    border-radius:20px 20px 0 0;
+    box-shadow:0 -5px 20px rgba(0,0,0,.4);
+    position:relative;
+    overflow:hidden;
+}
+
+.footer-pro h2{
+    margin-bottom:10px;
+    color:#00e5ff;
+}
+
+.footer-pro p{
+    margin:8px 0;
+    font-size:14px;
+}
+
+.footer-pro::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:200%;
+    height:100%;
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+    animation:shine 5s infinite;
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-50%);
+    }
+    100%{
+        transform:translateX(50%);
+    }
+}
+
+.socials{
+    margin:15px 0;
+}
+
+.socials a{
+    color:#e0f2fe;
+    text-decoration:none;
+    margin:5px 10px;
+}
+
+/* =====================================================
+   TOP
+===================================================== */
+
+.top-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    body{
+        padding:0;
+    }
+
+    header{
+        padding:25px 10px;
+    }
+
+    nav{
+        position:relative;
+    }
+
+    nav button{
+        width:100%;
+    }
+
+    .main-section{
+        padding:20px 10px;
+    }
+
+    .toggle{
+        font-size:16px;
+    }
+
+    .content{
+        padding:15px;
+    }
+
+    table{
+        font-size:13px;
+    }
+
+    .socials a{
+        display:block;
+        margin:8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<h1>
+<span
+data-fr="💻 Classe 3ème Informatique"
+data-ml="💻 Kilasy 3ème Informatika">
+💻 Classe 3ème Informatique
+</span>
+</h1>
+
+<p
+data-fr="Site pédagogique complet - Apprendre • Pratiquer • Créer"
+data-ml="Tranonkala fampianarana feno - Mianatra • Mampihatra • Mamorona">
+Site pédagogique complet - Apprendre • Pratiquer • Créer
+</p>
+
+<div class="teacher">
+👨‍🏫
+<span
+data-fr="Enseignant : M. Tahiry"
+data-ml="Mpampianatra : M. Tahiry">
+Enseignant : M. Tahiry
+</span>
+</div>
+
+<div class="language-box">
+
+<button
+id="frBtn"
+class="lang active"
+onclick="setLang('fr')">
+🇫🇷 Français
+</button>
+
+<button
+id="mlBtn"
+class="lang"
+onclick="setLang('ml')">
+🇲🇬 Malagasy
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     NAV
+===================================================== -->
+
+<nav>
+
+<button
+class="active"
+onclick="showSection('t1',this)">
+📘 Trimestre 1
+</button>
+
+<button
+onclick="showSection('t2',this)">
+📊 Trimestre 2
+</button>
+
+<button
+onclick="showSection('t3',this)">
+💻 Trimestre 3
+</button>
+
+<button
+onclick="showSection('programme',this)">
+📅 Programme
+</button>
+
+</nav>
+
+
+<!-- =====================================================
+     TRIMESTRE 1
+===================================================== -->
+
+<section id="t1" class="main-section active">
+
+<div class="section-title">
+
+<h2
+data-fr="🟢 Trimestre 1 - Algorithmique & Logique"
+data-ml="🟢 Telovolana 1 - Algorithmique sy Logique">
+🟢 Trimestre 1 - Algorithmique & Logique
+</h2>
+
+<p
+data-fr="Développer la logique nécessaire à la programmation."
+data-ml="Mampivelatra ny logique ilaina amin'ny programmation.">
+Développer la logique nécessaire à la programmation.
+</p>
+
+</div>
+
+
+<div class="objectifs">
+
+<div class="objectif">
+<div class="objectif-icon">🧠</div>
+<strong
+data-fr="Logique"
+data-ml="Logique">
+Logique
+</strong>
+<p
+data-fr="Résoudre un problème étape par étape."
+data-ml="Mamaha olana amin'ny dingana tsikelikely.">
+Résoudre un problème étape par étape.
+</p>
+</div>
+
+<div class="objectif">
+<div class="objectif-icon">🔢</div>
+<strong
+data-fr="Variables"
+data-ml="Variables">
+Variables
+</strong>
+<p
+data-fr="Stocker et utiliser des informations."
+data-ml="Mitahiry sy mampiasa informations.">
+Stocker et utiliser des informations.
+</p>
+</div>
+
+<div class="objectif">
+<div class="objectif-icon">🔀</div>
+<strong
+data-fr="Conditions"
+data-ml="Conditions">
+Conditions
+</strong>
+<p
+data-fr="Utiliser SI / SINON."
+data-ml="Mampiasa SI / SINON.">
+Utiliser SI / SINON.
+</p>
+</div>
+
+</div>
+
+
+<!-- RAPPEL -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🧠
+<span
+data-fr="Rappel de la 4ème"
+data-ml="Famerenana ny lesona 4ème">
+Rappel de la 4ème
+</span>
+</div>
+
+<div class="content">
+
+<h3>💻 Informatique générale</h3>
+
+<ul>
+<li>CPU : traitement</li>
+<li>RAM : mémoire temporaire</li>
+<li>HDD / SSD : stockage</li>
+<li>Clavier et souris</li>
+<li>Word et Excel</li>
+<li>Internet</li>
+</ul>
+
+<div class="info">
+
+<strong>🎯 Objectif :</strong>
+
+<p
+data-fr="Vérifier les connaissances nécessaires avant de commencer la programmation."
+data-ml="Hamarina ny fahalalana ilaina alohan'ny hanombohana programmation.">
+Vérifier les connaissances nécessaires avant de commencer la programmation.
+</p>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ALGORITHM -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🧠
+<span
+data-fr="Algorithmique"
+data-ml="Algorithmique">
+Algorithmique
+</span>
+</div>
+
+<div class="content">
+
+<h3>📘 Définition</h3>
+
+<p
+data-fr="Un algorithme est une suite ordonnée d'étapes permettant de résoudre un problème."
+data-ml="Ny algorithme dia filaharan'ireo dingana voalamina hamahana olana iray.">
+Un algorithme est une suite ordonnée d'étapes permettant de résoudre un problème.
+</p>
+
+<h3>🔢 Variables</h3>
+
+<p
+data-fr="Une variable permet de stocker une information."
+data-ml="Ny variable dia toerana itehirizana information.">
+Une variable permet de stocker une information.
+</p>
+
+<code>
+nom ← "Jean"
+age ← 14
+note ← 15
+</code>
+
+<h3>🔀 SI / SINON</h3>
+
+<code>
+SI note >= 10 ALORS
+    Afficher "Admis"
+SINON
+    Afficher "Ajourné"
+FIN SI
+</code>
+
+<h3>🔁 Boucles</h3>
+
+<p
+data-fr="Une boucle permet de répéter une action plusieurs fois."
+data-ml="Ny boucle dia ampiasaina hamerenana action imbetsaka.">
+Une boucle permet de répéter une action plusieurs fois.
+</p>
+
+<code>
+POUR i ← 1 À 5
+    Afficher i
+FIN POUR
+</code>
+
+<a
+class="lesson-link"
+href="Algorithmique.html">
+📚 Cours Algorithmique
+</a>
+
+<div class="quiz">
+
+<h3>❓ Quiz</h3>
+
+<p>Un algorithme est :</p>
+
+<button onclick="answer(this,true)">
+Une suite d'étapes
+</button>
+
+<button onclick="answer(this,false)">
+Une image
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- ACTIVITE -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🧪
+<span
+data-fr="Activité pratique"
+data-ml="Fanazaran-tena fampiharana">
+Activité pratique
+</span>
+</div>
+
+<div class="content">
+
+<h3>🎯 Problème</h3>
+
+<p
+data-fr="Écrire un algorithme qui indique si un élève est admis ou ajourné."
+data-ml="Manorata algorithme milaza raha Admis na Ajourné ny mpianatra.">
+Écrire un algorithme qui indique si un élève est admis ou ajourné.
+</p>
+
+<h3>📋 Travail demandé</h3>
+
+<ol>
+<li>Créer une variable <b>note</b></li>
+<li>Entrer une note</li>
+<li>Tester la condition</li>
+<li>Afficher le résultat</li>
+</ol>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TRIMESTRE 2
+===================================================== -->
+
+<section id="t2" class="main-section">
+
+<div class="section-title">
+
+<h2
+data-fr="🟡 Trimestre 2 - Bureautique avancée"
+data-ml="🟡 Telovolana 2 - Bureautique mandroso">
+🟡 Trimestre 2 - Bureautique avancée
+</h2>
+
+<p
+data-fr="Word professionnel et Excel avancé."
+data-ml="Word professionnel sy Excel mandroso.">
+Word professionnel et Excel avancé.
+</p>
+
+</div>
+
+
+<!-- WORD -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+📝
+<span
+data-fr="Word Avancé"
+data-ml="Word Ambaratonga Mandroso">
+Word Avancé
+</span>
+</div>
+
+<div class="content">
+
+<h3>📄 Notions</h3>
+
+<ul>
+<li>Publipostage</li>
+<li>Styles</li>
+<li>En-tête et pied de page</li>
+<li>Numérotation</li>
+<li>Documents officiels</li>
+<li>Mise en page professionnelle</li>
+</ul>
+
+<a
+class="lesson-link"
+href="word-avancé2.html">
+📚 Word Avancé
+</a>
+
+
+<div class="project">
+
+<h3>🧪 Projet Word</h3>
+
+<p
+data-fr="Créer une lettre administrative professionnelle."
+data-ml="Mamorona taratasy administratif professionnel.">
+Créer une lettre administrative professionnelle.
+</p>
+
+<ol>
+<li>Nom et adresse</li>
+<li>Date</li>
+<li>Objet</li>
+<li>Corps de la lettre</li>
+<li>Formule de politesse</li>
+<li>Signature</li>
+</ol>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- EXCEL -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+📊
+<span
+data-fr="Excel Avancé"
+data-ml="Excel Ambaratonga Mandroso">
+Excel Avancé
+</span>
+</div>
+
+<div class="content">
+
+<h3>➕ SOMME</h3>
+
+<code>=SOMME(B2:B10)</code>
+
+<p
+data-fr="Additionne plusieurs valeurs."
+data-ml="Manampy valeurs maromaro.">
+Additionne plusieurs valeurs.
+</p>
+
+
+<h3>📊 MOYENNE</h3>
+
+<code>=MOYENNE(B2:C2)</code>
+
+<p
+data-fr="Calcule la moyenne des valeurs."
+data-ml="Mikajy ny salanisan'ny valeurs.">
+Calcule la moyenne des valeurs.
+</p>
+
+
+<h3>🔀 SI</h3>
+
+<code>=SI(D2>=10;"Admis";"Ajourné")</code>
+
+<p
+data-fr="Permet d'afficher un résultat selon une condition."
+data-ml="Mampiseho valiny arakaraka ny condition.">
+Permet d'afficher un résultat selon une condition.
+</p>
+
+
+<h3>➕ SOMME.SI</h3>
+
+<code>=SOMME.SI(B2:B10;">=10";B2:B10)</code>
+
+<p
+data-fr="Additionne uniquement les valeurs qui respectent une condition."
+data-ml="Manampy ireo valeurs mifanaraka amin'ny condition.">
+Additionne uniquement les valeurs qui respectent une condition.
+</p>
+
+
+<h3>📈 Graphique</h3>
+
+<ul>
+<li>Graphique en barres</li>
+<li>Courbe</li>
+<li>Camembert</li>
+</ul>
+
+
+<a
+class="lesson-link"
+href="fonction-somme-5eme .html">
+📚 Fonction SOMME
+</a>
+
+<a
+class="lesson-link"
+href="fonction-somme-multiple-5eme.html">
+📚 SOMME multiple
+</a>
+
+<a
+class="lesson-link"
+href="fonction-somme-conditionnel-5eme.html">
+📚 SOMME conditionnelle
+</a>
+
+<a
+class="lesson-link"
+href="fonction-somme-si-4eme.html">
+📚 SOMME.SI
+</a>
+
+<a
+class="lesson-link"
+href="fonction-moyenne-5eme.html">
+📚 MOYENNE
+</a>
+
+<a
+class="lesson-link"
+href="fonction-moyenne-plusieur-plage-3eme.html">
+📚 MOYENNE plusieurs plages
+</a>
+
+<a
+class="lesson-link"
+href="graphique2.html">
+📚 Graphique
+</a>
+
+
+<div class="quiz">
+
+<h3>❓ Quiz Excel</h3>
+
+<p>Quelle fonction calcule une moyenne ?</p>
+
+<button onclick="answer(this,true)">
+MOYENNE
+</button>
+
+<button onclick="answer(this,false)">
+SOMME
+</button>
+
+<p>Quelle fonction permet une condition ?</p>
+
+<button onclick="answer(this,true)">
+SI
+</button>
+
+<button onclick="answer(this,false)">
+MOYENNE
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PROJET TABLEAU -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+📋
+<span
+data-fr="Projet : Tableau Excel complet"
+data-ml="Tetikasa : Tableau Excel feno">
+Projet : Tableau Excel complet
+</span>
+</div>
+
+<div class="content">
+
+<p
+data-fr="Créer un tableau de notes avec calcul automatique."
+data-ml="Mamorona tableau misy naoty miaraka amin'ny calcul automatique.">
+Créer un tableau de notes avec calcul automatique.
+</p>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Nom</th>
+<th>Note 1</th>
+<th>Note 2</th>
+<th>Moyenne</th>
+<th>Résultat</th>
+</tr>
+
+<tr>
+<td>Jean</td>
+<td>12</td>
+<td>14</td>
+<td>=MOYENNE(B2:C2)</td>
+<td>=SI(D2>=10;"Admis";"Ajourné")</td>
+</tr>
+
+<tr>
+<td>Marie</td>
+<td>15</td>
+<td>16</td>
+<td>=MOYENNE(B3:C3)</td>
+<td>=SI(D3>=10;"Admis";"Ajourné")</td>
+</tr>
+
+<tr>
+<td>Paul</td>
+<td>8</td>
+<td>11</td>
+<td>=MOYENNE(B4:C4)</td>
+<td>=SI(D4>=10;"Admis";"Ajourné")</td>
+</tr>
+
+</table>
+
+</div>
+
+<h3>📌 Travail demandé</h3>
+
+<ol>
+<li>Ajouter au moins 5 élèves</li>
+<li>Entrer les notes</li>
+<li>Calculer la moyenne</li>
+<li>Afficher Admis/Ajourné avec SI</li>
+<li>Créer un graphique</li>
+<li>Mettre le tableau en forme</li>
+</ol>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TRIMESTRE 3
+===================================================== -->
+
+<section id="t3" class="main-section">
+
+<div class="section-title">
+
+<h2
+data-fr="🔵 Trimestre 3 - PowerPoint, Web & Sécurité"
+data-ml="🔵 Telovolana 3 - PowerPoint, Web ary Sécurité">
+🔵 Trimestre 3 - PowerPoint, Web & Sécurité
+</h2>
+
+</div>
+
+
+<!-- POWERPOINT -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+📽️
+<span
+data-fr="PowerPoint avancé"
+data-ml="PowerPoint mandroso">
+PowerPoint avancé
+</span>
+</div>
+
+<div class="content">
+
+<ul>
+<li>Création de diapositives</li>
+<li>Thèmes</li>
+<li>Transitions</li>
+<li>Animations</li>
+<li>Images et vidéos</li>
+<li>Présentation devant la classe</li>
+</ul>
+
+<a
+class="lesson-link"
+href="PowerPoint3.html">
+📚 PowerPoint avancé
+</a>
+
+<div class="project">
+
+<h3>🎤 Activité</h3>
+
+<p
+data-fr="Créer une présentation de 5 à 8 diapositives sur un thème informatique."
+data-ml="Mamorona présentation misy diapositives 5 hatramin'ny 8 momba ny informatique.">
+Créer une présentation de 5 à 8 diapositives sur un thème informatique.
+</p>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- INTERNET -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🌐
+<span
+data-fr="Internet & Sécurité"
+data-ml="Internet sy Sécurité">
+Internet & Sécurité
+</span>
+</div>
+
+<div class="content">
+
+<h3>🌐 Navigation sécurisée</h3>
+
+<ul>
+<li>Vérifier les sites</li>
+<li>Éviter les liens inconnus</li>
+<li>Protéger ses comptes</li>
+<li>Utiliser des mots de passe solides</li>
+</ul>
+
+<h3>⚠️ Phishing</h3>
+
+<p
+data-fr="Le phishing est une tentative de tromper un utilisateur pour obtenir des informations."
+data-ml="Ny phishing dia fitaka atao mba hahazoana informations amin'ny utilisateur.">
+Le phishing est une tentative de tromper un utilisateur pour obtenir des informations.
+</p>
+
+<a
+class="lesson-link"
+href="Navigation-sur-Internet.html">
+📚 Navigation Internet
+</a>
+
+<a
+class="lesson-link"
+href="Phishing.html">
+📚 Phishing
+</a>
+
+<div class="warning">
+
+<strong>🔐 Règle importante :</strong>
+
+<p
+data-fr="Ne partage jamais tes mots de passe et vérifie les messages avant de cliquer."
+data-ml="Aza mizara mot de passe ary zahao tsara ny message alohan'ny hikitihana lien.">
+Ne partage jamais tes mots de passe et vérifie les messages avant de cliquer.
+</p>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- HTML CSS -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🌍
+<span
+data-fr="Initiation HTML / CSS"
+data-ml="Fampidirana HTML / CSS">
+Initiation HTML / CSS
+</span>
+</div>
+
+<div class="content">
+
+<h3>🌐 HTML</h3>
+
+<p
+data-fr="HTML permet de structurer une page web."
+data-ml="HTML no mandrafitra ny pejy web.">
+HTML permet de structurer une page web.
+</p>
+
+<h3>🎨 CSS</h3>
+
+<p
+data-fr="CSS permet de mettre en forme une page web."
+data-ml="CSS no mandravaka sy mandamina ny pejy web.">
+CSS permet de mettre en forme une page web.
+</p>
+
+<code>
+&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;Ma première page&lt;/h1&gt;
+
+&lt;p&gt;Bonjour !&lt;/p&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code>
+
+<div class="info">
+
+<strong>🎯 Mini-projet :</strong>
+
+<p
+data-fr="Créer une page présentant votre classe ou votre école."
+data-ml="Mamorona pejy web mampahafantatra ny kilasy na ny sekoly.">
+Créer une page présentant votre classe ou votre école.
+</p>
+
+</div>
+
+<a
+class="lesson-link"
+href="Créer-pages-web.html">
+📚 Créer des pages web
+</a>
+
+</div>
+</div>
+
+
+<!-- PROJET FINAL -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🚀
+<span
+data-fr="Projet final 3ème"
+data-ml="Tetikasa farany 3ème">
+Projet final 3ème
+</span>
+</div>
+
+<div class="content">
+
+<div class="project">
+
+<h3>🎓 Projet : Présentation informatique complète</h3>
+
+<p
+data-fr="L'élève réalise un projet utilisant plusieurs compétences informatiques."
+data-ml="Ny mpianatra dia manao tetikasa mampiasa compétences informatiques maro.">
+L'élève réalise un projet utilisant plusieurs compétences informatiques.
+</p>
+
+<h3>📋 Travail demandé</h3>
+
+<ol>
+<li>Créer un document Word</li>
+<li>Créer un tableau Excel</li>
+<li>Créer un graphique</li>
+<li>Créer une présentation PowerPoint</li>
+<li>Créer une petite page HTML</li>
+<li>Présenter le travail devant la classe</li>
+</ol>
+
+<h3>🏆 Compétences évaluées</h3>
+
+<ul>
+<li>Organisation</li>
+<li>Maîtrise des outils</li>
+<li>Exactitude des informations</li>
+<li>Présentation</li>
+<li>Créativité</li>
+<li>Respect des consignes</li>
+</ul>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- QUIZ FINAL -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+📝
+<span
+data-fr="Quiz final de révision"
+data-ml="Quiz famerenana farany">
+Quiz final de révision
+</span>
+</div>
+
+<div class="content">
+
+<div class="quiz">
+
+<div class="quiz-question">
+
+<p>1️⃣ Une variable sert à :</p>
+
+<button onclick="quizAnswer(this,true,1)">
+Stocker une information
+</button>
+
+<button onclick="quizAnswer(this,false,1)">
+Dessiner une image
+</button>
+
+</div>
+
+
+<div class="quiz-question">
+
+<p>2️⃣ Quelle fonction calcule une moyenne ?</p>
+
+<button onclick="quizAnswer(this,true,2)">
+MOYENNE
+</button>
+
+<button onclick="quizAnswer(this,false,2)">
+SOMME
+</button>
+
+</div>
+
+
+<div class="quiz-question">
+
+<p>3️⃣ SI sert à :</p>
+
+<button onclick="quizAnswer(this,true,3)">
+Tester une condition
+</button>
+
+<button onclick="quizAnswer(this,false,3)">
+Créer une image
+</button>
+
+</div>
+
+
+<div class="quiz-question">
+
+<p>4️⃣ HTML sert principalement à :</p>
+
+<button onclick="quizAnswer(this,true,4)">
+Structurer une page web
+</button>
+
+<button onclick="quizAnswer(this,false,4)">
+Calculer une moyenne
+</button>
+
+</div>
+
+
+<div class="quiz-question">
+
+<p>5️⃣ Le phishing est :</p>
+
+<button onclick="quizAnswer(this,true,5)">
+Une arnaque en ligne
+</button>
+
+<button onclick="quizAnswer(this,false,5)">
+Un composant du CPU
+</button>
+
+</div>
+
+
+<button
+class="lesson-link"
+onclick="showScore()">
+📊 Voir mon score
+</button>
+
+<div
+id="finalScore"
+class="score">
+Score : 0 / 5
+</div>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROGRAMME
+===================================================== -->
+
+<section id="programme" class="main-section">
+
+<div class="section-title">
+
+<h2
+data-fr="📅 Programme indicatif de l'année"
+data-ml="📅 Fandaharam-pianarana mandritra ny taona">
+📅 Programme indicatif de l'année
+</h2>
+
+<p
+data-fr="Organisation proposée pour les différentes séances."
+data-ml="Fandaminana azo ampiasaina amin'ireo séances samihafa.">
+Organisation proposée pour les différentes séances.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+📅
+<span
+data-fr="Progression des cours"
+data-ml="Fizotry ny lesona">
+Progression des cours
+</span>
+</div>
+
+<div class="content">
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Semaine</th>
+<th>Thème</th>
+<th>Activité</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Rappel 4ème</td>
+<td>Révision</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Algorithmique</td>
+<td>Algorithmes simples</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Variables</td>
+<td>Exercices</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>SI / SINON</td>
+<td>Conditions</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Boucles</td>
+<td>Répétitions</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Word avancé</td>
+<td>Document officiel</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Publipostage</td>
+<td>Projet Word</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Excel avancé</td>
+<td>Formules</td>
+<td> <a href="document/raccourcis-clavier-1.pdf">raccourcis clavier-1</a></td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>SI / SOMME.SI</td>
+<td>Tableau de notes</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Graphiques</td>
+<td>Création graphique</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>PowerPoint</td>
+<td>Présentation</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Internet & Sécurité</td>
+<td>Phishing</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>HTML / CSS</td>
+<td>Page web</td>
+<td> <a href="document/apprenez-a-creer-votre-site.pdf">créer page web</a> </td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Projet final</td>
+<td>Présentation</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- OBJECTIF ANNEE -->
+
+<div class="card">
+
+<div class="toggle" onclick="toggleContent(this)">
+🎯
+<span
+data-fr="Objectif général de la 3ème"
+data-ml="Tanjona ankapobeny amin'ny 3ème">
+Objectif général de la 3ème
+</span>
+</div>
+
+<div class="content">
+
+<p
+data-fr="À la fin de l'année, l'élève doit être capable d'utiliser les principaux outils bureautiques, de raisonner avec un algorithme, de respecter les règles de sécurité numérique et de créer une petite page web."
+data-ml="Amin'ny faran'ny taona dia tokony hahay mampiasa ireo outils bureautiques lehibe, mahay manao raisonnement algorithmique, mahafantatra ny fiarovana numérique ary mahay mamorona pejy web tsotra ny mpianatra.">
+À la fin de l'année, l'élève doit être capable d'utiliser les principaux outils bureautiques, de raisonner avec un algorithme, de respecter les règles de sécurité numérique et de créer une petite page web.
+</p>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer-pro">
+
+<h2>
+💻 Mr Tahiry - Informatique 👨‍🏫
+</h2>
+
+<p>
+📅 <span id="dateFooter"></span>
+</p>
+
+<div class="socials">
+
+<a href="#">📘 Facebook</a>
+<a href="#">💬 WhatsApp</a>
+<a href="#">📧 Email</a>
+
+</div>
+
+<p>
+🚀 Apprendre • Pratiquer • Créer • Réussir 🌟
+</p>
+
+</footer>
+
+
+<!-- TOP -->
+
+<button
+class="top-btn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
+</button>
+
+
+<script>
+
+/* =====================================================
+   LANGUE FR / ML
+===================================================== */
+
+function setLang(lang){
+
+    document.documentElement.lang =
+        lang === "fr" ? "fr" : "mg";
+
+    document.querySelectorAll("[data-fr]").forEach(function(el){
+
+        if(lang === "fr"){
+            el.innerHTML = el.getAttribute("data-fr");
+        }else{
+            el.innerHTML = el.getAttribute("data-ml");
+        }
+
+    });
+
+    document.getElementById("frBtn")
+        .classList.toggle("active",lang === "fr");
+
+    document.getElementById("mlBtn")
+        .classList.toggle("active",lang === "ml");
+
+}
+
+
+/* =====================================================
+   TRIMESTRE
+===================================================== */
+
+function showSection(id,button){
+
+    document.querySelectorAll(".main-section")
+    .forEach(function(section){
+
+        section.classList.remove("active");
+
+    });
+
+    document.getElementById(id)
+        .classList.add("active");
+
+    document.querySelectorAll("nav button")
+    .forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   ACCORDION
+===================================================== */
+
+function toggleContent(element){
+
+    const content =
+        element.nextElementSibling;
+
+    content.classList.toggle("show");
+
+    element.classList.toggle("open");
+
+}
+
+
+/* =====================================================
+   QUIZ SIMPLE
+===================================================== */
+
+function answer(button,correct){
+
+    const parent =
+        button.parentElement;
+
+    parent.querySelectorAll("button")
+        .forEach(function(btn){
+
+            btn.classList.remove(
+                "correct",
+                "wrong"
+            );
+
+        });
+
+    if(correct){
+
+        button.classList.add("correct");
+
+        button.innerHTML =
+            "✔ Correct";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        button.innerHTML =
+            "✘ Faux";
+
+    }
+
+}
+
+
+/* =====================================================
+   QUIZ FINAL
+===================================================== */
+
+let score = 0;
+
+let answered = [];
+
+
+function quizAnswer(button,correct,question){
+
+    if(answered.includes(question)){
+        return;
+    }
+
+    answered.push(question);
+
+    if(correct){
+
+        score++;
+
+        button.classList.add("correct");
+
+        button.innerHTML =
+            "✔ Correct";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        button.innerHTML =
+            "✘ Faux";
+
+    }
+
+}
+
+
+/* =====================================================
+   AFFICHER SCORE
+===================================================== */
+
+function showScore(){
+
+    let message = "";
+
+    if(score === 5){
+
+        message =
+            "🏆 Excellent travail !";
+
+    }else if(score >= 3){
+
+        message =
+            "👏 Très bien, continue tes révisions !";
+
+    }else{
+
+        message =
+            "📚 Continue à réviser les leçons.";
+
+    }
+
+    document.getElementById("finalScore")
+        .innerHTML =
+        "Score : " +
+        score +
+        " / 5<br>" +
+        message;
+
+}
+
+
+/* =====================================================
+   DATE FOOTER
+===================================================== */
+
+const date =
+    new Date();
+
+document.getElementById("dateFooter")
+    .textContent =
+    date.toLocaleDateString(
+        "fr-FR",
+        {
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+
+/* =====================================================
+   LANGUE PAR DEFAUT
+===================================================== */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setLang("fr");
+
+    }
+);
+
+</script>
+
+</body>
+</html>

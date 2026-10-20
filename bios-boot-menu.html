@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061a2e">
+<title>BIOS & Boot Menu PRO++ | InfoPro</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Arial,Helvetica,sans-serif;
+  background:#071b2d;color:#f2f7fc;line-height:1.65;
+  overflow-wrap:break-word
+}
+header{
+  padding:24px 14px;text-align:center;
+  background:linear-gradient(135deg,#092c48,#087d83);
+  border-bottom:3px solid #35dfc3
+}
+header h1{font-size:clamp(24px,5vw,36px);line-height:1.3;margin:0 0 10px}
+header p{margin:0}
+.langues{display:flex;justify-content:center;gap:10px;margin-top:16px}
+button{font:inherit;font-size:14px;font-weight:bold;border:0;border-radius:8px;padding:11px 14px;cursor:pointer}
+.langues button{background:#e4edf4;color:#10283a}
+.langues button.actif{background:#35dfc3;color:#06252c}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;background:#041321;padding:12px}
+nav a{padding:8px 11px;border-radius:8px;background:#173b55;color:white;text-decoration:none;font-size:14px}
+nav a:hover{background:#087d83}
+main{width:min(1100px,100%);margin:auto;padding:18px 13px}
+.section{background:#102b43;border:1px solid #294b65;border-radius:13px;padding:17px;margin-bottom:18px;min-width:0}
+h2{color:#35dfc3;font-size:22px;line-height:1.4;margin:0 0 12px}
+h3{font-size:18px;line-height:1.4;margin:0 0 8px}
+p{margin:8px 0}
+.muet{color:#c4d4e2}
+.warning{background:#3b301a;border:1px solid #a98b41;padding:14px;border-radius:12px;margin-bottom:18px}
+.warning h2{color:#ffd879}
+.recherche{display:block;width:100%;padding:13px;margin:13px 0 17px;background:#061a2e;border:1px solid #45677f;border-radius:9px;color:white;font:inherit}
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;align-items:stretch}
+.carte{display:flex;flex-direction:column;min-width:0;padding:16px;background:#0a2237;border:1px solid #31536c;border-radius:12px;overflow-wrap:anywhere}
+.carte .icone{font-size:28px}
+.carte .resume{color:#c4d4e2;flex:1}
+.carte details{margin-top:12px;padding-top:10px;border-top:1px solid #31536c}
+.carte summary{cursor:pointer;color:#35dfc3;font-weight:bold}
+.carte ol,.carte ul{padding-left:21px}
+.carte li{margin:9px 0}
+.carte[hidden],[hidden]{display:none!important}
+.note{background:#092136;border-left:4px solid #35dfc3;padding:12px;border-radius:5px}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:530px}
+th,td{border:1px solid #31536c;padding:10px;text-align:left;vertical-align:top}
+th{background:#173b55;color:#35dfc3}
+.champ{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
+.champ label{font-weight:bold}
+.champ input,.champ select,.champ textarea{width:100%;min-width:0;padding:11px;border:1px solid #45677f;border-radius:8px;background:#061a2e;color:white;font:inherit}
+.champ textarea{min-height:110px;resize:vertical}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.principal{background:#35dfc3;color:#06252c}
+.secondaire{background:#234b67;color:white}
+#message{color:#42e8c8;font-weight:bold}
+footer{text-align:center;background:#04111d;padding:20px;color:#c4d4e2}
+@media(max-width:560px){
+  main{padding:12px 9px}
+  .section{padding:13px}
+  .grille{grid-template-columns:minmax(0,1fr)}
+  h2{font-size:20px}
+  nav a{font-size:13px}
+}
+@media print{
+  body{background:white;color:black}
+  header,nav,.langues,.recherche,.warning,.actions,footer{display:none!important}
+  main{width:100%;padding:0}
+  .section,.carte{background:white;color:black;border:1px solid #aaa;break-inside:avoid}
+  h2,h3,.carte summary{color:black}
+  .carte .resume,.muet{color:#333}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>💻 InfoPro — BIOS & Boot Menu PRO++</h1>
+  <p data-fr="Guide pratique : démarrage, BIOS/UEFI et installation du système."
+     data-ml="Torolalana: démarrage, BIOS/UEFI ary fametrahana système.">
+    Guide pratique : démarrage, BIOS/UEFI et installation du système.
+  </p>
+  <div class="langues">
+    <button type="button" id="btnFR" class="actif" onclick="changerLangue('fr')">🇫🇷 FR</button>
+    <button type="button" id="btnML" onclick="changerLangue('ml')">🇲🇬 ML</button>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">🏠 <span data-fr="Accueil" data-ml="Fandraisana">Accueil</span></a>
+  <a href="installation-windows.html">💿 <span data-fr="Installation Windows" data-ml="Fametrahana Windows">Installation Windows</span></a>
+  <a href="diagnostic-materiel.html">🔧 <span data-fr="Diagnostic matériel" data-ml="Diagnostic matériel">Diagnostic matériel</span></a>
+  <a href="#marques">⌨️ <span data-fr="Marques PC" data-ml="Marika ordinateur">Marques PC</span></a>
+  <a href="#problemes">🛠️ <span data-fr="Problèmes" data-ml="Olana">Problèmes</span></a>
+</nav>
+
+<main>
+<section class="section">
+  <h2 data-fr="🎯 Objectifs du cours" data-ml="🎯 Tanjona">🎯 Objectifs du cours</h2>
+  <ul>
+    <li data-fr="Comprendre le rôle du BIOS et de l'UEFI."
+        data-ml="Mahafantatra ny andraikitry ny BIOS sy UEFI.">Comprendre le rôle du BIOS et de l'UEFI.</li>
+    <li data-fr="Identifier les touches d'accès au BIOS et au Boot Menu."
+        data-ml="Mamantatra ny touche hidirana amin'ny BIOS sy Boot Menu.">Identifier les touches d'accès au BIOS et au Boot Menu.</li>
+    <li data-fr="Démarrer sur une clé USB pour installer un système."
+        data-ml="Mampandeha ordinateur amin'ny clé USB hametrahana système.">Démarrer sur une clé USB pour installer un système.</li>
+    <li data-fr="Reconnaître les problèmes de disque et de démarrage."
+        data-ml="Mamantatra olana amin'ny disque sy démarrage.">Reconnaître les problèmes de disque et de démarrage.</li>
+  </ul>
+</section>
+
+<section class="warning">
+  <h2 data-fr="⚠️ Précautions importantes" data-ml="⚠️ Fitandremana lehibe">⚠️ Précautions importantes</h2>
+  <ul>
+    <li data-fr="Les touches varient selon le modèle exact du PC. Les indications ci-dessous sont les plus courantes."
+        data-ml="Miova arakaraka ny modèle ny touche. Ireto dia ireo fampiasa matetika.">Les touches varient selon le modèle exact du PC. Les indications ci-dessous sont les plus courantes.</li>
+    <li data-fr="Ne modifiez pas les options que vous ne comprenez pas. Notez les réglages avant toute modification."
+        data-ml="Aza ovaina ny réglage tsy fantatrao. Soraty aloha ireo réglage talohan'ny fanovana.">Ne modifiez pas les options que vous ne comprenez pas. Notez les réglages avant toute modification.</li>
+    <li data-fr="Ne choisissez pas Format, Delete ou Reset sans comprendre les conséquences : vous risquez de perdre des données."
+        data-ml="Aza mifidy Format, Delete na Reset raha tsy fantatrao ny vokany: mety ho very ny angona.">Ne choisissez pas Format, Delete ou Reset sans comprendre les conséquences : vous risquez de perdre des données.</li>
+    <li data-fr="Si BitLocker demande une clé de récupération, arrêtez-vous et recherchez cette clé avant de continuer."
+        data-ml="Raha mangataka clé de récupération BitLocker ny ordinateur, ajanony aloha ary tadiavo ilay clé.">Si BitLocker demande une clé de récupération, arrêtez-vous et recherchez cette clé avant de continuer.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 data-fr="1. Qu'est-ce que le BIOS / UEFI ?" data-ml="1. Inona ny BIOS / UEFI ?">1. Qu'est-ce que le BIOS / UEFI ?</h2>
+  <p data-fr="Le BIOS ou l'UEFI est un micrologiciel qui initialise certains composants et aide l'ordinateur à démarrer."
+     data-ml="Ny BIOS na UEFI dia logiciel fototra manamarina ireo singa sasany ary manampy ny ordinateur hanomboka.">
+    Le BIOS ou l'UEFI est un micrologiciel qui initialise certains composants et aide l'ordinateur à démarrer.
+  </p>
+  <ul>
+    <li><strong>BIOS / UEFI :</strong> <span data-fr="configuration de l'ordinateur." data-ml="fikirakirana ny ordinateur.">configuration de l'ordinateur.</span></li>
+    <li><strong>Boot Menu :</strong> <span data-fr="choisir temporairement le périphérique de démarrage." data-ml="misafidy vetivety ny fitaovana hanombohana.">choisir temporairement le périphérique de démarrage.</span></li>
+    <li><strong>Boot Order :</strong> <span data-fr="ordre de recherche des périphériques de démarrage." data-ml="filaharan'ny fitaovana tadiavina rehefa démarrage.">ordre de recherche des périphériques de démarrage.</span></li>
+  </ul>
+  <p class="note" data-fr="Conseil : le Boot Menu est généralement préférable pour démarrer une seule fois sur une clé USB, sans modifier durablement l'ordre de démarrage."
+     data-ml="Torohevitra: ny Boot Menu no tsara raha hampandeha indray mandeha amin'ny clé USB, fa tsy hanova maharitra ny filaharan'ny démarrage.">
+    Conseil : le Boot Menu est généralement préférable pour démarrer une seule fois sur une clé USB, sans modifier durablement l'ordre de démarrage.
+  </p>
+</section>
+
+<section class="section" id="marques">
+  <h2 data-fr="2. Touches BIOS et Boot Menu par marque" data-ml="2. Touche BIOS sy Boot Menu araka ny marika">2. Touches BIOS et Boot Menu par marque</h2>
+  <p class="muet" data-fr="Recherchez la marque de votre ordinateur."
+     data-ml="Tadiavo ny marika ordinateur-nao.">Recherchez la marque de votre ordinateur.</p>
+  <input id="recherche" class="recherche" type="search"
+    placeholder="Rechercher : HP, Dell, Lenovo..."
+    data-placeholder-fr="Rechercher : HP, Dell, Lenovo..."
+    data-placeholder-ml="Mitady: HP, Dell, Lenovo..."
+    oninput="filtrer()">
+
+  <div class="grille" id="grilleMarques">
+    <article class="carte" data-mots="hp pavilion elitebook probook omen">
+      <div class="icone">💻</div>
+      <h3>HP</h3>
+      <p class="resume" data-fr="Ordinateurs portables et de bureau HP."
+         data-ml="Ordinateur portable sy de bureau HP.">Ordinateurs portables et de bureau HP.</p>
+      <ul>
+        <li><strong>BIOS :</strong> F10</li>
+        <li><strong>Boot Menu :</strong> Échap (Esc), puis F9 sur de nombreux modèles</li>
+      </ul>
+      <details>
+        <summary data-fr="Étapes" data-ml="Dingana">Étapes</summary>
+        <ol>
+          <li data-fr="Éteignez complètement le PC."
+              data-ml="Vonoy tanteraka ny PC.">Éteignez complètement le PC.</li>
+          <li data-fr="Allumez-le et appuyez plusieurs fois sur Échap."
+              data-ml="Alefaso ary tsindrio imbetsaka ny Échap.">Allumez-le et appuyez plusieurs fois sur Échap.</li>
+          <li data-fr="Choisissez F9 pour le menu de démarrage ou F10 pour la configuration du BIOS."
+              data-ml="Safidio F9 ho an'ny Boot Menu na F10 ho an'ny BIOS.">Choisissez F9 pour le menu de démarrage ou F10 pour la configuration du BIOS.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="dell inspiron latitude vostro optiplex">
+      <div class="icone">🖥️</div>
+      <h3>Dell</h3>
+      <p class="resume" data-fr="PC Dell de bureau ou portable."
+         data-ml="Ordinateur Dell de bureau na portable.">PC Dell de bureau ou portable.</p>
+      <ul><li><strong>BIOS :</strong> F2</li><li><strong>Boot Menu :</strong> F12</li></ul>
+      <details>
+        <summary data-fr="Étapes" data-ml="Dingana">Étapes</summary>
+        <ol>
+          <li data-fr="Allumez le PC ou redémarrez-le."
+              data-ml="Alefaso na avereno alefa ny PC.">Allumez le PC ou redémarrez-le.</li>
+          <li data-fr="Appuyez plusieurs fois sur F12 pour choisir le périphérique de démarrage."
+              data-ml="Tsindrio imbetsaka F12 hisafidianana ny fitaovana démarrage.">Appuyez plusieurs fois sur F12 pour choisir le périphérique de démarrage.</li>
+          <li data-fr="Utilisez F2 pour accéder aux réglages du BIOS."
+              data-ml="Ampiasao F2 hidirana amin'ny réglage BIOS.">Utilisez F2 pour accéder aux réglages du BIOS.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="lenovo thinkpad ideapad thinkcentre">
+      <div class="icone">💻</div>
+      <h3>Lenovo</h3>
+      <p class="resume" data-fr="ThinkPad, IdeaPad et autres modèles."
+         data-ml="ThinkPad, IdeaPad ary modèle hafa.">ThinkPad, IdeaPad et autres modèles.</p>
+      <ul><li><strong>BIOS :</strong> F1 ou F2</li><li><strong>Boot Menu :</strong> F12 sur de nombreux modèles</li></ul>
+      <details>
+        <summary data-fr="Étapes" data-ml="Dingana">Étapes</summary>
+        <ol>
+          <li data-fr="Vérifiez la touche indiquée pour votre modèle."
+              data-ml="Hamarino ny touche natokana ho an'ilay modèle.">Vérifiez la touche indiquée pour votre modèle.</li>
+          <li data-fr="Certains modèles possèdent un bouton Novo dédié."
+              data-ml="Ny modèle sasany dia manana bokotra Novo manokana.">Certains modèles possèdent un bouton Novo dédié.</li>
+          <li data-fr="N'appuyez sur le bouton Novo que si votre modèle en possède un et suivez son manuel."
+              data-ml="Tsindrio ny bokotra Novo raha manana izany ilay modèle, ary araho ny boky torolalana.">N'appuyez sur le bouton Novo que si votre modèle en possède un et suivez son manuel.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="acer aspire travelmate nitro predator">
+      <div class="icone">💻</div>
+      <h3>Acer</h3>
+      <p class="resume" data-fr="Ordinateurs portables et de bureau Acer."
+         data-ml="Ordinateur Acer portable sy de bureau.">Ordinateurs portables et de bureau Acer.</p>
+      <ul><li><strong>BIOS :</strong> F2</li><li><strong>Boot Menu :</strong> F12 sur certains modèles</li></ul>
+      <details>
+        <summary data-fr="Étapes" data-ml="Dingana">Étapes</summary>
+        <ol>
+          <li data-fr="Essayez F2 au démarrage pour le BIOS."
+              data-ml="Andramo F2 rehefa manomboka ny PC hidirana amin'ny BIOS.">Essayez F2 au démarrage pour le BIOS.</li>
+          <li data-fr="Si F12 ne fonctionne pas, vérifiez le manuel du modèle."
+              data-ml="Raha tsy mandeha F12, jereo ny boky torolalana amin'ilay modèle.">Si F12 ne fonctionne pas, vérifiez le manuel du modèle.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="asus vivobook zenbook tuf rog">
+      <div class="icone">💻</div>
+      <h3>ASUS</h3>
+      <p class="resume" data-fr="PC portables et de bureau ASUS."
+         data-ml="Ordinateur ASUS portable sy de bureau.">PC portables et de bureau ASUS.</p>
+      <ul><li><strong>BIOS :</strong> F2 sur de nombreux portables</li><li><strong>Boot Menu :</strong> Échap (Esc) sur de nombreux modèles</li></ul>
+      <details>
+        <summary data-fr="Étapes" data-ml="Dingana">Étapes</summary>
+        <ol>
+          <li data-fr="Essayez F2 pour le BIOS ou Échap pour le menu de démarrage."
+              data-ml="Andramo F2 ho an'ny BIOS na Échap ho an'ny Boot Menu.">Essayez F2 pour le BIOS ou Échap pour le menu de démarrage.</li>
+          <li data-fr="Les touches peuvent varier selon le modèle exact."
+              data-ml="Mety hiova arakaraka ny modèle ny touche.">Les touches peuvent varier selon le modèle exact.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="gigabyte msi carte mère desktop motherboard">
+      <div class="icone">⚙️</div>
+      <h3>MSI / Gigabyte et cartes mères</h3>
+      <p class="resume" data-fr="Sur de nombreux PC de bureau, les touches sont Del ou F2."
+         data-ml="Amin'ny PC de bureau maro, Del na F2 no ampiasaina.">Sur de nombreux PC de bureau, les touches sont Del ou F2.</p>
+      <ul><li><strong>BIOS :</strong> Suppr (Del) ou F2 selon le modèle</li><li><strong>Boot Menu :</strong> souvent F11 ou F12 selon le modèle</li></ul>
+      <details>
+        <summary data-fr="Étapes" data-ml="Dingana">Étapes</summary>
+        <ol>
+          <li data-fr="Consultez le manuel de la carte mère."
+              data-ml="Jereo ny boky torolalan'ny carte mère.">Consultez le manuel de la carte mère.</li>
+          <li data-fr="Appuyez sur la touche indiquée dès l'allumage."
+              data-ml="Tsindrio ny touche voalaza raha vao alefa ny PC.">Appuyez sur la touche indiquée dès l'allumage.</li>
+        </ol>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="samsung toshiba dynabook fujitsu sony vaio">
+      <div class="icone">🧰</div>
+      <h3>Samsung / Toshiba / autres</h3>
+      <p class="resume" data-fr="Les touches diffèrent selon les séries et les générations."
+         data-ml="Miova arakaraka ny série sy ny génération ny touche.">Les touches diffèrent selon les séries et les générations.</p>
+      <p data-fr="Essayez les touches courantes uniquement si elles correspondent à votre modèle."
+         data-ml="Andramo ny touche mahazatra raha mifanaraka amin'ny modèle-nao.">Essayez les touches courantes uniquement si elles correspondent à votre modèle.</p>
+      <details>
+        <summary data-fr="Conseils" data-ml="Torohevitra">Conseils</summary>
+        <ul>
+          <li data-fr="Recherchez le manuel officiel avec le numéro de modèle."
+              data-ml="Tadiavo ny boky ofisialy amin'ny numéro modèle.">Recherchez le manuel officiel avec le numéro de modèle.</li>
+          <li data-fr="Ne supposez pas qu'une même touche fonctionne sur toutes les séries."
+              data-ml="Aza mihevitra fa touche iray ihany no mandeha amin'ny série rehetra.">Ne supposez pas qu'une même touche fonctionne sur toutes les séries.</li>
+        </ul>
+      </details>
+    </article>
+  </div>
+  <p id="aucun" hidden data-fr="Aucun résultat trouvé." data-ml="Tsy nahitana valiny.">Aucun résultat trouvé.</p>
+</section>
+
+<section class="section">
+  <h2 data-fr="3. Démarrer sur une clé USB" data-ml="3. Mampandeha amin'ny clé USB">3. Démarrer sur une clé USB</h2>
+  <ol>
+    <li data-fr="Préparez une clé USB d'installation valide. La préparation peut effacer son contenu."
+        data-ml="Omano ny clé USB installation. Mety ho voafafa ny rakitra ao anatiny rehefa amboarina.">Préparez une clé USB d'installation valide. La préparation peut effacer son contenu.</li>
+    <li data-fr="Branchez la clé USB avant d'allumer ou de redémarrer le PC."
+        data-ml="Ampidiro ny clé USB alohan'ny handefasana na hamerenana ny PC.">Branchez la clé USB avant d'allumer ou de redémarrer le PC.</li>
+    <li data-fr="Ouvrez le Boot Menu avec la touche correspondant à votre modèle."
+        data-ml="Sokafy ny Boot Menu amin'ny touche mifanaraka amin'ny modèle.">Ouvrez le Boot Menu avec la touche correspondant à votre modèle.</li>
+    <li data-fr="Sélectionnez l'entrée USB correspondant à votre clé."
+        data-ml="Safidio ilay USB mifanaraka amin'ny clé-nao.">Sélectionnez l'entrée USB correspondant à votre clé.</li>
+    <li data-fr="Suivez les instructions à l'écran. Vérifiez soigneusement le disque sélectionné avant toute installation."
+        data-ml="Araho ny toromarika eo amin'ny écran. Hamarino tsara ny disque voafidy alohan'ny installation.">Suivez les instructions à l'écran. Vérifiez soigneusement le disque sélectionné avant toute installation.</li>
+  </ol>
+  <p class="note" data-fr="Si la clé n'apparaît pas, essayez un autre port USB, vérifiez que la clé est réellement amorçable et consultez les instructions du fabricant. Ne changez pas au hasard les options Secure Boot ou UEFI."
+     data-ml="Raha tsy hita ny clé, andramo port USB hafa, hamarino fa bootable ilay clé ary jereo ny torolalan'ny mpanamboatra. Aza ovaina kisendrasendra ny Secure Boot na UEFI.">
+    Si la clé n'apparaît pas, essayez un autre port USB, vérifiez que la clé est réellement amorçable et consultez les instructions du fabricant. Ne changez pas au hasard les options Secure Boot ou UEFI.
+  </p>
+</section>
+
+<section class="section" id="problemes">
+  <h2 data-fr="4. Problèmes fréquents et solutions" data-ml="4. Olana mahazatra sy vahaolana">4. Problèmes fréquents et solutions</h2>
+  <div class="grille">
+    <article class="carte" data-mots="no bootable device système absent démarrage">
+      <div class="icone">🚫</div>
+      <h3>No Bootable Device</h3>
+      <p class="resume" data-fr="Le PC ne trouve aucun système de démarrage utilisable."
+         data-ml="Tsy mahita système azo anombohana ny PC.">Le PC ne trouve aucun système de démarrage utilisable.</p>
+      <details>
+        <summary data-fr="Solutions à vérifier" data-ml="Vahaolana hojerena">Solutions à vérifier</summary>
+        <ul>
+          <li data-fr="Vérifiez si le HDD/SSD est détecté dans le BIOS."
+              data-ml="Hamarino raha hita ao amin'ny BIOS ny HDD/SSD.">Vérifiez si le HDD/SSD est détecté dans le BIOS.</li>
+          <li data-fr="Vérifiez l'ordre de démarrage."
+              data-ml="Hamarino ny filaharan'ny démarrage.">Vérifiez l'ordre de démarrage.</li>
+          <li data-fr="Si le disque est absent, recherchez d'abord une panne matérielle."
+              data-ml="Raha tsy hita ilay disque, tadiavo aloha ny olana matériel.">Si le disque est absent, recherchez d'abord une panne matérielle.</li>
+        </ul>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="disque dur hdd ssd non détecté bios sata">
+      <div class="icone">💽</div>
+      <h3 data-fr="HDD / SSD non détecté" data-ml="Tsy hita ny HDD / SSD">HDD / SSD non détecté</h3>
+      <p class="resume" data-fr="Le disque n'apparaît pas dans le BIOS."
+         data-ml="Tsy miseho ao amin'ny BIOS ilay disque.">Le disque n'apparaît pas dans le BIOS.</p>
+      <details>
+        <summary data-fr="Vérifications" data-ml="Fanamarinana">Vérifications</summary>
+        <ul>
+          <li data-fr="Éteignez le PC avant toute vérification interne."
+              data-ml="Vonoy ny PC alohan'ny fanamarinana anatiny.">Éteignez le PC avant toute vérification interne.</li>
+          <li data-fr="Sur un PC de bureau, faites vérifier les câbles SATA et d'alimentation."
+              data-ml="Amin'ny PC de bureau, asaivo zahana ny tariby SATA sy alimentation.">Sur un PC de bureau, faites vérifier les câbles SATA et d'alimentation.</li>
+          <li data-fr="Ne formatez pas un disque contenant des données à récupérer."
+              data-ml="Aza manao formatage amin'ny disque misy angona tiana haverina.">Ne formatez pas un disque contenant des données à récupérer.</li>
+        </ul>
+      </details>
+    </article>
+
+    <article class="carte" data-mots="mot de passe bios oublié bitlocker secure boot">
+      <div class="icone">🔐</div>
+      <h3 data-fr="Mot de passe BIOS / BitLocker" data-ml="Mot de passe BIOS / BitLocker">Mot de passe BIOS / BitLocker</h3>
+      <p class="resume" data-fr="Un mot de passe ou une clé de récupération est demandé."
+         data-ml="Mangataka mot de passe na clé de récupération ilay ordinateur.">Un mot de passe ou une clé de récupération est demandé.</p>
+      <details>
+        <summary data-fr="Que faire ?" data-ml="Inona no atao?">Que faire ?</summary>
+        <ul>
+          <li data-fr="Contactez le propriétaire ou le support officiel du fabricant."
+              data-ml="Mifandraisa amin'ny tompony na ny support ofisialin'ny mpanamboatra.">Contactez le propriétaire ou le support officiel du fabricant.</li>
+          <li data-fr="Pour BitLocker, recherchez la clé de récupération associée au compte concerné."
+              data-ml="Ho an'ny BitLocker, tadiavo ny clé de récupération mifandray amin'ilay compte.">Pour BitLocker, recherchez la clé de récupération associée au compte concerné.</li>
+          <li data-fr="Ne réinitialisez pas l'appareil sans comprendre les risques de perte de données."
+              data-ml="Aza manao réinitialisation raha tsy fantatra ny mety ho fahaverezan'ny angona.">Ne réinitialisez pas l'appareil sans comprendre les risques de perte de données.</li>
+        </ul>
+      </details>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2 data-fr="5. Tableau de référence rapide" data-ml="5. Tabilao famintinana">5. Tableau de référence rapide</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-fr="Marque / type" data-ml="Marika / karazana">Marque / type</th>
+          <th>BIOS / UEFI</th>
+          <th>Boot Menu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>HP</td><td>F10</td><td>Échap puis F9 sur de nombreux modèles</td></tr>
+        <tr><td>Dell</td><td>F2</td><td>F12</td></tr>
+        <tr><td>Lenovo</td><td>F1 / F2 selon le modèle</td><td>F12 sur de nombreux modèles</td></tr>
+        <tr><td>Acer</td><td>F2</td><td>F12 sur certains modèles</td></tr>
+        <tr><td>ASUS</td><td>F2 sur de nombreux portables</td><td>Échap sur de nombreux modèles</td></tr>
+        <tr><td>MSI / Gigabyte</td><td>Suppr / F2 selon le modèle</td><td>F11 / F12 selon le modèle</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muet" data-fr="Ce tableau est indicatif : vérifiez toujours le manuel officiel du modèle exact."
+     data-ml="Torolalana ankapobeny ity tabilao ity: hamarino hatrany ny boky ofisialin'ilay modèle.">
+    Ce tableau est indicatif : vérifiez toujours le manuel officiel du modèle exact.
+  </p>
+</section>
+
+<section class="section">
+  <h2 data-fr="6. Fiche pratique de diagnostic" data-ml="6. Taratasy fanazaran-tena diagnostic">6. Fiche pratique de diagnostic</h2>
+  <p data-fr="Complétez cette fiche pendant une activité ou un dépannage."
+     data-ml="Fenoy ity taratasy ity mandritra ny fanazaran-tena na dépannage.">
+    Complétez cette fiche pendant une activité ou un dépannage.
+  </p>
+
+  <form id="formFiche">
+    <div class="champ">
+      <label for="eleve" data-fr="Nom de l'élève / technicien" data-ml="Anaran'ny mpianatra / teknisianina">Nom de l'élève / technicien</label>
+      <input id="eleve" required>
+    </div>
+    <div class="champ">
+      <label for="marque" data-fr="Marque et modèle du PC" data-ml="Marika sy modèle an'ny PC">Marque et modèle du PC</label>
+      <input id="marque">
+    </div>
+    <div class="champ">
+      <label for="symptome" data-fr="Symptôme observé" data-ml="Soritr'aretina hita">Symptôme observé</label>
+      <textarea id="symptome" required></textarea>
+    </div>
+    <div class="champ">
+      <label for="cause" data-fr="Cause possible" data-ml="Antony mety">Cause possible</label>
+      <textarea id="cause"></textarea>
+    </div>
+    <div class="champ">
+      <label for="solution" data-fr="Vérification / solution proposée" data-ml="Fanamarinana / vahaolana">Vérification / solution proposée</label>
+      <textarea id="solution"></textarea>
+    </div>
+    <div class="actions">
+      <button type="submit" class="principal" data-fr="💾 Enregistrer" data-ml="💾 Tehirizo">💾 Enregistrer</button>
+      <button type="button" class="secondaire" onclick="imprimer()" data-fr="🖨️ Imprimer" data-ml="🖨️ Atao printy">🖨️ Imprimer</button>
+      <button type="button" class="secondaire" onclick="exporter()" data-fr="⬇️ Exporter TXT" data-ml="⬇️ Hamoaka TXT">⬇️ Exporter TXT</button>
+      <button type="button" class="secondaire" onclick="vider()" data-fr="Effacer la fiche" data-ml="Fafana ny fiche">Effacer la fiche</button>
+    </div>
+    <p id="message" role="status"></p>
+  </form>
+</section>
+
+<section class="section">
+  <h2 data-fr="7. Petit exercice pour les élèves" data-ml="7. Fanazaran-tena ho an'ny mpianatra">7. Petit exercice pour les élèves</h2>
+  <ol>
+    <li data-fr="Citez deux touches permettant d'entrer dans le BIOS sur certains ordinateurs."
+        data-ml="Manomeza touche roa ahafahana miditra amin'ny BIOS amin'ny ordinateur sasany.">Citez deux touches permettant d'entrer dans le BIOS sur certains ordinateurs.</li>
+    <li data-fr="Expliquez la différence entre BIOS et Boot Menu."
+        data-ml="Hazavao ny maha-samy hafa ny BIOS sy Boot Menu.">Expliquez la différence entre BIOS et Boot Menu.</li>
+    <li data-fr="Que faut-il vérifier si le disque dur n'apparaît pas dans le BIOS ?"
+        data-ml="Inona no tokony hojerena raha tsy miseho ao amin'ny BIOS ny disque dur?">Que faut-il vérifier si le disque dur n'apparaît pas dans le BIOS ?</li>
+    <li data-fr="Pourquoi faut-il sauvegarder les données avant une installation de Windows ?"
+        data-ml="Nahoana no ilaina ny sauvegarder ny angona alohan'ny installation Windows?">Pourquoi faut-il sauvegarder les données avant une installation de Windows ?</li>
+  </ol>
+  <details>
+    <summary data-fr="Afficher les éléments de correction" data-ml="Asehoy ny fanitsiana">Afficher les éléments de correction</summary>
+    <ol>
+      <li data-fr="Exemples : F2, F10, F12 ou Suppr, selon le modèle."
+          data-ml="Ohatra: F2, F10, F12 na Suppr, arakaraka ny modèle.">Exemples : F2, F10, F12 ou Suppr, selon le modèle.</li>
+      <li data-fr="Le BIOS configure le matériel ; le Boot Menu sert à choisir le périphérique de démarrage."
+          data-ml="Ny BIOS no fikirakirana matériel; ny Boot Menu no hisafidianana ny fitaovana démarrage.">Le BIOS configure le matériel ; le Boot Menu sert à choisir le périphérique de démarrage.</li>
+      <li data-fr="Vérifier la détection dans le BIOS, les branchements et l'état du disque, avec précaution."
+          data-ml="Hamarino ny BIOS, ny tariby ary ny toetry ny disque, amim-pitandremana.">Vérifier la détection dans le BIOS, les branchements et l'état du disque, avec précaution.</li>
+      <li data-fr="Pour éviter de perdre les fichiers importants."
+          data-ml="Mba tsy hahavery ireo rakitra manan-danja.">Pour éviter de perdre les fichiers importants.</li>
+    </ol>
+  </details>
+</section>
+</main>
+
+<footer>
+  <p>💻 InfoPro — <span data-fr="Apprendre • Pratiquer • Réussir" data-ml="Mianatra • Mampihatra • Mahomby">Apprendre • Pratiquer • Réussir</span></p>
+  <p>Mr Tahiry - Informatique 👨‍🏫</p>
+</footer>
+
+<script>
+"use strict";
+
+let langue = "fr";
+const CLE_FICHE = "InfoPro_BIOS_BootMenu_Fiche_v1";
+
+function changerLangue(l){
+  langue = l;
+  document.documentElement.lang = l;
+
+  document.querySelectorAll("[data-fr][data-ml]").forEach(el=>{
+    el.textContent = el.dataset[l];
+  });
+
+  document.querySelectorAll("[data-placeholder-fr]").forEach(el=>{
+    const cle = l === "fr" ? "placeholderFr" : "placeholderMl";
+    el.placeholder = el.dataset[cle];
+  });
+
+  document.getElementById("btnFR").classList.toggle("actif",l==="fr");
+  document.getElementById("btnML").classList.toggle("actif",l==="ml");
+
+  const recherche = document.getElementById("recherche");
+  recherche.placeholder = l==="fr"
+    ? recherche.dataset.placeholderFr
+    : recherche.dataset.placeholderMl;
+}
+
+function filtrer(){
+  const terme = document.getElementById("recherche").value.toLowerCase().trim();
+  let visibles = 0;
+
+  document.querySelectorAll("#grilleMarques .carte").forEach(carte=>{
+    const texte = (carte.innerText+" "+carte.dataset.mots).toLowerCase();
+    const ok = texte.includes(terme);
+    carte.hidden = !ok;
+    if(ok) visibles++;
+  });
+
+  document.getElementById("aucun").hidden = visibles !== 0;
+}
+
+const champs = ["eleve","marque","symptome","cause","solution"];
+const formulaire = document.getElementById("formFiche");
+
+function lireDonnees(){
+  const resultat = {};
+  champs.forEach(id=>{
+    resultat[id] = document.getElementById(id).value;
+  });
+  return resultat;
+}
+
+function message(fr,ml){
+  document.getElementById("message").textContent = langue==="fr" ? fr : ml;
+}
+
+formulaire.addEventListener("submit",function(e){
+  e.preventDefault();
+  try{
+    localStorage.setItem(CLE_FICHE,JSON.stringify(lireDonnees()));
+    message("Fiche enregistrée dans ce navigateur.",
+            "Voatahiry ao amin'ity navigateur ity ny fiche.");
+  }catch(e){
+    message("Enregistrement impossible dans ce navigateur.",
+            "Tsy afaka mitahiry ao amin'ity navigateur ity.");
+  }
+});
+
+function charger(){
+  try{
+    const donnees = JSON.parse(localStorage.getItem(CLE_FICHE) || "null");
+    if(!donnees) return;
+    champs.forEach(id=>{
+      if(donnees[id] !== undefined){
+        document.getElementById(id).value = donnees[id];
+      }
+    });
+  }catch(e){
+    console.warn("Chargement de la fiche impossible.");
+  }
+}
+
+function texteFiche(){
+  const d = lireDonnees();
+  const fr = langue==="fr";
+  return [
+    fr ? "FICHE PRATIQUE BIOS & BOOT MENU" : "TARATASY FANAZARAN-TENA BIOS & BOOT MENU",
+    "",
+    (fr ? "Élève / technicien : " : "Mpianatra / teknisianina : ")+d.eleve,
+    (fr ? "Marque et modèle : " : "Marika sy modèle : ")+d.marque,
+    "",
+    (fr ? "Symptôme : " : "Soritr'aretina : ")+"\n"+d.symptome,
+    "",
+    (fr ? "Cause possible : " : "Antony mety : ")+"\n"+d.cause,
+    "",
+    (fr ? "Solution : " : "Vahaolana : ")+"\n"+d.solution,
+    "",
+    "InfoPro - Mr Tahiry"
+  ].join("\n");
+}
+
+function imprimer(){
+  window.print();
+}
+
+function exporter(){
+  const blob = new Blob([texteFiche()],{type:"text/plain;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const lien = document.createElement("a");
+  lien.href = url;
+  lien.download = "fiche-bios-boot-menu-infopro.txt";
+  document.body.appendChild(lien);
+  lien.click();
+  lien.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function vider(){
+  const ok = confirm(langue==="fr"
+    ? "Effacer les données de la fiche ?"
+    : "Fafana ve ny angona ao amin'ny fiche?");
+
+  if(!ok) return;
+  formulaire.reset();
+  try{localStorage.removeItem(CLE_FICHE)}catch(e){}
+  message("Fiche effacée.","Voafafa ny fiche.");
+}
+
+charger();
+</script>
+</body>
+</html>

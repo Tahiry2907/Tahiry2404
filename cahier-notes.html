@@ -1,0 +1,3374 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cahier de Notes PRO++ | InfoPro</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(135deg,#eef4ff,#f8fafc);
+    color:#172033;
+}
+
+header{
+    background:linear-gradient(135deg,#062b63,#0d47a1,#00838f);
+    color:white;
+    padding:22px 15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+header h1{
+    margin:0;
+    font-size:28px;
+}
+
+header p{
+    margin:7px 0 0;
+    opacity:.9;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
+}
+
+nav a{
+    background:rgba(255,255,255,.15);
+    color:white;
+    padding:9px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    border:1px solid rgba(255,255,255,.25);
+}
+
+nav a:hover{
+    background:white;
+    color:#0d47a1;
+}
+
+.container{
+    max-width:1600px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(15,23,42,.08);
+}
+
+.card h2{
+    margin-top:0;
+    color:#0d47a1;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+input,
+select{
+    width:100%;
+    padding:11px;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    font-size:14px;
+    background:white;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#1976d2;
+    box-shadow:0 0 0 3px rgba(25,118,210,.12);
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+button{
+    border:0;
+    padding:11px 15px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-1px);
+    opacity:.92;
+}
+
+.primary{
+    background:#1976d2;
+    color:white;
+}
+
+.success{
+    background:#2e7d32;
+    color:white;
+}
+
+.warning{
+    background:#f9a825;
+    color:white;
+}
+
+.danger{
+    background:#c62828;
+    color:white;
+}
+
+.dark{
+    background:#263238;
+    color:white;
+}
+
+.info{
+    background:#00838f;
+    color:white;
+}
+
+.status{
+    margin-top:15px;
+    padding:12px;
+    background:#e8f5e9;
+    color:#1b5e20;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.bareme{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.bareme-item{
+    background:#f1f5f9;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.bareme-item strong{
+    display:block;
+    color:#0d47a1;
+    font-size:18px;
+}
+
+.table-wrap{
+    overflow:auto;
+    border-radius:12px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1500px;
+}
+
+th,
+td{
+    border:1px solid #cbd5e1;
+    padding:7px;
+    text-align:center;
+}
+
+thead th{
+    background:#0d47a1;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:2;
+}
+
+thead tr:first-child th{
+    background:#062b63;
+}
+
+.subject{
+    background:#00838f!important;
+}
+
+.note{
+    width:65px;
+    text-align:center;
+    padding:7px;
+}
+
+.student-name{
+    text-align:left;
+    min-width:190px;
+}
+
+.total-cell{
+    font-weight:bold;
+    background:#e3f2fd;
+}
+
+.moy-cell{
+    font-size:16px;
+    font-weight:bold;
+    background:#e8f5e9;
+}
+
+.rang-cell{
+    font-weight:bold;
+    background:#fff8e1;
+}
+
+.app-cell{
+    min-width:110px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.stat{
+    background:white;
+    padding:17px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.stat strong{
+    display:block;
+    font-size:25px;
+    color:#0d47a1;
+    margin-bottom:5px;
+}
+
+.bulletin-zone{
+    display:none;
+}
+
+.bulletin{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border:2px solid #0d47a1;
+    padding:25px;
+}
+
+.bulletin-header{
+    text-align:center;
+    border-bottom:2px solid #0d47a1;
+    padding-bottom:15px;
+    margin-bottom:15px;
+}
+
+.bulletin-header h1{
+    margin:0;
+    color:#0d47a1;
+}
+
+.bulletin-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-bottom:15px;
+}
+
+.bulletin table{
+    width:100%;
+    min-width:0;
+}
+
+.bulletin th{
+    background:#0d47a1;
+    color:white;
+}
+
+.bulletin-total{
+    margin-top:15px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.bulletin-box{
+    border:1px solid #aaa;
+    padding:12px;
+    text-align:center;
+}
+
+.bulletin-box strong{
+    display:block;
+    font-size:20px;
+    color:#0d47a1;
+}
+
+.signature{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    margin-top:50px;
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#475569;
+}
+
+
+/* ================= STORAGE ================= */
+
+.storage-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.68);
+    z-index:9999;
+    padding:15px;
+    overflow:auto;
+}
+
+.storage-box{
+    max-width:1200px;
+    margin:25px auto;
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 10px 50px rgba(0,0,0,.4);
+}
+
+.storage-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    border-bottom:2px solid #e2e8f0;
+    padding-bottom:15px;
+}
+
+.storage-head h2{
+    margin:0;
+    color:#0d47a1;
+}
+
+.storage-info{
+    margin-top:15px;
+    padding:15px;
+    background:#eef6ff;
+    border-radius:12px;
+    line-height:1.8;
+}
+
+.storage-table{
+    width:100%;
+    min-width:750px;
+    border-collapse:collapse;
+}
+
+.storage-table th{
+    background:#0d47a1;
+    color:white;
+    padding:10px;
+}
+
+.storage-table td{
+    padding:9px;
+    border:1px solid #cbd5e1;
+}
+
+.storage-cahier{
+    padding:12px;
+    margin-bottom:8px;
+    background:#f1f5f9;
+    border-left:5px solid #0d47a1;
+    border-radius:10px;
+}
+
+.add-form{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    padding:15px;
+    background:#f8fafc;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+.add-form button{
+    align-self:end;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .info-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .bareme{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .add-form{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .container{
+        padding:10px;
+    }
+
+    .info-grid,
+    .bareme,
+    .stats,
+    .add-form{
+        grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:22px;
+    }
+
+    .card{
+        padding:14px;
+    }
+
+    .bulletin-info{
+        grid-template-columns:1fr;
+    }
+
+    .bulletin-total{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* ================= PRINT ================= */
+
+@media print{
+
+    @page{
+        size:A4 landscape;
+        margin:7mm;
+    }
+
+    body{
+        background:white;
+    }
+
+    header,
+    nav,
+    .no-print,
+    footer,
+    .status,
+    #cahierZone,
+    #statsZone,
+    .storage-modal{
+        display:none!important;
+    }
+
+    .container{
+        padding:0;
+        max-width:none;
+    }
+
+    .bulletin-zone{
+        display:block!important;
+    }
+
+    .bulletin{
+        border:2px solid #000;
+        max-width:none;
+    }
+
+    .bulletin table{
+        font-size:10px;
+    }
+
+    .bulletin th,
+    .bulletin td{
+        padding:5px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<h1>📊 CAHIER DE NOTES PRO++</h1>
+
+<p>Gestion trimestrielle des résultats scolaires</p>
+
+<nav>
+<a href="index.html">🏠 Accueil</a>
+<a href="eleves.html">👨‍🎓 Élèves</a>
+<a href="plan-classe.html">🏫 Plan de classe</a>
+</nav>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     INFORMATIONS
+===================================================== -->
+
+<div class="card no-print">
+
+<h2>⚙️ Informations générales</h2>
+
+<div class="info-grid">
+
+<div>
+<label>Établissement</label>
+<input id="etablissement">
+</div>
+
+<div>
+<label>Professeur</label>
+<input id="professeur" value="M. Tahiry">
+</div>
+
+<div>
+<label>Classe</label>
+
+<select id="classe" onchange="chargerCahier()">
+
+<option>6èmeI</option>
+<option>6èmeII</option>
+<option>6èmeIII</option>
+
+<option>5èmeI</option>
+<option>5èmeII</option>
+
+<option>4èmeI</option>
+<option>4èmeII</option>
+
+<option>3èmeI</option>
+<option>3èmeII</option>
+
+<option>2ndI</option>
+<option>2ndII</option>
+
+<option>1èreL</option>
+<option>1èreS</option>
+
+<option>TL</option>
+<option>TS</option>
+
+<option>7èmeI</option>
+<option>7èmeII</option>
+
+<option>8èmeI</option>
+<option>8èmeII</option>
+
+<option>9èmeI</option>
+<option>9èmeII</option>
+
+<option>10èmeI</option>
+<option>10èmeII</option>
+
+<option>11èmeI</option>
+<option>11èmeII</option>
+
+<option>12èmeI</option>
+<option>12èmeII</option>
+
+<option>MaterneleI</option>
+<option>MaterneleII</option>
+
+<option>7èmeMLV</option>
+<option>8èmeMLV</option>
+<option>9èmeMLV</option>
+<option>10èmeMLV</option>
+<option>11èmeMLV</option>
+<option>12èmeMLV</option>
+<option>MaterneleMLV</option>
+
+</select>
+</div>
+
+
+<div>
+<label>Année scolaire</label>
+<input id="annee" placeholder="2026-2027">
+</div>
+
+
+<div>
+<label>Trimestre</label>
+
+<select id="trimestre" onchange="chargerCahier()">
+
+<option value="1">Trimestre 1</option>
+<option value="2">Trimestre 2</option>
+<option value="3">Trimestre 3</option>
+
+</select>
+
+</div>
+
+
+<div>
+<label>Session</label>
+
+<select id="session">
+
+<option value="DS">DS + Examen</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<button class="primary"
+onclick="chargerEleveml">
+
+   ste()">
+👨‍🎓 Charger les élèves
+</button>
+
+<button class="success"
+onclick="ajouterEleveDirect()">
+➕ Ajouter élève
+</button>
+
+<button class="info"
+onclick="ouvrirStorage()">
+🗄️ Ouvrir Storage
+</button>
+
+<button class="success"
+onclick="sauvegarderLocal()">
+💾 Sauvegarder
+</button>
+
+<button class="dark"
+onclick="exporterFichier()">
+⬇️ Télécharger JSON
+</button>
+
+<label class="warning"
+style="display:inline-block;padding:11px 15px;border-radius:9px;cursor:pointer;color:white">
+
+⬆️ Charger JSON
+
+<input type="file"
+accept=".json"
+onchange="chargerFichier(event)"
+hidden>
+
+</label>
+
+<button class="info"
+onclick="choisirEleveBulletin()">
+📄 Bulletin élève
+</button>
+
+<button class="warning"
+onclick="preparerImpression()">
+🖨️ Imprimer
+</button>
+
+<button class="danger"
+onclick="nouveauCahier()">
+🆕 Nouveau
+</button>
+
+</div>
+
+
+<div id="saveStatus" class="status">
+💾 Les données sont sauvegardées localement sur cet appareil.
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     AJOUT RAPIDE
+===================================================== -->
+
+<div class="card no-print">
+
+<h2>➕ Ajouter rapidement un élève</h2>
+
+<div class="add-form">
+
+<div>
+<label>Numéro / Matricule</label>
+<input id="addMatricule" placeholder="Ex : 001">
+</div>
+
+<div>
+<label>Nom</label>
+<input id="addNom" placeholder="Ex : RAKOTO">
+</div>
+
+<div>
+<label>Prénom</label>
+<input id="addPrenom" placeholder="Ex : Jean">
+</div>
+
+<div>
+<label>Classe</label>
+<input id="addClasse" readonly>
+</div>
+
+<button class="success"
+onclick="ajouterEleveFormulaire()">
+➕ Enregistrer l'élève
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     BAREME
+===================================================== -->
+
+<div class="card no-print">
+
+<h2>📐 Barème des matières</h2>
+
+<div class="bareme">
+
+<div class="bareme-item">
+<strong>Math</strong>
+DS /60 — Examen /60
+</div>
+
+<div class="bareme-item">
+<strong>PC</strong>
+DS /40 — Examen /60
+</div>
+
+<div class="bareme-item">
+<strong>SVT</strong>
+DS /60 — Examen /60
+</div>
+
+<div class="bareme-item">
+<strong>FRS</strong>
+DS /60 — Examen /60
+</div>
+
+<div class="bareme-item">
+<strong>ANG</strong>
+DS /40 — Examen /40
+</div>
+
+<div class="bareme-item">
+<strong>MLG</strong>
+DS /60 — Examen /60
+</div>
+
+<div class="bareme-item">
+<strong>EPS</strong>
+DS /20 — Examen /20
+</div>
+
+<div class="bareme-item">
+<strong>RLG</strong>
+DS /20 — Examen /20
+</div>
+
+<div class="bareme-item">
+<strong>EVA</strong>
+DS /20 — Examen /20
+</div>
+
+<div class="bareme-item">
+<strong>INFO</strong>
+DS /20 — Examen /20
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     CAHIER
+===================================================== -->
+
+<div class="card" id="cahierZone">
+
+<h2>
+📋 Notes — <span id="titreTrimestre">Trimestre 1</span>
+</h2>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th rowspan="2">N°</th>
+
+<th rowspan="2">Nom & Prénom</th>
+
+<th colspan="2" class="subject">MATH</th>
+<th colspan="2" class="subject">PC</th>
+<th colspan="2" class="subject">SVT</th>
+<th colspan="2" class="subject">FRS</th>
+<th colspan="2" class="subject">ANG</th>
+<th colspan="2" class="subject">MLG</th>
+<th colspan="2" class="subject">EPS</th>
+<th colspan="2" class="subject">RLG</th>
+<th colspan="2" class="subject">EVA</th>
+<th colspan="2" class="subject">INFO</th>
+
+<th rowspan="2">TOTAL</th>
+<th rowspan="2">MOY /20</th>
+<th rowspan="2">RANG</th>
+<th rowspan="2">Appréciation</th>
+<th rowspan="2" class="no-print">Action</th>
+
+</tr>
+
+
+<tr>
+
+<th>DS1<br>/60</th>
+<th>EX1<br>/60</th>
+
+<th>DS1<br>/40</th>
+<th>EX1<br>/60</th>
+
+<th>DS1<br>/60</th>
+<th>EX1<br>/60</th>
+
+<th>DS1<br>/60</th>
+<th>EX1<br>/60</th>
+
+<th>DS1<br>/40</th>
+<th>EX1<br>/40</th>
+
+<th>DS1<br>/60</th>
+<th>EX1<br>/60</th>
+
+<th>DS1<br>/20</th>
+<th>EX1<br>/20</th>
+
+<th>DS1<br>/20</th>
+<th>EX1<br>/20</th>
+
+<th>DS1<br>/20</th>
+<th>EX1<br>/20</th>
+
+<th>DS1<br>/20</th>
+<th>EX1<br>/20</th>
+
+</tr>
+
+</thead>
+
+<tbody id="listeEleves"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     STATISTIQUES
+===================================================== -->
+
+<div class="stats no-print" id="statsZone">
+
+<div class="stat">
+<strong id="nbEleves">0</strong>
+Élèves
+</div>
+
+<div class="stat">
+<strong id="moyenneClasse">0.00</strong>
+Moyenne classe
+</div>
+
+<div class="stat">
+<strong id="meilleureNote">0.00</strong>
+Meilleure moyenne
+</div>
+
+<div class="stat">
+<strong id="admis">0</strong>
+Moyenne ≥ 10
+</div>
+
+<div class="stat">
+<strong id="nonAdmis">0</strong>
+Moyenne < 10
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     BULLETIN
+===================================================== -->
+
+<div class="bulletin-zone" id="bulletinZone">
+
+<div class="bulletin">
+
+<div class="bulletin-header">
+
+<h1>📘 BULLETIN SCOLAIRE</h1>
+
+<h2 id="bulletinEtablissement">
+Établissement
+</h2>
+
+<div>
+Année scolaire :
+<strong id="bulletinAnnee"></strong>
+</div>
+
+</div>
+
+
+<div class="bulletin-info">
+
+<div>
+<strong>Élève :</strong>
+<span id="bulletinNom"></span>
+</div>
+
+<div>
+<strong>Classe :</strong>
+<span id="bulletinClasse"></span>
+</div>
+
+<div>
+<strong>Trimestre :</strong>
+<span id="bulletinTrimestre"></span>
+</div>
+
+<div>
+<strong>Professeur :</strong>
+<span id="bulletinProfesseur"></span>
+</div>
+
+</div>
+
+
+<table>
+
+<thead>
+
+<tr>
+<th>Matière</th>
+<th>DS</th>
+<th>Examen</th>
+<th>Total</th>
+<th>Moyenne /20</th>
+</tr>
+
+</thead>
+
+<tbody id="bulletinTable"></tbody>
+
+</table>
+
+
+<div class="bulletin-total">
+
+<div class="bulletin-box">
+Total général
+<strong id="bulletinTotal">0</strong>
+</div>
+
+<div class="bulletin-box">
+Moyenne générale
+<strong id="bulletinMoyenne">0.00 /20</strong>
+</div>
+
+<div class="bulletin-box">
+Rang
+<strong id="bulletinRang">-</strong>
+</div>
+
+</div>
+
+
+<div style="margin-top:15px;text-align:center">
+
+<strong>Appréciation générale :</strong>
+
+<span id="bulletinAppreciation">
+-
+</span>
+
+</div>
+
+
+<div class="signature">
+
+<div>
+Le professeur
+<br><br><br>
+________________________
+</div>
+
+<div>
+Le responsable / Chef d'établissement
+<br><br><br>
+________________________
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     STORAGE MODAL
+===================================================== -->
+
+<div id="storageModal" class="storage-modal">
+
+<div class="storage-box">
+
+<div class="storage-head">
+
+<h2>🗄️ Storage InfoPro</h2>
+
+<button class="danger"
+onclick="fermerStorage()">
+✖ Fermer
+</button>
+
+</div>
+
+
+<div id="storageResume"
+class="storage-info">
+Chargement...
+</div>
+
+
+<h3>👨‍🎓 Élèves enregistrés</h3>
+
+<div style="overflow:auto">
+
+<table class="storage-table">
+
+<thead>
+
+<tr>
+<th>N°</th>
+<th>Numéro / Matricule</th>
+<th>Nom</th>
+<th>Prénom</th>
+<th>Classe</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="storageEleves"></tbody>
+
+</table>
+
+</div>
+
+
+<h3 style="margin-top:25px">
+💾 Cahiers de notes enregistrés
+</h3>
+
+<div id="storageCahiers"></div>
+
+
+<div class="buttons">
+
+<button class="success"
+onclick="actualiserStorage()">
+🔄 Actualiser
+</button>
+
+<button class="dark"
+onclick="exporterStorageComplet()">
+⬇️ Exporter Storage
+</button>
+
+<button class="danger"
+onclick="viderStorageInfoPro()">
+🗑️ Vider données InfoPro
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+💻 Mr Tahiry - Informatique 👨‍🏫
+</footer>
+
+
+<script>
+
+/* =========================================================
+   MATIERES
+========================================================= */
+
+const MATIERES=[
+
+{
+code:"math",
+nom:"Mathématiques",
+court:"Math",
+ds:60,
+examen:60
+},
+
+{
+code:"pc",
+nom:"Physique-Chimie",
+court:"PC",
+ds:40,
+examen:60
+},
+
+{
+code:"svt",
+nom:"SVT",
+court:"SVT",
+ds:60,
+examen:60
+},
+
+{
+code:"frs",
+nom:"Français",
+court:"FRS",
+ds:60,
+examen:60
+},
+
+{
+code:"ang",
+nom:"Anglais",
+court:"ANG",
+ds:40,
+examen:40
+},
+
+{
+code:"mlg",
+nom:"Malagasy",
+court:"MLG",
+ds:60,
+examen:60
+},
+
+{
+code:"eps",
+nom:"EPS",
+court:"EPS",
+ds:20,
+examen:20
+},
+
+{
+code:"rlg",
+nom:"Religion",
+court:"RLG",
+ds:20,
+examen:20
+},
+
+{
+code:"eva",
+nom:"Éducation à la Vie et à l'Amour",
+court:"EVA",
+ds:20,
+examen:20
+},
+
+{
+code:"info",
+nom:"Informatique",
+court:"INFO",
+ds:20,
+examen:20
+}
+
+];
+
+
+let eleves=[];
+
+
+/* =========================================================
+   SECURISATION
+========================================================= */
+
+function securiser(txt){
+
+return String(txt ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   CLE CAHIER
+========================================================= */
+
+function cleCahier(){
+
+const classe=
+document.getElementById("classe").value;
+
+const trimestre=
+document.getElementById("trimestre").value;
+
+return "infoPro_cahier_pro_"+
+encodeURIComponent(classe)+"_"+
+encodeURIComponent(trimestre);
+
+}
+
+
+/* =========================================================
+   STRUCTURE ELEVE
+========================================================= */
+
+function creerEleve(e){
+
+const obj={
+
+nom:e?.nom || "",
+prenom:e?.prenom || "",
+matricule:
+e?.matricule ||
+e?.numero ||
+e?.num ||
+"",
+
+classe:e?.classe || ""
+
+};
+
+MATIERES.forEach(m=>{
+
+obj[m.code+"_ds"]=
+e?.[m.code+"_ds"] ?? "";
+
+obj[m.code+"_examen"]=
+e?.[m.code+"_examen"] ?? "";
+
+});
+
+return obj;
+
+}
+
+
+/* =========================================================
+   CHARGER CAHIER
+========================================================= */
+
+function chargerCahier(){
+
+const sauvegarde=
+localStorage.getItem(cleCahier());
+
+if(sauvegarde){
+
+try{
+
+const data=
+JSON.parse(sauvegarde);
+
+eleves=
+(data.eleves || [])
+.map(creerEleve);
+
+document.getElementById("etablissement").value=
+data.etablissement || "";
+
+document.getElementById("professeur").value=
+data.professeur || "M. Tahiry";
+
+document.getElementById("annee").value=
+data.annee || "";
+
+}catch(e){
+
+eleves=[];
+
+}
+
+}else{
+
+eleves=[];
+
+}
+
+afficherTitreTrimestre();
+
+afficherEleves();
+
+document.getElementById("addClasse").value=
+document.getElementById("classe").value;
+
+}
+
+
+/* =========================================================
+   TITRE
+========================================================= */
+
+function afficherTitreTrimestre(){
+
+const t=
+document.getElementById("trimestre").value;
+
+document.getElementById("titreTrimestre")
+.textContent="Trimestre "+t;
+
+}
+
+
+/* =========================================================
+   TROUVER LISTE ELEVES
+========================================================= */
+
+function obtenirListeElevesStorage(){
+
+const cles=[
+
+"infoProEleves",
+"infoPro_eleves",
+"eleves",
+"listeEleves",
+"students"
+
+];
+
+for(const cle of cles){
+
+const valeur=
+localStorage.getItem(cle);
+
+if(!valeur) continue;
+
+try{
+
+const data=
+JSON.parse(valeur);
+
+if(Array.isArray(data)){
+
+return{
+
+cle:cle,
+eleves:data
+
+};
+
+}
+
+}catch(e){}
+
+}
+
+return{
+
+cle:null,
+eleves:[]
+
+};
+
+}
+
+
+/* =========================================================
+   CHARGER ELEVES
+========================================================= */
+
+function chargerElevesDepuisListe(){
+
+const classe=
+document.getElementById("classe").value;
+
+const resultat=
+obtenirListeElevesStorage();
+
+const liste=
+resultat.eleves || [];
+
+const correspondants=
+liste.filter(e=>
+
+String(e.classe || e.Classe || "")
+.trim()
+.toLowerCase()
+
+===
+
+String(classe)
+.trim()
+.toLowerCase()
+
+);
+
+
+if(correspondants.length===0){
+
+alert(
+
+"❌ Aucun élève trouvé pour la classe "+
+classe+
+".\n\n"+
+"Ajoutez d'abord les élèves avec le bouton "+
+"➕ Ajouter élève."
+
+);
+
+return;
+
+}
+
+
+const anciennes=eleves;
+
+eleves=
+correspondants.map(e=>{
+
+const ancien=
+anciennes.find(a=>
+
+(
+
+e.matricule &&
+a.matricule===e.matricule
+
+)
+
+||
+
+(
+
+e.numero &&
+a.matricule===e.numero
+
+)
+
+||
+
+(
+
+a.nom===e.nom &&
+a.prenom===e.prenom
+
+)
+
+);
+
+
+return creerEleve({
+
+...e,
+
+...(ancien || {})
+
+});
+
+});
+
+
+afficherEleves();
+
+sauvegarderLocal();
+
+
+alert(
+
+"✅ "+
+correspondants.length+
+" élève(s) chargé(s) pour la classe "+
+classe+"."
+
+);
+
+}
+
+
+/* =========================================================
+   CHAMP NOTE
+========================================================= */
+
+function champNote(i,code,type,max){
+
+const valeur=
+eleves[i][code+"_"+type];
+
+return `
+
+<input
+class="note"
+type="number"
+min="0"
+max="${max}"
+step="0.25"
+value="${securiser(valeur)}"
+onchange="
+modifierNote(
+${i},
+'${code}',
+'${type}',
+this.value,
+${max}
+)
+">
+
+`;
+
+}
+
+
+/* =========================================================
+   AFFICHER ELEVES
+========================================================= */
+
+function afficherEleves(){
+
+const tbody=
+document.getElementById("listeEleves");
+
+tbody.innerHTML="";
+
+
+eleves.forEach((e,i)=>{
+
+const tr=
+document.createElement("tr");
+
+let html=`
+
+<td>${i+1}</td>
+
+<td class="student-name">
+
+<strong>
+${securiser(e.nom)}
+</strong>
+
+${securiser(e.prenom)}
+
+${
+e.matricule
+?
+`<small>
+<br>🔢 ${securiser(e.matricule)}
+</small>`
+:
+""
+}
+
+</td>
+
+`;
+
+
+MATIERES.forEach(m=>{
+
+html+=`
+
+<td>
+${champNote(
+i,
+m.code,
+"ds",
+m.ds
+)}
+</td>
+
+<td>
+${champNote(
+i,
+m.code,
+"examen",
+m.examen
+)}
+</td>
+
+`;
+
+});
+
+
+html+=`
+
+<td
+id="total-${i}"
+class="total-cell">
+-
+</td>
+
+<td
+id="moy-${i}"
+class="moy-cell">
+-
+</td>
+
+<td
+id="rang-${i}"
+class="rang-cell">
+-
+</td>
+
+<td
+id="app-${i}"
+class="app-cell">
+-
+</td>
+
+<td class="no-print">
+
+<button
+class="info"
+onclick="bulletinEleve(${i})">
+📄
+</button>
+
+<button
+class="danger"
+onclick="supprimerEleve(${i})">
+🗑️
+</button>
+
+</td>
+
+`;
+
+tr.innerHTML=html;
+
+tbody.appendChild(tr);
+
+});
+
+calculerTout();
+
+}
+
+
+/* =========================================================
+   MODIFIER NOTE
+========================================================= */
+
+function modifierNote(i,code,type,valeur,max){
+
+if(valeur===""){
+
+eleves[i][code+"_"+type]="";
+
+}else{
+
+let n=parseFloat(valeur);
+
+if(isNaN(n)) n=0;
+
+n=Math.max(
+0,
+Math.min(max,n)
+);
+
+eleves[i][code+"_"+type]=n;
+
+}
+
+calculerTout();
+
+sauvegarderLocal();
+
+}
+
+
+/* =========================================================
+   CALCUL MATIERE
+========================================================= */
+
+function calculMatiere(e,m){
+
+const ds=e[m.code+"_ds"];
+
+const ex=e[m.code+"_examen"];
+
+const dsExiste=
+ds!=="" &&
+ds!==null &&
+ds!==undefined;
+
+const exExiste=
+ex!=="" &&
+ex!==null &&
+ex!==undefined;
+
+if(!dsExiste && !exExiste){
+
+return null;
+
+}
+
+const dsNormalise=
+dsExiste
+?
+Number(ds)/m.ds*20
+:
+0;
+
+const exNormalise=
+exExiste
+?
+Number(ex)/m.examen*20
+:
+0;
+
+const somme=
+(dsExiste?dsNormalise:0)+
+(exExiste?exNormalise:0);
+
+const nombre=
+(dsExiste?1:0)+
+(exExiste?1:0);
+
+return nombre
+?
+somme/nombre
+:
+null;
+
+}
+
+
+/* =========================================================
+   CALCUL ELEVE
+========================================================= */
+
+function calculEleve(e){
+
+let total=0;
+
+let matieres=0;
+
+MATIERES.forEach(m=>{
+
+const moyenne=
+calculMatiere(e,m);
+
+if(moyenne!==null){
+
+total+=moyenne;
+
+matieres++;
+
+}
+
+});
+
+
+if(matieres===0){
+
+return{
+
+total:0,
+moyenne:null
+
+};
+
+}
+
+
+return{
+
+total:total,
+moyenne:total/matieres
+
+};
+
+}
+
+
+/* =========================================================
+   APPRECIATION
+========================================================= */
+
+function appreciation(m){
+
+if(m===null)
+return "-";
+
+if(m>=16)
+return "Très bien";
+
+if(m>=14)
+return "Bien";
+
+if(m>=12)
+return "Assez bien";
+
+if(m>=10)
+return "Passable";
+
+return "Insuffisant";
+
+}
+
+
+/* =========================================================
+   CALCULER TOUT
+========================================================= */
+
+function calculerTout(){
+
+const resultats=
+eleves.map((e,i)=>{
+
+const c=
+calculEleve(e);
+
+return{
+
+i:i,
+total:c.total,
+moyenne:c.moyenne
+
+};
+
+});
+
+
+const valides=
+resultats.filter(
+x=>x.moyenne!==null
+);
+
+
+const classement=
+[...valides]
+.sort(
+(a,b)=>
+b.moyenne-a.moyenne
+);
+
+
+resultats.forEach(r=>{
+
+const total=
+document.getElementById(
+"total-"+r.i
+);
+
+const moy=
+document.getElementById(
+"moy-"+r.i
+);
+
+const rang=
+document.getElementById(
+"rang-"+r.i
+);
+
+const app=
+document.getElementById(
+"app-"+r.i
+);
+
+
+if(!total || !moy || !rang || !app)
+return;
+
+
+if(r.moyenne===null){
+
+total.textContent="-";
+moy.textContent="-";
+rang.textContent="-";
+app.textContent="-";
+
+return;
+
+}
+
+
+total.textContent=
+r.total.toFixed(2);
+
+moy.textContent=
+r.moyenne.toFixed(2);
+
+
+const position=
+classement.findIndex(
+x=>x.i===r.i
+);
+
+
+rang.textContent=
+position+1;
+
+app.textContent=
+appreciation(r.moyenne);
+
+});
+
+
+const moyennes=
+valides.map(
+x=>x.moyenne
+);
+
+
+const moyenneClasse=
+moyennes.length
+?
+moyennes.reduce(
+(a,b)=>a+b,0
+)/moyennes.length
+:
+0;
+
+
+document.getElementById("nbEleves")
+.textContent=
+eleves.length;
+
+
+document.getElementById("moyenneClasse")
+.textContent=
+moyenneClasse.toFixed(2);
+
+
+document.getElementById("meilleureNote")
+.textContent=
+moyennes.length
+?
+Math.max(...moyennes).toFixed(2)
+:
+"0.00";
+
+
+document.getElementById("admis")
+.textContent=
+moyennes.filter(
+x=>x>=10
+).length;
+
+
+document.getElementById("nonAdmis")
+.textContent=
+moyennes.filter(
+x=>x<10
+).length;
+
+}
+
+
+/* =========================================================
+   SUPPRIMER ELEVE DU CAHIER
+========================================================= */
+
+function supprimerEleve(i){
+
+if(!confirm(
+"Supprimer cet élève du cahier de notes ?"
+)) return;
+
+eleves.splice(i,1);
+
+afficherEleves();
+
+sauvegarderLocal();
+
+}
+
+
+/* =========================================================
+   DONNEES CAHIER
+========================================================= */
+
+function obtenirDonnees(){
+
+return{
+
+etablissement:
+document.getElementById(
+"etablissement"
+).value,
+
+professeur:
+document.getElementById(
+"professeur"
+).value,
+
+classe:
+document.getElementById(
+"classe"
+).value,
+
+annee:
+document.getElementById(
+"annee"
+).value,
+
+trimestre:
+document.getElementById(
+"trimestre"
+).value,
+
+matieres:MATIERES,
+
+eleves:eleves
+
+};
+
+}
+
+
+/* =========================================================
+   SAUVEGARDER CAHIER
+========================================================= */
+
+function sauvegarderLocal(){
+
+localStorage.setItem(
+
+cleCahier(),
+
+JSON.stringify(
+obtenirDonnees()
+)
+
+);
+
+document.getElementById(
+"saveStatus"
+).textContent=
+
+"💾 Sauvegardé : "+
+new Date().toLocaleString();
+
+}
+
+
+/* =========================================================
+   EXPORT JSON CAHIER
+========================================================= */
+
+function exporterFichier(){
+
+const blob=
+new Blob(
+
+[
+JSON.stringify(
+obtenirDonnees(),
+null,
+2
+)
+],
+
+{
+type:"application/json"
+}
+
+);
+
+
+const url=
+URL.createObjectURL(blob);
+
+const a=
+document.createElement("a");
+
+a.href=url;
+
+a.download=
+"cahier-"+
+document.getElementById("classe").value+
+"-T"+
+document.getElementById("trimestre").value+
+".json";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================================================
+   IMPORT JSON
+========================================================= */
+
+function chargerFichier(event){
+
+const fichier=
+event.target.files[0];
+
+if(!fichier)
+return;
+
+
+const reader=
+new FileReader();
+
+
+reader.onload=function(){
+
+try{
+
+const data=
+JSON.parse(reader.result);
+
+eleves=
+(data.eleves || [])
+.map(creerEleve);
+
+
+document.getElementById(
+"etablissement"
+).value=
+data.etablissement || "";
+
+
+document.getElementById(
+"professeur"
+).value=
+data.professeur ||
+"M. Tahiry";
+
+
+document.getElementById(
+"annee"
+).value=
+data.annee || "";
+
+
+afficherEleves();
+
+sauvegarderLocal();
+
+
+alert(
+"✅ Cahier chargé avec succès."
+);
+
+}catch(e){
+
+alert(
+"❌ Fichier JSON invalide."
+);
+
+}
+
+};
+
+
+reader.readAsText(fichier);
+
+}
+
+
+/* =========================================================
+   AJOUTER ELEVE FORMULAIRE
+========================================================= */
+
+function ajouterEleveFormulaire(){
+
+const matricule=
+document.getElementById(
+"addMatricule"
+).value.trim();
+
+const nom=
+document.getElementById(
+"addNom"
+).value.trim();
+
+const prenom=
+document.getElementById(
+"addPrenom"
+).value.trim();
+
+const classe=
+document.getElementById(
+"classe"
+).value;
+
+
+if(!nom){
+
+alert(
+"⚠️ Le nom est obligatoire."
+);
+
+return;
+
+}
+
+
+const resultat=
+obtenirListeElevesStorage();
+
+
+let liste=
+resultat.eleves || [];
+
+
+const existe=
+liste.some(e=>
+
+String(
+e.matricule ||
+e.numero ||
+""
+).trim()===matricule
+
+&&
+
+matricule!==""
+
+);
+
+
+if(existe){
+
+alert(
+"⚠️ Ce numéro/matricule existe déjà."
+);
+
+return;
+
+}
+
+
+liste.push({
+
+matricule:matricule,
+
+nom:nom,
+
+prenom:prenom,
+
+classe:classe
+
+});
+
+
+localStorage.setItem(
+"infoProEleves",
+JSON.stringify(liste)
+);
+
+
+document.getElementById(
+"addMatricule"
+).value="";
+
+document.getElementById(
+"addNom"
+).value="";
+
+document.getElementById(
+"addPrenom"
+).value="";
+
+
+chargerElevesDepuisListe();
+
+
+alert(
+"✅ Élève enregistré dans le Storage."
+);
+
+}
+
+
+/* =========================================================
+   AJOUTER ELEVE PAR PROMPT
+========================================================= */
+
+function ajouterEleveDirect(){
+
+const classe=
+document.getElementById(
+"classe"
+).value;
+
+
+const matricule=
+prompt(
+"Numéro / Matricule :"
+);
+
+if(matricule===null)
+return;
+
+
+const nom=
+prompt(
+"Nom de l'élève :"
+);
+
+if(nom===null)
+return;
+
+
+if(!nom.trim()){
+
+alert(
+"⚠️ Le nom est obligatoire."
+);
+
+return;
+
+}
+
+
+const prenom=
+prompt(
+"Prénom de l'élève :"
+);
+
+if(prenom===null)
+return;
+
+
+const resultat=
+obtenirListeElevesStorage();
+
+
+let liste=
+resultat.eleves || [];
+
+
+liste.push({
+
+matricule:matricule.trim(),
+
+nom:nom.trim(),
+
+prenom:prenom.trim(),
+
+classe:classe
+
+});
+
+
+localStorage.setItem(
+"infoProEleves",
+JSON.stringify(liste)
+);
+
+
+chargerElevesDepuisListe();
+
+
+alert(
+"✅ Élève ajouté.\n\n"+
+nom+
+" "+
+prenom+
+"\nNuméro : "+
+matricule+
+"\nClasse : "+
+classe
+);
+
+}
+
+
+/* =========================================================
+   OUVRIR STORAGE
+========================================================= */
+
+function ouvrirStorage(){
+
+document.getElementById(
+"storageModal"
+).style.display="block";
+
+actualiserStorage();
+
+}
+
+
+/* =========================================================
+   FERMER STORAGE
+========================================================= */
+
+function fermerStorage(){
+
+document.getElementById(
+"storageModal"
+).style.display="none";
+
+}
+
+
+/* =========================================================
+   ACTUALISER STORAGE
+========================================================= */
+
+function actualiserStorage(){
+
+const resultat=
+obtenirListeElevesStorage();
+
+const liste=
+resultat.eleves || [];
+
+
+document.getElementById(
+"storageResume"
+).innerHTML=
+
+"📦 Clé élèves utilisée : <strong>"+
+(
+resultat.cle || "Aucune"
+)+
+"</strong><br>"+
+"👨‍🎓 Nombre d'élèves : <strong>"+
+liste.length+
+"</strong><br>"+
+"🏫 Classe actuelle : <strong>"+
+document.getElementById("classe").value+
+"</strong><br>"+
+"💾 Stockage navigateur : <strong>ACTIF</strong>";
+
+
+const tbody=
+document.getElementById(
+"storageEleves"
+);
+
+tbody.innerHTML="";
+
+
+if(liste.length===0){
+
+tbody.innerHTML=`
+
+<tr>
+
+<td colspan="6"
+style="
+padding:25px;
+text-align:center;
+color:#c62828;
+font-weight:bold;
+">
+
+❌ Aucun élève trouvé dans le Storage.
+
+<br><br>
+
+Utilisez le bouton
+<strong>➕ Ajouter élève</strong>.
+
+</td>
+
+</tr>
+
+`;
+
+}else{
+
+liste.forEach((e,index)=>{
+
+const tr=
+document.createElement("tr");
+
+
+const numero=
+e.matricule ||
+e.numero ||
+e.num ||
+e.id ||
+"";
+
+
+const nom=
+e.nom ||
+e.Nom ||
+"";
+
+
+const prenom=
+e.prenom ||
+e.Prénom ||
+"";
+
+
+const classe=
+e.classe ||
+e.Classe ||
+"";
+
+
+tr.innerHTML=`
+
+<td>
+${index+1}
+</td>
+
+<td>
+<strong>
+${securiser(numero)}
+</strong>
+</td>
+
+<td>
+${securiser(nom)}
+</td>
+
+<td>
+${securiser(prenom)}
+</td>
+
+<td>
+${securiser(classe)}
+</td>
+
+<td>
+
+<button
+class="danger"
+onclick="supprimerEleveStorage(${index})">
+
+🗑️
+
+</button>
+
+</td>
+
+`;
+
+
+tbody.appendChild(tr);
+
+});
+
+}
+
+
+afficherCahiersStorage();
+
+}
+
+
+/* =========================================================
+   AFFICHER CAHIERS STORAGE
+========================================================= */
+
+function afficherCahiersStorage(){
+
+const zone=
+document.getElementById(
+"storageCahiers"
+);
+
+zone.innerHTML="";
+
+let nombre=0;
+
+
+for(let i=0;
+i<localStorage.length;
+i++){
+
+const cle=
+localStorage.key(i);
+
+
+if(!cle)
+continue;
+
+
+if(
+cle.startsWith(
+"infoPro_cahier_pro_"
+)
+){
+
+nombre++;
+
+
+let data=null;
+
+
+try{
+
+data=
+JSON.parse(
+localStorage.getItem(cle)
+);
+
+}catch(e){}
+
+
+const div=
+document.createElement("div");
+
+div.className=
+"storage-cahier";
+
+
+div.innerHTML=
+
+"<strong>📘 "+
+securiser(cle)+
+"</strong><br>"+
+"👨‍🎓 Élèves : <strong>"+
+(
+data &&
+Array.isArray(data.eleves)
+?
+data.eleves.length
+:
+0
+)+
+"</strong>";
+
+
+zone.appendChild(div);
+
+}
+
+}
+
+
+if(nombre===0){
+
+zone.innerHTML=`
+
+<div class="storage-cahier">
+
+📭 Aucun cahier de notes sauvegardé.
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =========================================================
+   SUPPRIMER ELEVE STORAGE
+========================================================= */
+
+function supprimerEleveStorage(index){
+
+const resultat=
+obtenirListeElevesStorage();
+
+let liste=
+resultat.eleves || [];
+
+
+if(!liste[index])
+return;
+
+
+const e=
+liste[index];
+
+
+if(!confirm(
+
+"Supprimer cet élève du Storage ?\n\n"+
+(e.nom || "")+
+" "+
+(e.prenom || "")+
+"\nNuméro : "+
+(e.matricule || e.numero || "")
+
+)) return;
+
+
+liste.splice(index,1);
+
+
+localStorage.setItem(
+"infoProEleves",
+JSON.stringify(liste)
+);
+
+
+actualiserStorage();
+
+
+alert(
+"✅ Élève supprimé du Storage."
+);
+
+}
+
+
+/* =========================================================
+   EXPORT STORAGE COMPLET
+========================================================= */
+
+function exporterStorageComplet(){
+
+const donnees={};
+
+
+for(let i=0;
+i<localStorage.length;
+i++){
+
+const cle=
+localStorage.key(i);
+
+
+if(!cle)
+continue;
+
+
+if(
+
+cle.startsWith("infoPro")
+
+||
+
+cle==="eleves"
+
+||
+
+cle==="listeEleves"
+
+||
+
+cle==="students"
+
+){
+
+donnees[cle]=
+localStorage.getItem(cle);
+
+}
+
+}
+
+
+const blob=
+new Blob(
+
+[
+JSON.stringify(
+donnees,
+null,
+2
+)
+],
+
+{
+type:"application/json"
+}
+
+);
+
+
+const url=
+URL.createObjectURL(blob);
+
+
+const a=
+document.createElement("a");
+
+
+a.href=url;
+
+a.download=
+"InfoPro-Storage-"+
+new Date()
+.toISOString()
+.slice(0,10)+
+".json";
+
+
+a.click();
+
+
+URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================================================
+   VIDER STORAGE INFOPRO
+========================================================= */
+
+function viderStorageInfoPro(){
+
+if(!confirm(
+
+"⚠️ ATTENTION\n\n"+
+"Cette opération peut supprimer les élèves "+
+"et les cahiers de notes sauvegardés dans InfoPro.\n\n"+
+"Voulez-vous vraiment continuer ?"
+
+)) return;
+
+
+const cles=[];
+
+
+for(let i=0;
+i<localStorage.length;
+i++){
+
+const cle=
+localStorage.key(i);
+
+
+if(!cle)
+continue;
+
+
+if(
+
+cle.startsWith("infoPro")
+
+||
+
+cle==="eleves"
+
+||
+
+cle==="listeEleves"
+
+||
+
+cle==="students"
+
+){
+
+cles.push(cle);
+
+}
+
+}
+
+
+cles.forEach(
+cle=>
+localStorage.removeItem(cle)
+);
+
+
+eleves=[];
+
+
+afficherEleves();
+
+actualiserStorage();
+
+
+alert(
+"🗑️ Données InfoPro supprimées."
+);
+
+}
+
+
+/* =========================================================
+   BULLETIN
+========================================================= */
+
+function bulletinEleve(i){
+
+afficherBulletin(i);
+
+window.print();
+
+}
+
+
+/* =========================================================
+   CHOISIR ELEVE BULLETIN
+========================================================= */
+
+function choisirEleveBulletin(){
+
+if(eleves.length===0){
+
+alert(
+"Aucun élève dans ce cahier."
+);
+
+return;
+
+}
+
+
+let texte=
+"Entrez le numéro de l'élève :\n\n";
+
+
+eleves.forEach((e,i)=>{
+
+texte+=
+(i+1)+
+" - "+
+(e.nom || "")+
+" "+
+(e.prenom || "")+
+"\n";
+
+});
+
+
+const choix=
+prompt(texte);
+
+
+if(choix===null)
+return;
+
+
+const index=
+parseInt(choix)-1;
+
+
+if(
+isNaN(index)
+||
+index<0
+||
+index>=eleves.length
+){
+
+alert(
+"Numéro d'élève incorrect."
+);
+
+return;
+
+}
+
+
+afficherBulletin(index);
+
+window.print();
+
+}
+
+
+/* =========================================================
+   AFFICHER BULLETIN
+========================================================= */
+
+function afficherBulletin(i){
+
+const e=
+eleves[i];
+
+
+if(!e)
+return;
+
+
+const classe=
+document.getElementById(
+"classe"
+).value;
+
+
+const trimestre=
+document.getElementById(
+"trimestre"
+).value;
+
+
+const annee=
+document.getElementById(
+"annee"
+).value;
+
+
+const professeur=
+document.getElementById(
+"professeur"
+).value;
+
+
+const etablissement=
+document.getElementById(
+"etablissement"
+).value;
+
+
+document.getElementById(
+"bulletinEtablissement"
+).textContent=
+etablissement ||
+"Établissement scolaire";
+
+
+document.getElementById(
+"bulletinAnnee"
+).textContent=
+annee;
+
+
+document.getElementById(
+"bulletinNom"
+).textContent=
+(
+e.nom+
+" "+
+e.prenom
+).trim();
+
+
+document.getElementById(
+"bulletinClasse"
+).textContent=
+classe;
+
+
+document.getElementById(
+"bulletinTrimestre"
+).textContent=
+"Trimestre "+trimestre;
+
+
+document.getElementById(
+"bulletinProfesseur"
+).textContent=
+professeur;
+
+
+const tbody=
+document.getElementById(
+"bulletinTable"
+);
+
+tbody.innerHTML="";
+
+
+MATIERES.forEach(m=>{
+
+const ds=
+e[m.code+"_ds"];
+
+const ex=
+e[m.code+"_examen"];
+
+const moyenne=
+calculMatiere(e,m);
+
+const totalPossible=
+m.ds+m.examen;
+
+const total=
+(
+(ds===""?0:Number(ds))
++
+(ex===""?0:Number(ex))
+);
+
+
+const tr=
+document.createElement("tr");
+
+
+tr.innerHTML=`
+
+<td>
+${m.nom}
+</td>
+
+<td>
+${ds===""?"-":ds+" / "+m.ds}
+</td>
+
+<td>
+${ex===""?"-":ex+" / "+m.examen}
+</td>
+
+<td>
+${
+moyenne===null
+?
+"-"
+:
+total+" / "+totalPossible
+}
+</td>
+
+<td>
+${
+moyenne===null
+?
+"-"
+:
+moyenne.toFixed(2)
+}
+</td>
+
+`;
+
+
+tbody.appendChild(tr);
+
+});
+
+
+const c=
+calculEleve(e);
+
+
+document.getElementById(
+"bulletinTotal"
+).textContent=
+c.total.toFixed(2);
+
+
+document.getElementById(
+"bulletinMoyenne"
+).textContent=
+c.moyenne===null
+?
+"-"
+:
+c.moyenne.toFixed(2)+" /20";
+
+
+const classement=
+eleves
+.map((x,index)=>{
+
+const c=
+calculEleve(x);
+
+return{
+
+index:index,
+moyenne:c.moyenne
+
+};
+
+})
+.filter(x=>x.moyenne!==null)
+.sort(
+(a,b)=>
+b.moyenne-a.moyenne
+);
+
+
+const position=
+classement.findIndex(
+x=>x.index===i
+);
+
+
+document.getElementById(
+"bulletinRang"
+).textContent=
+position>=0
+?
+(position+1)+
+" / "+
+classement.length
+:
+"-";
+
+
+document.getElementById(
+"bulletinAppreciation"
+).textContent=
+appreciation(c.moyenne);
+
+}
+
+
+/* =========================================================
+   IMPRESSION
+========================================================= */
+
+function preparerImpression(){
+
+if(eleves.length===0){
+
+alert(
+"Aucun élève à imprimer."
+);
+
+return;
+
+}
+
+choisirEleveBulletin();
+
+}
+
+
+/* =========================================================
+   NOUVEAU CAHIER
+========================================================= */
+
+function nouveauCahier(){
+
+if(!confirm(
+
+"Créer un nouveau cahier pour cette classe et ce trimestre ?"
+
+)) return;
+
+
+eleves=[];
+
+
+localStorage.removeItem(
+cleCahier()
+);
+
+
+afficherEleves();
+
+
+document.getElementById(
+"saveStatus"
+).textContent=
+"🆕 Nouveau cahier créé.";
+
+}
+
+
+/* =========================================================
+   FERMER MODAL AVEC ESC
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Escape"){
+
+fermerStorage();
+
+}
+
+});
+
+
+/* =========================================================
+   CLIQUER HORS STORAGE
+========================================================= */
+
+document.getElementById(
+"storageModal"
+).addEventListener(
+"click",
+function(e){
+
+if(e.target===this){
+
+fermerStorage();
+
+}
+
+});
+
+
+/* =========================================================
+   DEMARRAGE
+========================================================= */
+
+document.getElementById(
+"addClasse"
+).value=
+document.getElementById("classe").value;
+
+
+chargerCahier();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Structure de Base d'un Ordinateur</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#0f172a;
+    color:#fff;
+}
+
+header{
+    background:linear-gradient(90deg,#2563eb,#1e3a8a);
+    padding:20px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+section{
+    padding:20px;
+    margin:15px;
+    background:#1e293b;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+h2{
+    color:#38bdf8;
+}
+
+.card{
+    background:#0f172a;
+    padding:15px;
+    margin:10px 0;
+    border-left:5px solid #38bdf8;
+    border-radius:8px;
+}
+
+button{
+    padding:10px 15px;
+    background:#38bdf8;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:#000;
+    font-weight:bold;
+}
+
+.hidden{
+    display:none;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#020617;
+    margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+📘 Structure de Base d’un Ordinateur
+</header>
+
+<!-- 1. SCHEMA FONCTIONNEL -->
+<section>
+<h2>1. Schéma Fonctionnel d’un Ordinateur</h2>
+
+<div class="card">
+📥 Entrée → 🧠 Traitement → 📤 Sortie
+</div>
+
+<p>
+FR : L’ordinateur fonctionne comme un système de traitement d’information.  
+ML : Ny ordinateur dia mandray (entrée), manodina (traitement), ary mamoaka (sortie).
+</p>
+
+<ul>
+<li><b>Entrée</b> : clavier, souris</li>
+<li><b>Traitement</b> : unité centrale (CPU)</li>
+<li><b>Sortie</b> : écran, imprimante</li>
+</ul>
+</section>
+
+<!-- 2. UNITE CENTRALE -->
+<section>
+<h2>2. Les éléments de l’unité centrale</h2>
+
+<div class="card">
+<b>CPU (Processeur)</b><br>
+FR : cerveau de l’ordinateur  
+ML : ati-doha mibaiko ny asa rehetra
+</div>
+
+<div class="card">
+<b>RAM (Mémoire vive)</b><br>
+FR : mémoire temporaire  
+ML : fitadidiana vetivety
+</div>
+
+<div class="card">
+<b>Disque dur / SSD</b><br>
+FR : stockage permanent  
+ML : fitahirizana maharitra
+</div>
+
+<div class="card">
+<b>Carte mère</b><br>
+FR : relie tous les composants  
+ML : mampifandray ireo singa rehetra
+</div>
+
+</section>
+
+<!-- 3. TYPE ORDINATEUR -->
+<section>
+<h2>3. Types d’ordinateur</h2>
+
+<ul>
+<li>💻 Ordinateur portable (Laptop)</li>
+<li>🖥️ Ordinateur de bureau (Desktop)</li>
+<li>📱 Tablette</li>
+<li>🏢 Serveur</li>
+</ul>
+
+<p>
+ML : Samy manana ny fampiasana azy ireo karazana ireo.
+</p>
+</section>
+
+<!-- 4. BRANCHEMENT -->
+<section>
+<h2>4. Branchement de la machine</h2>
+
+<ul>
+<li>🔌 Câble alimentation</li>
+<li>🖥️ Écran → unité centrale</li>
+<li>⌨️ Clavier & souris (USB)</li>
+<li>🌐 Câble réseau (Internet)</li>
+</ul>
+
+<p>
+ML : Tokony atao tsara ny fifandraisana rehetra vao mandeha ny machine.
+</p>
+</section>
+
+<!-- 5. PORTS -->
+<section>
+<h2>5. Les Ports</h2>
+
+<div class="card">
+USB : clavier, souris, clé USB
+</div>
+
+<div class="card">
+HDMI / VGA : écran
+</div>
+
+<div class="card">
+Audio : casque, haut-parleur
+</div>
+
+<div class="card">
+RJ45 : Internet
+</div>
+   </div>
+</section>
+    <div class="card">
+    <i class="fas fa-laptop-code"></i>
+    <img src="sary/ordonateur.png" alt="Schéma unité centrale" style="width:700px;">
+   </div>
+
+<!-- 6. PERIPHERIQUES -->
+<section>
+<h2>6. Manipulation des périphériques</h2>
+
+<ul>
+<li>🖱️ Souris : cliquer, déplacer</li>
+<li>⌨️ Clavier : écrire</li>
+<li>🖨️ Imprimante : imprimer</li>
+<li>🔊 Haut-parleur : son</li>
+</ul>
+
+<button onclick="showInfo()">Afficher Conseil</button>
+
+<p id="info" class="hidden">
+⚠️ ML : Tandremo tsara ny fitaovana (aza kapohina, aza asiana rano, esory tsara amin'ny USB)
+</p>
+
+</section>
+ <section>
+<h2>5. Les Ports de l’Ordinateur (Détaillé)</h2>
+
+<p>
+FR : Les ports permettent de connecter différents périphériques à l’ordinateur.  
+ML : Ny ports dia toerana fampifandraisana fitaovana amin’ny ordinateur.
+</p>
+
+<!-- USB -->
+<div class="card">
+<h3>🔵 Port USB</h3>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/USB_Type-A_plug.jpg" width="120">
+
+<p><b>Couleur :</b> Noir, Bleu (USB 3.0), Rouge</p>
+
+<ul>
+<li>Clavier</li>
+<li>Souris</li>
+<li>Clé USB</li>
+<li>Téléphone</li>
+</ul>
+
+<p>
+ML : Ity no port be mpampiasa indrindra.
+</p>
+</div>
+
+<!-- HDMI -->
+<div class="card">
+<h3>🟣 Port HDMI</h3>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/HDMI_Connector.jpg" width="120">
+
+<p><b>Couleur :</b> Noir</p>
+
+<ul>
+<li>Écran</li>
+<li>Télévision</li>
+<li>Projecteur</li>
+</ul>
+
+<p>
+ML : Mandefa sary sy feo miaraka.
+</p>
+</div>
+
+<!-- VGA -->
+<div class="card">
+<h3>🔷 Port VGA</h3>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/92/VGA_port.jpg" width="120">
+
+<p><b>Couleur :</b> Bleu</p>
+
+<ul>
+<li>Ancien écran</li>
+</ul>
+
+<p>
+ML : Port taloha, mbola ampiasaina amin’ny écran ancien.
+</p>
+</div>
+
+<!-- AUDIO -->
+<div class="card">
+<h3>🟢 Port Audio</h3>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Audio_jack_3.5mm.jpg" width="120">
+
+<p><b>Couleur :</b></p>
+
+<ul>
+<li>Vert : Haut-parleur</li>
+<li>Rose : Micro</li>
+<li>Bleu : Entrée audio</li>
+</ul>
+
+<p>
+ML : Ampiasaina amin’ny feo.
+</p>
+</div>
+
+<!-- RJ45 -->
+<div class="card">
+<h3>🟡 Port RJ45 (Internet)</h3>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Ethernet_RJ45_connector.jpg" width="120">
+
+<p><b>Couleur :</b> Jaune / Transparent</p>
+
+<ul>
+<li>Connexion Internet</li>
+<li>Réseau</li>
+</ul>
+
+<p>
+ML : Ampifandraisana amin’ny internet câble.
+</p>
+</div>
+
+</section>
+
+<footer>
+© Site pédagogique informatique
+</footer>
+
+<script>
+function showInfo(){
+    document.getElementById("info").classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>

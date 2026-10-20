@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Trimestre 1 - Bases Informatique (Avec fonctions)</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI", sans-serif;
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  color:#38bdf8;
+}
+
+/* SECTION */
+.section{
+  max-width:900px;
+  margin:auto;
+  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* TOGGLE */
+.toggle{
+  padding:18px;
+  background: linear-gradient(90deg,#22c55e,#06b6d4);
+  font-weight:bold;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  user-select:none;
+}
+
+.toggle::after{
+  content:"▸";
+  transition:0.3s;
+}
+
+.section.active .toggle::after{
+  transform:rotate(90deg);
+}
+
+/* CONTENT */
+.content{
+  max-height:0;
+  overflow:hidden;
+  transition:0.6s ease;
+  padding:0 18px;
+}
+
+.section.active .content{
+  max-height:9000px;
+  padding:18px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:10px;
+}
+
+/* BOX */
+.box{
+  background:rgba(255,255,255,0.05);
+  padding:12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+/* NOTE */
+.note{
+  margin-top:10px;
+  padding:10px;
+  background:rgba(56,189,248,0.1);
+  border-left:4px solid #38bdf8;
+  border-radius:6px;
+}
+
+/* FUNCTION TAG */
+.func{
+  font-size:13px;
+  color:#facc15;
+  margin-top:5px;
+  display:block;
+}
+
+/* QUIZ */
+.quiz{
+  margin-top:15px;
+  padding:10px;
+  border:1px dashed #94a3b8;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+}
+
+button{
+  margin:5px;
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🟢 Trimestre 1 - Bases Informatique</h1>
+
+<div class="section">
+
+<div class="toggle" onclick="toggleSection(this)">
+🟢 Trimestre 1 : Bases Informatique
+</div>
+
+<div class="content">
+
+<h3>⚙️ Composants de l’ordinateur (Avec fonctions)</h3>
+
+<div class="grid">
+
+<div class="box">
+🧠 CPU
+<span class="func">Central Processing Unit = Processeur (Cerveau de l’ordinateur)</span>
+<span>➡ Exécute les instructions et traite les données</span>
+</div>
+
+<div class="box">
+⚡ RAM
+<span class="func">Random Access Memory = Mémoire vive</span>
+<span>➡ Stockage temporaire des données en cours d’utilisation</span>
+</div>
+
+<div class="box">
+💾 HDD / SSD
+<span class="func">Hard Disk Drive / Solid State Drive = Stockage</span>
+<span>➡ Stocke les fichiers, logiciels et données</span>
+</div>
+
+<div class="box">
+🔩 Carte mère
+<span class="func">Motherboard = Plateforme principale</span>
+<span>➡ Connecte tous les composants ensemble</span>
+</div>
+
+<div class="box">
+🔌 Alimentation
+<span class="func">Power Supply Unit (PSU)</span>
+<span>➡ Fournit l’électricité à l’ordinateur</span>
+</div>
+
+</div>
+
+<hr>
+
+<h3>🧠 Rappel fonctionnement</h3>
+
+<ul>
+<li>Entrée → clavier / souris</li>
+<li>Traitement → CPU</li>
+<li>Stockage → RAM / disque</li>
+<li>Sortie → écran / imprimante</li>
+</ul>
+
+<hr>
+
+<h3>📌 Résumé</h3>
+
+<p class="note">
+L’ordinateur fonctionne grâce à plusieurs composants qui travaillent ensemble : traitement, stockage et affichage.
+</p>
+
+<hr>
+
+<h3>🧪 Quiz</h3>
+
+<div class="quiz">
+
+<p>👉 CPU signifie :</p>
+<button onclick="answer(this,true)">Central Processing Unit</button>
+<button onclick="answer(this,false)">Computer Power Unit</button>
+
+<br>
+
+<p>👉 RAM est :</p>
+<button onclick="answer(this,true)">Mémoire vive</button>
+<button onclick="answer(this,false)">Disque dur</button>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+function toggleSection(el){
+  el.parentElement.classList.toggle("active");
+}
+
+function answer(btn,correct){
+  if(correct){
+    btn.style.background="#22c55e";
+    btn.style.color="white";
+    btn.innerText="✔ Correct";
+  }else{
+    btn.style.background="#ef4444";
+    btn.style.color="white";
+    btn.innerText="✘ Faux";
+  }
+}
+
+</script>
+
+</body>
+</html>

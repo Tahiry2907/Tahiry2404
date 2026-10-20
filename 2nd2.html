@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Programme Informatique Complet | Mr Tahiry</title>
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #0f766e
+    );
+
+    color:#1e293b;
+
+    min-height:100vh;
+
+    padding:20px;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container{
+
+    max-width:1050px;
+
+    margin:auto;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+
+    text-align:center;
+
+    color:white;
+
+    padding:35px 20px;
+
+    margin-bottom:25px;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(37,99,235,.95),
+        rgba(6,182,212,.85)
+    );
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.30);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+    height:200px;
+
+    background:
+    rgba(255,255,255,.10);
+
+    border-radius:50%;
+
+    top:-100px;
+    right:-50px;
+
+}
+
+.header h1{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+    position:relative;
+
+}
+
+.header p{
+
+    font-size:17px;
+
+    opacity:.9;
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.top-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+.top-buttons a,
+.top-buttons button{
+
+    text-decoration:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    padding:11px 20px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.top-buttons a:hover,
+.top-buttons button:hover{
+
+    background:white;
+
+    color:#1d4ed8;
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+/* =========================================
+   LANGUE
+========================================= */
+
+.lang-info{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+}
+
+
+/* =========================================
+   TRIMESTRE
+========================================= */
+
+.section{
+
+    background:white;
+
+    border-radius:22px;
+
+    margin-bottom:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.section:hover{
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+/* =========================================
+   TITRE TRIMESTRE
+========================================= */
+
+.section-title{
+
+    padding:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1e3a8a,
+        #2563eb
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:21px;
+
+    user-select:none;
+
+}
+
+.section-title:hover{
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #0891b2
+    );
+
+}
+
+.arrow{
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.section.open .arrow{
+
+    transform:
+    rotate(180deg);
+
+}
+
+
+/* =========================================
+   CONTENU
+========================================= */
+
+.content{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    padding:0 25px;
+
+    transition:
+    max-height .6s ease,
+    padding .4s ease;
+
+}
+
+.section.open .content{
+
+    max-height:2500px;
+
+    padding:
+    25px;
+
+}
+
+
+/* =========================================
+   SOUS-TITRES
+========================================= */
+
+.lesson{
+
+    margin-bottom:22px;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    background:#f8fafc;
+
+    border-left:
+    5px solid #2563eb;
+
+    transition:.3s;
+
+}
+
+.lesson:hover{
+
+    transform:
+    translateX(5px);
+
+    box-shadow:
+    0 7px 20px rgba(37,99,235,.12);
+
+}
+
+.lesson h3{
+
+    color:#1d4ed8;
+
+    margin-bottom:8px;
+
+    font-size:20px;
+
+}
+
+.lesson p{
+
+    color:#475569;
+
+    margin-bottom:7px;
+
+}
+
+
+/* =========================================
+   METHODE
+========================================= */
+
+.methode{
+
+    background:
+    linear-gradient(
+        135deg,
+        #eff6ff,
+        #ecfeff
+    );
+
+    padding:18px;
+
+    border-radius:15px;
+
+    margin:
+    10px 0 22px;
+
+    border-left:
+    5px solid #06b6d4;
+
+}
+
+.methode h4{
+
+    color:#0f766e;
+
+    margin-bottom:10px;
+
+}
+
+.methode ol{
+
+    padding-left:25px;
+
+}
+
+.methode li{
+
+    margin:7px 0;
+
+}
+
+
+/* =========================================
+   QUIZ
+========================================= */
+
+.quiz{
+
+    margin-top:20px;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff7ed,
+        #fffbeb
+    );
+
+    border:
+    1px solid #fed7aa;
+
+}
+
+.quiz-title{
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    color:#c2410c;
+
+    margin-bottom:15px;
+
+}
+
+.quiz button{
+
+    width:100%;
+
+    border:none;
+
+    margin:7px 0;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    background:#e2e8f0;
+
+    color:#1e293b;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.quiz button:hover{
+
+    transform:
+    translateX(5px);
+
+    background:#cbd5e1;
+
+}
+
+.quiz button.correct{
+
+    background:#16a34a !important;
+
+    color:white;
+
+}
+
+.quiz button.wrong{
+
+    background:#dc2626 !important;
+
+    color:white;
+
+}
+
+.quiz-result{
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+
+/* =========================================
+   PROGRESSION
+========================================= */
+
+.progress-box{
+
+    background:
+    rgba(255,255,255,.15);
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin:
+    20px 0 30px;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:12px;
+
+    background:
+    rgba(255,255,255,.25);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:12px;
+
+}
+
+.progress-fill{
+
+    width:33%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #22d3ee,
+        #facc15
+    );
+
+    border-radius:20px;
+
+    transition:.5s;
+
+}
+
+
+/* =========================================
+   RETOUR
+========================================= */
+
+.back{
+
+    text-align:center;
+
+    margin:
+    30px 0;
+
+}
+
+.back a{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:white;
+
+    color:#1d4ed8;
+
+    padding:
+    12px 25px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.back a:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.25);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer-pro{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #020617,
+        #172554
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    margin-top:40px;
+
+    border-radius:
+    25px 25px 0 0;
+
+    box-shadow:
+    0 -8px 25px rgba(0,0,0,.25);
+
+}
+
+.footer-pro h2{
+
+    color:#67e8f9;
+
+    margin-bottom:12px;
+
+}
+
+.footer-pro p{
+
+    margin:8px 0;
+
+}
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:
+    20px 0;
+
+}
+
+.socials a{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:
+    9px 16px;
+
+    border:
+    1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    transition:.3s;
+
+}
+
+.socials a:hover{
+
+    background:
+    rgba(255,255,255,.15);
+
+    transform:
+    translateY(-3px);
+
+}
+
+.devise{
+
+    font-weight:bold;
+
+    color:#facc15;
+
+}
+
+
+/* =========================================
+   EFFET LUMIERE FOOTER
+========================================= */
+
+.footer-pro::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:200%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+
+    animation:
+    shine 5s infinite;
+
+}
+
+@keyframes shine{
+
+    0%{
+        left:-100%;
+    }
+
+    100%{
+        left:100%;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+    body{
+
+        padding:10px;
+
+    }
+
+    .header{
+
+        padding:28px 15px;
+
+    }
+
+    .header h1{
+
+        font-size:27px;
+
+    }
+
+    .header p{
+
+        font-size:14px;
+
+    }
+
+    .section-title{
+
+        font-size:17px;
+
+        padding:18px;
+
+    }
+
+    .section.open .content{
+
+        padding:18px;
+
+    }
+
+    .lesson{
+
+        padding:15px;
+
+    }
+
+    .lesson h3{
+
+        font-size:18px;
+
+    }
+
+    .quiz{
+
+        padding:16px;
+
+    }
+
+}
+
+
+/* =========================================
+   LANGUE
+========================================= */
+
+.ml{
+
+    display:none;
+
+}
+
+body.malagasy .fr{
+
+    display:none;
+
+}
+
+body.malagasy .ml{
+
+    display:block;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+    <h1>
+        📚 Programme Informatique Complet
+    </h1>
+
+    <p>
+        🎓 Programme pédagogique — Classe de Seconde
+    </p>
+
+</header>
+
+
+<!-- =========================================
+     BOUTONS
+========================================= -->
+
+<div class="top-buttons">
+
+    <a href="2nd.html">
+        🏠 Accueil 2nde
+    </a>
+
+    <button onclick="toggleLang()">
+        🌐 Français / Malagasy
+    </button>
+
+</div>
+
+
+<div class="lang-info">
+
+    <span class="fr">
+        🇫🇷 Programme en français
+    </span>
+
+    <span class="ml">
+        🇲🇬 Fandaharam-pianarana amin'ny teny Malagasy
+    </span>
+
+</div>
+
+
+<!-- =========================================
+     PROGRESSION
+========================================= -->
+
+<div class="progress-box">
+
+    <div class="fr">
+        📊 Progression du programme
+    </div>
+
+    <div class="ml">
+        📊 Fandrosoan'ny fandaharam-pianarana
+    </div>
+
+    <div class="progress-bar">
+
+        <div
+            class="progress-fill"
+            id="progressFill">
+        </div>
+
+    </div>
+
+    <p id="progressText">
+        Trimestre 1 / 3
+    </p>
+
+</div>
+
+
+<!-- =========================================
+     TRIMESTRE 1
+========================================= -->
+
+<div class="section open">
+
+<div
+    class="section-title"
+    onclick="toggleSection(this)"
+>
+
+    <span>
+        📘 Trimestre 1
+    </span>
+
+    <span class="arrow">
+        ▼
+    </span>
+
+</div>
+
+
+<div class="content">
+
+
+<!-- Rappel -->
+
+<div class="lesson">
+
+<h3>
+    🧠 Rappel collège
+</h3>
+
+<p class="fr">
+    Révision des bases :
+    ordinateur, clavier, fichiers.
+</p>
+
+<p class="ml">
+    Famerenana ireo fototra :
+    ordinatera, clavier ary fichier.
+</p>
+
+</div>
+
+
+<!-- Saisie -->
+
+<div class="lesson">
+
+<h3>
+    ⌨️ Technique de saisie
+</h3>
+
+<p class="fr">
+    Apprendre à taper rapidement
+    avec précision.
+</p>
+
+<p class="ml">
+    Mianatra manoratra haingana
+    sy marina.
+</p>
+
+</div>
+
+
+<div class="methode">
+
+<h4 class="fr">
+    📌 Méthode
+</h4>
+
+<h4 class="ml">
+    📌 Fomba fianarana
+</h4>
+
+<ol>
+
+<li class="fr">
+    Position des doigts
+</li>
+
+<li class="ml">
+    Fametrahana ny rantsantanana
+</li>
+
+<li class="fr">
+    Regarder l'écran
+</li>
+
+<li class="ml">
+    Mijery ny écran
+</li>
+
+</ol>
+
+</div>
+
+
+<!-- Algorithmique -->
+
+<div class="lesson">
+
+<h3>
+    💻 Algorithmique
+</h3>
+
+<p class="fr">
+    Suite d'instructions permettant
+    de résoudre un problème.
+</p>
+
+<p class="ml">
+    Dingana na torolàlana misesy
+    ampiasaina hamahana olana.
+</p>
+
+</div>
+
+
+<!-- Internet -->
+
+<div class="lesson">
+
+<h3>
+    🌐 Internet & sécurité
+</h3>
+
+<p class="fr">
+    Naviguer sur Internet en sécurité
+    et éviter les dangers.
+</p>
+
+<p class="ml">
+    Mampiasa Internet am-pilaminana
+    ary misoroka ny loza mety hitranga.
+</p>
+
+</div>
+
+
+<!-- Virus -->
+
+<div class="lesson">
+
+<h3>
+    🦠 Virus & antivirus
+</h3>
+
+<p class="fr">
+    Un virus est un programme
+    pouvant endommager ou perturber
+    un système informatique.
+</p>
+
+<p class="ml">
+    Ny virus dia programa mety
+    hanimba na hanelingelina
+    ny rafitra informatika.
+</p>
+
+</div>
+
+
+<!-- Quiz -->
+
+<div class="quiz">
+
+<div class="quiz-title">
+
+    ❓ Quiz — Virus
+
+</div>
+
+<p class="fr">
+    Un virus informatique sert principalement à :
+</p>
+
+<p class="ml">
+    Ny virus informatika dia mety :
+</p>
+
+
+<button onclick="answer(this,false)">
+    🛡️ Protéger le PC
+</button>
+
+<button onclick="answer(this,true)">
+    🦠 Endommager ou perturber le PC
+</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     TRIMESTRE 2
+========================================= -->
+
+<div class="section">
+
+<div
+    class="section-title"
+    onclick="toggleSection(this)"
+>
+
+    <span>
+        📗 Trimestre 2
+    </span>
+
+    <span class="arrow">
+        ▼
+    </span>
+
+</div>
+
+
+<div class="content">
+
+
+<div class="lesson">
+
+<h3>
+    📝 Word avancé
+</h3>
+
+<p class="fr">
+    Création et mise en forme
+    de documents professionnels.
+</p>
+
+<p class="ml">
+    Famoronana sy fandrafetana
+    document matihanina.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<h3>
+    📊 Excel avancé
+</h3>
+
+<p class="fr">
+    Calcul automatique,
+    formules et tableaux.
+</p>
+
+<p class="ml">
+    Kajy automatique,
+    formule ary tableau.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<h3>
+    📽️ PowerPoint avancé
+</h3>
+
+<p class="fr">
+    Création de présentations
+    avec animations.
+</p>
+
+<p class="ml">
+    Famoronana présentation
+    misy animation.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<h3>
+    📄 Mise en page
+</h3>
+
+<p class="fr">
+    Organisation du document :
+    marges, titres, paragraphes
+    et présentation.
+</p>
+
+<p class="ml">
+    Fandaminana ny document :
+    marge, lohateny, paragraphe
+    ary endrika.
+</p>
+
+</div>
+
+
+<!-- Quiz Excel -->
+
+<div class="quiz">
+
+<div class="quiz-title">
+    ❓ Quiz — Excel
+</div>
+
+<p class="fr">
+    Excel sert principalement à :
+</p>
+
+<p class="ml">
+    Excel dia ampiasaina indrindra amin'ny :
+</p>
+
+
+<button onclick="answer(this,true)">
+    📊 Faire des calculs et tableaux
+</button>
+
+<button onclick="answer(this,false)">
+    🎮 Jouer uniquement
+</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     TRIMESTRE 3
+========================================= -->
+
+<div class="section">
+
+<div
+    class="section-title"
+    onclick="toggleSection(this)"
+>
+
+    <span>
+        📕 Trimestre 3
+    </span>
+
+    <span class="arrow">
+        ▼
+    </span>
+
+</div>
+
+
+<div class="content">
+
+
+<div class="lesson">
+
+<h3>
+    🌐 HTML
+</h3>
+
+<p class="fr">
+    Langage utilisé pour créer
+    la structure d'une page web.
+</p>
+
+<p class="ml">
+    Fiteny ampiasaina hamoronana
+    ny firafitry ny pejy web.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<h3>
+    🎨 CSS
+</h3>
+
+<p class="fr">
+    Permet de modifier l'apparence,
+    les couleurs, les dimensions
+    et la mise en page.
+</p>
+
+<p class="ml">
+    Ampiasaina hanovana ny endrika,
+    loko, habeny ary fandaminana
+    ny pejy.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<h3>
+    ⚙️ JavaScript
+</h3>
+
+<p class="fr">
+    Permet d'ajouter des interactions
+    et du dynamisme aux pages web.
+</p>
+
+<p class="ml">
+    Ampiasaina hampidirana fihetsika
+    sy interaction ao amin'ny pejy web.
+</p>
+
+</div>
+
+
+<div class="lesson">
+
+<h3>
+    💻 Projet final
+</h3>
+
+<p class="fr">
+    Créer un site web complet
+    en utilisant HTML, CSS et JavaScript.
+</p>
+
+<p class="ml">
+    Mamorona site web feno
+    amin'ny fampiasana HTML, CSS
+    ary JavaScript.
+</p>
+
+</div>
+
+
+<div class="methode">
+
+<h4 class="fr">
+    🛠️ Étapes du projet
+</h4>
+
+<h4 class="ml">
+    🛠️ Dingana amin'ny projet
+</h4>
+
+
+<ol>
+
+<li class="fr">
+    Créer la structure HTML
+</li>
+
+<li class="ml">
+    Mamorona ny rafitra HTML
+</li>
+
+
+<li class="fr">
+    Ajouter le CSS
+</li>
+
+<li class="ml">
+    Manampy CSS
+</li>
+
+
+<li class="fr">
+    Ajouter JavaScript
+</li>
+
+<li class="ml">
+    Manampy JavaScript
+</li>
+
+</ol>
+
+</div>
+
+
+<!-- Quiz HTML -->
+
+<div class="quiz">
+
+<div class="quiz-title">
+    ❓ Quiz — HTML
+</div>
+
+<p class="fr">
+    HTML sert principalement à :
+</p>
+
+<p class="ml">
+    HTML dia ampiasaina indrindra amin'ny :
+</p>
+
+
+<button onclick="answer(this,true)">
+    🌐 Créer la structure d'une page web
+</button>
+
+<button onclick="answer(this,false)">
+    ❌ Supprimer l'ordinateur
+</button>
+
+<div class="quiz-result"></div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     RETOUR
+========================================= -->
+
+<div class="back">
+
+<a href="2nd.html">
+
+    ⬅️ Retour à la page 2nde
+
+</a>
+
+</div>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer-pro">
+
+<h2>
+    💻 Mr Tahiry - Informatique 👨‍🏫
+</h2>
+
+<p>
+    📅 <span id="dateFooter"></span>
+</p>
+
+
+<div class="socials">
+
+<a href="#">
+    📘 Facebook
+</a>
+
+<a href="#">
+    💬 WhatsApp
+</a>
+
+<a href="#">
+    📧 Email
+</a>
+
+</div>
+
+
+<p class="devise">
+    🚀 Apprendre • Pratiquer • Réussir 🌟
+</p>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+/* =========================================
+   OUVRIR / FERMER TRIMESTRE
+========================================= */
+
+function toggleSection(title){
+
+    const section =
+        title.parentElement;
+
+    section.classList.toggle("open");
+
+
+    updateProgress();
+
+}
+
+
+/* =========================================
+   LANGUE FR / ML
+========================================= */
+
+let lang = "fr";
+
+
+function toggleLang(){
+
+    lang =
+        lang === "fr"
+        ? "ml"
+        : "fr";
+
+
+    if(lang === "ml"){
+
+        document.body
+        .classList.add("malagasy");
+
+    }
+
+    else{
+
+        document.body
+        .classList.remove("malagasy");
+
+    }
+
+}
+
+
+/* =========================================
+   QUIZ
+========================================= */
+
+function answer(btn,correct){
+
+    const quiz =
+        btn.closest(".quiz");
+
+    const buttons =
+        quiz.querySelectorAll("button");
+
+    const result =
+        quiz.querySelector(".quiz-result");
+
+
+    /* Désactiver les boutons */
+
+    buttons.forEach(function(b){
+
+        b.disabled = true;
+
+    });
+
+
+    if(correct){
+
+        btn.classList.add("correct");
+
+        result.innerHTML =
+        "✅ Bonne réponse !";
+
+        result.style.color =
+        "#16a34a";
+
+    }
+
+    else{
+
+        btn.classList.add("wrong");
+
+        result.innerHTML =
+        "❌ Mauvaise réponse.";
+
+        result.style.color =
+        "#dc2626";
+
+    }
+
+}
+
+
+/* =========================================
+   PROGRESSION
+========================================= */
+
+function updateProgress(){
+
+    const sections =
+        document.querySelectorAll(".section");
+
+    let opened = 0;
+
+    sections.forEach(function(section){
+
+        if(
+            section.classList.contains("open")
+        ){
+
+            opened++;
+
+        }
+
+    });
+
+
+    const percentage =
+        (opened / sections.length) * 100;
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        Math.max(
+            33,
+            percentage
+        ) + "%";
+
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        "Trimestre " +
+        Math.max(1,opened) +
+        " / " +
+        sections.length;
+
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+const dateElement =
+    document.getElementById(
+        "dateFooter"
+    );
+
+if(dateElement){
+
+    const date =
+        new Date();
+
+    dateElement.textContent =
+        date.toLocaleDateString(
+            "fr-FR",
+            {
+                day:"2-digit",
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+}
+
+
+/* Initialisation */
+
+updateProgress();
+
+</script>
+
+
+</body>
+
+</html>

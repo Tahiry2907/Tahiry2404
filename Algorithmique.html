@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Algorithmique - SI / SINON</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI", sans-serif;
+  background: linear-gradient(135deg,#0f172a,#111827);
+  color:white;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  color:#38bdf8;
+}
+
+/* CARD */
+.card{
+  max-width:900px;
+  margin:auto;
+  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* TOGGLE */
+.toggle{
+  padding:18px;
+  background: linear-gradient(90deg,#f97316,#ef4444);
+  font-weight:bold;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  user-select:none;
+}
+
+.toggle::after{
+  content:"▸";
+  transition:0.3s;
+}
+
+.card.active .toggle::after{
+  transform:rotate(90deg);
+}
+
+/* CONTENT */
+.content{
+  max-height:0;
+  overflow:hidden;
+  transition:0.6s ease;
+  padding:0 18px;
+}
+
+.card.active .content{
+  max-height:9000px;
+  padding:18px;
+}
+
+/* TEXT */
+h3{
+  color:#facc15;
+}
+
+p, li{
+  color:#e5e7eb;
+  line-height:1.6;
+}
+
+/* BOX */
+.box{
+  background:rgba(255,255,255,0.05);
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
+  margin:6px 0;
+}
+
+/* CODE */
+code{
+  display:block;
+  background:#111827;
+  padding:10px;
+  border-left:4px solid #22d3ee;
+  border-radius:6px;
+  margin:6px 0;
+  color:#fff;
+}
+
+/* QUIZ */
+.quiz{
+  margin-top:15px;
+  padding:10px;
+  border:1px dashed #94a3b8;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+}
+
+button{
+  margin:5px;
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+/* NOTE */
+.note{
+  background:rgba(56,189,248,0.1);
+  border-left:4px solid #38bdf8;
+  padding:10px;
+  border-radius:6px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🧠 Algorithmique - SI / SINON</h1>
+
+<div class="card">
+
+<div class="toggle" onclick="toggleCard(this)">
+🧠 Algorithmique - Logique de programmation
+</div>
+
+<div class="content">
+
+<h3>📘 Définition</h3>
+
+<p class="fr">
+L’algorithmique est une méthode pour résoudre un problème étape par étape.
+</p>
+
+<p class="mlt">
+Algorithmique dia fomba fandaminana dingana hanatanterahana asa iray.
+</p>
+
+<hr>
+
+<h3>🧠 C’est quoi un algorithme ?</h3>
+
+<div class="box">✔ Suite d’instructions logiques</div>
+<div class="box">✔ Résolution de problème</div>
+<div class="box">✔ Utilisé en programmation</div>
+
+<div class="quiz">
+
+<p>👉 Algorithme =</p>
+<button onclick="answer(this,true)">Suite d'étapes</button>
+<button onclick="answer(this,false)">Image</button>
+<button onclick="answer(this,false)">Musique</button>
+
+</div>
+
+<hr>
+
+<h3>⚙️ Structure SI / SINON</h3>
+
+<p class="fr">
+SI condition est vraie, alors on exécute une action, SINON on exécute une autre.
+</p>
+
+<p class="mlt">
+RAHA marina ny condition dia atao action iray, raha tsy izany dia action hafa.
+</p>
+
+<code>
+SI condition ALORS<br>
+&nbsp;&nbsp;Action 1<br>
+SINON<br>
+&nbsp;&nbsp;Action 2<br>
+FIN SI
+</code>
+
+<hr>
+
+<h3>📊 Exemple simple</h3>
+
+<code>
+SI âge >= 18 ALORS<br>
+&nbsp;&nbsp;Afficher "Majeur"<br>
+SINON<br>
+&nbsp;&nbsp;Afficher "Mineur"<br>
+FIN SI
+</code>
+
+<hr>
+
+<h3>🧠 Pseudo-code</h3>
+
+<p class="note">
+Le pseudo-code est une façon d’écrire un algorithme sans langage de programmation.
+</p>
+
+<code>
+Début<br>
+Lire âge<br>
+SI âge >= 18 ALORS<br>
+&nbsp;&nbsp;Afficher "Adulte"<br>
+SINON<br>
+&nbsp;&nbsp;Afficher "Enfant"<br>
+Fin SI<br>
+Fin
+</code>
+
+<hr>
+
+<h3>🧪 Activité</h3>
+
+<ul>
+<li>Écrire un algorithme pour vérifier si un nombre est positif</li>
+<li>Créer un pseudo-code pour un test de note</li>
+</ul>
+
+<hr>
+
+<h3>📚 Résumé</h3>
+
+<p class="note">
+Algorithmique = logique + étapes + conditions (SI / SINON).
+</p>
+
+<hr>
+
+<h3>🎯 Quiz</h3>
+
+<div class="quiz">
+
+<p>👉 SI / SINON sert à :</p>
+<button onclick="answer(this,true)">Prendre une décision</button>
+<button onclick="answer(this,false)">Dessiner</button>
+
+<br>
+
+<p>👉 Pseudo-code est :</p>
+<button onclick="answer(this,true)">Description d’un algorithme</button>
+<button onclick="answer(this,false)">Image</button>
+
+<br>
+
+<p>👉 Algorithme est :</p>
+<button onclick="answer(this,true)">Suite d’étapes logiques</button>
+<button onclick="answer(this,false)">Vidéo</button>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+function toggleCard(el){
+  el.parentElement.classList.toggle("active");
+}
+
+function answer(btn,correct){
+  if(correct){
+    btn.style.background="#22c55e";
+    btn.style.color="white";
+    btn.innerText="✔ Correct";
+  }else{
+    btn.style.background="#ef4444";
+    btn.style.color="white";
+    btn.innerText="✘ Faux";
+  }
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesona JavaScript Base</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    pre {
+      background: #2c3e50;
+      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #1e8449;
+    }
+
+    .ml {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JavaScript Base</h1>
+    <p>Français / Malagasy</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>1. Introduction</h2>
+      <p><strong>FR :</strong> JavaScript sert à rendre un site interactif.</p>
+      <p class="ml"><strong>ML :</strong> JavaScript dia ampiasaina hanomezana interaction amin’ny site.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Alert</h2>
+      <p><strong>FR :</strong> Alert affiche un message.</p>
+      <p class="ml"><strong>ML :</strong> Alert dia mampiseho hafatra.</p>
+
+      <pre>
+alert("Bonjour")
+      </pre>
+
+      <button onclick="alert('Bonjour / Salama !')">Tester Alert</button>
+    </div>
+
+    <div class="card">
+      <h2>3. Variable</h2>
+      <p><strong>FR :</strong> Une variable sert à stocker une information.</p>
+      <p class="ml"><strong>ML :</strong> Ny variable dia mitahiry information.</p>
+
+      <pre>
+let nom = "Jean";
+alert(nom);
+      </pre>
+    </div>
+
+    <div class="card">
+      <h2>4. Fonction</h2>
+      <p><strong>FR :</strong> Une fonction sert à exécuter une action.</p>
+      <p class="ml"><strong>ML :</strong> Ny fonction dia manao action iray.</p>
+
+      <pre>
+function saluer() {
+  alert("Bonjour")
+}
+      </pre>
+
+      <button onclick="saluer()">Tester Fonction</button>
+    </div>
+
+    <div class="card">
+      <h2>5. Condition IF</h2>
+      <p><strong>FR :</strong> IF permet de vérifier une condition.</p>
+      <p class="ml"><strong>ML :</strong> IF dia manamarina condition iray.</p>
+
+      <pre>
+let age = 18;
+
+if(age >= 18){
+  alert("Majeur")
+}
+      </pre>
+    </div>
+
+    <div class="card">
+      <h2>6. Bouton interactif</h2>
+      <p><strong>FR :</strong> Cliquer sur le bouton change le texte.</p>
+      <p class="ml"><strong>ML :</strong> Rehefa tsindriana ny bokotra dia miova ny soratra.</p>
+
+      <p id="texte">Bonjour</p>
+      <button onclick="changerTexte()">Changer Texte</button>
+    </div>
+
+  </div>
+
+  <script>
+    function saluer() {
+      alert("Bonjour / Salama !")
+    }
+
+    function changerTexte() {
+      document.getElementById("texte").innerHTML = "Bienvenue / Tonga soa";
+    }
+  </script>
+
+  <section style="background:#fff3cd;padding:40px 20px;">
+    <div style="max-width:1000px;margin:auto;">
+      <h1 style="text-align:center;color:#e67e22;margin-bottom:30px;">JavaScript Niveau Suivant</h1>
+
+      <div style="background:white;border-left:8px solid #e67e22;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#e67e22;">7. Prompt</h2>
+        <p><strong>FR :</strong> Prompt permet de demander une information à l’utilisateur.</p>
+        <p><strong>ML :</strong> Prompt dia mangataka information amin’ny utilisateur.</p>
+<pre>
+let nom = prompt("Quel est ton nom ?");
+alert("Bonjour " + nom);
+</pre>
+        <button onclick="demanderNom()">Tester Prompt</button>
+      </div>
+
+      <div style="background:white;border-left:8px solid #9b59b6;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#9b59b6;">8. Confirm</h2>
+        <p><strong>FR :</strong> Confirm permet de choisir Oui ou Non.</p>
+        <p><strong>ML :</strong> Confirm dia ahafahana misafidy Eny na Tsia.</p>
+<pre>
+let choix = confirm("Tu veux continuer ?");
+</pre>
+        <button onclick="testerConfirm()">Tester Confirm</button>
+      </div>
+
+      <div style="background:white;border-left:8px solid #16a085;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#16a085;">9. Calcul automatique</h2>
+        <p><strong>FR :</strong> JavaScript peut faire des calculs automatiquement.</p>
+        <p><strong>ML :</strong> JavaScript dia afaka manao calcul automatique.</p>
+<pre>
+let a = 5;
+let b = 3;
+let total = a + b;
+</pre>
+        <button onclick="calculer()">Faire Calcul</button>
+      </div>
+
+      <div style="background:white;border-left:8px solid #c0392b;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color:#c0392b;">10. Changer couleur</h2>
+        <p><strong>FR :</strong> JavaScript peut changer la couleur d’un texte.</p>
+        <p><strong>ML :</strong> JavaScript dia afaka manova ny lokon’ny soratra.</p>
+
+        <p id="couleurTexte">Texte à changer</p>
+        <button onclick="changerCouleur()">Changer Couleur</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function demanderNom() {
+      let nom = prompt("Quel est ton nom ?");
+      if(nom){
+        alert("Bonjour / Salama " + nom);
+      }
+    }
+
+    function testerConfirm() {
+      let choix = confirm("Tu veux continuer ?");
+      if(choix){
+        alert("Tu as choisi Oui / Nisafidy Eny ianao");
+      } else {
+        alert("Tu as choisi Non / Nisafidy Tsia ianao");
+      }
+    }
+
+    function calculer() {
+      let a = 5;
+      let b = 3;
+      let total = a + b;
+      alert("Résultat = " + total);
+    }
+
+    function changerCouleur() {
+      document.getElementById("couleurTexte").style.color = "red";
+    }
+  </script>
+  <section style="background:#1e1e1e;padding:40px 20px;color:white;">
+    <div style="max-width:1100px;margin:auto;">
+      <h1 style="text-align:center;color:#f1c40f;margin-bottom:30px;">JavaScript Applications</h1>
+      <p style="text-align:center;margin-bottom:30px;color:#ccc;">
+        FR : Exercices pratiques JavaScript avec tableau noir.<br>
+        ML : Fanazaran-tena JavaScript miaraka amin’ny tableau noir.
+      </p>
+
+      <div style="background:#2c2c2c;border-radius:15px;padding:25px;margin-bottom:25px;box-shadow:0 4px 10px rgba(0,0,0,0.4);">
+        <h2 style="color:#f39c12;">11. Addition automatique</h2>
+        <p><strong>FR :</strong> Entrer deux nombres puis calculer la somme.</p>
+        <p><strong>ML :</strong> Ampidiro ny isa roa dia kajio ny fitambarany.</p>
+
+        <input type="number" id="nb1" placeholder="Nombre 1" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <input type="number" id="nb2" placeholder="Nombre 2" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <button onclick="additionner()" style="background:#f39c12;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Calculer</button>
+        <p id="resultatAddition" style="margin-top:15px;color:#2ecc71;font-size:18px;"></p>
+      </div>
+
+      <div style="background:#2c2c2c;border-radius:15px;padding:25px;margin-bottom:25px;box-shadow:0 4px 10px rgba(0,0,0,0.4);">
+        <h2 style="color:#3498db;">12. Vérification âge</h2>
+        <p><strong>FR :</strong> Vérifier si une personne est majeure ou mineure.</p>
+        <p><strong>ML :</strong> Jereo raha lehibe taona na mbola zaza ilay olona.</p>
+
+        <input type="number" id="ageUser" placeholder="Entrer âge" style="padding:10px;width:100%;margin-bottom:10px;border:none;border-radius:8px;">
+        <button onclick="verifierAge()" style="background:#3498db;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Vérifier</button>
+        <p id="resultatAge" style="margin-top:15px;color:#f1c40f;font-size:18px;"></p>
+      </div>
+
+      <div style="background:#2c2c2c;border-radius:15px;padding:25px;box-shadow:0 4px 10px rgba(0,0,0,0.4);">
+        <h2 style="color:#e74c3c;">13. Changer fond</h2>
+        <p><strong>FR :</strong> Cliquer pour changer la couleur du fond.</p>
+        <p><strong>ML :</strong> Tsindrio raha hanova ny lokon’ny fond.</p>
+
+        <button onclick="changerFond()" style="background:#e74c3c;color:white;padding:10px 15px;border:none;border-radius:8px;cursor:pointer;">Changer Fond</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function additionner() {
+      let nb1 = Number(document.getElementById('nb1').value);
+      let nb2 = Number(document.getElementById('nb2').value);
+      let total = nb1 + nb2;
+      document.getElementById('resultatAddition').innerHTML = 'Résultat = ' + total;
+    }
+
+    function verifierAge() {
+      let age = Number(document.getElementById('ageUser').value);
+
+      if(age >= 18) {
+        document.getElementById('resultatAge').innerHTML = 'Majeur / Lehibe taona';
+      } else {
+        document.getElementById('resultatAge').innerHTML = 'Mineur / Mbola zaza';
+      }
+    }
+
+    function changerFond() {
+      document.body.style.background = '#34495e';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="mg">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="protection.js"></script>
+
+<title>Vaovao | InfoPro</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:white;
+
+    background:
+    radial-gradient(circle at top left,#084d72,transparent 40%),
+    radial-gradient(circle at bottom right,#063d4d,transparent 40%),
+    #061522;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 5%;
+
+    background:rgba(2,20,36,.94);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    color:#00d9ff;
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+
+    padding:9px 15px;
+
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+    background:#00c6ff;
+    color:#00131f;
+}
+
+.langue a{
+    text-decoration:none;
+    font-size:22px;
+    margin-left:7px;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:60px auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h1{
+    font-size:42px;
+    color:#00d9ff;
+}
+
+.title p{
+    margin-top:12px;
+    color:#c2d5df;
+}
+
+.news{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+.news-card{
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.news-card:hover{
+    transform:translateY(-8px);
+
+    border-color:#00c6ff;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.news-header{
+    padding:25px;
+
+    font-size:40px;
+
+    text-align:center;
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,198,255,.25),
+        rgba(0,100,255,.1)
+    );
+}
+
+.news-body{
+    padding:25px;
+}
+
+.news-body h2{
+    color:#00d9ff;
+    margin-bottom:12px;
+}
+
+.news-body p{
+    color:#cbdce4;
+    line-height:1.7;
+}
+
+.date{
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:rgba(0,198,255,.1);
+
+    color:#00d9ff;
+
+    font-size:13px;
+}
+
+footer{
+    margin-top:80px;
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#03121f;
+}
+
+footer h2{
+    color:#00d9ff;
+}
+
+footer p{
+    margin-top:10px;
+    color:#b9ccd6;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .title h1{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        💻 InfoPro
+    </div>
+
+    <nav>
+
+        <a hrefmargin:aug2.html">
+            🏠 Fandraisana
+        </a>
+
+        <a href="présentation-mg.html">
+            👨‍🏫 Momba anay
+        </a>
+
+        <a href="actualité-mg.html" class="active">
+            📰 Vaovao
+        </a>
+
+        <a href="TLe-mg.html">
+            📚 Lesona
+        </a>
+
+    </nav>
+
+    <div class="langue">
+
+        <a href="actualite.html">🇫🇷</a>
+
+        <a href="actualité-mg.html">🇲🇬</a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+<section class="title">
+
+    <h1>
+        📰 Vaovao
+    </h1>
+
+    <p>
+        Hahita eto ireo vaovao sy zavatra vaovao
+        momba ny sehatra fampianarana.
+    </p>
+
+</section>
+
+
+<section class="news">
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            💻
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Sehatra Informatika vaovao
+            </h2>
+
+            <p>
+                Ny sehatra dia manangona tsikelikely
+                ireo lesona, exercices, fitaovana
+                ary loharano Informatika.
+            </p>
+
+            <span class="date">
+                📅 2026
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            📚
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Lesona vaovao
+            </h2>
+
+            <p>
+                Ampiana tsikelikely ireo lesona momba
+                ny HTML, JavaScript, Binaire, ASCII
+                ary Algorithmique.
+            </p>
+
+            <span class="date">
+                📚 Lesona
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            🧮
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Fitaovana interactive vaovao
+            </h2>
+
+            <p>
+                Misy fitaovana ahafahan'ny mpianatra
+                mampihatra mivantana ireo zavatra
+                nianarana tao an-dakilasy.
+            </p>
+
+            <span class="date">
+                🛠️ Fitaovana
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-header">
+            🚀
+        </div>
+
+        <div class="news-body">
+
+            <h2>
+                Tanjona amin'ny sehatra
+            </h2>
+
+            <p>
+                Hanamora ny fianarana Informatika
+                amin'ny alalan'ny votoaty azo ampiasaina
+                amin'ny ordinateur sy téléphone.
+            </p>
+
+            <span class="date">
+                🎓 Fampianarana
+            </span>
+
+        </div>
+
+    </article>
+
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <h2>
+        💻 Mr Tahiry - Informatique 👨‍🏫
+    </h2>
+
+    <p>
+        🚀 Mianatra • Mampihatra • Mahomby 🌟
+    </p>
+
+</footer>
+
+</body>
+</html>

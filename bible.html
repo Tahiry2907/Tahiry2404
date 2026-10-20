@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>📖 Genèse | Bible Catholique | InfoPro</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071b33,
+        #063b4c,
+        #087f8c
+    );
+
+    color:white;
+
+    min-height:100vh;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    text-align:center;
+
+    padding:30px 15px;
+
+    background:rgba(0,0,0,.25);
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.15);
+}
+
+
+.logo{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+}
+
+
+h1{
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+
+.subtitle{
+
+    opacity:.9;
+
+    font-size:16px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   LANGUES
+===================================================== */
+
+.langues{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:18px;
+}
+
+
+.langues button{
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    background:
+    rgba(255,255,255,.15);
+
+    color:white;
+
+    transition:.3s;
+}
+
+
+.langues button:hover{
+
+    background:white;
+
+    color:#063b4c;
+
+    transform:translateY(-2px);
+}
+
+
+.langues button.active{
+
+    background:white;
+
+    color:#063b4c;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:15px;
+
+    background:
+    rgba(0,0,0,.20);
+}
+
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 16px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    transition:.3s;
+}
+
+
+nav a:hover{
+
+    background:white;
+
+    color:#063b4c;
+}
+
+
+/* =====================================================
+   CONTENEUR
+===================================================== */
+
+.container{
+
+    width:94%;
+
+    max-width:1000px;
+
+    margin:30px auto;
+}
+
+
+/* =====================================================
+   CARTE
+===================================================== */
+
+.card{
+
+    background:
+    rgba(255,255,255,.10);
+
+    border:
+    1px solid
+    rgba(255,255,255,.15);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    backdrop-filter:blur(10px);
+}
+
+
+/* =====================================================
+   CHAPITRE
+===================================================== */
+
+.chapter-title{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    font-size:25px;
+}
+
+
+.chapter-selector{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+}
+
+
+.chapter-selector select{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+
+/* =====================================================
+   RECHERCHE
+===================================================== */
+
+.search{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-size:16px;
+
+    outline:none;
+
+    margin-bottom:20px;
+}
+
+
+/* =====================================================
+   TEXTE BIBLIQUE
+===================================================== */
+
+.bible-text{
+
+    background:
+    rgba(0,0,0,.18);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    line-height:1.9;
+
+    font-size:17px;
+}
+
+
+.verset{
+
+    margin-bottom:16px;
+
+    padding-bottom:12px;
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.10);
+}
+
+
+.numero{
+
+    font-weight:bold;
+
+    color:#ffe082;
+
+    margin-right:6px;
+}
+
+
+/* =====================================================
+   NAVIGATION CHAPITRES
+===================================================== */
+
+.chapter-navigation{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+
+.chapter-navigation button{
+
+    flex:1;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    background:
+    rgba(255,255,255,.15);
+
+    color:white;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+
+.chapter-navigation button:hover{
+
+    background:white;
+
+    color:#063b4c;
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.info{
+
+    line-height:1.8;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:40px;
+
+    padding:25px 15px;
+
+    text-align:center;
+
+    background:
+    rgba(0,0,0,.30);
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    h1{
+        font-size:25px;
+    }
+
+    .logo{
+        font-size:35px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .bible-text{
+        padding:18px;
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+        ✝️📖
+    </div>
+
+    <h1 id="titre">
+        GENÈSE
+    </h1>
+
+    <p
+        class="subtitle"
+        id="sousTitre">
+
+        Livre de la Genèse
+        •
+        Ancien Testament
+
+    </p>
+
+
+    <!-- LANGUES -->
+
+    <div class="langues">
+
+        <button
+            id="btnFR"
+            class="active"
+            onclick="changerLangue('fr')">
+
+            🇫🇷 FR
+
+        </button>
+
+
+        <button
+            id="btnMG"
+            onclick="changerLangue('mg')">
+
+            🇲🇬 MG
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <a href="../bible.html">
+        📖 <span id="navBible">Bible</span>
+    </a>
+
+    <a href="../index.html">
+        🏠 <span id="navAccueil">Accueil</span>
+    </a>
+
+</nav>
+
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     TITRE CHAPITRE
+===================================================== -->
+
+<section class="card">
+
+    <h2
+        class="chapter-title"
+        id="titreChapitre">
+
+        Genèse — Chapitre 1
+
+    </h2>
+
+
+    <!-- SELECT CHAPITRE -->
+
+    <div class="chapter-selector">
+
+        <select
+            id="chapitre"
+            onchange="changerChapitre()">
+
+        </select>
+
+    </div>
+
+
+    <!-- RECHERCHE -->
+
+    <input
+        type="text"
+        id="recherche"
+        class="search"
+        placeholder="🔎 Rechercher dans le chapitre..."
+        onkeyup="rechercher()">
+
+
+    <!-- =================================================
+         TEXTE
+    ================================================== -->
+
+    <div
+        id="texteBible"
+        class="bible-text">
+
+        <!--
+        IMPORTANT :
+
+        Remplacez les textes ci-dessous par une
+        traduction biblique que vous êtes autorisé
+        à publier.
+
+        Exemple de structure :
+
+        <div class="verset">
+            <span class="numero">1</span>
+            Votre texte biblique autorisé...
+        </div>
+
+        -->
+
+        <div class="verset">
+
+            <span class="numero">
+                1
+            </span>
+
+            <span class="texte">
+
+                [Au commencement, Dieu créa le ciel et la terre.]  </span>
+
+        </div>
+
+
+        <div class="verset">
+
+            <span class="numero">
+                2
+            </span>
+
+            <span class="texte">
+
+                []
+
+            </span>
+
+        </div>
+
+
+        <div class="verset">
+
+            <span class="numero">
+                3
+            </span>
+
+            <span class="texte">
+
+                [Texte du verset 3 à insérer]
+
+            </span>
+
+        </div>
+
+
+        <div class="verset">
+
+            <span class="numero">
+                4
+            </span>
+
+            <span class="texte">
+
+                [Texte du verset 4 à insérer]
+
+            </span>
+
+        </div>
+
+
+        <div class="verset">
+
+            <span class="numero">
+                5
+            </span>
+
+            <span class="texte">
+
+                [Texte du verset 5 à insérer]
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================== -->
+
+    <div class="chapter-navigation">
+
+        <button onclick="chapitrePrecedent()">
+
+            ◀️
+            <span id="precedent">
+                Chapitre précédent
+            </span>
+
+        </button>
+
+
+        <button onclick="chapitreSuivant()">
+
+            <span id="suivant">
+                Chapitre suivant
+            </span>
+            ▶️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMATION
+===================================================== -->
+
+<section class="card info">
+
+    <h3 id="infoTitre">
+        📖 À propos de la Genèse
+    </h3>
+
+    <p id="infoTexte">
+
+        La Genèse est le premier livre de la Bible.
+        Elle présente notamment les récits des origines,
+        des patriarches et de l'histoire du peuple de Dieu.
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        ✝️ <strong>InfoPro | Vie Chrétienne</strong>
+    </p>
+
+    <p>
+        💻 Mr Tahiry - Informatique 👨‍🏫
+    </p>
+
+    <p>
+        📖 Apprendre • Méditer • Partager
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   INITIALISATION DES CHAPITRES
+===================================================== */
+
+const selectChapitre =
+    document.getElementById("chapitre");
+
+
+for(let i = 1; i <= 50; i++){
+
+    let option =
+        document.createElement("option");
+
+    option.value = i;
+
+    option.textContent =
+        "Chapitre " + i;
+
+    selectChapitre.appendChild(option);
+
+}
+
+
+/* =====================================================
+   CHANGER CHAPITRE
+===================================================== */
+
+function changerChapitre(){
+
+    const chapitre =
+        selectChapitre.value;
+
+    document.getElementById("titreChapitre")
+        .textContent =
+        "Genèse — Chapitre " + chapitre;
+
+    /*
+       Ici nous pourrons ensuite charger
+       automatiquement le contenu de chaque chapitre.
+    */
+
+}
+
+
+/* =====================================================
+   CHAPITRE SUIVANT
+===================================================== */
+
+function chapitreSuivant(){
+
+    let valeur =
+        parseInt(selectChapitre.value);
+
+    if(valeur < 50){
+
+        valeur++;
+
+        selectChapitre.value = valeur;
+
+        changerChapitre();
+
+    }
+
+}
+
+
+/* =====================================================
+   CHAPITRE PRÉCÉDENT
+===================================================== */
+
+function chapitrePrecedent(){
+
+    let valeur =
+        parseInt(selectChapitre.value);
+
+    if(valeur > 1){
+
+        valeur--;
+
+        selectChapitre.value = valeur;
+
+        changerChapitre();
+
+    }
+
+}
+
+
+/* =====================================================
+   RECHERCHE
+===================================================== */
+
+function rechercher(){
+
+    const recherche =
+        document
+        .getElementById("recherche")
+        .value
+        .toLowerCase();
+
+    const versets =
+        document.querySelectorAll(".verset");
+
+
+    versets.forEach(function(verset){
+
+        const texte =
+            verset.innerText.toLowerCase();
+
+        if(texte.includes(recherche)){
+
+            verset.style.display = "";
+
+        }else{
+
+            verset.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   CHANGEMENT DE LANGUE
+===================================================== */
+
+function changerLangue(langue){
+
+    const titre =
+        document.getElementById("titre");
+
+    const sousTitre =
+        document.getElementById("sousTitre");
+
+    const navBible =
+        document.getElementById("navBible");
+
+    const navAccueil =
+        document.getElementById("navAccueil");
+
+    const precedent =
+        document.getElementById("precedent");
+
+    const suivant =
+        document.getElementById("suivant");
+
+    const infoTitre =
+        document.getElementById("infoTitre");
+
+    const infoTexte =
+        document.getElementById("infoTexte");
+
+    const btnFR =
+        document.getElementById("btnFR");
+
+    const btnMG =
+        document.getElementById("btnMG");
+
+
+    if(langue === "mg"){
+
+        titre.textContent =
+            "GENESISY";
+
+        sousTitre.textContent =
+            "Bokin'ny Genesisy • Testamenta Taloha";
+
+        navBible.textContent =
+            "Baiboly";
+
+        navAccueil.textContent =
+            "Fandraisana";
+
+        precedent.textContent =
+            "Toko teo aloha";
+
+        suivant.textContent =
+            "Toko manaraka";
+
+        infoTitre.textContent =
+            "📖 Momba ny Genesisy";
+
+        infoTexte.textContent =
+            "Ny Genesisy no boky voalohany ao amin'ny Baiboly. Mitantara momba ny niandohana, ireo razambe ary ny tantaran'ny vahoakan'Andriamanitra izy.";
+
+        btnMG.classList.add("active");
+
+        btnFR.classList.remove("active");
+
+
+    }else{
+
+        titre.textContent =
+            "GENÈSE";
+
+        sousTitre.textContent =
+            "Livre de la Genèse • Ancien Testament";
+
+        navBible.textContent =
+            "Bible";
+
+        navAccueil.textContent =
+            "Accueil";
+
+        precedent.textContent =
+            "Chapitre précédent";
+
+        suivant.textContent =
+            "Chapitre suivant";
+
+        infoTitre.textContent =
+            "📖 À propos de la Genèse";
+
+        infoTexte.textContent =
+            "La Genèse est le premier livre de la Bible. Elle présente notamment les récits des origines, des patriarches et de l'histoire du peuple de Dieu.";
+
+        btnFR.classList.add("active");
+
+        btnMG.classList.remove("active");
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

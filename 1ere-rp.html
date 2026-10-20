@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Informatique 1ère - Répartition annuelle</title>
+
+<style>
+body{
+  font-family:Arial;
+  margin:0;
+  background:#f0f4f8;
+}
+
+header{
+  background:#1b5e20;
+  color:white;
+  text-align:center;
+  padding:18px;
+}
+
+.container{padding:20px}
+
+.section{
+  background:white;
+  margin-bottom:15px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.section h2{
+  margin:0;
+  padding:12px;
+  background:#e8f5e9;
+  cursor:pointer;
+}
+
+.content{
+  display:none;
+  padding:15px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  border:1px solid #ddd;
+  padding:8px;
+  font-size:14px;
+}
+
+th{
+  background:#f1f1f1;
+}
+.card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: hsl(0, 80%, 53%);
+}
+.footer-pro h2 {
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.footer-pro p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.footer-pro {
+  background: linear-gradient(270deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 15px 15px 0 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effet lumière animé */
+.footer-pro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 5s infinite;
+}
+</style>
+
+<script>
+function toggle(id){
+  let x=document.getElementById(id);
+  x.style.display=(x.style.display==="block")?"none":"block";
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>📘 Informatique 1ère - Répartition & Fiches de préparation</h1>
+</header>
+
+<div class="container">
+
+<!-- TRIMESTRE 1 -->
+<div class="section">
+<h2 onclick="toggle('t1')">📘 Trimestre 1</h2>
+<div id="t1" class="content">
+<ul>
+<li>💻 Algorithmique avancée</li>
+<li>⚙️ Variables + structures de contrôle</li>
+<li>⌨️ Technique de saisie avancée</li>
+<li>🌐 Internet & réseaux</li>
+<li>🛡️ Cybersécurité</li>
+</ul>
+</div>
+</div>
+
+<!-- TRIMESTRE 2 -->
+<div class="section">
+<h2 onclick="toggle('t2')">📗 Trimestre 2</h2>
+<div id="t2" class="content">
+<ul>
+<li>📝 0 avancé professionnel</li>
+<li>📊 1 avancé (formules + logique SI)</li>
+<li>📽️ 2 projet</li>
+<li>📁 Gestion de documents</li>
+</ul>
+</div>
+</div>
+
+<!-- TRIMESTRE 3 -->
+<div class="section">
+<h2 onclick="toggle('t3')">📕 Trimestre 3</h2>
+<div id="t3" class="content">
+<ul>
+<li>🌐 HTML avancé</li>
+<li>🎨 CSS responsive design</li>
+<li>⚙️ JavaScript (script dynamique)</li>
+<li>🗄️ Introduction base de données</li>
+<li>💻 Projet site web complet</li>
+</ul>
+</div>
+</div>
+
+<!-- FICHE SEMAINE -->
+<div class="section">
+<h2 onclick="toggle('f1')">📅 Fiche de préparation par semaine</h2>
+
+<div id="f1" class="content">
+
+<table>
+<tr>
+<th>Semaine</th>
+<th>Leçon</th>
+<th>Objectif</th>
+</tr>
+
+<tr><td>1</td><td>Algorithmique avancée</td><td>Logique informatique</td></tr>
+<tr><td>2</td><td>Structures de contrôle</td><td>Conditions + boucles</td></tr>
+<tr><td>3</td><td>Réseaux</td><td>Comprendre internet</td></tr>
+<tr><td>4</td><td>Cybersécurité</td><td>Protection données</td></tr>
+<tr><td>5</td><td>3 avancé</td><td>Documents pro</td></tr>
+<tr><td>6</td><td>Word projet</td><td>Rapport complet</td></tr>
+
+<tr><td>7</td><td>4 avancé</td><td>Formules + SI</td></tr>
+<tr><td>8</td><td>Excel projet</td><td>Analyse données</td></tr>
+
+<tr><td>9</td><td>5</td><td>Présentation</td></tr>
+<tr><td>10</td><td>PowerPoint projet</td><td>Exposé</td></tr>
+
+<tr><td>11</td><td>HTML</td><td>Structure web</td></tr>
+<tr><td>12</td><td>CSS</td><td>Design site</td></tr>
+<tr><td>13</td><td>JavaScript</td><td>Interaction</td></tr>
+<tr><td>14</td><td>JavaScript avancé</td><td>Logique dynamique</td></tr>
+
+<tr><td>15</td><td>Base de données</td><td>Introduction SQL</td></tr>
+<tr><td>16</td><td>Projet final</td><td>Site web complet</td></tr>
+
+</table>
+
+</div>
+</div>
+
+</div>
+<footer class="footer-pro">
+
+  <h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2>
+
+  <p>📅 <span id="dateFooter"></span></p>
+
+  <div class="socials">
+    <a href="#">📘 Facebook</a>
+    <a href="#">💬 WhatsApp</a>
+    <a href="#">📧 Email</a>
+  </div>
+
+  <p class="devise">🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+
+</footer>
+
+
+</body>
+</html>

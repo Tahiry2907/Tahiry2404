@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesona - Logiciels Informatiques</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:#1e3a8a;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:22px;
+}
+
+/* BUTTON LANG */
+.lang-btn{
+    margin-top:10px;
+}
+
+button{
+    padding:8px 15px;
+    margin:5px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    opacity:0.8;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:20px auto;
+}
+
+/* CARDS */
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-left:5px solid #1e3a8a;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:20px;
+}
+
+.hidden{
+    display:none;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    background:#1e3a8a;
+    color:white;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💻 Lesona: Logiciels Informatiques</h1>
+    <div class="lang-btn">
+        <button onclick="showFR()">Français</button>
+        <button onclick="showML()">Malagasy</button>
+    </div>
+</header>
+
+<div class="container">
+
+<!-- FRANÇAIS -->
+<div id="fr">
+
+    <div class="card">
+        <h2>1. Les logiciels de base</h2>
+        <p>Les logiciels de base sont essentiels pour le fonctionnement de l’ordinateur.</p>
+        <ul>
+            <li>Système d’exploitation (Windows, Linux, MacOS)</li>
+            <li>Pilotes (drivers)</li>
+            <li>Utilitaires système</li>
+        </ul>
+        <p>Ils permettent de gérer le matériel et de faire fonctionner les logiciels d’application.</p>
+    </div>
+
+    <div class="card">
+        <h2>2. Les logiciels d’application</h2>
+        <p>Ce sont les logiciels utilisés par l’utilisateur pour réaliser des tâches spécifiques.</p>
+        <ul>
+            <li>Traitement de texte (Word)</li>
+            <li>Tableur (Excel)</li>
+            <li>Navigateur web (Chrome, Firefox)</li>
+            <li>Logiciels éducatifs et multimédia</li>
+        </ul>
+        <p>Ils facilitent le travail, l’apprentissage et la communication.</p>
+    </div>
+
+    <div class="card">
+        <h2>3. Maintenance informatique</h2>
+        <p>La maintenance consiste à entretenir et réparer les systèmes informatiques.</p>
+        <ul>
+            <li>Nettoyage des fichiers inutiles</li>
+            <li>Mise à jour des logiciels</li>
+            <li>Vérification du matériel</li>
+            <li>Correction des erreurs système</li>
+        </ul>
+        <p>Elle permet de prolonger la durée de vie de l’ordinateur.</p>
+    </div>
+
+    <div class="card">
+        <h2>4. Sécurité informatique</h2>
+        <p>La sécurité protège les données et le système contre les menaces.</p>
+        <ul>
+            <li>Antivirus</li>
+            <li>Firewall (pare-feu)</li>
+            <li>Mots de passe forts</li>
+            <li>Sauvegarde des données</li>
+        </ul>
+        <p>Elle évite les virus, le piratage et la perte de données.</p>
+    </div>
+
+</div>
+
+<!-- MALAGASY -->
+<div id="ml" class="hidden">
+
+    <div class="card">
+        <h2>1. Rindrambaiko fototra</h2>
+        <p>Ny rindrambaiko fototra dia ilaina amin’ny fampandehanana ny solosaina.</p>
+        <ul>
+            <li>Rafitra miasa (Windows, Linux, MacOS)</li>
+            <li>Driver (mpampifandray fitaovana)</li>
+            <li>Fitaovana fanampiny (utilitaires)</li>
+        </ul>
+        <p>Izy ireo no mitantana ny fitaovana sy mampandeha ny application.</p>
+    </div>
+
+    <div class="card">
+        <h2>2. Rindrambaiko fampiharana</h2>
+        <p>Ireo dia rindrambaiko ampiasain’ny olona hanaovana asa manokana.</p>
+        <ul>
+            <li>Fanoratana (Word)</li>
+            <li>Fandaharana kajy (Excel)</li>
+            <li>Fijery internet (Chrome, Firefox)</li>
+            <li>Rindrambaiko fianarana sy multimedia</li>
+        </ul>
+        <p>Mampahazo aina ny asa sy ny fianarana izy ireo.</p>
+    </div>
+
+    <div class="card">
+        <h2>3. Fikojakojana informatika</h2>
+        <p>Ny maintenance dia fikarakarana ny solosaina mba hiasa tsara foana.</p>
+        <ul>
+            <li>Fanadiovana fichiers tsy ilaina</li>
+            <li>Mise à jour ny logiciel</li>
+            <li>Fijerena fitaovana</li>
+            <li>Fanitsiana hadisoana</li>
+        </ul>
+        <p>Mampaharitra ny solosaina izy io.</p>
+    </div>
+
+    <div class="card">
+        <h2>4. Fiarovana informatique</h2>
+        <p>Miaro ny angona sy ny rafitra amin’ny loza ny sécurité informatique.</p>
+        <ul>
+            <li>Antivirus</li>
+            <li>Pare-feu (Firewall)</li>
+            <li>Tenimiafina matanjaka</li>
+            <li>Backup données</li>
+        </ul>
+        <p>Misoroka viriosy sy fanafihana hackers izy io.</p>
+    </div>
+
+</div>
+
+</div>
+<div class="card">
+    <h2>3. Maintenance informatique / Fikojakojana informatika</h2>
+
+    <p><b>FR :</b> La maintenance informatique regroupe l’ensemble des actions permettant d’assurer le bon fonctionnement des ordinateurs, des logiciels, des réseaux et des données.</p>
+    <p><b>MG :</b> Ny fikojakojana informatika dia fitambaran’ny asa rehetra atao mba hiantohana ny fiasan’ny solosaina, rindrambaiko, tambajotra ary angona.</p>
+
+    <p><b>FR :</b> Elle vise à prévenir les pannes, corriger les erreurs et améliorer les performances du système informatique.</p>
+    <p><b>MG :</b> Izy io dia mikendry ny hisorohana fahasimbana, hanamboatra lesoka, ary hanatsara ny fahombiazan’ny rafitra informatika.</p>
+
+    <h3>📌 3.1 Objectifs / Tanjona</h3>
+
+    <p><b>FR :</b></p>
+    <ul>
+        <li>Assurer le bon fonctionnement du système</li>
+        <li>Réduire les pannes et interruptions</li>
+        <li>Améliorer la performance</li>
+        <li>Protéger les données</li>
+        <li>Prolonger la durée de vie des équipements</li>
+    </ul>
+
+    <p><b>MG :</b></p>
+    <ul>
+        <li>Miantoka ny fiasan’ny rafitra</li>
+        <li>Mampihena ny fahatapahana sy olana</li>
+        <li>Manatsara ny hafainganam-pandeha</li>
+        <li>Miaro ny angona</li>
+        <li>Mampaharitra ny fitaovana</li>
+    </ul>
+
+    <h3>🧩 3.2 Types de maintenance / Karazana fikojakojana</h3>
+
+    <p><b>1. Maintenance préventive / Fikojakojana fisorohana</b></p>
+
+    <p><b>FR :</b> Elle consiste à prévenir les problèmes avant qu’ils ne surviennent.</p>
+    <p><b>MG :</b> Izy io dia asa atao mialoha hisorohana ny olana tsy hitranga.</p>
+
+    <ul>
+        <li>Nettoyage du système / Fanadiovana ny rafitra</li>
+        <li>Antivirus et mises à jour / Antivirus sy fanavaozana</li>
+        <li>Vérification du matériel / Fijerena fitaovana</li>
+    </ul>
+
+    <p><b>2. Maintenance corrective / Fikojakojana fanamboarana</b></p>
+
+    <p><b>FR :</b> Elle intervient après l’apparition d’un problème.</p>
+    <p><b>MG :</b> Izy io dia atao rehefa efa misy olana.</p>
+
+    <ul>
+        <li>Réparation des erreurs / Fanitsiana lesoka</li>
+        <li>Remplacement des pièces / Fanoloana fitaovana simba</li>
+        <li>Réinstallation système / Famerenana mametraka système</li>
+    </ul>
+
+    <p><b>3. Maintenance évolutive / Fikojakojana fanatsarana</b></p>
+
+    <p><b>FR :</b> Elle améliore le système existant.</p>
+    <p><b>MG :</b> Izy io dia fanatsarana ny rafitra efa misy.</p>
+
+    <ul>
+        <li>Mise à jour logiciel / Fanavaozana rindrambaiko</li>
+        <li>Ajout de matériel / Fanampiana fitaovana</li>
+        <li>Optimisation performance / Fanatsarana hafainganam-pandeha</li>
+    </ul>
+
+    <h3>🖥️ 3.3 Maintenance matérielle / Fikojakojana fitaovana</h3>
+
+    <p><b>FR :</b> Elle concerne les composants physiques de l’ordinateur.</p>
+    <p><b>MG :</b> Izy io dia mikasika ny fitaovana ara-batana amin’ny solosaina.</p>
+
+    <ul>
+        <li>Nettoyage interne / Fanadiovana anatiny</li>
+        <li>Contrôle des câbles / Fijerena tariby</li>
+        <li>Vérification du ventilateur / Fijerena ventilation</li>
+        <li>Test des composants / Fitsapana fitaovana</li>
+    </ul>
+
+    <h3>💾 3.4 Maintenance logicielle / Fikojakojana rindrambaiko</h3>
+
+    <p><b>FR :</b> Elle concerne les logiciels et le système d’exploitation.</p>
+    <p><b>MG :</b> Izy io dia mikasika ny rindrambaiko sy rafitra miasa.</p>
+
+    <ul>
+        <li>Mise à jour système / Fanavaozana système</li>
+        <li>Suppression des virus / Fanesorana viriosy</li>
+        <li>Correction des bugs / Fanitsiana lesoka</li>
+        <li>Optimisation du système / Fanatsarana rafitra</li>
+    </ul>
+
+    <h3>🌐 3.5 Maintenance réseau / Fikojakojana tambajotra</h3>
+
+    <p><b>FR :</b> Elle garantit la bonne connexion et sécurité du réseau.</p>
+    <p><b>MG :</b> Izy io dia miantoka ny fifandraisana sy fiarovana tambajotra.</p>
+
+    <ul>
+        <li>Vérification internet / Fijerena internet</li>
+        <li>Configuration routeur / Fanamboarana router</li>
+        <li>Sécurité réseau / Fiarovana tambajotra</li>
+    </ul>
+
+    <h3>⚠️ 3.6 Risques / Loza mety hitranga</h3>
+
+    <p><b>FR :</b> Sans maintenance, le système devient lent et vulnérable.</p>
+    <p><b>MG :</b> Raha tsy misy fikojakojana dia miadana sy mora voa ny rafitra.</p>
+
+    <ul>
+        <li>Perte de données / Fahaverezan-angona</li>
+        <li>Virus et attaques / Viriosy sy fanafihana</li>
+        <li>Panne système / Fahasimbana rafitra</li>
+        <li>Coût élevé de réparation / Vidin’ny fanamboarana lafo</li>
+    </ul>
+
+    <h3>🎯 3.7 Conclusion / Famintinana</h3>
+
+    <p>
+        <b>FR :</b> La maintenance informatique est essentielle pour garantir la stabilité, la sécurité et la performance des systèmes informatiques.
+    </p>
+    <p>
+        <b>MG :</b> Ny fikojakojana informatika dia tena ilaina amin’ny fiantohana ny fahamarinan-toerana, fiarovana ary fahombiazan’ny rafitra informatika.
+    </p>
+</div>
+<img src="sary/maintenance.png" width="500">
+
+<footer>
+    © Lesona Informatique - FR / ML
+</footer>
+
+<script>
+function showFR(){
+    document.getElementById("fr").classList.remove("hidden");
+    document.getElementById("ml").classList.add("hidden");
+}
+
+function showML(){
+    document.getElementById("ml").classList.remove("hidden");
+    document.getElementById("fr").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>

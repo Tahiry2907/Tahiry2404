@@ -1,0 +1,248 @@
+<!DOCTYPE html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classe 5ème Informatique FR-ML</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f9;color:#222;}
+header{background:#1e3a8a;color:white;padding:20px;text-align:center;}
+.container{padding:20px;}
+.section{background:white;margin-bottom:15px;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+.section h2{margin:0;padding:15px;cursor:pointer;background:#e2e8f0;}
+.content{display:none;padding:15px;}
+button.lang{margin:10px;padding:10px;border:none;border-radius:8px;cursor:pointer;background:#2563eb;color:white;}
+.tag{font-weight:bold;color:#1e3a8a;}
+table{width:100%;border-collapse:collapse;margin-top:10px;}
+table,th,td{border:1px solid #ccc;}
+th,td{padding:8px;text-align:left;}
+footer{text-align:center;padding:15px;background:#1e3a8a;color:white;margin-top:20px;}
+.code{background:#f1f5f9;padding:8px;border-radius:6px;display:block;margin-top:5px;}
+</style>
+</head>
+<body><header>
+<h1>📘 Classe 5ème Informatique</h1>
+<p>Word Avancé - Excel - Projet Final (FR / ML)</p>
+<button class="lang" onclick="toggleLang()">🌐 FR / ML</button>
+</header><div class="container"><!-- WORD --><div class="section">
+<h2 onclick="toggle(this)">🟦 Trimestre 1 : Word Avancé</h2>
+<div class="content">
+<p><b>FR :</b> Microsoft Word est un logiciel de traitement de texte.</p>
+<p><b>ML :</b> Word dia programme hanoratana texte sy fanamboarana document.</p><h3>📌 Contenu</h3>
+<ul>
+<li>Rappel Word</li>
+<li>Insertion image</li>
+<li>Tableau</li>
+<li>Mise en forme</li>
+<li>Mise en page</li>
+</ul><h3>🧪 Devoir</h3>
+<p>Créer un document "Mon école" avec :</p>
+<ul>
+<li>Titre stylé</li>
+<li>Image</li>
+<li>Tableau élèves</li>
+<li>Texte formaté</li>
+</ul><h3>📝 Évaluation</h3>
+<p>Question + pratique Word (mise en forme + image + tableau)</p>
+</div>
+</div>
+<!-- EXCEL -->
+<div class="section">
+<h2 onclick="toggle(this)">🟩 Trimestre 2 : Excel</h2>
+
+<div class="content">
+
+<p><b>FR :</b> Excel est un tableur pour calcul automatique.</p>
+<p><b>ML :</b> Excel dia programme hanaovana calcul automatique sy tableau.</p>
+
+<h3>📌 Cellule</h3>
+<p>Une cellule = intersection ligne/colonne</p>
+
+<!-- TABLE EXEMPLE -->
+<table border="1" style="border-collapse:collapse;text-align:center;">
+<tr><th>A</th><th>B</th></tr>
+<tr><td>1</td><td>Nom</td></tr>
+<tr><td>2</td><td>Note</td></tr>
+</table>
+
+<h3>📌 Fonction SOMME ➕</h3>
+<p>Addition automatique des valeurs</p>
+<span class="code">=SOMME(B2:B5)</span>
+
+<p>📊 Exemple :</p>
+<table border="1" style="border-collapse:collapse;text-align:center;">
+<tr><th>Nom</th><th>Note</th></tr>
+<tr><td>Jean</td><td>10</td></tr>
+<tr><td>Paul</td><td>12</td></tr>
+<tr><td>Marie</td><td>14</td></tr>
+<tr><td><b>Total</b></td><td><b>=SOMME(B2:B4)</b></td></tr>
+</table>
+
+<p><b>ML :</b> SOMME dia manampy isa rehetra.</p>
+
+<h3>📌 Fonction SOMME.SI 🎯</h3>
+<p>Addition avec condition</p>
+<span class="code">=SOMME.SI(B2:B5;">=10")</span>
+
+<p>📊 Exemple :</p>
+<table border="1" style="border-collapse:collapse;text-align:center;">
+<tr><th>Nom</th><th>Note</th></tr>
+<tr><td>Jean</td><td>8</td></tr>
+<tr><td>Paul</td><td>12</td></tr>
+<tr><td>Marie</td><td>15</td></tr>
+<tr><td><b>Total ≥10</b></td><td><b>=SOMME.SI(B2:B4;">=10")</b></td></tr>
+</table>
+
+<p><b>ML :</b> SOMME.SI dia manampy isa raha mahafeno condition.</p>
+
+<h3>📌 Fonction SI (IMPORTANT) 🤔</h3>
+<p>La fonction SI permet de tester une condition :</p>
+<span class="code">=SI(B2>=10;"Admis";"Ajourné")</span>
+
+<p>📊 Exemple :</p>
+<table border="1" style="border-collapse:collapse;text-align:center;">
+<tr><th>Nom</th><th>Note</th><th>Résultat</th></tr>
+<tr><td>Jean</td><td>8</td><td>=SI(B2>=10;"Ajourné";"Admis")</td></tr>
+<tr><td>Paul</td><td>12</td><td>=SI(B3>=10;"Admis";"Ajourné")</td></tr>
+<tr><td>Marie</td><td>15</td><td>=SI(B4>=10;"Admis";"Ajourné")</td></tr>
+</table>
+
+<p><b>ML :</b> SI dia manamarina raha marina na diso ny condition (ohatra: afaka na tsy afaka).</p>
+
+<h3>🧪 Devoir</h3>
+<ul>
+<li>Créer tableau notes élèves 📊</li>
+<li>Calcul total avec SOMME ➕</li>
+<li>Condition avec SI 🤔</li>
+</ul>
+
+<h3>📝 Évaluation</h3>
+<p>Exercice Excel : tableau + SOMME + SOMME.SI + SI</p>
+
+</div>
+</div>
+</div>
+</div><!-- PROJET FINAL --><div class="section">
+<h2 onclick="toggle(this)">🟪 Trimestre 3 : Projet Final</h2>
+<div class="content">
+<p><b>Projet :</b> Gestion complète des notes de classe</p><table>
+<tr><th>Nom</th><th>Math</th><th>Français</th><th>Info</th><th>Total</th><th>Moyenne</th><th>Résultat</th></tr>
+<tr>
+<td>Élève 1</td>
+<td></td><td></td><td></td>
+<td>=SOMME(B2:D2)</td>
+<td>=MOYENNE(B2:D2)</td>
+<td>=SI(E2>=10;"Admis";"Ajourné")</td>
+</tr>
+</table><h3>🧪 Devoir</h3>
+<p>Créer tableau complet avec calcul automatique</p><h3>📝 Évaluation finale</h3>
+<ul>
+<li>Excel complet</li>
+<li>Formules (SOMME, SOMME.SI, SI)</li>
+<li>Présentation orale</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- PROJET FINAL -->
+<div class="section">
+<h2 onclick="toggle(this)">🟪 Trimestre 3 : Projet Final</h2>
+
+<div class="content">
+
+<p><b>Projet :</b> Gestion complète des notes de classe 📊</p>
+
+<table border="1" style="border-collapse:collapse;text-align:center;">
+<tr>
+<th>Nom</th><th>Math</th><th>Français</th><th>Info</th>
+<th>Total</th><th>Moyenne</th><th>Résultat</th>
+</tr>
+<tr>
+<td>Élève 1</td>
+<td></td><td></td><td></td>
+<td>=SOMME(B2:D2)</td>
+<td>=MOYENNE(B2:D2)</td>
+<td>=SI(E2>=10;"Admis";"Ajourné")</td>
+</tr>
+</table>
+
+<!-- DEVOIR DETAIL -->
+<h3>🧪 Devoir détaillé</h3>
+
+<p><b>FR :</b> Réaliser un tableau complet de gestion des notes avec calcul automatique.</p>
+<p><b>ML :</b> Mamorona tableau feno hitantanana naoty miaraka amin’ny calcul automatique.</p>
+
+<ul>
+<li>🧑‍🎓 Ajouter au moins <b>5 élèves</b></li>
+<li>📥 Remplir les notes (Math, Français, Info)</li>
+<li>➕ Calculer le <b>Total</b> avec SOMME</li>
+<li>📊 Calculer la <b>Moyenne</b> avec MOYENNE</li>
+<li>🤔 Afficher <b>Admis/Ajourné</b> avec SI</li>
+<li>🎨 Mettre en forme le tableau (couleur, bordure)</li>
+</ul>
+
+<!-- DEVOIR AVANCE -->
+<h3>🚀 Devoir avancé (bonus)</h3>
+
+<ul>
+<li>🏆 Ajouter colonne <b>Mention</b> :
+<ul>
+<li>=SI(F2>=16;"Très Bien";SI(F2>=12;"Bien";"Passable"))</li>
+</ul>
+</li>
+
+<li>🎯 Utiliser <b>SOMME.SI</b> :
+<ul>
+<li>Calculer total des élèves ayant moyenne ≥ 10</li>
+</ul>
+</li>
+
+<li>📈 Créer un <b>graphique</b> (notes ou moyennes)</li>
+</ul>
+
+<!-- CONSIGNES -->
+<h3>📌 Consignes</h3>
+<ul>
+<li>💾 Sauvegarder le fichier (Nom_Classe.xlsx)</li>
+<li>🧹 Travail propre et organisé</li>
+<li>⏱️ Respect du temps</li>
+</ul>
+
+<!-- EVALUATION DETAIL -->
+<h3>📝 Évaluation finale</h3>
+
+<table border="1" style="border-collapse:collapse;text-align:center;">
+<tr><th>Critère</th><th>Points</th></tr>
+<tr><td>Tableau complet</td><td>5 pts</td></tr>
+<tr><td>Formules correctes</td><td>5 pts</td></tr>
+<tr><td>Mise en forme</td><td>5 pts</td></tr>
+<tr><td>Présentation orale</td><td>5 pts</td></tr>
+<tr><td><b>Total</b></td><td><b>/20</b></td></tr>
+</table>
+
+</div>
+</div>
+
+<footer>
+© Classe 5ème Informatique - FR/ML Pro
+</footer>
+<script>
+function toggle(el){
+let content=el.nextElementSibling;
+content.style.display = content.style.display === "block" ? "none" : "block";
+}
+
+function toggleLang(){
+let fr=document.querySelectorAll(".fr");
+let ml=document.querySelectorAll(".ml");
+fr.forEach(e=>e.style.display = e.style.display=="none"?"block":"none");
+ml.forEach(e=>e.style.display = e.style.display=="none"?"block":"none");
+}
+
+window.onload=function(){
+let ml=document.querySelectorAll(".ml");
+ml.forEach(e=>e.style.display="none");
+}
+</script>
+</body>
+</html>

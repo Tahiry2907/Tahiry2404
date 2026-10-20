@@ -1,0 +1,68 @@
+<div class="card">
+  <h2>🎬 Soustraction binaire animée</h2>
+
+  <button onclick="start()">▶️ Démarrer</button>
+
+  <pre id="animation"></pre>
+</div>
+
+<script>
+let etapes = [
+`Étape 1 :
+   110101
+ - 101011
+ --------
+        ?`,
+
+`Étape 2 : colonne droite
+1 - 1 = 0
+
+        0`,
+
+`Étape 3 :
+0 - 1 → emprunt
+10 - 1 = 1
+
+       10`,
+
+`Étape 4 :
+0 devient 1 (emprunt utilisé)
+1 - 0 = 1
+
+      110`,
+
+`Étape 5 :
+1 - 1 = 0
+
+     0110`,
+
+`Étape 6 :
+1 - 0 = 1
+
+    10110`,
+
+`Étape 7 :
+1 - 1 = 0
+
+   010110`,
+
+`Résultat final :
+001010 = 1010 (décimal 10) ✅`
+];
+
+let i = 0;
+
+function start(){
+  i = 0;
+  document.getElementById("animation").innerText = "";
+  nextStep();
+}
+
+function nextStep(){
+  if(i < etapes.length){
+    document.getElementById("animation").innerText = etapes[i];
+    i++;
+    setTimeout(nextStep, 1500); // vitesse animation
+  }
+}
+</script>

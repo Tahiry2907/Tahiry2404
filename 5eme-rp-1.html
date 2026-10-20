@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Répartition Informatique 5ème</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f172a;
+    color:#e2e8f0;
+}
+
+header{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    padding:20px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+
+h1{margin:0;font-size:20px;}
+
+.container{padding:20px;}
+
+.section{
+    margin-bottom:15px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.section-title{
+    background:#1e40af;
+    padding:15px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* ANIMATION */
+.content{
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s ease;
+    background:#1e293b;
+    padding:0 15px;
+}
+
+.content.open{
+    max-height:2000px;
+    padding:15px;
+}
+
+/* CARD */
+.card{
+    background:#111827;
+    margin:10px 0;
+    padding:12px;
+    border-radius:10px;
+}
+
+/* INNER */
+.inner{
+    display:none;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th,td{
+    border:1px solid #334155;
+    padding:8px;
+}
+
+th{
+    background:#1e40af;
+}
+
+/* BUTTON */
+.download{
+    text-align:center;
+    margin:20px;
+}
+
+.download button{
+    background:#10b981;
+    border:none;
+    padding:12px 20px;
+    border-radius:25px;
+    color:white;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📘 Répartition Informatique - 5ème</h1>
+</header>
+
+<div class="container">
+
+<!-- ================= TRIMESTRE 1 ================= -->
+<div class="section">
+<div class="section-title" onclick="toggleSection(this)">
+🟢 Trimestre 1 - Word Avancé <span>+</span>
+</div>
+
+<div class="content">
+
+<!-- TABLE -->
+<table>
+<tr><th>Semaine</th><th>Leçon</th><th>Objectif</th></tr>
+<tr><td>1</td><td>Rappel Word</td><td>Réviser bases</td></tr>
+<tr><td>2</td><td>Image</td><td>Insertion</td></tr>
+<tr><td>3</td><td>Tableau</td><td>Créer</td></tr>
+<tr><td>4</td><td>Mise en forme</td><td>Styliser</td></tr>
+<tr><td>5</td><td>Mise en page</td><td>Organiser</td></tr>
+<tr><td>6</td><td>Projet</td><td>Appliquer</td></tr>
+</table>
+
+<!-- FICHES -->
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 1 - Rappel Word</h3>
+<div class="inner">
+<h4>🎯 Objectif</h4>Réviser Word de base.<br>
+<h4>🧠 Compétences</h4>Ouvrir, saisir, enregistrer.<br>
+<h4>🧪 Activité</h4>Texte simple avec nom.<br>
+<h4>📊 Résultat</h4>Maîtrise base Word.
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 2 - Image</h3>
+<div class="inner">
+<h4>🎯 Objectif</h4>Insérer image.<br>
+<h4>🧠 Compétences</h4>Insertion + redimension.<br>
+<h4>🧪 Activité</h4>Document avec image.<br>
+<h4>📊 Résultat</h4>Image maîtrisée.
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 3 - Tableau</h3>
+<div class="inner">
+<h4>🎯 Objectif</h4>Créer tableau.<br>
+<h4>🧠 Compétences</h4>Lignes, colonnes.<br>
+<h4>🧪 Activité</h4>Emploi du temps.<br>
+<h4>📊 Résultat</h4>Tableau correct.
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ================= TRIMESTRE 2 ================= -->
+<div class="section">
+<div class="section-title" onclick="toggleSection(this)">
+🟡 Trimestre 2 - Excel <span>+</span>
+</div>
+
+<div class="content">
+
+<table>
+<tr><th>Semaine</th><th>Leçon</th><th>Objectif</th></tr>
+<tr><td>1</td><td>Excel</td><td>Découverte</td></tr>
+<tr><td>2</td><td>Cellule</td><td>Saisie</td></tr>
+<tr><td>3</td><td>SOMME</td><td>Calcul</td></tr>
+<tr><td>4</td><td>SI</td><td>Condition</td></tr>
+<tr><td>5</td><td>SOMME.SI</td><td>Logique</td></tr>
+<tr><td>6</td><td>Projet</td><td>Application</td></tr>
+</table>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 1 - Excel</h3>
+<div class="inner">Découverte Excel complet.</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 2 - Cellules</h3>
+<div class="inner">Saisie données.</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 3 - SOMME</h3>
+<div class="inner">Calcul automatique.</div>
+</div>
+
+</div>
+</div>
+
+<!-- ================= TRIMESTRE 3 ================= -->
+<div class="section">
+<div class="section-title" onclick="toggleSection(this)">
+🔵 Trimestre 3 - Projet Final <span>+</span>
+</div>
+
+<div class="content">
+
+<table>
+<tr><th>Semaine</th><th>Leçon</th><th>Objectif</th></tr>
+<tr><td>1</td><td>Excel avancé</td><td>Combiner</td></tr>
+<tr><td>2</td><td>Tableau notes</td><td>Créer</td></tr>
+<tr><td>3</td><td>Révision</td><td>Consolider</td></tr>
+<tr><td>4</td><td>Projet</td><td>Préparer</td></tr>
+<tr><td>5</td><td>Présentation</td><td>Exposer</td></tr>
+<tr><td>6</td><td>Évaluation</td><td>Tester</td></tr>
+</table>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 1 - Excel avancé</h3>
+<div class="inner">Formules combinées.</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 2 - Notes</h3>
+<div class="inner">Tableau bulletin.</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleInner(this)">📄 Semaine 3 - Révision</h3>
+<div class="inner">Rappel général.</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="download">
+<button onclick="window.print()">📥 Télécharger PDF</button>
+</div>
+
+<script>
+function toggleSection(el){
+    let content = el.nextElementSibling;
+    let icon = el.querySelector("span");
+
+    content.classList.toggle("open");
+
+    icon.innerText = content.classList.contains("open") ? "−" : "+";
+}
+
+function toggleInner(el){
+    let inner = el.nextElementSibling;
+    inner.style.display = inner.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

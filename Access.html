@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InfoPro | Microsoft Access</title>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+    radial-gradient(circle at top left,#164e63,transparent 35%),
+    linear-gradient(135deg,#06111b,#092b3d,#063b43);
+    color:#fff;
+    min-height:100vh;
+    line-height:1.7;
+}
+
+header{
+    text-align:center;
+    padding:25px 15px;
+    background:#02131dcc;
+    border-bottom:1px solid #ffffff22;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#67e8f9;
+}
+
+.slogan{
+    margin-top:5px;
+    color:#d9faff;
+}
+
+.langues{
+    margin-top:18px;
+}
+
+.langues button{
+    padding:10px 20px;
+    margin:4px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    color:white;
+    background:#ffffff15;
+    border:1px solid #ffffff30;
+    font-weight:bold;
+}
+
+.langues button:hover{
+    background:#0891b2;
+}
+
+.langues button.active{
+    background:#0891b2;
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:12px;
+    background:#020d14;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    background:#ffffff0d;
+}
+
+nav a:hover{
+    background:#0891b2;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.container{
+    width:min(1100px,94%);
+    margin:30px auto;
+}
+
+.hero{
+    text-align:center;
+    padding:35px 20px;
+    border-radius:25px;
+    background:#ffffff0c;
+    border:1px solid #ffffff20;
+    box-shadow:0 15px 40px #0005;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:32px;
+    color:#67e8f9;
+    margin-bottom:12px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    color:#e6faff;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card{
+    margin-bottom:22px;
+    padding:25px;
+    border-radius:20px;
+    background:#ffffff0b;
+    border:1px solid #ffffff18;
+    box-shadow:0 10px 30px #0004;
+}
+
+.card h2{
+    color:#67e8f9;
+    margin-bottom:12px;
+}
+
+.card h3{
+    color:#fde68a;
+    margin:15px 0 7px;
+}
+
+.card p{
+    color:#e5f7fa;
+}
+
+.card ul,
+.card ol{
+    padding-left:25px;
+}
+
+.card li{
+    margin:5px 0;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+th,td{
+    border:1px solid #ffffff25;
+    padding:10px;
+    text-align:left;
+}
+
+th{
+    background:#087c95;
+}
+
+td{
+    background:#ffffff08;
+}
+
+/* =====================================================
+   EXERCICES
+===================================================== */
+
+.exercise{
+    border-left:5px solid #22d3ee;
+    background:#ffffff08;
+    padding:18px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+.correction{
+    display:none;
+    margin-top:15px;
+    padding:18px;
+    background:#123c32;
+    border-radius:12px;
+    color:#dfffea;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 18px;
+    border:0;
+    border-radius:22px;
+    background:#0891b2;
+    color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#0e7490;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    text-align:center;
+    padding:30px 15px;
+    background:#020b11;
+    color:#b8d8df;
+    margin-top:40px;
+}
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.langue{
+    display:none;
+}
+
+.langue.active{
+    display:block;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    .logo{
+        font-size:26px;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    table{
+        font-size:13px;
+    }
+
+    th,td{
+        padding:7px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="logo">
+💻 InfoPro
+</div>
+
+<div class="slogan">
+Apprendre • Pratiquer • Créer • Réussir
+</div>
+
+<div class="langues">
+
+<button id="btnFR"
+class="active"
+onclick="changerLangue('fr')">
+🇫🇷 FR
+</button>
+
+<button id="btnMG"
+onclick="changerLangue('mg')">
+🇲🇬 MG
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+<a href="index.html">🏠 Accueil</a>
+
+<a href="cours.html">📚 Cours</a>
+
+<a href="exercice.html">📝 Exercices</a>
+
+<a href="jeux.html">🎮 Jeux</a>
+
+<a href="access.html">💾 Access</a>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+     VERSION FRANÇAISE
+===================================================== -->
+
+<div id="fr" class="langue active">
+
+
+<section class="hero">
+
+<h1>💾 Microsoft Access</h1>
+
+<p>
+Cours complet sur la création et la gestion des bases de données
+avec Microsoft Access.
+</p>
+
+</section>
+
+
+<!-- 1 -->
+
+<section class="card">
+
+<h2>1. Qu'est-ce que Microsoft Access ?</h2>
+
+<p>
+Microsoft Access est un logiciel de Microsoft spécialisé dans la
+création et la gestion des bases de données.
+</p>
+
+<p>
+Il permet de stocker, organiser, rechercher, modifier et présenter
+des informations de manière structurée.
+</p>
+
+<h3>Exemples d'utilisation</h3>
+
+<ul>
+<li>Gestion des élèves</li>
+<li>Gestion des notes</li>
+<li>Gestion d'une bibliothèque</li>
+<li>Gestion d'une boutique</li>
+<li>Gestion des clients</li>
+<li>Gestion des employés</li>
+</ul>
+
+</section>
+
+
+<!-- 2 -->
+
+<section class="card">
+
+<h2>2. Qu'est-ce qu'une base de données ?</h2>
+
+<p>
+Une base de données est un ensemble d'informations organisées afin
+de pouvoir les consulter et les gérer facilement.
+</p>
+
+<p>
+Par exemple, un établissement scolaire peut créer une base de données
+pour enregistrer les informations de tous ses élèves.
+</p>
+
+<h3>Exemple</h3>
+
+<p>
+<strong>INFO_PRO_GESTION_ELEVES</strong>
+</p>
+
+<p>
+Cette base peut contenir plusieurs tables :
+</p>
+
+<ul>
+<li>Élèves</li>
+<li>Classes</li>
+<li>Matières</li>
+<li>Notes</li>
+</ul>
+
+</section>
+
+
+<!-- 3 -->
+
+<section class="card">
+
+<h2>3. La table</h2>
+
+<p>
+Une table est l'élément principal utilisé pour stocker les données.
+Elle est organisée en lignes et en colonnes.
+</p>
+
+<table>
+
+<tr>
+<th>Matricule</th>
+<th>Nom</th>
+<th>Prénom</th>
+<th>Classe</th>
+</tr>
+
+<tr>
+<td>E001</td>
+<td>RAKOTO</td>
+<td>Jean</td>
+<td>9ème</td>
+</tr>
+
+<tr>
+<td>E002</td>
+<td>RABE</td>
+<td>Marie</td>
+<td>9ème</td>
+</tr>
+
+<tr>
+<td>E003</td>
+<td>ANDRIA</td>
+<td>Paul</td>
+<td>8ème</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- 4 -->
+
+<section class="card">
+
+<h2>4. Champ et enregistrement</h2>
+
+<h3>Le champ</h3>
+
+<p>
+Un champ représente une catégorie d'information.
+</p>
+
+<p>
+Exemple : Nom, Prénom, Classe, Téléphone.
+</p>
+
+<h3>L'enregistrement</h3>
+
+<p>
+Un enregistrement représente toutes les informations concernant
+un élément ou une personne.
+</p>
+
+<p>
+Dans le tableau précédent, la ligne contenant E001, RAKOTO et Jean
+est un enregistrement.
+</p>
+
+</section>
+
+
+<!-- 5 -->
+
+<section class="card">
+
+<h2>5. Les types de données</h2>
+
+<table>
+
+<tr>
+<th>Type</th>
+<th>Utilisation</th>
+</tr>
+
+<tr>
+<td>Short Text</td>
+<td>Nom, prénom, adresse</td>
+</tr>
+
+<tr>
+<td>Number</td>
+<td>Âge, quantité, note</td>
+</tr>
+
+<tr>
+<td>Date/Time</td>
+<td>Date de naissance</td>
+</tr>
+
+<tr>
+<td>Currency</td>
+<td>Prix, salaire</td>
+</tr>
+
+<tr>
+<td>Yes/No</td>
+<td>Oui/Non</td>
+</tr>
+
+<tr>
+<td>AutoNumber</td>
+<td>Numéro automatique</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- 6 -->
+
+<section class="card">
+
+<h2>6. La clé primaire</h2>
+
+<p>
+La clé primaire permet d'identifier de manière unique chaque
+enregistrement d'une table.
+</p>
+
+<p>
+Dans une table d'élèves, le <strong>Matricule</strong> peut être
+utilisé comme clé primaire.
+</p>
+
+<table>
+
+<tr>
+<th>Matricule</th>
+<th>Nom</th>
+<th>Prénom</th>
+</tr>
+
+<tr>
+<td>E001</td>
+<td>RAKOTO</td>
+<td>Jean</td>
+</tr>
+
+<tr>
+<td>E002</td>
+<td>RABE</td>
+<td>Marie</td>
+</tr>
+
+</table>
+
+<p>
+Deux élèves ne doivent pas avoir le même matricule.
+</p>
+
+</section>
+
+
+<!-- 7 -->
+
+<section class="card">
+
+<h2>7. Créer une base de données</h2>
+
+<ol>
+<li>Ouvrir Microsoft Access.</li>
+<li>Choisir <strong>Blank Database</strong>.</li>
+<li>Donner un nom à la base de données.</li>
+<li>Exemple : Gestion_Eleves.accdb.</li>
+<li>Cliquer sur <strong>Create</strong>.</li>
+</ol>
+
+</section>
+
+
+<!-- 8 -->
+
+<section class="card">
+
+<h2>8. Créer une table Élèves</h2>
+
+<table>
+
+<tr>
+<th>Champ</th>
+<th>Type de données</th>
+</tr>
+
+<tr>
+<td>Matricule</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Nom</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Prénom</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Sexe</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>DateNaissance</td>
+<td>Date/Time</td>
+</tr>
+
+<tr>
+<td>Classe</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Téléphone</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Adresse</td>
+<td>Short Text</td>
+</tr>
+
+</table>
+
+<p>
+Le champ <strong>Matricule</strong> peut être défini comme Primary Key.
+</p>
+
+</section>
+
+
+<!-- 9 -->
+
+<section class="card">
+
+<h2>9. Les relations entre les tables</h2>
+
+<p>
+Une base de données peut contenir plusieurs tables.
+Les relations permettent de connecter les tables entre elles.
+</p>
+
+<h3>Exemple</h3>
+
+<p>
+Table Élèves :
+</p>
+
+<p>
+Matricule — Nom — Prénom — ClasseID
+</p>
+
+<p>
+Table Classes :
+</p>
+
+<p>
+ClasseID — NomClasse
+</p>
+
+<p>
+Le champ ClasseID peut permettre de relier les deux tables.
+</p>
+
+</section>
+
+
+<!-- 10 -->
+
+<section class="card">
+
+<h2>10. Les requêtes</h2>
+
+<p>
+Une requête permet de rechercher, filtrer, trier ou calculer des
+informations dans une base de données.
+</p>
+
+<h3>Exemple</h3>
+
+<p>
+Rechercher tous les élèves de la classe 9ème.
+</p>
+
+<p>
+Condition :
+</p>
+
+<p>
+<strong>Classe = "9ème"</strong>
+</p>
+
+</section>
+
+
+<!-- 11 -->
+
+<section class="card">
+
+<h2>11. Les formulaires</h2>
+
+<p>
+Un formulaire facilite la saisie et la consultation des données.
+</p>
+
+<h3>Exemple</h3>
+
+<p>
+Formulaire Élève :
+</p>
+
+<ul>
+<li>Matricule</li>
+<li>Nom</li>
+<li>Prénom</li>
+<li>Sexe</li>
+<li>Date de naissance</li>
+<li>Classe</li>
+<li>Téléphone</li>
+<li>Adresse</li>
+</ul>
+
+</section>
+
+
+<!-- 12 -->
+
+<section class="card">
+
+<h2>12. Les états / rapports</h2>
+
+<p>
+Un état permet de présenter les données dans une forme organisée,
+notamment pour l'impression.
+</p>
+
+<h3>Exemples</h3>
+
+<ul>
+<li>Liste des élèves</li>
+<li>Liste des élèves par classe</li>
+<li>Liste des notes</li>
+<li>Résultats scolaires</li>
+</ul>
+
+</section>
+
+
+<!-- 13 -->
+
+<section class="card">
+
+<h2>13. Projet pratique — Gestion des élèves</h2>
+
+<p>
+Créer une base de données appelée :
+</p>
+
+<p>
+<strong>INFO_PRO_GESTION_ELEVES</strong>
+</p>
+
+<h3>Tables</h3>
+
+<ul>
+<li>ELEVES</li>
+<li>CLASSES</li>
+<li>NOTES</li>
+</ul>
+
+<h3>Requêtes</h3>
+
+<ul>
+<li>Élèves de la 9ème</li>
+<li>Élèves de sexe féminin</li>
+<li>Élèves de sexe masculin</li>
+<li>Élèves ayant une note supérieure à 10</li>
+<li>Élèves ayant une moyenne inférieure à 10</li>
+</ul>
+
+<h3>Formulaires</h3>
+
+<ul>
+<li>Formulaire Élèves</li>
+<li>Formulaire Notes</li>
+</ul>
+
+<h3>États</h3>
+
+<ul>
+<li>Liste des élèves</li>
+<li>Résultats des élèves</li>
+</ul>
+
+</section>
+
+
+<!-- 14 -->
+
+<section class="card">
+
+<h2>📝 Exercices</h2>
+
+<div class="exercise">
+
+<strong>Exercice 1</strong>
+
+<p>
+1. Définissez Microsoft Access.<br>
+2. Définissez une base de données.<br>
+3. Qu'est-ce qu'une table ?<br>
+4. Qu'est-ce qu'un champ ?<br>
+5. Qu'est-ce qu'un enregistrement ?<br>
+6. Qu'est-ce qu'une clé primaire ?
+</p>
+
+<button class="btn"
+onclick="correction('c1')">
+👁️ Afficher la correction
+</button>
+
+<div id="c1" class="correction">
+
+Microsoft Access est un logiciel de gestion de bases de données.
+
+Une base de données est un ensemble d'informations organisées.
+
+Une table sert à stocker les données.
+
+Un champ représente une catégorie d'information.
+
+Un enregistrement représente une ligne complète de données.
+
+La clé primaire identifie de manière unique un enregistrement.
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<strong>Exercice 2 — Pratique</strong>
+
+<p>
+Créer une table ELEVES avec au minimum 8 champs.
+Ajouter ensuite 10 élèves.
+</p>
+
+<button class="btn"
+onclick="correction('c2')">
+👁️ Voir les éléments attendus
+</button>
+
+<div id="c2" class="correction">
+
+Les champs peuvent être :
+
+Matricule, Nom, Prénom, Sexe, DateNaissance,
+Classe, Téléphone et Adresse.
+
+Le champ Matricule peut être choisi comme clé primaire.
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<strong>Exercice 3 — Projet</strong>
+
+<p>
+Créer une base de données complète permettant de gérer les élèves
+d'une classe.
+</p>
+
+<button class="btn"
+onclick="correction('c3')">
+👁️ Voir la correction
+</button>
+
+<div id="c3" class="correction">
+
+Le projet doit comporter au minimum :
+
+3 tables,
+des relations,
+5 requêtes,
+2 formulaires
+et 2 états.
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="hero">
+
+<h2>🚀 Apprendre • Pratiquer • Créer • Réussir</h2>
+
+<p>
+L'informatique ne s'apprend pas seulement en lisant.
+Il faut pratiquer, expérimenter, corriger ses erreurs et réaliser
+des projets concrets.
+</p>
+
+</section>
+
+
+</div>
+
+
+<!-- =====================================================
+     VERSION MALAGASY
+===================================================== -->
+
+<div id="mg" class="langue">
+
+
+<section class="hero">
+
+<h1>💾 Microsoft Access</h1>
+
+<p>
+Lesona feno momba ny famoronana sy fitantanana
+<strong>base de données</strong> amin'ny Microsoft Access.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>1. Inona ny Microsoft Access?</h2>
+
+<p>
+Microsoft Access dia logiciel an'ny Microsoft ampiasaina hamoronana,
+hitahirizana ary hitantanana <strong>base de données</strong>.
+</p>
+
+<p>
+Afaka ampiasaina izy mba hitahirizana, hitadiavana, hanovana ary
+handaminana vaovao maro.
+</p>
+
+<h3>Ohatra</h3>
+
+<ul>
+<li>Fitantanana mpianatra</li>
+<li>Fitantanana naoty</li>
+<li>Fitantanana bibliothèque</li>
+<li>Fitantanana magasin</li>
+<li>Fitantanana clients</li>
+<li>Fitantanana mpiasa</li>
+</ul>
+
+</section>
+
+
+<section class="card">
+
+<h2>2. Inona ny Base de données?</h2>
+
+<p>
+Ny <strong>base de données</strong> dia fitambaran'ny vaovao voalamina
+mba ho mora tehirizina, tadiavina ary tantanana.
+</p>
+
+<p>
+Ohatra, ny sekoly iray dia afaka manana base de données ahitana
+ny mombamomba ny mpianatra rehetra.
+</p>
+
+<p>
+Ohatra amin'ny base de données:
+</p>
+
+<strong>INFO_PRO_GESTION_ELEVES</strong>
+
+<p>
+Afaka ahitana tables maromaro izy:
+</p>
+
+<ul>
+<li>Élèves</li>
+<li>Classes</li>
+<li>Matières</li>
+<li>Notes</li>
+</ul>
+
+</section>
+
+
+<section class="card">
+
+<h2>3. Inona ny Table?</h2>
+
+<p>
+Ny <strong>Table</strong> dia toerana itehirizana ireo données.
+Mizara ho lignes sy colonnes izy.
+</p>
+
+<table>
+
+<tr>
+<th>Matricule</th>
+<th>Nom</th>
+<th>Prénom</th>
+<th>Classe</th>
+</tr>
+
+<tr>
+<td>E001</td>
+<td>RAKOTO</td>
+<td>Jean</td>
+<td>9ème</td>
+</tr>
+
+<tr>
+<td>E002</td>
+<td>RABE</td>
+<td>Marie</td>
+<td>9ème</td>
+</tr>
+
+<tr>
+<td>E003</td>
+<td>ANDRIA</td>
+<td>Paul</td>
+<td>8ème</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<section class="card">
+
+<h2>4. Champ sy Enregistrement</h2>
+
+<h3>Champ</h3>
+
+<p>
+Ny <strong>champ</strong> dia karazana information iray.
+</p>
+
+<p>
+Ohatra: Nom, Prénom, Classe, Téléphone.
+</p>
+
+<h3>Enregistrement</h3>
+
+<p>
+Ny <strong>enregistrement</strong> dia ligne iray ahitana ny
+information rehetra momba ny olona na zavatra iray.
+</p>
+
+<p>
+Ohatra, ny ligne misy E001, RAKOTO ary Jean dia enregistrement iray.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>5. Karazana données</h2>
+
+<table>
+
+<tr>
+<th>Type</th>
+<th>Fampiasana</th>
+</tr>
+
+<tr>
+<td>Short Text</td>
+<td>Anarana, fanampin'anarana, adresse</td>
+</tr>
+
+<tr>
+<td>Number</td>
+<td>Isa, taona, naoty</td>
+</tr>
+
+<tr>
+<td>Date/Time</td>
+<td>Daty sy ora</td>
+</tr>
+
+<tr>
+<td>Currency</td>
+<td>Vola</td>
+</tr>
+
+<tr>
+<td>Yes/No</td>
+<td>Eny/Tsia</td>
+</tr>
+
+<tr>
+<td>AutoNumber</td>
+<td>Numéro automatique</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<section class="card">
+
+<h2>6. Clé primaire</h2>
+
+<p>
+Ny <strong>clé primaire</strong> dia champ iray ampiasaina
+hamantarana manokana ny enregistrement tsirairay.
+</p>
+
+<p>
+Ohatra, ny <strong>Matricule</strong> no azo atao clé primaire
+amin'ny table Élèves.
+</p>
+
+<p>
+Tsy tokony hisy mpianatra roa manana matricule mitovy.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>7. Fomba famoronana Base de données</h2>
+
+<ol>
+<li>Sokafy Microsoft Access.</li>
+<li>Safidio <strong>Blank Database</strong>.</li>
+<li>Omeo anarana ny base de données.</li>
+<li>Ohatra: Gestion_Eleves.accdb.</li>
+<li>Tsindrio <strong>Create</strong>.</li>
+</ol>
+
+</section>
+
+
+<section class="card">
+
+<h2>8. Mamorona Table Élèves</h2>
+
+<table>
+
+<tr>
+<th>Champ</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Matricule</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Nom</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Prénom</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Sexe</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>DateNaissance</td>
+<td>Date/Time</td>
+</tr>
+
+<tr>
+<td>Classe</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Téléphone</td>
+<td>Short Text</td>
+</tr>
+
+<tr>
+<td>Adresse</td>
+<td>Short Text</td>
+</tr>
+
+</table>
+
+<p>
+Ataovy <strong>Primary Key</strong> ny Matricule.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>9. Relation entre les tables</h2>
+
+<p>
+Rehefa manana tables maromaro isika dia afaka mampifandray azy ireo.
+Izany no atao hoe <strong>Relationship</strong>.
+</p>
+
+<h3>Ohatra</h3>
+
+<p>
+Table Élèves:
+</p>
+
+<p>
+Matricule — Nom — Prénom — ClasseID
+</p>
+
+<p>
+Table Classes:
+</p>
+
+<p>
+ClasseID — NomClasse
+</p>
+
+<p>
+Ny ClasseID no afaka mampifandray ireo tables roa.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>10. Requête / Query</h2>
+
+<p>
+Ny <strong>Query</strong> dia ampiasaina hitadiavana, hanivanana,
+handaminana na hikajiana données.
+</p>
+
+<h3>Ohatra</h3>
+
+<p>
+Mitady ireo élèves rehetra ao amin'ny 9ème.
+</p>
+
+<p>
+Condition:
+</p>
+
+<p>
+<strong>Classe = "9ème"</strong>
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2>11. Formulaire</h2>
+
+<p>
+Ny <strong>Formulaire</strong> dia manamora ny fampidirana sy
+fijerena données.
+</p>
+
+<h3>Ohatra</h3>
+
+<ul>
+<li>Matricule</li>
+<li>Nom</li>
+<li>Prénom</li>
+<li>Sexe</li>
+<li>Date de naissance</li>
+<li>Classe</li>
+<li>Téléphone</li>
+<li>Adresse</li>
+</ul>
+
+</section>
+
+
+<section class="card">
+
+<h2>12. État / Report</h2>
+
+<p>
+Ny <strong>Report</strong> na État dia ampiasaina hanehoana sy
+hanontana données amin'ny endrika voalamina.
+</p>
+
+<h3>Ohatra</h3>
+
+<ul>
+<li>Liste des élèves</li>
+<li>Liste des élèves par classe</li>
+<li>Liste des notes</li>
+<li>Résultats scolaires</li>
+</ul>
+
+</section>
+
+
+<section class="card">
+
+<h2>13. Projet pratique — Fitantanana mpianatra</h2>
+
+<p>
+Mamoròna base de données antsoina hoe:
+</p>
+
+<p>
+<strong>INFO_PRO_GESTION_ELEVES</strong>
+</p>
+
+<h3>Tables</h3>
+
+<ul>
+<li>ELEVES</li>
+<li>CLASSES</li>
+<li>NOTES</li>
+</ul>
+
+<h3>Queries</h3>
+
+<ul>
+<li>Mpianatra ao amin'ny 9ème</li>
+<li>Mpianatra vavy</li>
+<li>Mpianatra lahy</li>
+<li>Mpianatra manana note mihoatra ny 10</li>
+<li>Mpianatra manana moyenne latsaky ny 10</li>
+</ul>
+
+<h3>Formulaires</h3>
+
+<ul>
+<li>Formulaire Élèves</li>
+<li>Formulaire Notes</li>
+</ul>
+
+<h3>États</h3>
+
+<ul>
+<li>Liste des élèves</li>
+<li>Résultats des élèves</li>
+</ul>
+
+</section>
+
+
+<section class="card">
+
+<h2>📝 Fanazaran-tena</h2>
+
+<div class="exercise">
+
+<strong>Exercice 1</strong>
+
+<p>
+1. Inona ny Microsoft Access?<br>
+2. Inona ny base de données?<br>
+3. Inona ny table?<br>
+4. Inona ny champ?<br>
+5. Inona ny enregistrement?<br>
+6. Inona ny clé primaire?
+</p>
+
+<button class="btn"
+onclick="correction('m1')">
+👁️ Asehoy ny correction
+</button>
+
+<div id="m1" class="correction">
+
+Microsoft Access dia logiciel fitantanana base de données.
+
+Base de données dia fitambaran'ny informations voalamina.
+
+Table dia toerana itehirizana données.
+
+Champ dia karazana information iray.
+
+Enregistrement dia ligne iray feno ao amin'ny table.
+
+Clé primaire dia champ manavaka enregistrement tsirairay.
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<strong>Exercice 2 — Pratique</strong>
+
+<p>
+Mamoròna table ELEVES misy champs 8 farafahakeliny.
+Ampidiro ao anatiny ny mpianatra 10.
+</p>
+
+<button class="btn"
+onclick="correction('m2')">
+👁️ Asehoy izay tokony hatao
+</button>
+
+<div id="m2" class="correction">
+
+Afaka mampiasa ireto champs ireto:
+
+Matricule, Nom, Prénom, Sexe, DateNaissance,
+Classe, Téléphone ary Adresse.
+
+Ataovy clé primaire ny Matricule.
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<strong>Exercice 3 — Projet</strong>
+
+<p>
+Mamoròna base de données iray hitantanana ireo mpianatra
+ao amin'ny classe iray.
+</p>
+
+<button class="btn"
+onclick="correction('m3')">
+👁️ Asehoy ny correction
+</button>
+
+<div id="m3" class="correction">
+
+Tokony ahitana:
+
+Tables 3,
+relations,
+queries 5,
+formulaires 2,
+ary états 2 farafahakeliny.
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="hero">
+
+<h2>🚀 Mianatra • Manao pratique • Mamorona • Mahafehy</h2>
+
+<p>
+Tsy ampy ny mamaky lesona fotsiny.
+Mila manao pratique, manandrana, manitsy fahadisoana ary mamorona
+projet tena izy.
+</p>
+
+</section>
+
+
+</div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<p>
+💻 <strong>Mr Tahiry - Informatique 👨‍🏫</strong>
+</p>
+
+<p>
+InfoPro • Microsoft Access
+</p>
+
+<p>
+© 2026 InfoPro
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   CHANGEMENT DE LANGUE
+===================================================== */
+
+function changerLangue(langue){
+
+    const fr = document.getElementById("fr");
+    const mg = document.getElementById("mg");
+
+    const btnFR = document.getElementById("btnFR");
+    const btnMG = document.getElementById("btnMG");
+
+    if(langue === "fr"){
+
+        fr.classList.add("active");
+        mg.classList.remove("active");
+
+        btnFR.classList.add("active");
+        btnMG.classList.remove("active");
+
+        document.documentElement.lang = "fr";
+
+    }
+
+    else{
+
+        mg.classList.add("active");
+        fr.classList.remove("active");
+
+        btnMG.classList.add("active");
+        btnFR.classList.remove("active");
+
+        document.documentElement.lang = "mg";
+
+    }
+
+}
+
+
+/* =====================================================
+   CORRECTION
+===================================================== */
+
+function correction(id){
+
+    const element = document.getElementById(id);
+
+    if(element.style.display === "block"){
+
+        element.style.display = "none";
+
+    }
+
+    else{
+
+        element.style.display = "block";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

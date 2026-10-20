@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Informatique - Lesona détaillée</title>
+
+<style>
+.footer-pro {
+  background: linear-gradient(270deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 15px 15px 0 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effet lumière animé */
+.footer-pro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.footer-pro h2 {
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.footer-pro p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.socials {
+  margin: 15px 0;
+}
+
+.socials a {
+  text-decoration: none;
+  color: white;
+  margin: 0 10px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+/* hover animation */
+.socials a:hover {
+  background: #00e5ff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.devise {
+  font-style: italic;
+  color: #ccc;
+}
+body{font-family:Arial;margin:0;background:#eef2f7;}
+header{background:#1f2d3d;color:white;padding:15px;text-align:center;}
+.lang{position:absolute;right:20px;top:15px;}
+button{padding:6px 10px;margin:2px;border:none;border-radius:5px;cursor:pointer;}
+.fr{background:#3498db;color:white;}
+.ml{background:#27ae60;color:white;}
+
+.trimestre{margin:20px;background:white;padding:15px;border-radius:10px;}
+h2{background:#34495e;color:white;padding:10px;border-radius:5px;cursor:pointer;}
+.content{display:none;padding:10px;}
+h3{color:#2c3e50;}
+ul{margin-left:20px;}
+</style>
+
+<script>
+function toggleContent(id){
+let x=document.getElementById(id);
+x.style.display=(x.style.display==="block")?"none":"block";
+}
+
+function setLang(lang){
+document.querySelectorAll('[data-fr]').forEach(el=>{
+el.innerHTML=el.getAttribute('data-'+lang);
+});
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<h1 data-fr="Cours Informatique Détaillé" data-ml="Lesona Informatika feno"></h1>
+<div class="lang">
+<button class="fr" onclick="setLang('fr')">FR</button>
+<button class="ml" onclick="setLang('ml')">ML</button>
+</div>
+</header>
+
+<!-- TRIMESTRE 1 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('t1')" data-fr="Trimestre 1 📘" data-ml="Trimester 1 📘"></h2>
+
+<div id="t1" class="content">
+
+<h3 data-fr="1. Introduction à l’informatique 💻" data-ml="1. Fampidirana informatika 💻"></h3>
+<p data-fr="L’informatique est la science qui permet de traiter automatiquement des informations à l’aide d’un ordinateur. Elle est utilisée dans plusieurs domaines : éducation, santé, commerce."
+data-ml="Ny informatika dia fianarana mampiasa solosaina hikirakirana vaovao. Ampiasaina amin’ny sehatra maro izy."></p>
+
+<ul>
+<li data-fr="🎯 Objectif : Comprendre ce qu’est l’informatique" data-ml="🎯 Tanjona : Mahafantatra ny informatika"></li>
+<li data-fr="📝 Exemple : écrire un texte, jouer, faire un calcul" data-ml="📝 Ohatra : manoratra, milalao, manao kajy"></li>
+</ul>
+
+<!-- HISTORIQUE -->
+<h3 data-fr="2. Historique de l’ordinateur 🕰️" data-ml="2. Tantaran’ny solosaina 🕰️"></h3>
+<p data-fr="L’ordinateur a évolué avec le temps. Avant, il était très grand et lent. Aujourd’hui, il est petit et rapide.</div><div class="card">
+<h2>🕰️ Niandohan'ny ordinateur</h2>
+<p><strong>1837:</strong> Analytical Engine (Charles Babbage)</p>
+<p><strong>1945:</strong> ENIAC - ordinateur voalohany</p>
+</div><div class="card">
+<h2>⚡ Fivoarana</h2>
+<ul>
+<li>Génération 1: Tube électronique</li>
+<li>Génération 2: Transistor</li>
+<li>Génération 3: Circuit intégré</li>
+<li>Génération 4: Microprocesseur</li>
+</ul>
+</div><div class=""
+data-ml="Nivoatra tsikelikely ny solosaina. Taloha dia lehibe sy miadana izy, ankehitriny kosa kely sy haingana."></p>
+
+<ul>
+<li data-fr="🖥️ Écran : permet d’afficher les informations" data-ml="🖥️ Ecran : mampiseho ny vaovao"></li>
+<li data-fr="⌨️ Clavier : permet d’écrire" data-ml="⌨️ Clavier : fanoratana"></li>
+<li data-fr="🖱️ Souris : permet de cliquer" data-ml="🖱️ Souris : fanindriana"></li>
+<li data-fr="💻 Ordinateur : machine intelligente" data-ml="💻 Ordinateur : milina manan-tsaina"></li>
+</ul>
+
+<!-- TYPES -->
+<h3 data-fr="3. Types de matériel 🧩" data-ml="3. Karazana fitaovana 🧩"></h3>
+<ul>
+<li data-fr="💻 Ordinateur : portable ou bureau" data-ml="💻 Ordinateur : portable na bureau"></li>
+<li data-fr="⌨️ Clavier : AZERTY / QWERTY" data-ml="⌨️ Clavier : AZERTY / QWERTY"></li>
+<li data-fr="🖱️ Souris : avec fil ou sans fil" data-ml="🖱️ Souris : misy tariby na tsy misy"></li>
+<li data-fr="🖥️ Écran : LCD, LED" data-ml="🖥️ Ecran : LCD, LED"></li>
+</ul>
+
+<h3 data-fr="4. Les parties de l’ordinateur 🧠" data-ml="4. Faritra amin’ny solosaina 🧠"></h3>
+<p data-fr="Un ordinateur est composé de plusieurs éléments importants :" 
+data-ml="Ny solosaina dia misy ampahany maro :"></p>
+
+<ul>
+<li data-fr="🧠 Unité centrale : cerveau de l’ordinateur" data-ml="🧠 Unité centrale : atidohan’ny solosaina"></li>
+<li data-fr="🖥️ Écran : affiche les informations" data-ml="🖥️ Écran : mampiseho ny vaovao"></li>
+<li data-fr="⌨️ Clavier : permet d’écrire" data-ml="⌨️ Clavier : fanoratana"></li>
+<li data-fr="🖱️ Souris : permet de cliquer" data-ml="🖱️ Souris : fanindriana"></li>
+</ul>
+
+<!-- CLAVIER DETAIL -->
+<h3 data-fr="5. Les différentes parties du clavier ⌨️" data-ml="5. Ampahany amin’ny clavier ⌨️"></h3>
+<ul>
+<li data-fr="🔤 Touches alphabétiques (A-Z)" data-ml="🔤 Bokotra litera (A-Z)"></li>
+<li data-fr="🔢 Touches numériques (0-9)" data-ml="🔢 Bokotra isa (0-9)"></li>
+<li data-fr="⚙️ Touches spéciales (Entrée, Ctrl, Alt)" data-ml="⚙️ Bokotra manokana (Entrée, Ctrl, Alt)"></li>
+<li data-fr="⬆️ Touches directionnelles" data-ml="⬆️ Bokotra zana-tsipìka"></li>
+</ul>
+
+<!-- POSITION MAIN -->
+<h3 data-fr="6. Position des mains sur le clavier ✋" data-ml="6. Toeran’ny tanana amin’ny clavier ✋"></h3>
+<p data-fr="Il faut bien positionner les doigts pour taper rapidement et correctement."
+data-ml="Zava-dehibe ny fametrahana tsara ny rantsantanana mba hanoratana haingana sy marina."></p>
+
+<ul>
+<li data-fr="👈 Main gauche : A, Z, E, R" data-ml="👈 Tanana havia : A, Z, E, R"></li>
+<li data-fr="👉 Main droite : U, I, O, P" data-ml="👉 Tanana havanana : U, I, O, P"></li>
+<li data-fr="👍 Pouces : barre espace" data-ml="👍 Ankihibe : espace"></li>
+</ul>
+
+<h3 data-fr="7. Manipulation souris & clavier 🖱️⌨️" data-ml="7. Fampiasana souris sy clavier 🖱️⌨️"></h3>
+<ul>
+<li data-fr="🖱️ Clic gauche : sélectionner" data-ml="🖱️ Tsindry ankavia : mifidy"></li>
+<li data-fr="🖱️ Double clic : ouvrir" data-ml="🖱️ Tsindry indroa : manokatra"></li>
+<li data-fr="⌨️ Clavier : lettres, chiffres, touches spéciales" data-ml="⌨️ Clavier : litera sy isa"></li>
+</ul>
+
+<h3 data-fr="8. Découverte de Word 📄" data-ml="8. Fampahafantarana Word 📄"></h3>
+<p data-fr="Microsoft Word est un logiciel de traitement de texte qui permet de créer des documents."
+data-ml="Word dia logiciel fanoratana document."></p>
+
+<h3 data-fr="9. Mise en forme Word 🎨" data-ml="9. Fanatsarana Word 🎨"></h3>
+<ul>
+<li data-fr="🔠 Changer la taille du texte" data-ml="🔠 Manova haben’ny soratra"></li>
+<li data-fr="🅱️ Gras, italique" data-ml="🅱️ Soratra matavy na mitongilana"></li>
+<li data-fr="🌈 Changer la couleur" data-ml="🌈 Manova loko"></li>
+</ul>
+
+<h3 data-fr="Activité pratique 🧪" data-ml="Asa atao 🧪"></h3>
+<p data-fr="Les élèves doivent écrire un petit texte et le mettre en forme."
+data-ml="Manoratra lahatsoratra kely ary manatsara azy."></p>
+
+<h3 data-fr="Evaluation ✅" data-ml="Fanombanana ✅"></h3>
+<p data-fr="Questionnaire + exercice pratique"
+data-ml="Fanontaniana sy fanazaran-tena"></p>
+
+</div>
+</div>
+
+<!-- TRIMESTRE 2 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('t2')" data-fr="📚 Trimestre 2" data-ml="📚 Trimester 2"></h2>
+
+<div id="t2" class="content">
+
+<h3 data-fr="📝 1. Word avancé" data-ml="📝 1. Word mandroso"></h3>
+
+<ul>
+<li data-fr="📊 Insertion tableau" data-ml="📊 Fampidirana tableau"></li>
+<li data-fr="🖼️ Insertion image" data-ml="🖼️ Fampidirana sary"></li>
+<li data-fr="📄 Mise en page" data-ml="📄 Fandaminana pejy"></li>
+</ul>
+
+<!-- MÉTHODES -->
+<h4 data-fr="⚙️ Méthodes" data-ml="⚙️ Fomba fanaovana"></h4>
+
+<p><b data-fr="📊 Insérer un tableau :" data-ml="📊 Mampiditra tableau :"></b></p>
+<ul>
+<li data-fr="Cliquer sur l’onglet Insertion" data-ml="Tsindrio ny menu Insertion"></li>
+<li data-fr="Choisir Tableau" data-ml="Safidio Tableau"></li>
+<li data-fr="Sélectionner le nombre de lignes et colonnes" data-ml="Fidio ny isan'ny andalana sy tsanganana"></li>
+<li data-fr="Valider pour insérer" data-ml="Tsindrio raha hanampy"></li>
+</ul>
+
+<p><b data-fr="🖼️ Insérer une image :" data-ml="🖼️ Mampiditra sary :"></b></p>
+<ul>
+<li data-fr="Cliquer sur Insertion" data-ml="Tsindrio Insertion"></li>
+<li data-fr="Choisir Image" data-ml="Safidio Image"></li>
+<li data-fr="Sélectionner une image depuis l’ordinateur" data-ml="Misafidiana sary ao amin’ny ordinateur"></li>
+<li data-fr="Cliquer sur Insérer" data-ml="Tsindrio Insérer"></li>
+</ul>
+
+<p><b data-fr="📄 Mise en page :" data-ml="📄 Fandaminana pejy :"></b></p>
+<ul>
+<li data-fr="Aller dans Mise en page" data-ml="Mankanesa ao amin’ny Mise en page"></li>
+<li data-fr="Changer l’orientation (portrait/paysage)" data-ml="Ovay orientation (mitsangana/mitsivalana)"></li>
+<li data-fr="Modifier les marges" data-ml="Ahitsy ny sisiny (marges)"></li>
+<li data-fr="Ajuster la taille du papier" data-ml="Ovay ny haben’ny taratasy"></li>
+</ul>
+
+<h3 data-fr="🎨 2. Paint (dessin)" data-ml="🎨 2. Paint (sary)"></h3>
+<p data-fr="Paint permet de dessiner ✏️, colorier 🎨 et enregistrer une image 💾."
+data-ml="Paint dia ampiasaina hanaovana sary ✏️, handoko 🎨 ary hitahiry sary 💾."></p>
+
+<h3 data-fr="🧩 3. Mini projet" data-ml="🧩 3. Tetikasa kely"></h3>
+<p data-fr="Créer une affiche avec texte 📝 et image 🖼️."
+data-ml="Mamorona affiche misy soratra 📝 sy sary 🖼️.🏢 Orinasa namorona azy
+👉 Microsoft
+Niorina tamin’i:
+Bill Gates
+Paul Allen
+Tamin’ny taona 1975
+📄 1. Microsoft Word
+👉 Microsoft Word
+Nivoaka voalohany tamin’ny 1983
+Ampiasaina hanoratana lahatsoratra (lettre, devoir, rapport…)
+📊 2. Microsoft Excel
+👉 Microsoft Excel
+Nivoaka tamin’ny 1985
+Ampiasaina hanaovana kajy sy tableau
+📽️ 3. Microsoft PowerPoint
+👉 Microsoft PowerPoint
+Nivoaka tamin’ny 1987
+Ampiasaina hanaovana présentation (slide)
+📌 Fintina
+Microsoft no namorona azy rehetra
+Word → fanoratana
+Excel → kajy sy tableau
+PowerPoint → présentation
+💡 Raha tianao dia azoko atao:
+Atao lesona HTML + design ho an’ny site-nao
+Ampiana exercice sy quiz Word, Excel, PowerPoint
+Lazao fotsiny 👍
+"></p>
+
+<h3 data-fr="📝 Evaluation" data-ml="📝 Fanombanana"></h3>
+<p data-fr="Test pratique sur Word et Paint 💻"
+data-ml="Fanadinana Word sy Paint 💻"></p>
+
+</div>
+</div>
+
+<!-- TRIMESTRE 3 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('t3')" data-fr="Trimestre 3" data-ml="Trimester 3"></h2>
+
+<div id="t3" class="content">
+
+<h3 data-fr="Révision générale" data-ml="Famerenana"></h3>
+<p data-fr="Réviser toutes les leçons importantes."
+data-ml="Averina daholo ny lesona rehetra."></p>
+
+<h3 data-fr="Projet final" data-ml="Tetikasa farany"></h3>
+<p data-fr="Créer un document complet avec Word."
+data-ml="Mamorona document feno."></p>
+
+<h3 data-fr="Evaluation finale" data-ml="Fanombanana farany"></h3>
+<p data-fr="Evaluation globale des compétences."
+data-ml="Fanombanana farany."></p>
+
+</div>
+</div>
+
+<!-- QUIZ TRIMESTRE 1 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('quiz1')" data-fr="📝 Quiz Trimestre 1" data-ml="📝 Fanadinana Trimester 1"></h2>
+
+<div id="quiz1" class="content">
+
+<h3 data-fr="Partie A : Questions (Choix multiples) ❓" data-ml="Fizarana A : Fanontaniana (Safidy maro) ❓"></h3>
+
+<ol>
+<li data-fr="💻 L’ordinateur sert à :" data-ml="💻 Ny solosaina dia ampiasaina amin’ny :"></li>
+<ul>
+<li>A. Dormir 😴</li>
+<li>B. Traiter des informations ✅</li>
+<li>C. Manger 🍽️</li>
+</ul>
+
+<li data-fr="⌨️ Le clavier permet de :" data-ml="⌨️ Ny clavier dia ampiasaina :"></li>
+<ul>
+<li>A. Regarder 👀</li>
+<li>B. Écrire ✅</li>
+<li>C. Écouter 🎧</li>
+</ul>
+
+<li data-fr="🖱️ La souris sert à :" data-ml="🖱️ Ny souris dia ampiasaina :"></li>
+<ul>
+<li>A. Cliquer ✅</li>
+<li>B. Dormir 😴</li>
+<li>C. Parler 🗣️</li>
+</ul>
+
+<li data-fr="🖥️ L’écran sert à :" data-ml="🖥️ Ny écran dia :"></li>
+<ul>
+<li>A. Afficher les informations ✅</li>
+<li>B. Écrire</li>
+<li>C. Calculer</li>
+</ul>
+
+<li data-fr="🧠 L’unité centrale est :" data-ml="🧠 Ny unité centrale dia :"></li>
+<ul>
+<li>A. Le cerveau de l’ordinateur ✅</li>
+<li>B. Un jeu 🎮</li>
+<li>C. Une souris 🖱️</li>
+</ul>
+</ol>
+
+<h3 data-fr="Partie B : Vrai ou Faux ✔️" data-ml="Fizarana B : Marina sa Diso ✔️"></h3>
+
+<ol>
+<li data-fr="💻 L’ordinateur est une machine intelligente." data-ml="💻 Ny solosaina dia milina manan-tsaina."></li>
+<li data-fr="⌨️ Le clavier sert à cliquer." data-ml="⌨️ Ny clavier dia ampiasaina tsindriana (clic)."></li>
+<li data-fr="🖱️ La souris permet de sélectionner." data-ml="🖱️ Ny souris dia ampiasaina hisafidianana."></li>
+<li data-fr="🖥️ L’écran ne sert à rien." data-ml="🖥️ Tsy misy ilàna azy ny écran."></li>
+</ol>
+
+<h3 data-fr="Partie C : Compléter ✍️" data-ml="Fizarana C : Fenoy ✍️"></h3>
+
+<ol>
+<li data-fr="💻 Un ordinateur sert à traiter des ________." data-ml="💻 Ny solosaina dia mikarakara ________."></li>
+<li data-fr="⌨️ Le ________ permet d’écrire." data-ml="⌨️ Ny ________ no ampiasaina hanoratana."></li>
+<li data-fr="🖱️ La ________ permet de cliquer." data-ml="🖱️ Ny ________ no ampiasaina tsindriana."></li>
+<li data-fr="🖥️ L’________ affiche les informations." data-ml="🖥️ Ny ________ no mampiseho vaovao."></li>
+</ol>
+
+<h3 data-fr="Partie D : Pratique 🧪" data-ml="Fizarana D : Fanazaran-tena 🧪"></h3>
+
+<p data-fr="📄 Écris un petit texte sur l’ordinateur (3 lignes) et applique : gras, couleur."
+data-ml="📄 Manorata lahatsoratra kely momba ny solosaina (and. 3) ary ampiasao : soratra matavy sy loko."></p>
+
+<h3 data-fr="Correction rapide ✅" data-ml="Fanitsiana haingana ✅"></h3>
+
+<ul>
+<li>1: B</li>
+<li>2: B</li>
+<li>3: A</li>
+<li>4: A</li>
+<li>5: A</li>
+<li>V/F: V, F, V, F</li>
+<li>Compléter: informations, clavier, souris, écran</li>
+</ul>
+
+</div>
+</div>
+
+<!-- QUIZ INTERACTIF TRIMESTRE 1 -->
+<div class="trimestre">
+<h2 onclick="toggleContent('quiz2')" data-fr="🧠 Quiz Interactif Trimestre 1" data-ml="🧠 Quiz Interactif Trimester 1"></h2>
+
+<div id="quiz2" class="content">
+
+<form id="quizForm">
+
+<p>1. 💻 L’ordinateur sert à :</p>
+<input type="radio" name="q1" value="0"> Dormir 😴<br>
+<input type="radio" name="q1" value="1"> Traiter des informations ✅<br>
+<input type="radio" name="q1" value="0"> Manger 🍽️<br><br>
+
+<p>2. ⌨️ Le clavier permet de :</p>
+<input type="radio" name="q2" value="0"> Regarder 👀<br>
+<input type="radio" name="q2" value="1"> Écrire ✅<br>
+<input type="radio" name="q2" value="0"> Écouter 🎧<br><br>
+
+<p>3. 🖱️ La souris sert à :</p>
+<input type="radio" name="q3" value="1"> Cliquer ✅<br>
+<input type="radio" name="q3" value="0"> Dormir 😴<br>
+<input type="radio" name="q3" value="0"> Parler 🗣️<br><br>
+
+<p>4. 🖥️ L’écran sert à :</p>
+<input type="radio" name="q4" value="1"> Afficher les informations ✅<br>
+<input type="radio" name="q4" value="0"> Écrire<br>
+<input type="radio" name="q4" value="0"> Calculer<br><br>
+
+<p>5. 🧠 L’unité centrale est :</p>
+<input type="radio" name="q5" value="1"> Le cerveau de l’ordinateur ✅<br>
+<input type="radio" name="q5" value="0"> Une souris 🖱️<br>
+<input type="radio" name="q5" value="0"> Un jeu 🎮<br><br>
+
+<button type="button" onclick="corrigerQuiz()">✅ Valider</button>
+
+</form>
+
+<h3 id="resultat"></h3>
+
+</div>
+</div>
+
+<script>
+function corrigerQuiz() {
+let score = 0;
+let total = 5;
+
+for (let i = 1; i <= total; i++) {
+let q = document.querySelector('input[name="q'+i+'"]:checked');
+if (q) {
+score += parseInt(q.value);
+}
+}
+
+let note = (score / total) * 20;
+
+let message = "";
+
+if (note >= 16) {
+message = "🌟 Excellent !";
+} else if (note >= 10) {
+message = "👍 Bien !";
+} else {
+message = "📘 À revoir !";
+}
+
+document.getElementById("resultat").innerHTML =
+"🎯 Score : " + score + "/" + total +
+"<br>📊 Note : " + note.toFixed(1) + "/20<br>" + message;
+}
+</script>
+
+<!-- QUIZ TRIMESTRE 2 -->
+<div class="quiz">
+
+<h2 onclick="toggleContent('quizT2')">🧠 Quiz - Trimestre 2</h2>
+
+<div id="quizT2" class="content">
+
+<form id="quizForm">
+
+<!-- QUESTION 1 -->
+<div class="question">
+<p>1️⃣ 📊 
+<span data-fr="Comment insérer un tableau dans Word ?" 
+      data-ml="Ahoana no mampiditra tableau ao amin'ny Word ?"></span>
+</p>
+
+<label><input type="radio" name="q1" value="a"> 
+Insertion → Tableau</label><br>
+
+<label><input type="radio" name="q1" value="b"> 
+Accueil → Police</label><br>
+
+<label><input type="radio" name="q1" value="c"> 
+Fichier → Ouvrir</label>
+
+<p class="result" id="r1"></p>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="question">
+<p>2️⃣ 🖼️ 
+<span data-fr="Quelle option permet d’ajouter une image ?" 
+      data-ml="Inona no safidy ampidirana sary ?"></span>
+</p>
+
+<label><input type="radio" name="q2" value="a"> 
+Insertion → Image</label><br>
+
+<label><input type="radio" name="q2" value="b"> 
+Affichage</label><br>
+
+<label><input type="radio" name="q2" value="c"> 
+Révision</label>
+
+<p class="result" id="r2"></p>
+</div>
+
+<!-- QUESTION 3 -->
+<div class="question">
+<p>3️⃣ 📄 
+<span data-fr="Que permet la mise en page ?" 
+      data-ml="Inona no atao hoe mise en page ?"></span>
+</p>
+
+<label><input type="radio" name="q3" value="a"> 
+Modifier les marges et orientation</label><br>
+
+<label><input type="radio" name="q3" value="b"> 
+Éteindre l’ordinateur</label><br>
+
+<label><input type="radio" name="q3" value="c"> 
+Supprimer un fichier</label>
+
+<p class="result" id="r3"></p>
+</div>
+
+<!-- QUESTION 4 -->
+<div class="question">
+<p>4️⃣ 🎨 
+<span data-fr="À quoi sert Paint ?" 
+      data-ml="Inona no ampiasana Paint ?"></span>
+</p>
+
+<label><input type="radio" name="q4" value="a"> 
+Dessiner et colorier</label><br>
+
+<label><input type="radio" name="q4" value="b"> 
+Calculer</label><br>
+
+<label><input type="radio" name="q4" value="c"> 
+Écrire du code</label>
+
+<p class="result" id="r4"></p>
+</div>
+
+<!-- QUESTION 5 -->
+<div class="question">
+<p>5️⃣ 🧩 
+<span data-fr="Un mini projet consiste à :" 
+      data-ml="Ny mini projet dia :" ></span>
+</p>
+
+<label><input type="radio" name="q5" value="a"> 
+Créer une affiche</label><br>
+
+<label><input type="radio" name="q5" value="b"> 
+Supprimer Windows</label><br>
+
+<label><input type="radio" name="q5" value="c"> 
+Installer un virus</label>
+
+<p class="result" id="r5"></p>
+</div>
+
+<!-- BUTTON -->
+<br>
+<button type="button" onclick="corrigerQuiz()">✅ Corriger</button>
+
+<h3 id="score"></h3>
+
+</form>
+</div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+function corrigerQuiz() {
+let score = 0;
+
+// réponses correctes
+const reponses = {
+q1: "a",
+q2: "a",
+q3: "a",
+q4: "a",
+q5: "a"
+};
+
+// correction
+for (let i = 1; i <= 5; i++) {
+let q = document.querySelector('input[name="q'+i+'"]:checked');
+let result = document.getElementById("r"+i);
+
+if(q){
+if(q.value === reponses["q"+i]){
+result.innerHTML = "✅ Correct ✔️";
+result.style.color = "green";
+score++;
+} else {
+result.innerHTML = "❌ Faux";
+result.style.color = "red";
+}
+} else {
+result.innerHTML = "⚠️ Réponds d'abord";
+result.style.color = "orange";
+}
+}
+
+// score final
+document.getElementById("score").innerHTML = "🎯 Score : " + score + " / 5";
+}
+</script>
+</script>
+<script>
+let today = new Date();
+let date = today.toLocaleDateString('fr-FR', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+document.getElementById("dateFooter").innerHTML = date;
+</script>
+   <footer>
+     <!-- FOOTER ULTRA PRO -->
+<footer class="footer-pro">
+
+  <h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2>
+
+  <p>📅 <span id="dateFooter"></span></p>
+
+  <div class="socials">
+    <a href="#">📘 Facebook</a>
+    <a href="#">💬 WhatsApp</a>
+    <a href="#">📧 Email</a>
+  </div>
+
+  <p class="devise">🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+
+</footer>
+   </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Programme Informatique Complet</title>
+
+<style>
+body{
+  font-family: Arial;
+  background: linear-gradient(135deg,#141e30,#243b55);
+  color:white;
+  padding:20px;
+}
+
+.container{max-width:900px;margin:auto;}
+
+.section{
+  background:white;
+  color:#333;
+  border-radius:15px;
+  margin-top:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.section h2{
+  padding:15px;
+  background:#243b55;
+  color:white;
+  cursor:pointer;
+}
+
+.content{display:none;padding:15px;}
+
+.methode{
+  background:#eef3ff;
+  padding:10px;
+  border-left:5px solid #243b55;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+.quiz button{
+  display:block;
+  width:100%;
+  margin:5px 0;
+}
+
+.correct{background:green !important;}
+.wrong{background:red !important;}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff9800;
+  color:white;
+  cursor:pointer;
+  margin:10px auto;
+  display:block;
+}
+.card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: hsl(0, 80%, 53%);
+}
+.footer-pro h2 {
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.footer-pro p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.footer-pro {
+  background: linear-gradient(270deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 15px 15px 0 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effet lumière animé */
+.footer-pro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 5s infinite;
+}
+</style>
+
+<script>
+let lang="fr";
+
+function toggle(id){
+  let el=document.getElementById(id);
+  el.style.display=(el.style.display==="block")?"none":"block";
+}
+
+function toggleLang(){
+  document.querySelectorAll(".fr").forEach(e=>e.style.display=(lang==="fr"?"none":"inline"));
+  document.querySelectorAll(".ml").forEach(e=>e.style.display=(lang==="fr"?"inline":"none"));
+  lang=(lang==="fr")?"ml":"fr";
+}
+
+function answer(btn,correct){
+  btn.classList.add(correct?"correct":"wrong");
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 Programme Informatique Complet</h1>
+<button onclick="toggleLang()">🌐 FR / ML</button>
+
+<!-- ================= TRIMESTRE 1 ================= -->
+<div class="section">
+<h2 onclick="toggle('t1')">📘 Trimestre 1</h2>
+
+<div id="t1" class="content">
+
+<h3>🧠 Rappel collège</h3>
+<p class="fr">Révision des bases : ordinateur, clavier, fichiers.</p>
+<p class="ml" style="display:none">Famerenana fototra : ordinateur, clavier, fichier.</p>
+
+<h3>⌨️ Technique de saisie</h3>
+<p class="fr">Apprendre à taper rapidement avec précision.</p>
+<p class="ml" style="display:none">Mianatra manoratra haingana sy marina.</p>
+
+<div class="methode">
+<ol>
+<li class="fr">Position des doigts</li>
+<li class="ml" style="display:none">Fametrahana rantsantanana</li>
+
+<li class="fr">Regarder écran</li>
+<li class="ml" style="display:none">Mijery écran</li>
+</ol>
+</div>
+
+<h3>💻 Algorithmique</h3>
+<p class="fr">Suite d’instructions pour résoudre un problème.</p>
+<p class="ml" style="display:none">Dingana hanatanterahana asa.</p>
+
+<h3>🌐 Internet & sécurité</h3>
+<p class="fr">Naviguer en sécurité, éviter les dangers.</p>
+<p class="ml" style="display:none">Mampiasa internet am-pilaminana.</p>
+
+<h3>🦠 Virus & antivirus</h3>
+<p class="fr">Un virus est un programme dangereux.</p>
+<p class="ml" style="display:none">Virus dia programa manimba.</p>
+
+<div class="quiz">
+<p class="fr">Virus sert à :</p>
+<p class="ml" style="display:none">Ny virus dia :</p>
+<button onclick="answer(this,false)">Protéger PC</button>
+<button onclick="answer(this,true)">Endommager PC</button>
+</div>
+
+</div>
+</div>
+
+<!-- ================= TRIMESTRE 2 ================= -->
+<div class="section">
+<h2 onclick="toggle('t2')">📗 Trimestre 2</h2>
+
+<div id="t2" class="content">
+
+<h3>📝 Word avancé</h3>
+<p class="fr">Création de documents professionnels.</p>
+<p class="ml" style="display:none">Mamorona document matihanina.</p>
+
+<h3>📊 Excel avancé</h3>
+<p class="fr">Calcul automatique et tableaux.</p>
+<p class="ml" style="display:none">Kajy automatique sy tableau.</p>
+
+<h3>📽️ PowerPoint avancé</h3>
+<p class="fr">Créer des présentations animées.</p>
+<p class="ml" style="display:none">Mamorona présentation misy animation.</p>
+
+<h3>📄 Mise en page</h3>
+<p class="fr">Organisation du document (marges, titres).</p>
+<p class="ml" style="display:none">Fandaminana document.</p>
+
+<div class="quiz">
+<p class="fr">Excel sert à :</p>
+<p class="ml" style="display:none">Excel dia :</p>
+<button onclick="answer(this,true)">Faire calcul</button>
+<button onclick="answer(this,false)">Jouer</button>
+</div>
+
+</div>
+</div>
+
+<!-- ================= TRIMESTRE 3 ================= -->
+<div class="section">
+<h2 onclick="toggle('t3')">📕 Trimestre 3</h2>
+
+<div id="t3" class="content">
+
+<h3>🌐 HTML</h3>
+<p class="fr">Langage pour créer page web.</p>
+<p class="ml" style="display:none">Fiteny famoronana site.</p>
+
+<h3>🎨 CSS</h3>
+<p class="fr">Style et design.</p>
+<p class="ml" style="display:none">Endrika sy loko.</p>
+
+<h3>⚙️ JavaScript</h3>
+<p class="fr">Interaction et dynamisme.</p>
+<p class="ml" style="display:none">Fihetsika sy animation.</p>
+
+<h3>💻 Projet final</h3>
+<p class="fr">Créer un site web complet.</p>
+<p class="ml" style="display:none">Mamorona site web feno.</p>
+
+<div class="methode">
+<ol>
+<li class="fr">Créer structure HTML</li>
+<li class="ml" style="display:none">Mametraka HTML</li>
+
+<li class="fr">Ajouter CSS</li>
+<li class="ml" style="display:none">Ampidiro CSS</li>
+
+<li class="fr">Ajouter JavaScript</li>
+<li class="ml" style="display:none">Ampidiro JS</li>
+</ol>
+</div>
+
+<div class="quiz">
+<p class="fr">HTML sert à :</p>
+<p class="ml" style="display:none">HTML dia :</p>
+<button onclick="answer(this,true)">Créer page</button>
+<button onclick="answer(this,false)">Supprimer PC</button>
+</div>
+
+</div>
+</div>
+
+</div><br>
+<p><a href="2nd.html">2nd</a> </p>
+<footer class="footer-pro">
+
+  <h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2>
+
+  <p>📅 <span id="dateFooter"></span></p>
+
+  <div class="socials">
+    <a href="#">📘 Facebook</a>
+    <a href="#">💬 WhatsApp</a>
+    <a href="#">📧 Email</a>
+  </div>
+
+  <p class="devise">🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+
+</footer>
+
+</body>
+</html>

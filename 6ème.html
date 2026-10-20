@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🧩 Composants de l'informatique | InfoPro</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef3f8;
+    color:#1e293b;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#0891b2);
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+
+header h1{
+    margin:5px 0;
+    font-size:28px;
+}
+
+header p{
+    margin:8px 0 15px;
+}
+
+.header-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+    font-weight:bold;
+    border-radius:10px;
+    padding:10px 15px;
+}
+
+.lang{
+    background:white;
+    color:#1e3a8a;
+}
+
+.action{
+    background:#06b6d4;
+    color:white;
+}
+
+/* ================= LAYOUT ================= */
+
+.layout{
+    width:95%;
+    max-width:1400px;
+    margin:25px auto;
+    display:grid;
+    grid-template-columns:290px 1fr;
+    gap:20px;
+}
+
+/* ================= PLAN ================= */
+
+.plan{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    height:max-content;
+    position:sticky;
+    top:150px;
+}
+
+.plan h2{
+    margin-top:0;
+    color:#1e3a8a;
+}
+
+.plan-search{
+    width:100%;
+    padding:11px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
+.plan a{
+    display:block;
+    text-decoration:none;
+    color:#334155;
+    padding:10px;
+    margin:4px 0;
+    border-radius:9px;
+    font-size:14px;
+}
+
+.plan a:hover{
+    background:#dbeafe;
+    color:#1d4ed8;
+    transform:translateX(3px);
+}
+
+/* ================= CONTENT ================= */
+
+.lesson{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.lesson h2{
+    color:#1e3a8a;
+    border-bottom:3px solid #06b6d4;
+    padding-bottom:10px;
+}
+
+.lesson h3{
+    color:#0f766e;
+    margin-top:35px;
+    scroll-margin-top:150px;
+}
+
+.lesson p{
+    line-height:1.75;
+    font-size:16px;
+}
+
+.lesson li{
+    margin:8px 0;
+    line-height:1.5;
+}
+
+/* ================= BOXES ================= */
+
+.info,
+.success,
+.warning{
+    padding:15px;
+    border-radius:12px;
+    margin:18px 0;
+}
+
+.info{
+    background:#e0f2fe;
+    border-left:5px solid #0284c7;
+}
+
+.success{
+    background:#dcfce7;
+    border-left:5px solid #16a34a;
+}
+
+.warning{
+    background:#fef3c7;
+    border-left:5px solid #f59e0b;
+}
+
+.code{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:20px;
+    border-radius:12px;
+    white-space:pre-line;
+    overflow:auto;
+    font-family:monospace;
+    margin:20px 0;
+}
+
+/* ================= TABLE ================= */
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th{
+    background:#1e3a8a;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:11px;
+    border:1px solid #cbd5e1;
+}
+
+tr:nth-child(even){
+    background:#f8fafc;
+}
+
+/* ================= EXERCISES ================= */
+
+.exercise{
+    background:#f8fafc;
+    border:1px solid #cbd5e1;
+    border-radius:15px;
+    padding:18px;
+    margin:20px 0;
+}
+
+.answer{
+    display:none;
+    background:#dcfce7;
+    border-left:5px solid #16a34a;
+    padding:15px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+.show-answer{
+    background:#16a34a;
+    color:white;
+}
+
+.quiz{
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    padding:20px;
+    border-radius:15px;
+}
+
+.quiz button{
+    margin:5px;
+    background:#1e3a8a;
+    color:white;
+}
+
+/* ================= NAVIGATION ================= */
+
+.bottom-nav{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:30px;
+}
+
+.bottom-nav button{
+    background:#1e3a8a;
+    color:white;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:30px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .plan{
+        position:relative;
+        top:0;
+    }
+
+    .lesson{
+        padding:20px;
+    }
+
+    header h1{
+        font-size:22px;
+    }
+
+}
+
+/* ================= PRINT ================= */
+
+@media print{
+
+    header,
+    .plan,
+    .bottom-nav,
+    .header-buttons,
+    footer,
+    .show-answer{
+        display:none !important;
+    }
+
+    .layout{
+        display:block;
+        width:100%;
+        margin:0;
+    }
+
+    .lesson{
+        box-shadow:none;
+        padding:0;
+    }
+
+    body{
+        background:white;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<h1 id="pageTitle">
+🧩 Les composants de l'informatique
+</h1>
+
+<p id="pageSubtitle">
+Cours complet • Informatique • InfoPro
+</p>
+
+<div class="header-buttons">
+
+<button class="lang" onclick="setLanguage('fr')">
+🇫🇷 Français
+</button>
+
+<button class="lang" onclick="setLanguage('mg')">
+🇲🇬 Malagasy
+</button>
+
+<button class="action" onclick="window.print()" id="printBtn">
+🖨️ Imprimer
+</button>
+
+<button class="action" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+⬆️ Haut
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     LAYOUT
+===================================================== -->
+
+<div class="layout">
+
+
+<!-- =====================================================
+     PLAN
+===================================================== -->
+
+<aside class="plan">
+
+<h2 id="planTitle">
+📑 Plan de la leçon
+</h2>
+
+<input
+    class="plan-search"
+    id="planSearch"
+    type="search"
+    placeholder="🔎 Rechercher..."
+    onkeyup="searchPlan()"
+>
+
+<div id="planList"></div>
+
+</aside>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<main>
+
+<article class="lesson" id="lessonContent"></article>
+
+</main>
+
+</div>
+
+
+<footer>
+
+<strong>
+💻 InfoPro — Mr Tahiry 👨‍🏫
+</strong>
+
+<p id="footerText">
+Apprendre • Pratiquer • Réussir
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   DONNEES DES LANGUES
+===================================================== */
+
+const data = {
+
+fr:{
+
+title:"🧩 Les composants de l'informatique",
+
+subtitle:"Cours complet • Informatique • InfoPro",
+
+planTitle:"📑 Plan de la leçon",
+
+search:"🔎 Rechercher dans le plan...",
+
+print:"🖨️ Imprimer",
+
+footer:"Apprendre • Pratiquer • Réussir",
+
+plan:[
+
+["intro","1. Introduction"],
+
+["hardware","2. Matériel informatique — Hardware"],
+
+["carte-mere","3. La carte mère"],
+
+["cpu","4. Le processeur — CPU"],
+
+["ram","5. La mémoire RAM"],
+
+["stockage","6. Les dispositifs de stockage"],
+
+["hdd","7. HDD — Disque dur"],
+
+["ssd","8. SSD"],
+
+["gpu","9. Carte graphique — GPU"],
+
+["alimentation","10. L'alimentation"],
+
+["refroidissement","11. Système de refroidissement"],
+
+["entree","12. Périphériques d'entrée"],
+
+["sortie","13. Périphériques de sortie"],
+
+["entree-sortie","14. Entrée et sortie"],
+
+["reseau","15. Composants réseau"],
+
+["software","16. Les logiciels — Software"],
+
+["os","17. Système d'exploitation"],
+
+["schema","18. Schéma général"],
+
+["tableau","19. Tableau récapitulatif"],
+
+["exercices","20. Exercices"],
+
+["quiz","21. Mini-Quiz"],
+
+["resume","22. Résumé"]
+
+],
+
+content:`
+
+<h2 id="intro">📚 Les composants de l'informatique</h2>
+
+<h3>📌 1. Introduction</h3>
+
+<p>
+Un système informatique est constitué de plusieurs éléments
+qui travaillent ensemble pour permettre à l'utilisateur de
+saisir, traiter, stocker, afficher et transmettre des informations.
+</p>
+
+<p>
+Les composants de l'informatique peuvent être classés
+en plusieurs grandes catégories :
+</p>
+
+<ul>
+<li>🖥️ Matériel informatique — Hardware</li>
+<li>💿 Logiciels — Software</li>
+<li>⌨️ Périphériques d'entrée</li>
+<li>🖨️ Périphériques de sortie</li>
+<li>💾 Dispositifs de stockage</li>
+<li>🌐 Équipements réseau</li>
+</ul>
+
+<div class="info">
+💡 <strong>À retenir :</strong><br><br>
+Un ordinateur fonctionne grâce à la collaboration
+entre le matériel et les logiciels.
+</div>
+
+
+<h3 id="hardware">🖥️ 2. Le matériel informatique — Hardware</h3>
+
+<p>
+Le <strong>hardware</strong> désigne l'ensemble des éléments
+physiques d'un système informatique.
+</p>
+
+<p>
+Ce sont les composants que l'on peut généralement toucher
+ou manipuler physiquement.
+</p>
+
+<ul>
+<li>Carte mère</li>
+<li>Processeur</li>
+<li>Mémoire RAM</li>
+<li>Disque dur</li>
+<li>SSD</li>
+<li>Carte graphique</li>
+<li>Alimentation</li>
+<li>Écran</li>
+<li>Clavier</li>
+<li>Souris</li>
+<li>Imprimante</li>
+</ul>
+
+
+<h3 id="carte-mere">🔌 3. La carte mère</h3>
+
+<p>
+La <strong>carte mère</strong> est la principale carte
+électronique de l'ordinateur.
+</p>
+
+<p>
+Elle permet aux différents composants de communiquer
+entre eux.
+</p>
+
+<h4>Elle peut accueillir notamment :</h4>
+
+<ul>
+<li>🧠 Processeur</li>
+<li>💾 Mémoire RAM</li>
+<li>🎮 Carte graphique</li>
+<li>💽 Dispositifs de stockage</li>
+<li>🔌 Connecteurs et ports</li>
+<li>🌐 Composants réseau</li>
+</ul>
+
+<div class="success">
+🔑 <strong>À retenir :</strong><br><br>
+La carte mère joue un rôle central dans la communication
+entre les composants.
+</div>
+
+
+<h3 id="cpu">🧠 4. Le processeur — CPU</h3>
+
+<p>
+Le <strong>CPU</strong> signifie
+<strong>Central Processing Unit</strong>.
+</p>
+
+<p>
+En français, on l'appelle généralement
+<strong>processeur</strong>.
+</p>
+
+<p>
+Il exécute les instructions des programmes et réalise
+de nombreux calculs nécessaires au fonctionnement du système.
+</p>
+
+<h4>Principales fonctions :</h4>
+
+<ul>
+<li>Lire les instructions.</li>
+<li>Effectuer des calculs.</li>
+<li>Traiter les données.</li>
+<li>Exécuter les programmes.</li>
+</ul>
+
+<div class="code">
+CPU
+ ↓
+Lit les instructions
+ ↓
+Traite les données
+ ↓
+Effectue les opérations
+ ↓
+Produit les résultats
+</div>
+
+
+<h3 id="ram">💾 5. La mémoire RAM</h3>
+
+<p>
+La <strong>RAM</strong> signifie
+<strong>Random Access Memory</strong>.
+</p>
+
+<p>
+Elle sert principalement de mémoire de travail pour
+les programmes et les données actuellement utilisés
+par l'ordinateur.
+</p>
+
+<div class="warning">
+⚠️ <strong>Attention :</strong><br><br>
+La RAM est une mémoire volatile.
+Les informations qu'elle contient ne sont généralement
+pas conservées après l'arrêt de l'ordinateur.
+</div>
+
+
+<h3 id="stockage">💽 6. Les dispositifs de stockage</h3>
+
+<p>
+Les dispositifs de stockage permettent de conserver
+les données et les fichiers.
+</p>
+
+<ul>
+<li>💽 HDD — disque dur</li>
+<li>⚡ SSD</li>
+<li>🔑 Clé USB</li>
+<li>💳 Carte mémoire</li>
+<li>💿 CD/DVD</li>
+</ul>
+
+
+<h3 id="hdd">💽 7. HDD — Disque dur</h3>
+
+<p>
+Le <strong>HDD</strong> est un dispositif de stockage
+utilisant notamment des éléments mécaniques pour
+enregistrer les données.
+</p>
+
+<p>
+Il peut conserver des documents, images, vidéos,
+logiciels et autres fichiers.
+</p>
+
+
+<h3 id="ssd">⚡ 8. SSD</h3>
+
+<p>
+Le <strong>SSD</strong> est un dispositif de stockage
+utilisant de la mémoire flash.
+</p>
+
+<p>
+Il ne fonctionne pas comme un HDD classique avec
+un disque magnétique en rotation.
+</p>
+
+<div class="info">
+💡 Dans de nombreux ordinateurs modernes, le SSD
+permet d'accélérer le démarrage du système et
+l'ouverture des applications.
+</div>
+
+
+<h3 id="gpu">🎮 9. La carte graphique — GPU</h3>
+
+<p>
+Le <strong>GPU</strong> est un composant spécialisé
+dans le traitement des données graphiques.
+</p>
+
+<ul>
+<li>Afficher les images.</li>
+<li>Traiter les graphiques 2D et 3D.</li>
+<li>Faire fonctionner certains jeux.</li>
+<li>Accélérer certains traitements graphiques.</li>
+</ul>
+
+
+<h3 id="alimentation">🔋 10. L'alimentation</h3>
+
+<p>
+L'alimentation électrique fournit l'énergie nécessaire
+aux différents composants de l'ordinateur.
+</p>
+
+<p>
+Dans un ordinateur de bureau, elle transforme et distribue
+l'énergie électrique adaptée aux composants.
+</p>
+
+
+<h3 id="refroidissement">❄️ 11. Le système de refroidissement</h3>
+
+<p>
+Les composants électroniques produisent de la chaleur
+lorsqu'ils fonctionnent.
+</p>
+
+<p>
+Le système de refroidissement permet de maintenir
+une température adaptée au fonctionnement de l'ordinateur.
+</p>
+
+<ul>
+<li>Ventilateur</li>
+<li>Radiateur</li>
+<li>Pâte thermique</li>
+<li>Systèmes spécialisés</li>
+</ul>
+
+
+<h3 id="entree">⌨️ 12. Les périphériques d'entrée</h3>
+
+<p>
+Un périphérique d'entrée permet à l'utilisateur ou
+à un autre système de transmettre des informations
+vers l'ordinateur.
+</p>
+
+<ul>
+<li>⌨️ Clavier</li>
+<li>🖱️ Souris</li>
+<li>🎤 Microphone</li>
+<li>📷 Webcam</li>
+<li>📠 Scanner</li>
+<li>🎮 Manette</li>
+</ul>
+
+
+<h3 id="sortie">🖨️ 13. Les périphériques de sortie</h3>
+
+<p>
+Un périphérique de sortie permet à l'ordinateur
+de transmettre des informations vers l'utilisateur.
+</p>
+
+<ul>
+<li>🖥️ Écran</li>
+<li>🖨️ Imprimante</li>
+<li>🔊 Haut-parleurs</li>
+<li>🎧 Casque audio</li>
+<li>📽️ Projecteur</li>
+</ul>
+
+
+<h3 id="entree-sortie">🔄 14. Périphériques d'entrée et de sortie</h3>
+
+<p>
+Certains périphériques peuvent à la fois recevoir
+et transmettre des informations.
+</p>
+
+<ul>
+<li>📱 Écran tactile</li>
+<li>💾 Clé USB</li>
+<li>🌐 Carte réseau</li>
+<li>💽 Certains dispositifs de stockage</li>
+</ul>
+
+
+<h3 id="reseau">🌐 15. Les composants réseau</h3>
+
+<p>
+Les équipements réseau permettent aux appareils
+de communiquer entre eux et d'accéder à des ressources
+partagées ou à Internet.
+</p>
+
+<ul>
+<li>📡 Routeur</li>
+<li>🔀 Switch</li>
+<li>🌐 Carte réseau</li>
+<li>📶 Point d'accès Wi-Fi</li>
+<li>🔌 Câble réseau Ethernet</li>
+</ul>
+
+
+<h3 id="software">💿 16. Les logiciels — Software</h3>
+
+<p>
+Le <strong>software</strong> désigne les programmes
+et logiciels utilisés par l'ordinateur.
+</p>
+
+<ul>
+<li>🖥️ Systèmes d'exploitation</li>
+<li>📄 Logiciels bureautiques</li>
+<li>🌐 Navigateurs Web</li>
+<li>🎨 Logiciels graphiques</li>
+<li>💻 Logiciels de programmation</li>
+<li>🛡️ Logiciels de sécurité</li>
+</ul>
+
+
+<h3 id="os">🖥️ 17. Le système d'exploitation</h3>
+
+<p>
+Le système d'exploitation est le logiciel principal
+qui permet de gérer les ressources de l'ordinateur
+et de fournir un environnement permettant d'exécuter
+des applications.
+</p>
+
+<ul>
+<li>Windows</li>
+<li>Linux</li>
+<li>Android</li>
+<li>macOS</li>
+<li>iOS</li>
+</ul>
+
+
+<h3 id="schema">🧩 18. Schéma général d'un système informatique</h3>
+
+<div class="code">
+UTILISATEUR
+     ↓
+PÉRIPHÉRIQUES D'ENTRÉE
+     ↓
+TRAITEMENT
+     ↓
+CPU + RAM
+     ↓
+STOCKAGE
+     ↓
+PÉRIPHÉRIQUES DE SORTIE
+     ↓
+UTILISATEUR
+</div>
+
+
+<h3 id="tableau">📊 19. Tableau récapitulatif</h3>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+<th>Composant</th>
+<th>Rôle</th>
+<th>Exemple</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>CPU</td>
+<td>Traiter les instructions</td>
+<td>Processeur</td>
+</tr>
+
+<tr>
+<td>RAM</td>
+<td>Mémoire de travail</td>
+<td>4 Go, 8 Go, 16 Go</td>
+</tr>
+
+<tr>
+<td>Stockage</td>
+<td>Conserver les données</td>
+<td>HDD, SSD, USB</td>
+</tr>
+
+<tr>
+<td>Carte mère</td>
+<td>Relier les composants</td>
+<td>Motherboard</td>
+</tr>
+
+<tr>
+<td>Clavier</td>
+<td>Saisir les informations</td>
+<td>Entrée</td>
+</tr>
+
+<tr>
+<td>Écran</td>
+<td>Afficher les informations</td>
+<td>Sortie</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<h3 id="exercices">📝 20. Exercices</h3>
+
+<div class="exercise">
+
+<p>
+<strong>Exercice 1 :</strong>
+Définir les termes suivants :
+</p>
+
+<ol>
+<li>Hardware</li>
+<li>Software</li>
+<li>CPU</li>
+<li>RAM</li>
+<li>SSD</li>
+</ol>
+
+<button class="show-answer" onclick="showAnswer(this)">
+👁️ Voir la correction
+</button>
+
+<div class="answer">
+
+<strong>Correction :</strong>
+
+<p><strong>Hardware :</strong>
+ensemble des composants physiques.</p>
+
+<p><strong>Software :</strong>
+ensemble des logiciels et programmes.</p>
+
+<p><strong>CPU :</strong>
+processeur qui exécute les instructions.</p>
+
+<p><strong>RAM :</strong>
+mémoire de travail.</p>
+
+<p><strong>SSD :</strong>
+dispositif de stockage utilisant de la mémoire flash.</p>
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<p>
+<strong>Exercice 2 :</strong>
+Classez les éléments suivants dans les catégories
+« Entrée », « Sortie », « Stockage » ou « Traitement » :
+</p>
+
+<p>
+Clavier — Écran — CPU — Souris —
+SSD — Imprimante — RAM — Microphone
+</p>
+
+<button class="show-answer" onclick="showAnswer(this)">
+👁️ Voir la correction
+</button>
+
+<div class="answer">
+
+<strong>Correction :</strong>
+
+<p>
+⌨️ <strong>Entrée :</strong>
+Clavier, Souris, Microphone
+</p>
+
+<p>
+🖥️ <strong>Sortie :</strong>
+Écran, Imprimante
+</p>
+
+<p>
+💾 <strong>Stockage :</strong>
+SSD
+</p>
+
+<p>
+🧠 <strong>Traitement / mémoire :</strong>
+CPU, RAM
+</p>
+
+</div>
+
+</div>
+
+
+<h3 id="quiz">🎯 21. Mini-Quiz</h3>
+
+<div class="quiz">
+
+<p>
+<strong>1. Quel composant exécute les instructions ?</strong>
+</p>
+
+<button onclick="bonne('CPU')">CPU</button>
+<button onclick="fausse()">Clavier</button>
+<button onclick="fausse()">Écran</button>
+
+<p>
+<strong>2. Quel composant sert principalement
+à conserver les fichiers ?</strong>
+</p>
+
+<button onclick="fausse()">RAM</button>
+<button onclick="bonne('SSD / HDD')">SSD / HDD</button>
+<button onclick="fausse()">CPU</button>
+
+<p>
+<strong>3. Le clavier est un périphérique :</strong>
+</p>
+
+<button onclick="bonne('Entrée')">Entrée</button>
+<button onclick="fausse()">Sortie</button>
+<button onclick="fausse()">Stockage</button>
+
+</div>
+
+
+<h3 id="resume">📚 22. Résumé de la leçon</h3>
+
+<div class="success">
+
+<strong>À retenir :</strong>
+
+<p>🧩 Un système informatique est composé de plusieurs éléments.</p>
+
+<p>🖥️ Le hardware représente le matériel.</p>
+
+<p>💿 Le software représente les logiciels.</p>
+
+<p>🧠 Le CPU traite les instructions.</p>
+
+<p>💾 La RAM sert principalement de mémoire de travail.</p>
+
+<p>💽 Le HDD et le SSD servent au stockage.</p>
+
+<p>⌨️ Les périphériques d'entrée transmettent des informations.</p>
+
+<p>🖥️ Les périphériques de sortie présentent les résultats.</p>
+
+<p>🔌 La carte mère permet aux composants de communiquer.</p>
+
+</div>
+
+
+<div class="bottom-nav">
+
+<button onclick="history.back()">
+⬅️ Retour
+</button>
+
+<button onclick="window.print()">
+🖨️ Imprimer
+</button>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+⬆️ Haut
+</button>
+
+</div>
+
+`
+
+},
+
+
+/* =====================================================
+   MALAGASY
+===================================================== */
+
+mg:{
+
+title:"🧩 Ireo singa mandrafitra ny Informatika",
+
+subtitle:"Lesona feno • Informatika • InfoPro",
+
+planTitle:"📑 Drafitry ny lesona",
+
+search:"🔎 Karohy ao amin'ny drafitra...",
+
+print:"🖨️ Atao pirinty",
+
+footer:"Mianatra • Mampihatra • Mahomby",
+
+plan:[
+
+["intro","1. Fampidirana"],
+
+["hardware","2. Fitaovana — Hardware"],
+
+["carte-mere","3. Carte mère"],
+
+["cpu","4. Processeur — CPU"],
+
+["ram","5. Mémoire RAM"],
+
+["stockage","6. Fitehirizana angona"],
+
+["hdd","7. HDD — Disque dur"],
+
+["ssd","8. SSD"],
+
+["gpu","9. Carte graphique — GPU"],
+
+["alimentation","10. Alimentation"],
+
+["refroidissement","11. Fampangatsiahana"],
+
+["entree","12. Fitaovana fidirana"],
+
+["sortie","13. Fitaovana fivoahana"],
+
+["entree-sortie","14. Fidirana sy fivoahana"],
+
+["reseau","15. Fitaovana réseau"],
+
+["software","16. Logiciel — Software"],
+
+["os","17. Système d'exploitation"],
+
+["schema","18. Sary manazava ny rafitra"],
+
+["tableau","19. Tabilao famintinana"],
+
+["exercices","20. Fanazaran-tena"],
+
+["quiz","21. Fanontaniana fohy"],
+
+["resume","22. Famintinana"]
+
+],
+
+content:`
+
+<h2 id="intro">📚 Ireo singa mandrafitra ny Informatika</h2>
+
+<h3>📌 1. Fampidirana</h3>
+
+<p>
+Ny rafitra informatika dia ahitana singa maro izay
+miara-miasa mba hahafahan'ny mpampiasa mampiditra,
+mandamina, mitahiry, mampiseho ary mandefa vaovao.
+</p>
+
+<p>
+Azo zaraina ho sokajy lehibe maromaro ireo singa informatika :
+</p>
+
+<ul>
+<li>🖥️ Fitaovana informatika — Hardware</li>
+<li>💿 Logiciel — Software</li>
+<li>⌨️ Fitaovana fampidirana</li>
+<li>🖨️ Fitaovana famoahana</li>
+<li>💾 Fitaovana fitehirizana</li>
+<li>🌐 Fitaovana réseau</li>
+</ul>
+
+<div class="info">
+💡 <strong>Tsarovy :</strong><br><br>
+Ny ordinatera dia miasa noho ny fiaraha-miasan'ny
+Hardware sy Software.
+</div>
+
+
+<h3 id="hardware">🖥️ 2. Fitaovana informatika — Hardware</h3>
+
+<p>
+Ny <strong>Hardware</strong> dia ireo singa ara-batana
+amin'ny rafitra informatika, izany hoe ireo fitaovana
+azo kitihina na ampiasaina ara-batana.
+</p>
+
+<ul>
+<li>Carte mère</li>
+<li>Processeur</li>
+<li>Mémoire RAM</li>
+<li>Disque dur</li>
+<li>SSD</li>
+<li>Carte graphique</li>
+<li>Alimentation</li>
+<li>Écran</li>
+<li>Clavier</li>
+<li>Souris</li>
+<li>Imprimante</li>
+</ul>
+
+
+<h3 id="carte-mere">🔌 3. Carte mère</h3>
+
+<p>
+Ny <strong>carte mère</strong> dia karatra elektronika
+lehibe ao anatin'ny ordinatera.
+</p>
+
+<p>
+Izy no manampy ireo singa samihafa hifandray
+sy hifampita vaovao.
+</p>
+
+<h4>Ireto avy no azo ampifandraisina aminy :</h4>
+
+<ul>
+<li>🧠 Processeur</li>
+<li>💾 Mémoire RAM</li>
+<li>🎮 Carte graphique</li>
+<li>💽 Fitaovana fitehirizana</li>
+<li>🔌 Ports sy connecteurs</li>
+<li>🌐 Singa réseau</li>
+</ul>
+
+<div class="success">
+🔑 <strong>Tsarovy :</strong><br><br>
+Ny carte mère dia manana anjara toerana lehibe
+amin'ny fampifandraisana ireo singa rehetra.
+</div>
+
+
+<h3 id="cpu">🧠 4. Processeur — CPU</h3>
+
+<p>
+Ny <strong>CPU</strong> dia fanafohezana ny
+<strong>Central Processing Unit</strong>.
+</p>
+
+<p>
+Ny processeur no manatanteraka ireo toromarika
+omen'ny programme ary manao kajy sy fanodinana angona.
+</p>
+
+<h4>Asany lehibe :</h4>
+
+<ul>
+<li>Mamaky toromarika.</li>
+<li>Manao kajy.</li>
+<li>Manodina angona.</li>
+<li>Manatanteraka programme.</li>
+</ul>
+
+<div class="code">
+CPU
+ ↓
+Mamaky toromarika
+ ↓
+Manodina angona
+ ↓
+Manao asa
+ ↓
+Mamoaka vokatra
+</div>
+
+
+<h3 id="ram">💾 5. Mémoire RAM</h3>
+
+<p>
+Ny <strong>RAM</strong> dia fanafohezana ny
+<strong>Random Access Memory</strong>.
+</p>
+
+<p>
+Izy no fahatsiarovana ampiasaina indrindra mandritra
+ny fiasan'ny programme sy ny ordinatera.
+</p>
+
+<div class="warning">
+⚠️ <strong>Fanamarihana :</strong><br><br>
+Ny RAM dia mémoire volatile.
+Amin'ny ankapobeny dia tsy voatahiry ao intsony
+ny angona rehefa vonoina ny ordinatera.
+</div>
+
+
+<h3 id="stockage">💽 6. Fitaovana fitehirizana angona</h3>
+
+<p>
+Ny fitaovana fitehirizana dia ampiasaina hitahirizana
+documents, sary, vidéos, logiciels ary rakitra hafa.
+</p>
+
+<ul>
+<li>💽 HDD</li>
+<li>⚡ SSD</li>
+<li>🔑 Clé USB</li>
+<li>💳 Carte mémoire</li>
+<li>💿 CD/DVD</li>
+</ul>
+
+
+<h3 id="hdd">💽 7. HDD — Disque dur</h3>
+
+<p>
+Ny <strong>HDD</strong> dia fitaovana fitehirizana angona
+izay mampiasa singa mekanika ao anatiny.
+</p>
+
+<p>
+Afaka mitahiry documents, sary, vidéos, logiciels
+ary rakitra maro izy.
+</p>
+
+
+<h3 id="ssd">⚡ 8. SSD</h3>
+
+<p>
+Ny <strong>SSD</strong> dia fitaovana fitehirizana
+mampiasa mémoire flash.
+</p>
+
+<p>
+Tsy mitovy amin'ny HDD mahazatra izy satria tsy mampiasa
+kapila magnetika mihodina.
+</p>
+
+<div class="info">
+💡 Amin'ny ordinatera maoderina maro, ny SSD dia manampy
+amin'ny fanafainganana ny démarrage sy ny fanokafana
+programme.
+</div>
+
+
+<h3 id="gpu">🎮 9. Carte graphique — GPU</h3>
+
+<p>
+Ny <strong>GPU</strong> dia singa natao indrindra
+hanodinana ireo angona mifandraika amin'ny sary.
+</p>
+
+<ul>
+<li>Mampiseho sary.</li>
+<li>Manodina sary 2D sy 3D.</li>
+<li>Manampy amin'ny fampandehanana jeux sasany.</li>
+<li>Manafaingana traitement graphique sasany.</li>
+</ul>
+
+
+<h3 id="alimentation">🔋 10. Alimentation</h3>
+
+<p>
+Ny alimentation dia manome sy mizara ny herinaratra
+ilain'ireo singa ao amin'ny ordinatera.
+</p>
+
+
+<h3 id="refroidissement">❄️ 11. Fampangatsiahana</h3>
+
+<p>
+Miteraka hafanana ireo composants électroniques
+rehefa miasa.
+</p>
+
+<p>
+Ny système de refroidissement dia manampy amin'ny
+fitazonana hafanana mety amin'ny ordinatera.
+</p>
+
+<ul>
+<li>Ventilateur</li>
+<li>Radiateur</li>
+<li>Pâte thermique</li>
+<li>Système de refroidissement hafa</li>
+</ul>
+
+
+<h3 id="entree">⌨️ 12. Fitaovana fampidirana</h3>
+
+<p>
+Ny périphérique d'entrée dia fitaovana ampiasaina
+hampidirana vaovao ao amin'ny ordinatera.
+</p>
+
+<ul>
+<li>⌨️ Clavier</li>
+<li>🖱️ Souris</li>
+<li>🎤 Microphone</li>
+<li>📷 Webcam</li>
+<li>📠 Scanner</li>
+<li>🎮 Manette</li>
+</ul>
+
+
+<h3 id="sortie">🖨️ 13. Fitaovana famoahana</h3>
+
+<p>
+Ny périphérique de sortie dia fitaovana ampiasain'ny
+ordinatera hanehoana na hamoahana ny vokatra.
+</p>
+
+<ul>
+<li>🖥️ Écran</li>
+<li>🖨️ Imprimante</li>
+<li>🔊 Haut-parleurs</li>
+<li>🎧 Casque</li>
+<li>📽️ Projecteur</li>
+</ul>
+
+
+<h3 id="entree-sortie">🔄 14. Fitaovana fampidirana sy famoahana</h3>
+
+<p>
+Misy fitaovana afaka sady mandray no mandefa vaovao.
+</p>
+
+<ul>
+<li>📱 Écran tactile</li>
+<li>💾 Clé USB</li>
+<li>🌐 Carte réseau</li>
+<li>💽 Fitaovana fitehirizana sasany</li>
+</ul>
+
+
+<h3 id="reseau">🌐 15. Ireo singa réseau</h3>
+
+<p>
+Ny fitaovana réseau dia ahafahan'ny ordinatera sy
+fitaovana hafa mifandray sy mifampizara vaovao.
+</p>
+
+<ul>
+<li>📡 Routeur</li>
+<li>🔀 Switch</li>
+<li>🌐 Carte réseau</li>
+<li>📶 Point d'accès Wi-Fi</li>
+<li>🔌 Câble Ethernet</li>
+</ul>
+
+
+<h3 id="software">💿 16. Logiciel — Software</h3>
+
+<p>
+Ny <strong>Software</strong> dia ireo programme sy
+logiciels ampiasain'ny ordinatera.
+</p>
+
+<ul>
+<li>🖥️ Système d'exploitation</li>
+<li>📄 Logiciels bureautiques</li>
+<li>🌐 Navigateurs Web</li>
+<li>🎨 Logiciels graphiques</li>
+<li>💻 Logiciels de programmation</li>
+<li>🛡️ Logiciels de sécurité</li>
+</ul>
+
+
+<h3 id="os">🖥️ 17. Système d'exploitation</h3>
+
+<p>
+Ny système d'exploitation dia logiciel lehibe mitantana
+ny loharanon'ny ordinatera ary ahafahana mampandeha
+ireo applications.
+</p>
+
+<ul>
+<li>Windows</li>
+<li>Linux</li>
+<li>Android</li>
+<li>macOS</li>
+<li>iOS</li>
+</ul>
+
+
+<h3 id="schema">🧩 18. Sary manazava ny rafitra informatika</h3>
+
+<div class="code">
+MPAMPIASA
+     ↓
+FITAOVANA FAMPIDIRANA
+     ↓
+FANODINANA ANGONA
+     ↓
+CPU + RAM
+     ↓
+FITEHIRIZANA
+     ↓
+FITAOVANA FAMOAHANA
+     ↓
+MPAMPIASA
+</div>
+
+
+<h3 id="tableau">📊 19. Tabilao famintinana</h3>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+<th>Singa</th>
+<th>Asa</th>
+<th>Ohatra</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>CPU</td>
+<td>Manodina toromarika</td>
+<td>Processeur</td>
+</tr>
+
+<tr>
+<td>RAM</td>
+<td>Mémoire ampiasaina mandritra ny asa</td>
+<td>4 Go, 8 Go, 16 Go</td>
+</tr>
+
+<tr>
+<td>Stockage</td>
+<td>Mitahiry angona</td>
+<td>HDD, SSD, USB</td>
+</tr>
+
+<tr>
+<td>Carte mère</td>
+<td>Mampifandray ireo singa</td>
+<td>Motherboard</td>
+</tr>
+
+<tr>
+<td>Clavier</td>
+<td>Mampiditra vaovao</td>
+<td>Entrée</td>
+</tr>
+
+<tr>
+<td>Écran</td>
+<td>Mampiseho vaovao</td>
+<td>Sortie</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<h3 id="exercices">📝 20. Fanazaran-tena</h3>
+
+<div class="exercise">
+
+<p>
+<strong>Fanazaran-tena 1 :</strong>
+Farito ireto teny manaraka ireto :
+</p>
+
+<ol>
+<li>Hardware</li>
+<li>Software</li>
+<li>CPU</li>
+<li>RAM</li>
+<li>SSD</li>
+</ol>
+
+<button class="show-answer" onclick="showAnswer(this)">
+👁️ Jereo ny fanitsiana
+</button>
+
+<div class="answer">
+
+<strong>Fanitsiana :</strong>
+
+<p>
+<strong>Hardware :</strong>
+fitambaran'ireo singa ara-batana.
+</p>
+
+<p>
+<strong>Software :</strong>
+fitambaran'ireo logiciels sy programmes.
+</p>
+
+<p>
+<strong>CPU :</strong>
+processeur manatanteraka ireo toromarika.
+</p>
+
+<p>
+<strong>RAM :</strong>
+mémoire ampiasaina indrindra mandritra ny asa.
+</p>
+
+<p>
+<strong>SSD :</strong>
+fitaovana fitehirizana mampiasa mémoire flash.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<p>
+<strong>Fanazaran-tena 2 :</strong>
+Asokajio ireto fitaovana ireto :
+</p>
+
+<p>
+Clavier — Écran — CPU — Souris —
+SSD — Imprimante — RAM — Microphone
+</p>
+
+<button class="show-answer" onclick="showAnswer(this)">
+👁️ Jereo ny fanitsiana
+</button>
+
+<div class="answer">
+
+<strong>Fanitsiana :</strong>
+
+<p>
+⌨️ <strong>Entrée :</strong>
+Clavier, Souris, Microphone
+</p>
+
+<p>
+🖥️ <strong>Sortie :</strong>
+Écran, Imprimante
+</p>
+
+<p>
+💾 <strong>Stockage :</strong>
+SSD
+</p>
+
+<p>
+🧠 <strong>Traitement / mémoire :</strong>
+CPU, RAM
+</p>
+
+</div>
+
+</div>
+
+
+<h3 id="quiz">🎯 21. Fanontaniana fohy</h3>
+
+<div class="quiz">
+
+<p>
+<strong>1. Iza no manatanteraka ny toromarika
+omen'ny programme ?</strong>
+</p>
+
+<button onclick="bonne('CPU')">CPU</button>
+<button onclick="fausse()">Clavier</button>
+<button onclick="fausse()">Écran</button>
+
+<p>
+<strong>2. Iza no ampiasaina indrindra hitahirizana rakitra ?</strong>
+</p>
+
+<button onclick="fausse()">RAM</button>
+<button onclick="bonne('SSD / HDD')">SSD / HDD</button>
+<button onclick="fausse()">CPU</button>
+
+<p>
+<strong>3. Ny clavier dia périphérique :</strong>
+</p>
+
+<button onclick="bonne('Entrée')">Entrée</button>
+<button onclick="fausse()">Sortie</button>
+<button onclick="fausse()">Stockage</button>
+
+</div>
+
+
+<h3 id="resume">📚 22. Famintinana</h3>
+
+<div class="success">
+
+<strong>Tsarovy :</strong>
+
+<p>
+🧩 Misy singa maro mandrafitra ny rafitra informatika.
+</p>
+
+<p>
+🖥️ Ny hardware dia ireo fitaovana ara-batana.
+</p>
+
+<p>
+💿 Ny software dia ireo logiciels sy programmes.
+</p>
+
+<p>
+🧠 Ny CPU no manodina ny toromarika.
+</p>
+
+<p>
+💾 Ny RAM no mémoire ampiasaina indrindra mandritra ny asa.
+</p>
+
+<p>
+💽 Ny HDD sy SSD no ampiasaina hitahirizana angona.
+</p>
+
+<p>
+⌨️ Ny périphériques d'entrée dia mampiditra vaovao.
+</p>
+
+<p>
+🖥️ Ny périphériques de sortie dia mampiseho ny vokatra.
+</p>
+
+<p>
+🔌 Ny carte mère dia mampifandray ireo singa samihafa.
+</p>
+
+</div>
+
+
+<div class="bottom-nav">
+
+<button onclick="history.back()">
+⬅️ Hiverina
+</button>
+
+<button onclick="window.print()">
+🖨️ Atao pirinty
+</button>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+⬆️ Ambony
+</button>
+
+</div>
+
+`
+
+}
+
+};
+
+
+/* =====================================================
+   LANGUE ACTUELLE
+===================================================== */
+
+let currentLang = "fr";
+
+
+/* =====================================================
+   AFFICHER LA PAGE
+===================================================== */
+
+function renderPage(){
+
+    const d = data[currentLang];
+
+    document.documentElement.lang = currentLang;
+
+    document.getElementById("pageTitle").innerHTML = d.title;
+
+    document.getElementById("pageSubtitle").innerHTML = d.subtitle;
+
+    document.getElementById("planTitle").innerHTML = d.planTitle;
+
+    document.getElementById("planSearch").placeholder = d.search;
+
+    document.getElementById("printBtn").innerHTML = d.print;
+
+    document.getElementById("footerText").innerHTML = d.footer;
+
+    document.getElementById("lessonContent").innerHTML = d.content;
+
+    createPlan();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   CREER LE PLAN
+===================================================== */
+
+function createPlan(){
+
+    const list = document.getElementById("planList");
+
+    list.innerHTML = "";
+
+    data[currentLang].plan.forEach(function(item){
+
+        const a = document.createElement("a");
+
+        a.href = "#" + item[0];
+
+        a.textContent = item[1];
+
+        list.appendChild(a);
+
+    });
+
+}
+
+
+/* =====================================================
+   CHANGER DE LANGUE
+===================================================== */
+
+function setLanguage(lang){
+
+    currentLang = lang;
+
+    renderPage();
+
+}
+
+
+/* =====================================================
+   RECHERCHE
+===================================================== */
+
+function searchPlan(){
+
+    const input =
+        document.getElementById("planSearch")
+        .value
+        .toLowerCase();
+
+    const links =
+        document.querySelectorAll("#planList a");
+
+    links.forEach(function(link){
+
+        const text =
+            link.textContent.toLowerCase();
+
+        link.style.display =
+            text.includes(input)
+            ? "block"
+            : "none";
+
+    });
+
+}
+
+
+/* =====================================================
+   CORRECTION
+===================================================== */
+
+function showAnswer(button){
+
+    const answer =
+        button.nextElementSibling;
+
+    if(answer.style.display === "block"){
+
+        answer.style.display = "none";
+
+        button.innerHTML =
+            currentLang === "fr"
+            ? "👁️ Voir la correction"
+            : "👁️ Jereo ny fanitsiana";
+
+    }else{
+
+        answer.style.display = "block";
+
+        button.innerHTML =
+            currentLang === "fr"
+            ? "🙈 Cacher la correction"
+            : "🙈 Afeno ny fanitsiana";
+
+    }
+
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function bonne(reponse){
+
+    if(currentLang === "fr"){
+
+        alert("✅ Bonne réponse : " + reponse);
+
+    }else{
+
+        alert("✅ Marina ny valiny : " + reponse);
+
+    }
+
+}
+
+
+function fausse(){
+
+    if(currentLang === "fr"){
+
+        alert("❌ Réponse incorrecte. Réessaie !");
+
+    }else{
+
+        alert("❌ Tsy marina izany. Andramo indray !");
+
+    }
+
+}
+
+
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+renderPage();
+
+</script>
+
+</body>
+</html>

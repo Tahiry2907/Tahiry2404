@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet">
+<script src="js/script.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actualité Informatique</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(90deg,#007BFF,#00c6ff);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+header h1{
+    margin:0;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:30px;
+}
+
+/* SECTION TITLE */
+.section-title{
+    margin-bottom:20px;
+    border-left:5px solid #007BFF;
+    padding-left:10px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* IMAGE */
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+/* CONTENT */
+.card-content{
+    padding:15px;
+}
+
+.card-content h3{
+    margin:0;
+}
+
+.date{
+    font-size:12px;
+    color:gray;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    background:#007BFF;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0056b3;
+}
+
+/* CATEGORY */
+.categories{
+    margin-top:40px;
+}
+
+.cat{
+    display:inline-block;
+    background:#007BFF;
+    color:white;
+    padding:8px 15px;
+    margin:5px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    margin-top:40px;
+    padding:20px;
+    background:#222;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Actualité Informatique</h1>
+    <p>Les dernières nouvelles du monde numérique</p>
+
+    <div class="langue">
+    <a href="présentation.html">FR</a>
+    <a href="presentation-mg.html">MG</a>
+  </div>
+</header>
+
+<div class="container">
+
+    <!-- DERNIERES ACTUALITES -->
+    <h2 class="section-title">Dernières actualités</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x180">
+            <div class="card-content">
+                <h3>Nouvelle IA révolutionnaire</h3>
+                <p class="date">30 Mars 2026</p>
+                <p>L'intelligence artificielle continue de transformer le monde...</p>
+                <a href="#" class="btn">Lire plus</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x180">
+            <div class="card-content">
+                <h3>Sécurité informatique</h3>
+                <p class="date">29 Mars 2026</p>
+                <p>Comment protéger son ordinateur contre les virus...</p>
+                <a href="#" class="btn">Lire plus</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x180">
+            <div class="card-content">
+                <h3>Nouveautés Web</h3>
+                <p class="date">28 Mars 2026</p>
+                <p>Les nouvelles tendances du développement web moderne...</p>
+                <a href="#" class="btn">Lire plus</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+        <h2 class="section-title">Catégories</h2>
+
+        <span class="cat">Programmation</span>
+        <span class="cat">Sécurité</span>
+        <span class="cat">Web</span>
+        <span class="cat">IA</span>
+        <span class="cat">Mobile</span>
+    </div>
+
+    <!-- ASTUCES -->
+    <h2 class="section-title">Astuces</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-content">
+                <h3>Astuce Excel</h3>
+                <p>Utiliser des formules pour gagner du temps...</p>
+                <a href="#" class="btn">Lire</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>Installer logiciel</h3>
+                <p>Guide simple pour installer un programme...</p>
+                <a href="#" class="btn">Lire</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 - Site Informatique</p>
+</footer>
+
+</body>
+</html>

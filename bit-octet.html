@@ -1,0 +1,760 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Bits, Octets et unités de stockage | InfoPro</title><style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef4f8;
+    color:#17212b;
+    line-height:1.7;
+}
+
+header{
+    background:linear-gradient(135deg,#063970,#087f8c);
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-size:32px;
+}
+
+header p{
+    margin:8px 0 0;
+    font-size:17px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#ffffff;
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+    padding:10px;
+}
+
+nav .nav-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+}
+
+nav a{
+    text-decoration:none;
+    color:#063970;
+    background:#e8f3f7;
+    padding:8px 13px;
+    border-radius:20px;
+    white-space:nowrap;
+    font-weight:bold;
+    font-size:14px;
+}
+
+nav a:hover{
+    background:#087f8c;
+    color:white;
+}
+
+.card{
+    background:white;
+    margin:20px 0;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.card h2{
+    color:#063970;
+    border-left:6px solid #087f8c;
+    padding-left:12px;
+}
+
+.card h3{
+    color:#087f8c;
+}
+
+.definition{
+    background:#eaf8fb;
+    border-left:5px solid #087f8c;
+    padding:15px;
+    border-radius:10px;
+}
+
+.warning{
+    background:#fff7df;
+    border-left:5px solid #e5a400;
+    padding:15px;
+    border-radius:10px;
+}
+
+.example{
+    background:#f2f6ff;
+    border-left:5px solid #315bd6;
+    padding:15px;
+    border-radius:10px;
+}
+
+.formula{
+    background:#17212b;
+    color:#fff;
+    padding:15px;
+    border-radius:10px;
+    font-family:monospace;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+    background:white;
+}
+
+th,td{
+    border:1px solid #cbd5df;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#063970;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f5f8fa;
+}
+
+.unit-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+    margin:20px 0;
+}
+
+.unit{
+    background:linear-gradient(135deg,#063970,#087f8c);
+    color:white;
+    padding:18px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.unit strong{
+    display:block;
+    font-size:23px;
+}
+
+.binary{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:15px 0;
+}
+
+.binary span{
+    background:#17212b;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
+    font-family:monospace;
+    font-size:20px;
+}
+
+button{
+    border:none;
+    background:#087f8c;
+    color:white;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#063970;
+}
+
+input,select{
+    width:100%;
+    padding:11px;
+    border:1px solid #bbc7d1;
+    border-radius:8px;
+    margin:5px 0 12px;
+    font-size:16px;
+}
+
+.result{
+    margin-top:15px;
+    padding:15px;
+    background:#e9f8ed;
+    border-left:5px solid #2e8b57;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.question{
+    background:#f7f9fb;
+    border:1px solid #d7e0e7;
+    padding:15px;
+    border-radius:12px;
+    margin:15px 0;
+}
+
+.quiz-result{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+footer{
+    margin-top:40px;
+    background:#063970;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:25px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    table{
+        font-size:13px;
+    }
+}
+</style></head><body><header>
+    <h1>💾 Bits, Octets et unités de stockage</h1>
+    <p>📚 Cours complet d'informatique — InfoPro</p>
+    <p>🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+</header><nav>
+<div class="nav-inner">
+    <a href="#information">Information</a>
+    <a href="#binaire">Binaire</a>
+    <a href="#bit">Bit</a>
+    <a href="#octet">Octet</a>
+    <a href="#unites">Unités</a>
+    <a href="#stockage">Stockage</a>
+    <a href="#conversion">Conversions</a>
+    <a href="#vitesse">Vitesse</a>
+    <a href="#exercices">Exercices</a>
+    <a href="#quiz">Quiz</a>
+</div>
+</nav><div class="container"><section class="card" id="information"><h2>1. Qu'est-ce qu'une information numérique ?</h2><p>
+Une <strong>information numérique</strong> est une information représentée
+et traitée par un ordinateur sous une forme compréhensible par la machine.
+</p><p>
+Un ordinateur peut traiter plusieurs types d'informations :
+</p><ul>
+<li>📝 Texte</li>
+<li>🔢 Nombres</li>
+<li>🖼️ Images</li>
+<li>🎵 Sons</li>
+<li>🎬 Vidéos</li>
+<li>📄 Documents</li>
+</ul><div class="definition">
+<strong>À retenir :</strong><br>
+Pour être traitée par un ordinateur, l'information est finalement représentée
+sous forme numérique, notamment avec les valeurs <strong>0 et 1</strong>.
+</div></section><section class="card" id="binaire"><h2>2. Le système binaire</h2><p>
+Les ordinateurs utilisent principalement le <strong>système binaire</strong>.
+Contrairement au système décimal que nous utilisons quotidiennement,
+le système binaire utilise seulement deux chiffres :
+</p><div class="binary">
+<span>0</span>
+<span>1</span>
+</div><p>
+Le chiffre <strong>0</strong> et le chiffre <strong>1</strong> permettent
+de représenter les informations numériques.
+</p><div class="example">
+<strong>Exemple :</strong><br>
+Le nombre décimal 5 s'écrit <strong>101</strong> en binaire.
+</div><h3>Pourquoi 0 et 1 ?</h3><p>
+Les circuits électroniques d'un ordinateur peuvent avoir deux états
+principaux : un état représenté par 0 et un autre représenté par 1.
+</p></section><section class="card" id="bit"><h2>3. Le bit</h2><p>
+Le mot <strong>bit</strong> vient de l'expression anglaise
+<strong>Binary Digit</strong>.
+</p><p>
+C'est la plus petite unité d'information numérique.
+Un bit peut prendre seulement deux valeurs :
+</p><div class="binary">
+<span>0</span>
+<span>1</span>
+</div><div class="definition">
+<strong>Définition :</strong><br>
+Un bit est une unité d'information qui peut avoir la valeur 0 ou 1.
+</div><h3>Exemple</h3><p>
+Une suite de 8 bits peut être :
+</p><div class="binary">
+<span>1</span>
+<span>0</span>
+<span>1</span>
+<span>1</span>
+<span>0</span>
+<span>0</span>
+<span>1</span>
+<span>0</span>
+</div><p>
+Cette suite contient donc <strong>8 bits</strong>.
+</p></section><section class="card"><h2>4. Le nibble</h2><p>
+Un <strong>nibble</strong> est un groupe de <strong>4 bits</strong>.
+</p><div class="formula">
+1 nibble = 4 bits
+</div><p>
+Comme un octet contient 8 bits :
+</p><div class="formula">
+1 octet = 2 nibbles
+</div><div class="example">
+Exemple :<br>
+1010 = 1 nibble = 4 bits
+</div></section><section class="card" id="octet"><h2>5. L'octet</h2><p>
+Un <strong>octet</strong> est un groupe de 8 bits.
+En anglais, on utilise souvent le terme <strong>Byte</strong>.
+</p><div class="formula">
+1 octet = 8 bits
+</div><h3>Exemple</h3><p>
+Le nombre binaire suivant contient 8 chiffres :
+</p><div class="binary">
+<span>1</span>
+<span>0</span>
+<span>0</span>
+<span>1</span>
+<span>0</span>
+<span>1</span>
+<span>1</span>
+<span>0</span>
+</div><p>
+Il représente donc <strong>1 octet</strong>.
+</p><div class="warning">
+⚠️ Ne pas confondre <strong>bit</strong> et <strong>octet</strong>.
+<br><br>
+<strong>1 octet = 8 bits</strong>
+</div></section><section class="card" id="unites"><h2>6. Les unités de capacité</h2><p>
+Lorsqu'un fichier devient plus grand, on utilise des unités plus grandes
+que l'octet.
+</p><div class="unit-grid"><div class="unit">
+<strong>bit</strong>
+0 ou 1
+</div><div class="unit">
+<strong>o</strong>
+octet
+</div><div class="unit">
+<strong>Ko</strong>
+kilooctet
+</div><div class="unit">
+<strong>Mo</strong>
+mégaoctet
+</div><div class="unit">
+<strong>Go</strong>
+gigaoctet
+</div><div class="unit">
+<strong>To</strong>
+téraoctet
+</div><div class="unit">
+<strong>Po</strong>
+pétaoctet
+</div><div class="unit">
+<strong>Po</strong>
+pétaoctet
+</div><div class="unit">
+<strong>Zo</strong>
+zettaoctet
+</div><div class="unit">
+<strong>Yo</strong>
+yottaoctet
+</div></div><h3>Tableau des unités</h3><table>
+<tr>
+<th>Unité</th>
+<th>Nom</th>
+<th>Équivalence pédagogique</th>
+</tr><tr>
+<td>o</td>
+<td>Octet</td>
+<td>8 bits</td>
+</tr><tr>
+<td>Ko</td>
+<td>Kilooctet</td>
+<td>1 024 octets</td>
+</tr><tr>
+<td>Mo</td>
+<td>Mégaoctet</td>
+<td>1 024 Ko</td>
+</tr><tr>
+<td>Go</td>
+<td>Gigaoctet</td>
+<td>1 024 Mo</td>
+</tr><tr>
+<td>To</td>
+<td>Téraoctet</td>
+<td>1 024 Go</td>
+</tr><tr>
+<td>Po</td>
+<td>Pétaoctet</td>
+<td>1 024 To</td>
+</tr><tr>
+<td>Zo</td>
+<td>Zettaoctet</td>
+<td>1 024 Po</td>
+</tr><tr>
+<td>Yo</td>
+<td>Yottaoctet</td>
+<td>1 024 Zo</td>
+</tr></table><div class="warning">
+<strong>Remarque :</strong><br>
+Dans l'informatique moderne, les fabricants de stockage utilisent souvent
+les préfixes décimaux (1 kB = 1 000 octets, etc.), tandis que les unités
+binaires strictes utilisent KiB, MiB, GiB, TiB avec 1 024 comme facteur.
+Pour les exercices scolaires, on peut utiliser la convention
+<strong>1 Ko = 1 024 octets</strong> si elle est demandée.
+</div></section><section class="card" id="conversion"><h2>7. Les conversions</h2><h3>Conversion octets → bits</h3><div class="formula">
+Nombre de bits = Nombre d'octets × 8
+</div><div class="example">
+<strong>Exemple :</strong><br>
+5 octets = 5 × 8 = <strong>40 bits</strong>
+</div><h3>Conversion bits → octets</h3><div class="formula">
+Nombre d'octets = Nombre de bits ÷ 8
+</div><div class="example">
+<strong>Exemple :</strong><br>
+64 bits = 64 ÷ 8 = <strong>8 octets</strong>
+</div><h3>Conversion entre les grandes unités</h3><div class="formula">
+1 Ko = 1 024 octets1 Mo = 1 024 Ko
+
+1 Go = 1 024 Mo
+
+1 To = 1 024 Go
+
+</div><div class="example">
+<strong>Exemple :</strong><br>
+3 Go = 3 × 1 024 = <strong>3 072 Mo</strong>
+</div><div class="example">
+<strong>Autre exemple :</strong><br>
+2 To = 2 × 1 024 = <strong>2 048 Go</strong>
+</div></section><section class="card"><h2>8. Exemples de tailles de fichiers</h2><table><tr>
+<th>Type de fichier</th>
+<th>Taille possible</th>
+</tr><tr>
+<td>Petit fichier texte</td>
+<td>Quelques Ko</td>
+</tr><tr>
+<td>Document avec images</td>
+<td>Quelques Mo</td>
+</tr><tr>
+<td>Photo numérique</td>
+<td>Quelques Mo</td>
+</tr><tr>
+<td>Musique</td>
+<td>Quelques Mo</td>
+</tr><tr>
+<td>Film</td>
+<td>Plusieurs Go</td>
+</tr><tr>
+<td>Jeu vidéo</td>
+<td>Plusieurs Go à plusieurs dizaines de Go</td>
+</tr></table></section><section class="card" id="stockage"><h2>9. Les supports de stockage</h2><p>
+Les informations numériques doivent être conservées sur un support
+de stockage.
+</p><ul>
+<li>💾 Disquette</li>
+<li>💿 CD</li>
+<li>📀 DVD</li>
+<li>🔑 Clé USB</li>
+<li>💽 Disque dur HDD</li>
+<li>⚡ SSD</li>
+<li>📱 Mémoire interne d'un téléphone</li>
+<li>☁️ Stockage en ligne</li>
+</ul><table><tr>
+<th>Support</th>
+<th>Exemple de capacité</th>
+</tr><tr>
+<td>CD</td>
+<td>Environ 700 Mo</td>
+</tr><tr>
+<td>DVD</td>
+<td>Environ 4,7 Go</td>
+</tr><tr>
+<td>Clé USB</td>
+<td>16 Go, 32 Go, 64 Go, 128 Go...</td>
+</tr><tr>
+<td>SSD</td>
+<td>256 Go, 512 Go, 1 To...</td>
+</tr><tr>
+<td>Disque dur</td>
+<td>1 To, 2 To, 4 To...</td>
+</tr></table></section><section class="card" id="vitesse"><h2>10. Bit et vitesse de transmission</h2><p>
+Le bit est également utilisé pour mesurer la vitesse de transmission
+des données sur un réseau.
+</p><table>
+<tr>
+<th>Unité</th>
+<th>Signification</th>
+</tr><tr>
+<td>bit/s</td>
+<td>bits par seconde</td>
+</tr><tr>
+<td>Kbit/s</td>
+<td>kilobits par seconde</td>
+</tr><tr>
+<td>Mbit/s</td>
+<td>mégabits par seconde</td>
+</tr><tr>
+<td>Gbit/s</td>
+<td>gigabits par seconde</td>
+</tr></table><div class="warning">
+⚠️ <strong>Attention :</strong><br>
+La vitesse Internet est généralement exprimée en <strong>bit/s</strong>,
+alors que la taille d'un fichier est généralement exprimée en
+<strong>octets</strong>.
+</div><h3>Exemple</h3><div class="example">
+Une connexion de <strong>80 Mbit/s</strong> est une vitesse de transmission.
+<br><br>
+Un fichier de <strong>500 Mo</strong> est une taille de fichier.
+</div></section><section class="card"><h2>11. Différence entre b et B</h2><table><tr>
+<th>Symbole</th>
+<th>Signification</th>
+<th>Utilisation</th>
+</tr><tr>
+<td><strong>b</strong></td>
+<td>bit</td>
+<td>Transmission</td>
+</tr><tr>
+<td><strong>B</strong></td>
+<td>Byte / octet</td>
+<td>Taille des fichiers</td>
+</tr></table><div class="example">
+<strong>Exemple :</strong><br><br>100 Mb/s → vitesse de transmission<br>
+100 MB → taille exprimée en mégaoctets
+
+</div></section><section class="card"><h2>12. Calculateur de conversion</h2><label>Valeur :</label>
+<input type="number" id="valeur" value="1">
+
+<label>Unité de départ :</label>
+
+<select id="uniteDepart"><option value="bit">bit</option>
+<option value="octet">octet</option>
+<option value="Ko">Ko</option>
+<option value="Mo">Mo</option>
+<option value="Go">Go</option>
+<option value="To">To</option></select><label>Convertir vers :</label>
+
+<select id="uniteArrivee"><option value="bit">bit</option>
+<option value="octet">octet</option>
+<option value="Ko">Ko</option>
+<option value="Mo">Mo</option>
+<option value="Go">Go</option>
+<option value="To">To</option></select><button onclick="convertir()">🔄 Convertir</button>
+
+<div id="resultatConversion" class="result">
+Résultat...
+</div></section><section class="card" id="exercices"><h2>13. Exercices corrigés</h2><div class="question"><strong>Exercice 1</strong>
+
+<p>
+Convertir 12 octets en bits.
+</p><div class="example">
+Correction :<br>
+12 × 8 = <strong>96 bits</strong>
+</div></div><div class="question"><strong>Exercice 2</strong>
+
+<p>
+Convertir 80 bits en octets.
+</p><div class="example">
+Correction :<br>
+80 ÷ 8 = <strong>10 octets</strong>
+</div></div><div class="question"><strong>Exercice 3</strong>
+
+<p>
+Convertir 5 Go en Mo.
+</p><div class="example">
+Correction :<br>
+5 × 1 024 = <strong>5 120 Mo</strong>
+</div></div><div class="question"><strong>Exercice 4</strong>
+
+<p>
+Convertir 3 To en Go.
+</p><div class="example">
+Correction :<br>
+3 × 1 024 = <strong>3 072 Go</strong>
+</div></div></section><section class="card"><h2>14. Exercices à faire</h2><ol><li>Combien de bits contient 7 octets ?</li><li>Combien d'octets contient 128 bits ?</li><li>Convertir 4 Ko en octets.</li><li>Convertir 8 Mo en Ko.</li><li>Convertir 6 Go en Mo.</li><li>Convertir 4 To en Go.</li><li>Quelle est la différence entre bit et octet ?</li><li>Que signifie Mbit/s ?</li><li>Donner trois supports de stockage.</li><li>Classer ces unités de la plus petite à la plus grande :
+To, bit, Mo, octet, Go, Ko.</li></ol></section><section class="card" id="quiz"><h2>15. Quiz interactif</h2><form id="quizForm"><div class="question"><p><strong>1. Combien de bits contient un octet ?</strong></p><label>
+<input type="radio" name="q1" value="4"> 4
+</label><br><label>
+<input type="radio" name="q1" value="8"> 8
+</label><br><label>
+<input type="radio" name="q1" value="16"> 16
+</label></div><div class="question"><p><strong>2. Quelle est la plus petite unité ?</strong></p><label>
+<input type="radio" name="q2" value="octet"> Octet
+</label><br><label>
+<input type="radio" name="q2" value="bit"> Bit
+</label><br><label>
+<input type="radio" name="q2" value="Go"> Go
+</label></div><div class="question"><p><strong>3. 1 Ko correspond à combien d'octets dans la convention utilisée ici ?</strong></p><label>
+<input type="radio" name="q3" value="100"> 100
+</label><br><label>
+<input type="radio" name="q3" value="1024"> 1 024
+</label><br><label>
+<input type="radio" name="q3" value="8"> 8
+</label></div><div class="question"><p><strong>4. Quelle unité est généralement utilisée pour exprimer une vitesse Internet ?</strong></p><label>
+<input type="radio" name="q4" value="Go"> Go
+</label><br><label>
+<input type="radio" name="q4" value="Mbit"> Mbit/s
+</label><br><label>
+<input type="radio" name="q4" value="Mo"> Mo
+</label></div><div class="question"><p><strong>5. Quelle unité est plus grande : Go ou Mo ?</strong></p><label>
+<input type="radio" name="q5" value="Mo"> Mo
+</label><br><label>
+<input type="radio" name="q5" value="Go"> Go
+</label></div><button type="button" onclick="corrigerQuiz()">
+✅ Corriger le quiz
+</button><div id="quizResult" class="quiz-result"></div></form></section><section class="card"><h2>16. Résumé à retenir</h2><div class="formula">1 bit = 0 ou 1
+
+1 octet = 8 bits
+
+1 Ko = 1 024 octets
+
+1 Mo = 1 024 Ko
+
+1 Go = 1 024 Mo
+
+1 To = 1 024 Go
+
+1 Po = 1 024 To
+
+1 Zo = 1 024 Po
+
+1 Yo = 1 024 Zo
+
+</div><div class="definition"><strong>⭐ Les 5 notions essentielles :</strong>
+
+<ol>
+<li>Le bit est l'unité élémentaire.</li>
+<li>Un octet contient 8 bits.</li>
+<li>Les fichiers sont généralement mesurés en octets et ses multiples.</li>
+<li>Les vitesses de transmission sont généralement exprimées en bits par seconde.</li>
+<li>Il faut toujours vérifier s'il s'agit de <strong>b</strong> ou de <strong>B</strong>.</li>
+</ol></div></section></div><footer><h3>💻 InfoPro — Mr Tahiry 👨‍🏫</h3><p>
+📚 Informatique • Éducation • Technologie
+</p><p>
+🚀 Apprendre • Pratiquer • Réussir 🌟
+</p></footer><script>
+
+const facteurs = {
+
+bit: 1 / 8,
+
+octet: 1,
+
+Ko: 1024,
+
+Mo: 1024 * 1024,
+
+Go: 1024 * 1024 * 1024,
+
+To: 1024 * 1024 * 1024 * 1024
+
+};
+
+function convertir(){
+
+    const valeur =
+        parseFloat(document.getElementById("valeur").value);
+
+    const depart =
+        document.getElementById("uniteDepart").value;
+
+    const arrivee =
+        document.getElementById("uniteArrivee").value;
+
+    if(isNaN(valeur)){
+
+        document.getElementById("resultatConversion").innerHTML =
+        "⚠️ Veuillez entrer une valeur.";
+
+        return;
+
+    }
+
+    const enOctets =
+        valeur * facteurs[depart];
+
+    const resultat =
+        enOctets / facteurs[arrivee];
+
+    document.getElementById("resultatConversion").innerHTML =
+        "✅ Résultat : " +
+        resultat.toLocaleString("fr-FR") +
+        " " +
+        arrivee;
+
+}
+
+
+function corrigerQuiz(){
+
+    let score = 0;
+
+    const bonnesReponses = {
+
+        q1:"8",
+
+        q2:"bit",
+
+        q3:"1024",
+
+        q4:"Mbit",
+
+        q5:"Go"
+
+    };
+
+    for(let question in bonnesReponses){
+
+        const reponse =
+            document.querySelector(
+                'input[name="'+question+'"]:checked'
+            );
+
+        if(reponse && reponse.value === bonnesReponses[question]){
+
+            score++;
+
+        }
+
+    }
+
+    const total = Object.keys(bonnesReponses).length;
+
+    document.getElementById("quizResult").innerHTML =
+        "🎯 Votre score : " +
+        score +
+        " / " +
+        total;
+
+}
+
+</script></body>
+</html>

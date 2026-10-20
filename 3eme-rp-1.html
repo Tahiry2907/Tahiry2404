@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Informatique 3ème - Programme annuel</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f4f6f9}
+header{background:#1565c0;color:white;padding:15px;text-align:center}
+button{margin:5px;padding:8px 12px;border:none;border-radius:5px;cursor:pointer}
+.container{padding:20px}
+.section{background:white;margin-bottom:15px;border-radius:8px;overflow:hidden}
+.section h2{background:#e3f2fd;margin:0;padding:10px;cursor:pointer}
+.content{display:none;padding:15px}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #ddd;padding:8px;text-align:left;font-size:14px}
+th{background:#f1f1f1}
+.card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: hsl(0, 80%, 53%);
+}
+.footer-pro h2 {
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.footer-pro p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.footer-pro {
+  background: linear-gradient(270deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 15px 15px 0 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* effet lumière animé */
+.footer-pro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shine 5s infinite;
+}
+</style>
+
+<script>
+function toggle(id){
+  var x=document.getElementById(id);
+  x.style.display = (x.style.display==="block")?"none":"block";
+}
+
+function switchLang(l){
+  document.querySelectorAll(".fr").forEach(e=>e.style.display=(l==="fr")?"inline":"none");
+  document.querySelectorAll(".ml").forEach(e=>e.style.display=(l==="ml")?"inline":"none");
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<h1>📘 Informatique 3ème - Programme annuel</h1>
+<button onclick="switchLang('fr')">FR</button>
+<button onclick="switchLang('ml')">ML</button>
+</header>
+
+<div class="container">
+
+<!-- RAPPEL 4EME -->
+<div class="section">
+<h2 onclick="toggle('r1')">
+🧠 <span class="fr">Rappel 4ème</span><span class="ml" style="display:none">Famerenana 4ème</span>
+</h2>
+<div id="r1" class="content">
+<ul>
+<li>⚙️ CPU, RAM, stockage</li>
+<li>📝 0 avancé</li>
+<li>📊 1 bases</li>
+<li>📽️ 2 initiation</li>
+</ul>
+</div>
+</div>
+
+<!-- ALGORITHMIQUE -->
+<div class="section">
+<h2 onclick="toggle('r2')">
+💻 <span class="fr">Algorithmique & Programmation</span>
+<span class="ml" style="display:none">Algorithmika sy programmation</span>
+</h2>
+<div id="r2" class="content">
+<ul>
+<li>Variables et types</li>
+<li>Conditions (SI...SINON)</li>
+<li>Boucles (POUR, TANT QUE)</li>
+<li>Logique algorithmique</li>
+</ul>
+</div>
+</div>
+
+<!-- WORD AVANCE -->
+<div class="section">
+<h2 onclick="toggle('r3')">
+📝 <span class="fr">Word avancé</span>
+<span class="ml" style="display:none">Word mandroso</span>
+</h2>
+<div id="r3" class="content">
+<p>3</p>
+<ul>
+<li>Publipostage</li>
+<li>Styles professionnels</li>
+<li>Documents officiels</li>
+<li>Table des matières automatique</li>
+</ul>
+</div>
+</div>
+
+<!-- EXCEL AVANCE -->
+<div class="section">
+<h2 onclick="toggle('r4')">
+📊 <span class="fr">Excel avancé</span>
+<span class="ml" style="display:none">Excel mandroso</span>
+</h2>
+<div id="r4" class="content">
+<p>4</p>
+<ul>
+<li>Formules avancées</li>
+<li>IF (SI logique)</li>
+<li>Graphiques dynamiques</li>
+<li>Gestion de données</li>
+</ul>
+</div>
+</div>
+
+<!-- POWERPOINT -->
+<div class="section">
+<h2 onclick="toggle('r5')">
+📽️ <span class="fr">PowerPoint avancé</span>
+<span class="ml" style="display:none">PowerPoint mandroso</span>
+</h2>
+<div id="r5" class="content">
+<p>5</p>
+<ul>
+<li>Animations avancées</li>
+<li>Transitions professionnelles</li>
+<li>Présentations projet</li>
+</ul>
+</div>
+</div>
+
+<!-- INTERNET -->
+<div class="section">
+<h2 onclick="toggle('r6')">
+🌐 <span class="fr">Internet & Sécurité</span>
+<span class="ml" style="display:none">Internet sy fiarovana</span>
+</h2>
+<div id="r6" class="content">
+<ul>
+<li>Navigation web</li>
+<li>Emails</li>
+<li>Cybersécurité de base</li>
+<li>Dangers internet</li>
+</ul>
+</div>
+</div>
+
+<!-- FICHES PAR SEMAINE -->
+<div class="section">
+<h2 onclick="toggle('r7')">
+📅 <span class="fr">Fiches de préparation par semaine</span>
+<span class="ml" style="display:none">Fiche isaky ny herinandro</span>
+</h2>
+
+<div id="r7" class="content">
+
+<table>
+<tr>
+<th>Semaine</th>
+<th>Leçon</th>
+<th>Objectif</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Rappel 4ème</td>
+<td>Réviser les bases</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Algorithmique</td>
+<td>Comprendre la logique</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Variables & conditions</td>
+<td>Créer des algorithmes simples</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Boucles</td>
+<td>Maîtriser les répétitions</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>6 avancé</td>
+<td>Créer documents professionnels</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Word projet</td>
+<td>Rapport complet</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>7 avancé</td>
+<td>Formules et calculs</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Excel IF</td>
+<td>Logique conditionnelle</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Graphiques Excel</td>
+<td>Visualisation données</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>8</td>
+<td>Présentation projet</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>PowerPoint avancé</td>
+<td>Animations professionnelles</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Projet final</td>
+<td>Présentation complète</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+</div>
+<footer class="footer-pro">
+
+  <h2>💻 Mr Tahiry - Informatique 👨‍🏫</h2>
+
+  <p>📅 <span id="dateFooter"></span></p>
+
+  <div class="socials">
+    <a href="#">📘 Facebook</a>
+    <a href="#">💬 WhatsApp</a>
+    <a href="#">📧 Email</a>
+  </div>
+
+  <p class="devise">🚀 Apprendre • Pratiquer • Réussir 🌟</p>
+
+</footer>
+
+</body>
+</html>

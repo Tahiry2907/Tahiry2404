@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Admin PRO++ | InfoPro</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f1f5f9;color:#172033}
+button,input{font:inherit}
+.sidebar{position:fixed;top:0;left:0;width:250px;height:100vh;overflow-y:auto;background:linear-gradient(180deg,#0f172a,#1e293b);color:white;padding:18px 14px;z-index:1000;transition:transform .3s}
+.logo{text-align:center;padding:12px 5px 20px;border-bottom:1px solid #ffffff30;margin-bottom:15px}
+.logo h2{font-size:24px}
+.logo p{font-size:12px;color:#cbd5e1;margin-top:6px}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:13px 12px;margin:6px 0;color:white;text-decoration:none;border-radius:9px;font-size:14px;transition:.2s}
+.sidebar a:hover,.sidebar a.active{background:#2563eb}
+.main{margin-left:250px;width:calc(100% - 250px);padding:20px;min-height:100vh}
+.top-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:16px 18px;background:white;border-radius:14px;box-shadow:0 5px 20px #0000000d;position:sticky;top:5px;z-index:100}
+.title-area{display:flex;align-items:center;gap:12px;flex:1}
+.title-area h1{font-size:23px;color:#0f172a}
+.title-area p{font-size:12px;color:#64748b;margin-top:5px}
+.header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lang{display:flex;gap:5px}
+.lang button,.menu-btn{border:0;background:#2563eb;color:white;padding:9px 11px;border-radius:7px;cursor:pointer;font-weight:bold}
+.lang button.active{background:#0f172a}
+.menu-btn{display:none;background:#0f172a}
+.user-box{font-size:12px;background:#eff6ff;color:#1e40af;padding:9px;border-radius:8px}
+.logout{border:0;background:#dc2626;color:white;padding:10px 12px;border-radius:8px;cursor:pointer}
+.search-area{margin-top:20px;padding:15px;background:white;border-radius:12px;box-shadow:0 4px 15px #0000000b}
+.search-area input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;outline:none}
+.search-area input:focus{border-color:#2563eb}
+.search-message{font-size:12px;color:#64748b;margin-top:8px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:20px}
+.card,.panel{background:white;border-radius:14px;padding:19px;box-shadow:0 5px 18px #0000000b;min-width:0}
+.card{transition:.2s}
+.card:hover{transform:translateY(-3px)}
+.card-icon{font-size:28px;margin-bottom:10px}
+.card h3{font-size:14px;color:#64748b;margin-bottom:8px}
+.card-number{font-size:30px;font-weight:bold;color:#0f172a}
+.card small{display:block;color:#64748b;margin-top:6px}
+.section-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:20px}
+.panel h2{font-size:18px;color:#0f172a;margin-bottom:15px}
+.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.action{display:block;text-decoration:none;padding:15px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;transition:.2s}
+.action:hover{background:#eff6ff;border-color:#93c5fd}
+.action strong{display:block;color:#1d4ed8;margin-bottom:7px}
+.action span{font-size:12px;color:#64748b}
+.activity{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #e2e8f0}
+.activity:last-child{border-bottom:0}
+.activity-icon{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#eff6ff;border-radius:10px;font-size:20px}
+.activity-text strong{display:block;font-size:13px}
+.activity-text small{color:#64748b;font-size:11px}
+.table-wrap{overflow-x:auto}
+.class-table{width:100%;border-collapse:collapse}
+.class-table th,.class-table td{padding:11px;text-align:left;border-bottom:1px solid #e2e8f0;font-size:13px}
+.class-table th{background:#f8fafc;color:#475569}
+.badge{display:inline-block;background:#dcfce7;color:#166534;padding:4px 9px;border-radius:20px;font-size:11px}
+.notice{background:#eff6ff;color:#1e40af;padding:12px;border-radius:9px;font-size:13px;margin-top:12px;line-height:1.6}
+footer{text-align:center;padding:22px;margin-top:25px;color:#64748b;font-size:13px}
+section[id]{scroll-margin-top:100px}
+@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.section-grid{grid-template-columns:1fr}}
+@media(max-width:750px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0;width:100%;padding:12px}.menu-btn{display:block}.user-box{display:none}.title-area h1{font-size:19px}.cards{gap:10px}.card,.panel{padding:14px}}
+@media(max-width:480px){.top-header{align-items:flex-start;padding:12px}.header-right{width:100%;justify-content:space-between}.cards{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.class-table th,.class-table td{padding:8px;font-size:12px}}
+@media print{.sidebar,.top-header,.search-area,footer{display:none!important}.main{margin:0;width:100%;padding:0}.card,.panel{box-shadow:none;border:1px solid #ddd}}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="logo">
+    <h2>💻 IT ADMIN</h2>
+    <p>InfoPro • Mr Tahiry</p>
+  </div>
+
+  <a href="admin.html" class="active"><span>🏠</span><span data-fr="Tableau de bord" data-ml="Takelaka fandraisana">Tableau de bord</span></a>
+
+  <a href="infoProEleves.html" onclick="ouvrirModule('eleves');return false"><span>👨‍🎓</span><span data-fr="Gestion des élèves" data-ml="Fitantanana mpianatra">Gestion des élèves</span></a>
+
+  <a href="cahier-notes.html" onclick="ouvrirModule('notes');return false"><span>📊</span><span data-fr="Cahier de notes" data-ml="Boky naoty">Cahier de notes</span></a>
+
+  <a href="cahier-notes.html"ignnclick="ouvrirModule('plan');return false"><span>🪑</span><span data-fr="Plan de classe" data-ml="Drafitra fipetrahana">Plan de classe</span></a>
+
+  <a href="programme.html"
+fonclick="ouvrirModule('programme');return false"><span>📅</span><span data-fr="Programme" data-ml="Fandaharam-pianarana">Programme</span></a>
+
+  <a href="installation-système.html"><span>💿</span><span data-fr="Installation système" data-ml="Fametrahana système">Installation système</span></a>
+
+    <a href="Guide-Installation-Systeme.html"><span>💿</span><span data-fr="Guide-Installation-Systeme.html" data-ml="Fametrahana système">Guide Installation Systeme.html</span></a>
+
+  <a href="#parc"><span>💻</span><span data-fr="Parc informatique" data-ml="Fitaovana informatika">Parc informatique</span></a>
+
+  <a href="#securite"><span>🛡️</span><span data-fr="Sécurité" data-ml="Fiarovana">Sécurité</span></a>
+
+  <a href="index.html"><span>🌐</span><span data-fr="Voir le site" data-ml="Hijery ny tranonkala">Voir le site</span></a>
+
+  <a href="login.html"><span>🔐</span><span data-fr="Connexion" data-ml="Fidirana">Connexion</span></a>
+</aside>
+
+<main class="main">
+
+<header class="top-header">
+  <div class="title-area">
+    <button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <div>
+      <h1 data-fr="Tableau de bord" data-ml="Takelaka fandraisana">Tableau de bord</h1>
+      <p data-fr="Gestion générale de votre plateforme informatique" data-ml="Fitantanana ankapobeny ny sehatra informatika">Gestion générale de votre plateforme informatique</p>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <div class="lang">
+      <button id="frBtn" class="active" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button id="mlBtn" onclick="setLang('ml')">🇲🇬 ML</button>
+    </div>
+    <div class="user-box">👤 <span id="userName">Administrateur</span> • 🟢 <span data-fr="Connecté" data-ml="Tafiditra">Connecté</span></div>
+    <button class="logout" onclick="deconnexion()" data-fr="🚪 Déconnexion" data-ml="🚪 Hivoaka">🚪 Déconnexion</button>
+  </div>
+</header>
+
+<div class="search-area">
+  <input type="search" id="search" oninput="rechercher()" placeholder="🔎 Rechercher dans l'administration...">
+  <p class="search-message" id="searchMessage"></p>
+</div>
+
+<section class="cards searchable">
+  <div class="card">
+    <div class="card-icon">👨‍🎓</div>
+    <h3 data-fr="Élèves" data-ml="Mpianatra">Élèves</h3>
+    <div class="card-number" id="studentNumber">0</div>
+    <small data-fr="Élèves enregistrés" data-ml="Mpianatra voatahiry">Élèves enregistrés</small>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🏫</div>
+    <h3 data-fr="Classes" data-ml="Kilasy">Classes</h3>
+    <div class="card-number">7</div>
+    <small data-fr="Niveaux disponibles" data-ml="Ambaratonga misy">Niveaux disponibles</small>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">📊</div>
+    <h3 data-fr="Cahier de notes" data-ml="Boky naoty">Cahier de notes</h3>
+    <div class="card-number">📝</div>
+    <small data-fr="Gestion et impression des notes" data-ml="Fitantanana sy fanontana naoty">Gestion et impression des notes</small>
+  </div>
+
+  <div class="card">
+    <div class="card-icon">🪑</div>
+    <h3 data-fr="Plan de classe" data-ml="Drafitra fipetrahana">Plan de classe</h3>
+    <div class="card-number">🏫</div>
+    <small data-fr="Organisation des élèves" data-ml="Fandaminana mpianatra">Organisation des élèves</small>
+  </div>
+</section>
+
+<section class="section-grid">
+  <div class="panel searchable">
+    <h2 data-fr="⚡ Accès rapide" data-ml="⚡ Fidirana haingana">⚡ Accès rapide</h2>
+
+    <div class="actions">
+      <a href="infoProEleves.html" onclick="ouvrirModule('eleves');return false" class="action">
+        <strong>👨‍🎓 <span data-fr="Gestion des élèves" data-ml="Fitantanana mpianatra">Gestion des élèves</span></strong>
+        <span data-fr="Ajouter, modifier et rechercher les élèves." data-ml="Hanampy, hanova ary hitady mpianatra.">Ajouter, modifier et rechercher les élèves.</span>
+      </a>
+
+      <a href=cahier-notes.html#" onclick="ouvrirModule('notes');return false" class="action">
+        <strong>📊 <span data-fr="Cahier de notes" data-ml="Boky naoty">Cahier de notes</span></strong>
+        <span data-fr="Saisir les notes, calculer les moyennes et imprimer." data-ml="Hampiditra naoty, hanao moyenne ary hanonta.">Saisir les notes, calculer les moyennes et imprimer.</span>
+      </a>
+
+      <a href="plan-classe.html" onclick="ouvrirModule('plan');return false" class="action">
+        <strong>🪑 <span data-fr="Plan de classe" data-ml="Drafitra fipetrahana">Plan de classe</span></strong>
+        <span data-fr="Organiser les élèves par table." data-ml="Handamina ny toerana hipetrahan'ny mpianatra.">Organiser les élèves par table.</span>
+      </a>
+
+      <a href="programme.html" onclick="ouvrirModule('programme');return false" class="action">
+        <strong>📅 <span data-fr="Programme" data-ml="Fandaharam-pianarana">Programme</span></strong>
+        <span data-fr="Consulter le programme pédagogique." data-ml="Hijery ny fandaharam-pianarana.">Consulter le programme pédagogique.</span>
+      </a>
+
+      <a href="installation-systeme.html" class="action">
+        <strong>💿 <span data-fr="Installation d'un système d'exploitation" data-ml="Fametrahana système d'exploitation">Installation d'un système d'exploitation</span></strong>
+        <span data-fr="Découvrir les étapes d'installation de Windows et d'autres systèmes." data-ml="Hianatra ny dingana fametrahana Windows sy système hafa.">Découvrir les étapes d'installation de Windows et d'autres systèmes.</span>
+      </a>
+
+      <a href="#parc" class="action">
+        <strong>💻 <span data-fr="Parc informatique" data-ml="Fitaovana informatika">Parc informatique</span></strong>
+        <span data-fr="Suivre les ordinateurs et équipements." data-ml="Manara-maso ny solosaina sy fitaovana.">Suivre les ordinateurs et équipements.</span>
+      </a>
+
+      <a href="#securite" class="action">
+        <strong>🛡️ <span data-fr="Sécurité" data-ml="Fiarovana">Sécurité</span></strong>
+        <span data-fr="Informations concernant la sécurité du site." data-ml="Fanazavana momba ny fiarovana ny tranonkala.">Informations concernant la sécurité du site.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="panel searchable">
+    <h2 data-fr="🔔 Activité récente" data-ml="🔔 Hetsika farany">🔔 Activité récente</h2>
+
+    <div class="activity">
+      <div class="activity-icon">👨‍🎓</div>
+      <div class="activity-text">
+        <strong data-fr="Gestion des élèves" data-ml="Fitantanana mpianatra">Gestion des élèves</strong>
+        <small data-fr="Module à configurer" data-ml="Mila amboarina ny rohy">Module à configurer</small>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-icon">📊</div>
+      <div class="activity-text">
+        <strong data-fr="Cahier de notes" data-ml="Boky naoty">Cahier de notes</strong>
+        <small data-fr="Module à configurer" data-ml="Mila amboarina ny rohy">Module à configurer</small>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-icon">🪑</div>
+      <div class="activity-text">
+        <strong data-fr="Plan de classe" data-ml="Drafitra fipetrahana">Plan de classe</strong>
+        <small data-fr="Module à configurer" data-ml="Mila amboarina ny rohy">Module à configurer</small>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-icon">💿</div>
+      <div class="activity-text">
+        <strong data-fr="Cours systèmes d'exploitation" data-ml="Lesona système d'exploitation">Cours systèmes d'exploitation</strong>
+        <small data-fr="Ouvrir le cours depuis le menu" data-ml="Sokafy amin'ny alalan'ny menu ny lesona">Ouvrir le cours depuis le menu</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel searchable" style="margin-top:20px">
+  <h2 data-fr="📊 Répartition des classes" data-ml="📊 Fizarana ny kilasy">📊 Répartition des classes</h2>
+  <div class="table-wrap">
+    <table class="class-table">
+      <thead>
+        <tr>
+          <th data-fr="Classe" data-ml="Kilasy">Classe</th>
+          <th data-fr="Élèves" data-ml="Mpianatra">Élèves</th>
+          <th data-fr="Statut" data-ml="Sata">Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>6ème</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+        <tr><td>5ème</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+        <tr><td>4ème</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+        <tr><td>3ème</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+        <tr><td>2nde</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+        <tr><td>1ère</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+        <tr><td>Terminale</td><td>—</td><td><span class="badge" data-fr="Actif" data-ml="Miasa">Actif</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="notice" data-fr="Les effectifs par classe ne sont pas encore calculés. Les tirets ne représentent pas un nombre réel." data-ml="Mbola tsy voaisa ny isan'ny mpianatra isaky ny kilasy. Tsy isa tena izy ireo tsipika.">Les effectifs par classe ne sont pas encore calculés. Les tirets ne représentent pas un nombre réel.</p>
+</section>
+
+<section class="panel searchable" id="parc" style="margin-top:20px">
+  <h2 data-fr="💻 Parc informatique" data-ml="💻 Fitaovana informatika">💻 Parc informatique</h2>
+  <p data-fr="Espace prévu pour gérer les ordinateurs, imprimantes, projecteurs et autres équipements." data-ml="Toerana natao hitantanana ny solosaina, imprimante, projecteur ary fitaovana hafa.">Espace prévu pour gérer les ordinateurs, imprimantes, projecteurs et autres équipements.</p>
+</section>
+
+<section class="panel searchable" id="securite" style="margin-top:20px">
+  <h2 data-fr="🛡️ Sécurité" data-ml="🛡️ Fiarovana">🛡️ Sécurité</h2>
+  <p data-fr="Espace d'information sur la sécurité de la plateforme." data-ml="Toerana misy fanazavana momba ny fiarovana ny sehatra.">Espace d'information sur la sécurité de la plateforme.</p>
+  <p class="notice" data-fr="Important : une page HTML seule ne protège pas les autres fichiers. Une vraie protection nécessite une vérification côté serveur." data-ml="Zava-dehibe: tsy miaro ho azy ireo fichiers hafa ny pejy HTML iray. Mila fanamarinana côté serveur ny fiarovana tena izy.">Important : une page HTML seule ne protège pas les autres fichiers. Une vraie protection nécessite une vérification côté serveur.</p>
+</section>
+
+<footer>
+  <strong>Mr Tahiry - Informatique 👨‍🏫</strong>
+  <br><br>© <span id="year"></span> InfoPro
+</footer>
+
+</main>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const utilisateur = sessionStorage.getItem("infoProUtilisateur");
+if(utilisateur){
+  document.getElementById("userName").textContent = utilisateur;
+}
+
+/* LANGUE FRANÇAIS / MALAGASY */
+let langueActuelle = "fr";
+
+function setLang(lang){
+  langueActuelle = lang === "ml" ? "ml" : "fr";
+  document.documentElement.lang = langueActuelle === "ml" ? "mg" : "fr";
+
+  document.querySelectorAll("[data-fr][data-ml]").forEach(element=>{
+    element.textContent = element.getAttribute("data-" + langueActuelle);
+  });
+
+  document.getElementById("frBtn").classList.toggle("active",langueActuelle==="fr");
+  document.getElementById("mlBtn").classList.toggle("active",langueActuelle==="ml");
+
+  document.getElementById("search").placeholder =
+    langueActuelle==="fr"
+      ? "🔎 Rechercher dans l'administration..."
+      : "🔎 Mitady ao amin'ny administration...";
+
+  rechercher();
+}
+
+/* MENU MOBILE */
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("open");
+}
+
+/* DÉCONNEXION */
+function deconnexion(){
+  const question = langueActuelle==="fr"
+    ? "Voulez-vous vous déconnecter ?"
+    : "Te hivoaka ve ianao ?";
+
+  if(!confirm(question)) return;
+
+  sessionStorage.removeItem("infoProConnecte");
+  sessionStorage.removeItem("infoProUtilisateur");
+  window.location.href = "login.html";
+}
+
+/* RECHERCHE */
+function rechercher(){
+  const valeur = document.getElementById("search").value.trim().toLocaleLowerCase();
+  const elements = document.querySelectorAll(".searchable");
+  let nombre = 0;
+
+  elements.forEach(element=>{
+    const correspond = !valeur || element.textContent.toLocaleLowerCase().includes(valeur);
+    element.style.display = correspond ? "" : "none";
+    if(correspond) nombre++;
+  });
+
+  document.getElementById("searchMessage").textContent =
+    valeur && nombre===0
+      ? (langueActuelle==="fr" ? "Aucun résultat trouvé." : "Tsy misy valiny hita.")
+      : "";
+}
+
+/* OUVERTURE DES MODULES
+   Essaie plusieurs noms de fichiers courants.
+   Si aucun fichier n'existe, affiche une explication. */
+function ouvrirModule(type){
+  const fichiers = {
+    eleves: [
+      "infoProEleve.html",
+      "eleves.html",
+      "eleve.html"
+    ],
+    notes: [
+      "cahier-notes.html",
+      "cahier-note.html",
+      "cahier-de-notes.html"
+    ],
+    plan: [
+      "plan-classe.html",
+      "plan-de-classe.html"
+    ],
+    programme: [
+      "programme.html",
+      "repartition-annuelle.html"
+    ]
+  };
+
+  const liste = fichiers[type];
+  if(!liste) return;
+
+  const message = langueActuelle==="fr"
+    ? "Le nom exact du fichier n'est pas encore confirmé.\n\nVérifiez dans Acode le nom du fichier correspondant :\n"
+    : "Mbola tsy voamarina ny anaran'ilay fichier.\n\nJereo ao amin'ny Acode ny anarana marina amin'ireto :\n";
+
+  alert(message + liste.join("\n"));
+}
+
+/* COMPTER LES ÉLÈVES
+   Le nombre ne sera exact que si une clé correspond
+   réellement au stockage utilisé par la page élèves. */
+function compterEleves(){
+  const cles = [
+    "infoProEleves",
+    "infoPro_eleves",
+    "infoPro_eleves",
+    "eleves",
+    "listeEleves",
+    "students"
+  ];
+
+  for(const cle of cles){
+    const donnees = localStorage.getItem(cle);
+    if(!donnees) continue;
+
+    try{
+      const liste = JSON.parse(donnees);
+      if(Array.isArray(liste)){
+        document.getElementById("studentNumber").textContent = liste.length;
+        return;
+      }
+
+      if(liste && typeof liste==="object"){
+        const tableau = Object.values(liste).find(Array.isArray);
+        if(tableau){
+          document.getElementById("studentNumber").textContent = tableau.length;
+          return;
+        }
+      }
+    }catch(erreur){}
+  }
+
+  document.getElementById("studentNumber").textContent = "0";
+}
+
+document.querySelectorAll(".sidebar a").forEach(lien=>{
+  lien.addEventListener("click",()=>{
+    if(window.innerWidth<=750){
+      document.getElementById("sidebar").classList.remove("open");
+    }
+  });
+});
+
+compterEleves();
+setLang("fr");
+</script>
+
+</body>
+</html>
